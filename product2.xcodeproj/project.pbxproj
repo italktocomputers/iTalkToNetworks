@@ -11,6 +11,10 @@
 		87BA48E722A5E9B200E8DDB9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA48E622A5E9B200E8DDB9 /* ViewController.swift */; };
 		87BA48E922A5E9B300E8DDB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87BA48E822A5E9B300E8DDB9 /* Assets.xcassets */; };
 		87BA48EC22A5E9B300E8DDB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87BA48EA22A5E9B300E8DDB9 /* Main.storyboard */; };
+		87BA48F522A5EE8E00E8DDB9 /* DomainScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA48F422A5EE8E00E8DDB9 /* DomainScrollView.swift */; };
+		87BA48F722A5F0F400E8DDB9 /* domain-cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87BA48F622A5F0F400E8DDB9 /* domain-cell.xib */; };
+		87BA48F922A60D3400E8DDB9 /* DNSView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA48F822A60D3400E8DDB9 /* DNSView.swift */; };
+		87BA48FB22A60DCF00E8DDB9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA48FA22A60DCF00E8DDB9 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +25,10 @@
 		87BA48EB22A5E9B300E8DDB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		87BA48ED22A5E9B300E8DDB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87BA48EE22A5E9B300E8DDB9 /* product2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = product2.entitlements; sourceTree = "<group>"; };
+		87BA48F422A5EE8E00E8DDB9 /* DomainScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainScrollView.swift; sourceTree = "<group>"; };
+		87BA48F622A5F0F400E8DDB9 /* domain-cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "domain-cell.xib"; sourceTree = "<group>"; };
+		87BA48F822A60D3400E8DDB9 /* DNSView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DNSView.swift; sourceTree = "<group>"; };
+		87BA48FA22A60DCF00E8DDB9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +45,7 @@
 		87BA48D822A5E9B200E8DDB9 = {
 			isa = PBXGroup;
 			children = (
+				87BA48F622A5F0F400E8DDB9 /* domain-cell.xib */,
 				87BA48E322A5E9B200E8DDB9 /* product2 */,
 				87BA48E222A5E9B200E8DDB9 /* Products */,
 			);
@@ -59,6 +68,9 @@
 				87BA48EA22A5E9B300E8DDB9 /* Main.storyboard */,
 				87BA48ED22A5E9B300E8DDB9 /* Info.plist */,
 				87BA48EE22A5E9B300E8DDB9 /* product2.entitlements */,
+				87BA48F422A5EE8E00E8DDB9 /* DomainScrollView.swift */,
+				87BA48F822A60D3400E8DDB9 /* DNSView.swift */,
+				87BA48FA22A60DCF00E8DDB9 /* MainViewController.swift */,
 			);
 			path = product2;
 			sourceTree = "<group>";
@@ -123,6 +135,7 @@
 			files = (
 				87BA48E922A5E9B300E8DDB9 /* Assets.xcassets in Resources */,
 				87BA48EC22A5E9B300E8DDB9 /* Main.storyboard in Resources */,
+				87BA48F722A5F0F400E8DDB9 /* domain-cell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,8 +146,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87BA48F922A60D3400E8DDB9 /* DNSView.swift in Sources */,
 				87BA48E722A5E9B200E8DDB9 /* ViewController.swift in Sources */,
+				87BA48F522A5EE8E00E8DDB9 /* DomainScrollView.swift in Sources */,
 				87BA48E522A5E9B200E8DDB9 /* AppDelegate.swift in Sources */,
+				87BA48FB22A60DCF00E8DDB9 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
