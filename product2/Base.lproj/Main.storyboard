@@ -186,6 +186,9 @@
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                         <font key="font" size="13" name="Geneva"/>
                                                     </buttonCell>
+                                                    <connections>
+                                                        <action selector="lookUp:" target="XfG-lQ-9wD" id="Cab-RC-aRA"/>
+                                                    </connections>
                                                 </button>
                                                 <box fixedFrame="YES" title="Info" translatesAutoresizingMaskIntoConstraints="NO" id="6G2-sW-beg">
                                                     <rect key="frame" x="14" y="323" width="840" height="171"/>
@@ -325,7 +328,7 @@
                                                     <font key="titleFont" size="15" name="Geneva"/>
                                                 </box>
                                                 <progressIndicator wantsLayer="YES" fixedFrame="YES" maxValue="100" indeterminate="YES" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="WPP-LD-Q8Z">
-                                                    <rect key="frame" x="483" y="496" width="147" height="20"/>
+                                                    <rect key="frame" x="483" y="501" width="147" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 </progressIndicator>
                                                 <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWH-sK-FMK">
@@ -591,8 +594,12 @@
                         <outlet property="DNS_Email" destination="kto-mA-YYb" id="rOG-uk-Vy8"/>
                         <outlet property="DNS_Expires" destination="boe-Y5-Ija" id="LWE-98-a7z"/>
                         <outlet property="DNS_Owner" destination="PXB-94-qIY" id="AoJ-lg-ITP"/>
+                        <outlet property="DNS_ProgressBar" destination="WPP-LD-Q8Z" id="oCw-ai-qQz"/>
                         <outlet property="DNS_Registered" destination="8Zd-95-GrN" id="j53-8D-3XK"/>
                         <outlet property="DNS_Registrar" destination="Z6d-ZF-9tF" id="3dX-7O-QWE"/>
+                        <outlet property="DNS_Timeout" destination="dz9-Zf-nmi" id="Ss5-sO-8LF"/>
+                        <outlet property="DNS_domain" destination="EdH-hq-2tW" id="AYS-nh-hPD"/>
+                        <outlet property="lookUp" destination="vjH-KC-7H4" id="i7d-8Z-ksi"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -639,29 +646,89 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </view>
                                     </tabViewItem>
-                                    <tabViewItem label="Advanced" identifier="" id="s2S-U8-Fs6">
+                                    <tabViewItem label="DNS" identifier="" id="s2S-U8-Fs6">
                                         <view key="view" ambiguous="YES" id="01y-aN-d8g">
                                             <rect key="frame" x="10" y="33" width="674" height="390"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YTb-12-j99">
-                                                    <rect key="frame" x="17" y="342" width="39" height="17"/>
+                                                    <rect key="frame" x="15" y="342" width="65" height="17"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Proxy" id="Mum-b2-zro">
+                                                    <textFieldCell key="cell" lineBreakMode="clipping" title="IPV4 Only" id="Mum-b2-zro">
                                                         <font key="font" size="13" name="Geneva"/>
                                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
-                                                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="86l-CV-VOh">
-                                                    <rect key="frame" x="61" y="340" width="211" height="22"/>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7jf-K5-Qjt">
+                                                    <rect key="frame" x="15" y="317" width="65" height="17"/>
                                                     <autoresizingMask key="autoresizingMask"/>
-                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="bWJ-v7-KNl">
+                                                    <textFieldCell key="cell" lineBreakMode="clipping" title="IPV6 Only" id="YOo-w6-lpm">
                                                         <font key="font" size="13" name="Geneva"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dy9-e8-Ene">
+                                                    <rect key="frame" x="15" y="290" width="131" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <textFieldCell key="cell" lineBreakMode="clipping" title="None standard Port:" id="33U-4u-Yxc">
+                                                        <font key="font" size="13" name="Geneva"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DYf-gD-kqp">
+                                                    <rect key="frame" x="152" y="290" width="70" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="f9U-FK-Mrg">
+                                                        <font key="font" metaFont="system"/>
                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
+                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JjE-kF-7xD">
+                                                    <rect key="frame" x="85" y="318" width="61" height="18"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <buttonCell key="cell" type="check" title="Check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="uC7-Og-w32">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                </button>
+                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MQb-g5-MTT">
+                                                    <rect key="frame" x="84" y="342" width="61" height="18"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <buttonCell key="cell" type="check" title="Check" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="y7h-JF-TXP">
+                                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                </button>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5gj-Lz-eNX">
+                                                    <rect key="frame" x="15" y="260" width="149" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Record types to query:" id="y6M-sY-F1r">
+                                                        <font key="font" size="13" name="Geneva"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tby-ln-UQg">
+                                                    <rect key="frame" x="170" y="260" width="168" height="22"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="A,CNAME,MX,SOAP,NS" drawsBackground="YES" id="zCX-3x-QEf">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mmp-MS-n5W">
+                                                    <rect key="frame" x="588" y="10" width="70" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="JIm-05-7lG">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                </button>
                                             </subviews>
                                         </view>
                                     </tabViewItem>

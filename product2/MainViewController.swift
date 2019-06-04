@@ -17,4 +17,11 @@ class MainViewController : ViewController {
     @IBOutlet weak var DNS_Registrar: NSTextField!
     @IBOutlet weak var DNS_Abuse_Email: NSTextField!
     @IBOutlet weak var DNS_Abuse_Phone: NSTextField!
+    @IBOutlet weak var DNS_Timeout: NSTextField!
+    @IBOutlet weak var DNS_Domain: NSTextField!
+    @IBOutlet weak var DNS_ProgressBar: NSProgressIndicator!
+    
+    @IBAction func lookUp(_ sender: Any) {
+        
+    }
 }
