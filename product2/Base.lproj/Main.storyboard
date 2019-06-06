@@ -327,10 +327,6 @@
                                                     </view>
                                                     <font key="titleFont" size="15" name="Geneva"/>
                                                 </box>
-                                                <progressIndicator wantsLayer="YES" fixedFrame="YES" maxValue="100" indeterminate="YES" style="bar" translatesAutoresizingMaskIntoConstraints="NO" id="WPP-LD-Q8Z">
-                                                    <rect key="frame" x="483" y="501" width="147" height="20"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                </progressIndicator>
                                                 <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWH-sK-FMK">
                                                     <rect key="frame" x="17" y="8" width="834" height="311"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -345,7 +341,7 @@
                                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                                 <tableColumns>
-                                                                    <tableColumn width="263" minWidth="40" maxWidth="1000" id="toK-XK-5I0">
+                                                                    <tableColumn identifier="domain" width="263" minWidth="40" maxWidth="1000" id="toK-XK-5I0">
                                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Domain">
                                                                             <font key="font" metaFont="smallSystem"/>
                                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -378,7 +374,7 @@
                                                                             </tableCellView>
                                                                         </prototypeCellViews>
                                                                     </tableColumn>
-                                                                    <tableColumn width="41" minWidth="40" maxWidth="1000" id="uZK-BG-Mjm">
+                                                                    <tableColumn identifier="ttl" width="41" minWidth="40" maxWidth="1000" id="uZK-BG-Mjm">
                                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="TTL">
                                                                             <font key="font" metaFont="smallSystem"/>
                                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -411,7 +407,7 @@
                                                                             </tableCellView>
                                                                         </prototypeCellViews>
                                                                     </tableColumn>
-                                                                    <tableColumn width="66" minWidth="10" maxWidth="3.4028234663852886e+38" id="A71-5O-StQ">
+                                                                    <tableColumn identifier="in" width="66" minWidth="10" maxWidth="3.4028234663852886e+38" id="A71-5O-StQ">
                                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="IN">
                                                                             <font key="font" metaFont="smallSystem"/>
                                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -444,7 +440,7 @@
                                                                             </tableCellView>
                                                                         </prototypeCellViews>
                                                                     </tableColumn>
-                                                                    <tableColumn width="66" minWidth="10" maxWidth="3.4028234663852886e+38" id="gdM-lk-jau">
+                                                                    <tableColumn identifier="type" width="66" minWidth="10" maxWidth="3.4028234663852886e+38" id="gdM-lk-jau">
                                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Type">
                                                                             <font key="font" metaFont="smallSystem"/>
                                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -477,7 +473,7 @@
                                                                             </tableCellView>
                                                                         </prototypeCellViews>
                                                                     </tableColumn>
-                                                                    <tableColumn width="340" minWidth="10" maxWidth="3.4028234663852886e+38" id="QF2-yr-Ldf">
+                                                                    <tableColumn identifier="ip" width="340" minWidth="10" maxWidth="3.4028234663852886e+38" id="QF2-yr-Ldf">
                                                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="IP">
                                                                             <font key="font" metaFont="smallSystem"/>
                                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -554,6 +550,10 @@
                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                     </textFieldCell>
                                                 </textField>
+                                                <progressIndicator hidden="YES" wantsLayer="YES" fixedFrame="YES" maxValue="100" displayedWhenStopped="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="WPP-LD-Q8Z">
+                                                    <rect key="frame" x="540" y="482" width="32" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                </progressIndicator>
                                             </subviews>
                                         </view>
                                     </tabViewItem>
@@ -591,6 +591,7 @@
                     <connections>
                         <outlet property="DNS_Abuse_Email" destination="qP2-Wo-CEw" id="oK3-kp-fpX"/>
                         <outlet property="DNS_Abuse_Phone" destination="qP2-Wo-CEw" id="Vr4-j5-9Tk"/>
+                        <outlet property="DNS_Domain" destination="EdH-hq-2tW" id="h6b-RE-hAt"/>
                         <outlet property="DNS_Email" destination="kto-mA-YYb" id="rOG-uk-Vy8"/>
                         <outlet property="DNS_Expires" destination="boe-Y5-Ija" id="LWE-98-a7z"/>
                         <outlet property="DNS_Owner" destination="PXB-94-qIY" id="AoJ-lg-ITP"/>
@@ -598,8 +599,8 @@
                         <outlet property="DNS_Registered" destination="8Zd-95-GrN" id="j53-8D-3XK"/>
                         <outlet property="DNS_Registrar" destination="Z6d-ZF-9tF" id="3dX-7O-QWE"/>
                         <outlet property="DNS_Timeout" destination="dz9-Zf-nmi" id="Ss5-sO-8LF"/>
-                        <outlet property="DNS_domain" destination="EdH-hq-2tW" id="AYS-nh-hPD"/>
-                        <outlet property="lookUp" destination="vjH-KC-7H4" id="i7d-8Z-ksi"/>
+                        <outlet property="lookupBtn" destination="vjH-KC-7H4" id="VLU-Qb-r5B"/>
+                        <outlet property="tableView" destination="gvW-Nh-UaM" id="jdC-q7-nrD"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -641,13 +642,13 @@
                                 <font key="font" metaFont="system"/>
                                 <tabViewItems>
                                     <tabViewItem label="General" identifier="" id="rYk-mj-khy">
-                                        <view key="view" id="OQ1-7b-zaz">
+                                        <view key="view" ambiguous="YES" id="OQ1-7b-zaz">
                                             <rect key="frame" x="10" y="33" width="674" height="390"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </view>
                                     </tabViewItem>
                                     <tabViewItem label="DNS" identifier="" id="s2S-U8-Fs6">
-                                        <view key="view" ambiguous="YES" id="01y-aN-d8g">
+                                        <view key="view" id="01y-aN-d8g">
                                             <rect key="frame" x="10" y="33" width="674" height="390"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
