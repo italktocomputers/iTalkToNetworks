@@ -25,7 +25,7 @@
 		875CB7EF22A9D74E0059A7D6 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		875CB7F122A9D9A40059A7D6 /* DnsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnsRow.swift; sourceTree = "<group>"; };
 		875CB7F322A9DBE60059A7D6 /* GoogleDnsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleDnsDataSource.swift; sourceTree = "<group>"; };
-		87BA48E122A5E9B200E8DDB9 /* product2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = product2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		87BA48E122A5E9B200E8DDB9 /* DomainMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DomainMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87BA48E422A5E9B200E8DDB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87BA48E622A5E9B200E8DDB9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		87BA48E822A5E9B300E8DDB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,7 +49,7 @@
 		87BA48D822A5E9B200E8DDB9 = {
 			isa = PBXGroup;
 			children = (
-				87BA48E322A5E9B200E8DDB9 /* product2 */,
+				87BA48E322A5E9B200E8DDB9 /* DomainMaster */,
 				87BA48E222A5E9B200E8DDB9 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -57,12 +57,12 @@
 		87BA48E222A5E9B200E8DDB9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				87BA48E122A5E9B200E8DDB9 /* product2.app */,
+				87BA48E122A5E9B200E8DDB9 /* DomainMaster.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		87BA48E322A5E9B200E8DDB9 /* product2 */ = {
+		87BA48E322A5E9B200E8DDB9 /* DomainMaster */ = {
 			isa = PBXGroup;
 			children = (
 				875CB7F122A9D9A40059A7D6 /* DnsRow.swift */,
@@ -78,15 +78,15 @@
 				875CB7EF22A9D74E0059A7D6 /* Helper.swift */,
 				875CB7F322A9DBE60059A7D6 /* GoogleDnsDataSource.swift */,
 			);
-			path = product2;
+			path = DomainMaster;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		87BA48E022A5E9B200E8DDB9 /* product2 */ = {
+		87BA48E022A5E9B200E8DDB9 /* DomainMaster */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 87BA48F122A5E9B300E8DDB9 /* Build configuration list for PBXNativeTarget "product2" */;
+			buildConfigurationList = 87BA48F122A5E9B300E8DDB9 /* Build configuration list for PBXNativeTarget "DomainMaster" */;
 			buildPhases = (
 				87BA48DD22A5E9B200E8DDB9 /* Sources */,
 				87BA48DE22A5E9B200E8DDB9 /* Frameworks */,
@@ -96,9 +96,9 @@
 			);
 			dependencies = (
 			);
-			name = product2;
+			name = DomainMaster;
 			productName = product2;
-			productReference = 87BA48E122A5E9B200E8DDB9 /* product2.app */;
+			productReference = 87BA48E122A5E9B200E8DDB9 /* DomainMaster.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -121,7 +121,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 87BA48DC22A5E9B200E8DDB9 /* Build configuration list for PBXProject "product2" */;
+			buildConfigurationList = 87BA48DC22A5E9B200E8DDB9 /* Build configuration list for PBXProject "DomainMaster" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -134,7 +134,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				87BA48E022A5E9B200E8DDB9 /* product2 */,
+				87BA48E022A5E9B200E8DDB9 /* DomainMaster */,
 			);
 		};
 /* End PBXProject section */
@@ -335,7 +335,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		87BA48DC22A5E9B200E8DDB9 /* Build configuration list for PBXProject "product2" */ = {
+		87BA48DC22A5E9B200E8DDB9 /* Build configuration list for PBXProject "DomainMaster" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				87BA48EF22A5E9B300E8DDB9 /* Debug */,
@@ -344,7 +344,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		87BA48F122A5E9B300E8DDB9 /* Build configuration list for PBXNativeTarget "product2" */ = {
+		87BA48F122A5E9B300E8DDB9 /* Build configuration list for PBXNativeTarget "DomainMaster" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				87BA48F222A5E9B300E8DDB9 /* Debug */,
