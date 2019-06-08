@@ -126,7 +126,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="product2" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="DomainMaster" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -156,7 +156,7 @@
         <!--Main View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="MainViewController" customModule="product2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="MainViewController" customModule="DomainMaster" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="906" height="637"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -167,7 +167,7 @@
                                 <font key="font" size="13" name="Geneva"/>
                                 <tabViewItems>
                                     <tabViewItem label="DNS/WHOIS" identifier="" id="Uy5-8A-szC">
-                                        <view key="view" ambiguous="YES" id="ETb-Fs-d3d" customClass="DNSView" customModule="product2" customModuleProvider="target">
+                                        <view key="view" ambiguous="YES" id="ETb-Fs-d3d" customClass="DNSView" customModule="DomainMaster" customModuleProvider="target">
                                             <rect key="frame" x="10" y="33" width="860" height="548"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
@@ -678,7 +678,7 @@
                                 <font key="font" metaFont="system"/>
                                 <tabViewItems>
                                     <tabViewItem label="General" identifier="" id="rYk-mj-khy">
-                                        <view key="view" id="OQ1-7b-zaz">
+                                        <view key="view" ambiguous="YES" id="OQ1-7b-zaz">
                                             <rect key="frame" x="10" y="33" width="674" height="390"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
@@ -694,7 +694,7 @@
                                         </view>
                                     </tabViewItem>
                                     <tabViewItem label="DNS" identifier="" id="s2S-U8-Fs6">
-                                        <view key="view" ambiguous="YES" id="01y-aN-d8g">
+                                        <view key="view" id="01y-aN-d8g">
                                             <rect key="frame" x="10" y="33" width="674" height="390"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
@@ -927,6 +927,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Hbe-kZ-c2a"/>
+        <segue reference="T1W-th-z7n"/>
     </inferredMetricsTieBreakers>
 </document>

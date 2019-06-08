@@ -31,7 +31,7 @@
 		87BA48E822A5E9B300E8DDB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		87BA48EB22A5E9B300E8DDB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		87BA48ED22A5E9B300E8DDB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		87BA48EE22A5E9B300E8DDB9 /* product2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = product2.entitlements; sourceTree = "<group>"; };
+		87BA48EE22A5E9B300E8DDB9 /* DomainMaster.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DomainMaster.entitlements; sourceTree = "<group>"; };
 		87BA48FA22A60DCF00E8DDB9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,7 +72,7 @@
 				87BA48E822A5E9B300E8DDB9 /* Assets.xcassets */,
 				87BA48EA22A5E9B300E8DDB9 /* Main.storyboard */,
 				87BA48ED22A5E9B300E8DDB9 /* Info.plist */,
-				87BA48EE22A5E9B300E8DDB9 /* product2.entitlements */,
+				87BA48EE22A5E9B300E8DDB9 /* DomainMaster.entitlements */,
 				87BA48FA22A60DCF00E8DDB9 /* MainViewController.swift */,
 				875CB7EB22A9C92D0059A7D6 /* DnsHelper.swift */,
 				875CB7EF22A9D74E0059A7D6 /* Helper.swift */,
@@ -303,7 +303,7 @@
 				CODE_SIGN_ENTITLEMENTS = product2/product2.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = product2/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/DomainMaster/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -321,7 +321,7 @@
 				CODE_SIGN_ENTITLEMENTS = product2/product2.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = product2/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/DomainMaster/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
