@@ -7,16 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		875CB7EC22A9C92D0059A7D6 /* DnsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875CB7EB22A9C92D0059A7D6 /* DnsHelper.swift */; };
+		875CB7EE22A9D60E0059A7D6 /* DnsSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875CB7ED22A9D60E0059A7D6 /* DnsSourceProtocol.swift */; };
+		875CB7F022A9D74E0059A7D6 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875CB7EF22A9D74E0059A7D6 /* Helper.swift */; };
+		875CB7F222A9D9A40059A7D6 /* DnsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875CB7F122A9D9A40059A7D6 /* DnsRow.swift */; };
+		875CB7F422A9DBE60059A7D6 /* GoogleDnsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875CB7F322A9DBE60059A7D6 /* GoogleDnsDataSource.swift */; };
 		87BA48E522A5E9B200E8DDB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA48E422A5E9B200E8DDB9 /* AppDelegate.swift */; };
 		87BA48E722A5E9B200E8DDB9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA48E622A5E9B200E8DDB9 /* ViewController.swift */; };
 		87BA48E922A5E9B300E8DDB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87BA48E822A5E9B300E8DDB9 /* Assets.xcassets */; };
 		87BA48EC22A5E9B300E8DDB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87BA48EA22A5E9B300E8DDB9 /* Main.storyboard */; };
-		87BA48F522A5EE8E00E8DDB9 /* DomainScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA48F422A5EE8E00E8DDB9 /* DomainScrollView.swift */; };
-		87BA48F722A5F0F400E8DDB9 /* domain-cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 87BA48F622A5F0F400E8DDB9 /* domain-cell.xib */; };
 		87BA48FB22A60DCF00E8DDB9 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA48FA22A60DCF00E8DDB9 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		875CB7EB22A9C92D0059A7D6 /* DnsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnsHelper.swift; sourceTree = "<group>"; };
+		875CB7ED22A9D60E0059A7D6 /* DnsSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnsSourceProtocol.swift; sourceTree = "<group>"; };
+		875CB7EF22A9D74E0059A7D6 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		875CB7F122A9D9A40059A7D6 /* DnsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnsRow.swift; sourceTree = "<group>"; };
+		875CB7F322A9DBE60059A7D6 /* GoogleDnsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleDnsDataSource.swift; sourceTree = "<group>"; };
 		87BA48E122A5E9B200E8DDB9 /* product2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = product2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87BA48E422A5E9B200E8DDB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87BA48E622A5E9B200E8DDB9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,8 +32,6 @@
 		87BA48EB22A5E9B300E8DDB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		87BA48ED22A5E9B300E8DDB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		87BA48EE22A5E9B300E8DDB9 /* product2.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = product2.entitlements; sourceTree = "<group>"; };
-		87BA48F422A5EE8E00E8DDB9 /* DomainScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DomainScrollView.swift; sourceTree = "<group>"; };
-		87BA48F622A5F0F400E8DDB9 /* domain-cell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = "domain-cell.xib"; sourceTree = "<group>"; };
 		87BA48FA22A60DCF00E8DDB9 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -43,7 +49,6 @@
 		87BA48D822A5E9B200E8DDB9 = {
 			isa = PBXGroup;
 			children = (
-				87BA48F622A5F0F400E8DDB9 /* domain-cell.xib */,
 				87BA48E322A5E9B200E8DDB9 /* product2 */,
 				87BA48E222A5E9B200E8DDB9 /* Products */,
 			);
@@ -60,14 +65,18 @@
 		87BA48E322A5E9B200E8DDB9 /* product2 */ = {
 			isa = PBXGroup;
 			children = (
+				875CB7F122A9D9A40059A7D6 /* DnsRow.swift */,
+				875CB7ED22A9D60E0059A7D6 /* DnsSourceProtocol.swift */,
 				87BA48E422A5E9B200E8DDB9 /* AppDelegate.swift */,
 				87BA48E622A5E9B200E8DDB9 /* ViewController.swift */,
 				87BA48E822A5E9B300E8DDB9 /* Assets.xcassets */,
 				87BA48EA22A5E9B300E8DDB9 /* Main.storyboard */,
 				87BA48ED22A5E9B300E8DDB9 /* Info.plist */,
 				87BA48EE22A5E9B300E8DDB9 /* product2.entitlements */,
-				87BA48F422A5EE8E00E8DDB9 /* DomainScrollView.swift */,
 				87BA48FA22A60DCF00E8DDB9 /* MainViewController.swift */,
+				875CB7EB22A9C92D0059A7D6 /* DnsHelper.swift */,
+				875CB7EF22A9D74E0059A7D6 /* Helper.swift */,
+				875CB7F322A9DBE60059A7D6 /* GoogleDnsDataSource.swift */,
 			);
 			path = product2;
 			sourceTree = "<group>";
@@ -137,7 +146,6 @@
 			files = (
 				87BA48E922A5E9B300E8DDB9 /* Assets.xcassets in Resources */,
 				87BA48EC22A5E9B300E8DDB9 /* Main.storyboard in Resources */,
-				87BA48F722A5F0F400E8DDB9 /* domain-cell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,10 +156,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				875CB7EE22A9D60E0059A7D6 /* DnsSourceProtocol.swift in Sources */,
+				875CB7F422A9DBE60059A7D6 /* GoogleDnsDataSource.swift in Sources */,
 				87BA48E722A5E9B200E8DDB9 /* ViewController.swift in Sources */,
-				87BA48F522A5EE8E00E8DDB9 /* DomainScrollView.swift in Sources */,
+				875CB7EC22A9C92D0059A7D6 /* DnsHelper.swift in Sources */,
 				87BA48E522A5E9B200E8DDB9 /* AppDelegate.swift in Sources */,
 				87BA48FB22A60DCF00E8DDB9 /* MainViewController.swift in Sources */,
+				875CB7F022A9D74E0059A7D6 /* Helper.swift in Sources */,
+				875CB7F222A9D9A40059A7D6 /* DnsRow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,7 +308,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.schools.product2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.schools.domainmaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -314,7 +326,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.schools.product2;
+				PRODUCT_BUNDLE_IDENTIFIER = com.schools.domainmaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
