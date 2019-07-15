@@ -171,17 +171,6 @@
                                             <rect key="frame" x="10" y="33" width="860" height="548"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vjH-KC-7H4">
-                                                    <rect key="frame" x="484" y="514" width="147" height="23"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <buttonCell key="cell" type="roundTextured" title="Look up" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8hz-BH-rOY">
-                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                        <font key="font" size="13" name="Geneva"/>
-                                                    </buttonCell>
-                                                    <connections>
-                                                        <action selector="lookUp:" target="XfG-lQ-9wD" id="Cab-RC-aRA"/>
-                                                    </connections>
-                                                </button>
                                                 <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HWH-sK-FMK">
                                                     <rect key="frame" x="17" y="8" width="834" height="494"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -345,24 +334,6 @@
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </tableHeaderView>
                                                 </scrollView>
-                                                <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dz9-Zf-nmi">
-                                                    <rect key="frame" x="638" y="515" width="40" height="22"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="30" drawsBackground="YES" id="lmK-tx-Ld5">
-                                                        <font key="font" size="13" name="Geneva"/>
-                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                </textField>
-                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="z2p-gR-kOZ">
-                                                    <rect key="frame" x="684" y="517" width="93" height="17"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Timeout (sec)" id="7nb-af-66E">
-                                                        <font key="font" size="13" name="Geneva"/>
-                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                    </textFieldCell>
-                                                </textField>
                                                 <progressIndicator hidden="YES" wantsLayer="YES" fixedFrame="YES" maxValue="100" displayedWhenStopped="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="WPP-LD-Q8Z">
                                                     <rect key="frame" x="811" y="510" width="32" height="32"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -388,6 +359,17 @@
                                                         <action selector="comboOnChange:" target="XfG-lQ-9wD" id="0yq-1b-vRd"/>
                                                     </connections>
                                                 </comboBox>
+                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NuE-hD-Faq">
+                                                    <rect key="frame" x="481" y="508" width="160" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <buttonCell key="cell" type="push" title="Advanced Options" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="Wxo-PV-605">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <segue destination="ZPc-t2-3Hl" kind="sheet" id="agJ-cx-ove"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </view>
                                     </tabViewItem>
@@ -804,8 +786,6 @@
                     <connections>
                         <outlet property="DNS_Domain" destination="nke-pa-eRQ" id="HmM-fw-GtR"/>
                         <outlet property="DNS_ProgressBar" destination="WPP-LD-Q8Z" id="oCw-ai-qQz"/>
-                        <outlet property="DNS_Timeout" destination="dz9-Zf-nmi" id="Ss5-sO-8LF"/>
-                        <outlet property="lookupBtn" destination="vjH-KC-7H4" id="VLU-Qb-r5B"/>
                         <outlet property="tableView" destination="gvW-Nh-UaM" id="jdC-q7-nrD"/>
                     </connections>
                 </viewController>
@@ -938,263 +918,265 @@
             <objects>
                 <viewController id="ZPc-t2-3Hl" customClass="PreferencesViewController" customModule="DomainMaster" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="eNe-EV-oP5">
-                        <rect key="frame" x="0.0" y="0.0" width="720" height="452"/>
+                        <rect key="frame" x="0.0" y="0.0" width="696" height="385"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <tabView fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1hP-yd-0eG">
-                                <rect key="frame" x="13" y="2" width="694" height="436"/>
+                            <box fixedFrame="YES" title="Resource Types" translatesAutoresizingMaskIntoConstraints="NO" id="tlL-ja-nla">
+                                <rect key="frame" x="17" y="201" width="662" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <font key="font" metaFont="system"/>
-                                <tabViewItems>
-                                    <tabViewItem label="General" identifier="" id="rYk-mj-khy">
-                                        <view key="view" id="OQ1-7b-zaz">
-                                            <rect key="frame" x="10" y="33" width="674" height="390"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <subviews>
-                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xjc-MD-upS">
-                                                    <rect key="frame" x="17" y="348" width="136" height="23"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <buttonCell key="cell" type="roundTextured" title="Clear search history" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Dcc-Wf-saK">
-                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                        <font key="font" metaFont="system"/>
-                                                    </buttonCell>
-                                                </button>
-                                            </subviews>
-                                        </view>
-                                    </tabViewItem>
-                                    <tabViewItem label="DNS" identifier="" id="s2S-U8-Fs6">
-                                        <view key="view" ambiguous="YES" id="01y-aN-d8g">
-                                            <rect key="frame" x="10" y="33" width="674" height="390"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <subviews>
-                                                <box fixedFrame="YES" title="Resource Types" translatesAutoresizingMaskIntoConstraints="NO" id="tlL-ja-nla">
-                                                    <rect key="frame" x="6" y="216" width="662" height="75"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <view key="contentView" id="PCF-IN-dN9">
-                                                        <rect key="frame" x="3" y="3" width="656" height="54"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                        <subviews>
-                                                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xxc-ba-b10">
-                                                                <rect key="frame" x="18" y="18" width="31" height="18"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                <buttonCell key="cell" type="radio" title="A" bezelStyle="regularSquare" imagePosition="left" inset="2" id="b12-Nz-Myi">
-                                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                    <font key="font" metaFont="system"/>
-                                                                </buttonCell>
-                                                                <connections>
-                                                                    <action selector="prClick:" target="ZPc-t2-3Hl" id="dkp-6W-XTN"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x5k-t9-R6E">
-                                                                <rect key="frame" x="55" y="18" width="57" height="18"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                <buttonCell key="cell" type="radio" title="AAAA" bezelStyle="regularSquare" imagePosition="left" inset="2" id="7YT-aw-Ub1">
-                                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                    <font key="font" metaFont="system"/>
-                                                                </buttonCell>
-                                                                <connections>
-                                                                    <action selector="prClick:" target="ZPc-t2-3Hl" id="x1R-3G-fMm"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jjY-nC-2QS">
-                                                                <rect key="frame" x="116" y="18" width="59" height="18"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                <buttonCell key="cell" type="radio" title="ALIAS" bezelStyle="regularSquare" imagePosition="left" inset="2" id="nHk-LM-v2Z">
-                                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                    <font key="font" metaFont="system"/>
-                                                                </buttonCell>
-                                                                <connections>
-                                                                    <action selector="prClick:" target="ZPc-t2-3Hl" id="GY4-qq-EzI"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FeH-CH-MED">
-                                                                <rect key="frame" x="179" y="18" width="69" height="18"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                <buttonCell key="cell" type="radio" title="CNAME" bezelStyle="regularSquare" imagePosition="left" inset="2" id="h3R-Ql-TZa">
-                                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                    <font key="font" metaFont="system"/>
-                                                                </buttonCell>
-                                                                <connections>
-                                                                    <action selector="prClick:" target="ZPc-t2-3Hl" id="ZYb-0J-kqk"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jsc-tK-Pkp">
-                                                                <rect key="frame" x="252" y="18" width="43" height="18"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                <buttonCell key="cell" type="radio" title="MX" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Syq-cX-DRR">
-                                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                    <font key="font" metaFont="system"/>
-                                                                </buttonCell>
-                                                                <connections>
-                                                                    <action selector="prClick:" target="ZPc-t2-3Hl" id="DQL-2Z-cVQ"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gdk-S9-oDx">
-                                                                <rect key="frame" x="299" y="18" width="40" height="18"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                <buttonCell key="cell" type="radio" title="NS" bezelStyle="regularSquare" imagePosition="left" inset="2" id="3Oq-GX-GS2">
-                                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                    <font key="font" metaFont="system"/>
-                                                                </buttonCell>
-                                                                <connections>
-                                                                    <action selector="prClick:" target="ZPc-t2-3Hl" id="gE9-FL-qe8"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kpi-9a-gR6">
-                                                                <rect key="frame" x="343" y="18" width="47" height="18"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                <buttonCell key="cell" type="radio" title="PTR" bezelStyle="regularSquare" imagePosition="left" inset="2" id="rop-85-bHl">
-                                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                    <font key="font" metaFont="system"/>
-                                                                </buttonCell>
-                                                                <connections>
-                                                                    <action selector="prClick:" target="ZPc-t2-3Hl" id="A30-Cx-4KZ"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NQq-Ds-8rj">
-                                                                <rect key="frame" x="394" y="18" width="49" height="18"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                <buttonCell key="cell" type="radio" title="SOA" bezelStyle="regularSquare" imagePosition="left" inset="2" id="tuN-kv-oT9">
-                                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                    <font key="font" metaFont="system"/>
-                                                                </buttonCell>
-                                                                <connections>
-                                                                    <action selector="prClick:" target="ZPc-t2-3Hl" id="djd-gH-QYW"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9DU-Io-WKS">
-                                                                <rect key="frame" x="447" y="18" width="48" height="18"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                <buttonCell key="cell" type="radio" title="SRV" bezelStyle="regularSquare" imagePosition="left" inset="2" id="ep9-lw-ccY">
-                                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                    <font key="font" metaFont="system"/>
-                                                                </buttonCell>
-                                                                <connections>
-                                                                    <action selector="prClick:" target="ZPc-t2-3Hl" id="fHK-Xk-cFB"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QAR-cA-am4">
-                                                                <rect key="frame" x="500" y="19" width="47" height="16"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                <buttonCell key="cell" type="radio" title="TXT" bezelStyle="regularSquare" imagePosition="left" inset="2" id="fbA-uz-owg">
-                                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                    <font key="font" metaFont="system"/>
-                                                                </buttonCell>
-                                                                <connections>
-                                                                    <action selector="prClick:" target="ZPc-t2-3Hl" id="qhP-Py-BkL"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lyq-3I-JGR">
-                                                                <rect key="frame" x="552" y="17" width="49" height="18"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                <buttonCell key="cell" type="radio" title="ANY" bezelStyle="regularSquare" imagePosition="left" inset="2" id="3Kt-Y7-8bh">
-                                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                    <font key="font" metaFont="system"/>
-                                                                </buttonCell>
-                                                                <connections>
-                                                                    <action selector="prClick:" target="ZPc-t2-3Hl" id="Knp-Vj-AC1"/>
-                                                                </connections>
-                                                            </button>
-                                                        </subviews>
-                                                    </view>
-                                                    <font key="titleFont" size="13" name="Geneva"/>
-                                                </box>
-                                                <box fixedFrame="YES" title="Advanced" translatesAutoresizingMaskIntoConstraints="NO" id="6FF-N7-J5I">
-                                                    <rect key="frame" x="6" y="124" width="662" height="88"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <view key="contentView" id="vYg-bs-gbq">
-                                                        <rect key="frame" x="3" y="3" width="656" height="67"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                        <subviews>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dy9-e8-Ene">
-                                                                <rect key="frame" x="37" y="39" width="65" height="17"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <textFieldCell key="cell" lineBreakMode="clipping" title="DNS port:" id="33U-4u-Yxc">
-                                                                    <font key="font" size="13" name="Geneva"/>
-                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                                </textFieldCell>
-                                                            </textField>
-                                                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DYf-gD-kqp">
-                                                                <rect key="frame" x="117" y="37" width="50" height="22"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="53" drawsBackground="YES" id="f9U-FK-Mrg">
-                                                                    <font key="font" metaFont="system"/>
-                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                                </textFieldCell>
-                                                                <connections>
-                                                                    <action selector="dnsPortChange:" target="ZPc-t2-3Hl" id="9UV-9I-rlu"/>
-                                                                </connections>
-                                                            </textField>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5o1-ci-IUd">
-                                                                <rect key="frame" x="20" y="12" width="82" height="17"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <textFieldCell key="cell" lineBreakMode="clipping" title="DNS Source:" id="6Zg-l8-do7">
-                                                                    <font key="font" size="13" name="Geneva"/>
-                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                                </textFieldCell>
-                                                            </textField>
-                                                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="10h-Wy-AUl">
-                                                                <rect key="frame" x="117" y="12" width="79" height="22"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="8.8.8.8" drawsBackground="YES" id="BaE-d7-w99">
-                                                                    <font key="font" metaFont="system"/>
-                                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                                </textFieldCell>
-                                                                <connections>
-                                                                    <action selector="dnsSourceChange:" target="ZPc-t2-3Hl" id="84N-AJ-HKv"/>
-                                                                </connections>
-                                                            </textField>
-                                                        </subviews>
-                                                    </view>
-                                                    <font key="titleFont" size="13" name="Geneva"/>
-                                                </box>
-                                                <box fixedFrame="YES" title="IP Versions" translatesAutoresizingMaskIntoConstraints="NO" id="scc-p4-sYQ">
-                                                    <rect key="frame" x="6" y="305" width="662" height="75"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                    <view key="contentView" id="8j2-60-u43">
-                                                        <rect key="frame" x="3" y="3" width="656" height="54"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                        <subviews>
-                                                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MQb-g5-MTT">
-                                                                <rect key="frame" x="18" y="18" width="51" height="18"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                <buttonCell key="cell" type="check" title="IPV4" bezelStyle="regularSquare" imagePosition="left" inset="2" id="y7h-JF-TXP">
-                                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                    <font key="font" metaFont="system"/>
-                                                                </buttonCell>
-                                                                <connections>
-                                                                    <action selector="iPv4Click:" target="ZPc-t2-3Hl" id="yFJ-f3-XYu"/>
-                                                                </connections>
-                                                            </button>
-                                                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JjE-kF-7xD">
-                                                                <rect key="frame" x="73" y="18" width="51" height="18"/>
-                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                                                <buttonCell key="cell" type="check" title="IPV6" bezelStyle="regularSquare" imagePosition="left" inset="2" id="uC7-Og-w32">
-                                                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                                    <font key="font" metaFont="system"/>
-                                                                </buttonCell>
-                                                                <connections>
-                                                                    <action selector="iPv6Click:" target="ZPc-t2-3Hl" id="ekh-KY-x0y"/>
-                                                                </connections>
-                                                            </button>
-                                                        </subviews>
-                                                    </view>
-                                                    <font key="titleFont" size="13" name="Geneva"/>
-                                                </box>
-                                            </subviews>
-                                        </view>
-                                    </tabViewItem>
-                                </tabViewItems>
-                            </tabView>
+                                <view key="contentView" id="PCF-IN-dN9">
+                                    <rect key="frame" x="3" y="3" width="656" height="54"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xxc-ba-b10">
+                                            <rect key="frame" x="18" y="18" width="31" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="radio" title="A" bezelStyle="regularSquare" imagePosition="left" inset="2" id="b12-Nz-Myi">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="prClick:" target="ZPc-t2-3Hl" id="dkp-6W-XTN"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x5k-t9-R6E">
+                                            <rect key="frame" x="55" y="18" width="57" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="radio" title="AAAA" bezelStyle="regularSquare" imagePosition="left" inset="2" id="7YT-aw-Ub1">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="prClick:" target="ZPc-t2-3Hl" id="x1R-3G-fMm"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jjY-nC-2QS">
+                                            <rect key="frame" x="116" y="18" width="59" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="radio" title="ALIAS" bezelStyle="regularSquare" imagePosition="left" inset="2" id="nHk-LM-v2Z">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="prClick:" target="ZPc-t2-3Hl" id="GY4-qq-EzI"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FeH-CH-MED">
+                                            <rect key="frame" x="179" y="18" width="69" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="radio" title="CNAME" bezelStyle="regularSquare" imagePosition="left" inset="2" id="h3R-Ql-TZa">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="prClick:" target="ZPc-t2-3Hl" id="ZYb-0J-kqk"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jsc-tK-Pkp">
+                                            <rect key="frame" x="252" y="18" width="43" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="radio" title="MX" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Syq-cX-DRR">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="prClick:" target="ZPc-t2-3Hl" id="DQL-2Z-cVQ"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gdk-S9-oDx">
+                                            <rect key="frame" x="299" y="18" width="40" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="radio" title="NS" bezelStyle="regularSquare" imagePosition="left" inset="2" id="3Oq-GX-GS2">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="prClick:" target="ZPc-t2-3Hl" id="gE9-FL-qe8"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kpi-9a-gR6">
+                                            <rect key="frame" x="343" y="18" width="47" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="radio" title="PTR" bezelStyle="regularSquare" imagePosition="left" inset="2" id="rop-85-bHl">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="prClick:" target="ZPc-t2-3Hl" id="A30-Cx-4KZ"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NQq-Ds-8rj">
+                                            <rect key="frame" x="394" y="18" width="49" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="radio" title="SOA" bezelStyle="regularSquare" imagePosition="left" inset="2" id="tuN-kv-oT9">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="prClick:" target="ZPc-t2-3Hl" id="djd-gH-QYW"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9DU-Io-WKS">
+                                            <rect key="frame" x="447" y="18" width="48" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="radio" title="SRV" bezelStyle="regularSquare" imagePosition="left" inset="2" id="ep9-lw-ccY">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="prClick:" target="ZPc-t2-3Hl" id="fHK-Xk-cFB"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QAR-cA-am4">
+                                            <rect key="frame" x="500" y="19" width="47" height="16"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="radio" title="TXT" bezelStyle="regularSquare" imagePosition="left" inset="2" id="fbA-uz-owg">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="prClick:" target="ZPc-t2-3Hl" id="qhP-Py-BkL"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Lyq-3I-JGR">
+                                            <rect key="frame" x="552" y="17" width="49" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="radio" title="ANY" bezelStyle="regularSquare" imagePosition="left" inset="2" id="3Kt-Y7-8bh">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="prClick:" target="ZPc-t2-3Hl" id="Knp-Vj-AC1"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </view>
+                                <font key="titleFont" size="13" name="Geneva"/>
+                            </box>
+                            <box fixedFrame="YES" title="Advanced" translatesAutoresizingMaskIntoConstraints="NO" id="6FF-N7-J5I">
+                                <rect key="frame" x="17" y="57" width="662" height="133"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <view key="contentView" id="vYg-bs-gbq">
+                                    <rect key="frame" x="3" y="3" width="656" height="112"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DYf-gD-kqp">
+                                            <rect key="frame" x="158" y="70" width="50" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="f9U-FK-Mrg">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <action selector="dnsPortChange:" target="ZPc-t2-3Hl" id="9UV-9I-rlu"/>
+                                            </connections>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nVa-Zr-JX5">
+                                            <rect key="frame" x="19" y="22" width="132" height="17"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="DNS timeout (secs):" id="C5h-4K-etN">
+                                                <font key="font" size="13" name="Geneva"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="piL-9p-9Kb">
+                                            <rect key="frame" x="158" y="20" width="50" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="k4p-4i-dwE">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <action selector="dnsTimeoutChange:" target="ZPc-t2-3Hl" id="h6M-Ep-2NG"/>
+                                            </connections>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5o1-ci-IUd">
+                                            <rect key="frame" x="69" y="45" width="81" height="17"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="DNS source:" id="6Zg-l8-do7">
+                                                <font key="font" size="13" name="Geneva"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="10h-Wy-AUl">
+                                            <rect key="frame" x="158" y="45" width="79" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="BaE-d7-w99">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <action selector="dnsSourceChange:" target="ZPc-t2-3Hl" id="84N-AJ-HKv"/>
+                                            </connections>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dy9-e8-Ene">
+                                            <rect key="frame" x="86" y="70" width="65" height="17"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="DNS port:" id="33U-4u-Yxc">
+                                                <font key="font" size="13" name="Geneva"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </subviews>
+                                </view>
+                                <font key="titleFont" size="13" name="Geneva"/>
+                            </box>
+                            <box fixedFrame="YES" title="IP Versions" translatesAutoresizingMaskIntoConstraints="NO" id="scc-p4-sYQ">
+                                <rect key="frame" x="17" y="290" width="662" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <view key="contentView" id="8j2-60-u43">
+                                    <rect key="frame" x="3" y="3" width="656" height="54"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MQb-g5-MTT">
+                                            <rect key="frame" x="18" y="18" width="51" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="check" title="IPV4" bezelStyle="regularSquare" imagePosition="left" inset="2" id="y7h-JF-TXP">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="iPv4Click:" target="ZPc-t2-3Hl" id="yFJ-f3-XYu"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JjE-kF-7xD">
+                                            <rect key="frame" x="73" y="18" width="51" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="check" title="IPV6" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="uC7-Og-w32">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="iPv6Click:" target="ZPc-t2-3Hl" id="ekh-KY-x0y"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </view>
+                                <font key="titleFont" size="13" name="Geneva"/>
+                            </box>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oU8-n8-hBu">
+                                <rect key="frame" x="607" y="13" width="75" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DnC-Ji-fAa">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="close:" target="ZPc-t2-3Hl" id="R4g-ne-zmd"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="dnsPort" destination="DYf-gD-kqp" id="Tv1-WF-xKh"/>
                         <outlet property="dnsSource" destination="10h-Wy-AUl" id="iz8-nX-oVQ"/>
+                        <outlet property="dnsTimeout" destination="piL-9p-9Kb" id="VJE-gX-V1M"/>
                         <outlet property="iPv4" destination="MQb-g5-MTT" id="VKM-2d-7fu"/>
                         <outlet property="iPv6" destination="JjE-kF-7xD" id="4dk-yY-rBB"/>
                         <outlet property="rcA" destination="Xxc-ba-b10" id="p2l-hP-6B0"/>
@@ -1212,10 +1194,10 @@
                 </viewController>
                 <customObject id="HGy-g7-An2" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="886" y="1516"/>
+            <point key="canvasLocation" x="874" y="1482.5"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="T1W-th-z7n"/>
+        <segue reference="agJ-cx-ove"/>
     </inferredMetricsTieBreakers>
 </document>

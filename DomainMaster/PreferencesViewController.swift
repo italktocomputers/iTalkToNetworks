@@ -6,7 +6,7 @@
 import Foundation
 import AppKit
 
-class PreferencesViewController : ViewController {
+class PreferencesViewController : ViewController, NSWindowDelegate {
     @IBOutlet weak var iPv4: NSButton!
     @IBOutlet weak var iPv6: NSButton!
     @IBOutlet weak var rcA: NSButton!
@@ -22,6 +22,7 @@ class PreferencesViewController : ViewController {
     @IBOutlet weak var rcAny: NSButton!
     @IBOutlet weak var dnsPort: NSTextField!
     @IBOutlet weak var dnsSource: NSTextField!
+    @IBOutlet weak var dnsTimeout: NSTextField!
     
     override func viewDidLoad() {
         let defaults = UserDefaults.standard
@@ -30,6 +31,7 @@ class PreferencesViewController : ViewController {
         let iPv6Value = defaults.string(forKey: "iPv6")
         let dnsPortValue = defaults.string(forKey: "dnsPort")
         let dnsSourceValue = defaults.string(forKey: "dnsSource")
+        let dnsTimeoutValue = defaults.string(forKey: "dnsTimeout")
         
         switch selectedResourceType {
             case "rcA":
@@ -67,6 +69,7 @@ class PreferencesViewController : ViewController {
         else {
             // first value
             defaults.set("53", forKey: "dnsPortValue")
+            dnsPort.stringValue = "53"
         }
         
         if dnsSourceValue != nil {
@@ -75,6 +78,16 @@ class PreferencesViewController : ViewController {
         else {
             // first value
             defaults.set("8.8.8.8", forKey: "dnsSourceValue")
+            dnsSource.stringValue = "8.8.8.8"
+        }
+        
+        if dnsTimeoutValue != nil {
+            dnsTimeout.stringValue = dnsTimeoutValue!
+        }
+        else {
+            // first value
+            defaults.set("5", forKey: "dnsTimeoutValue")
+            dnsTimeout.stringValue = "5"
         }
         
         if iPv4Value != nil {
@@ -100,6 +113,10 @@ class PreferencesViewController : ViewController {
         }
         
         defaults.synchronize()
+    }
+    
+    func windowWillClose(_ notification: Notification) {
+        
     }
     
     @IBAction func iPv4Click(_ sender: NSButton) {
@@ -175,5 +192,17 @@ class PreferencesViewController : ViewController {
         let value = dnsSource.stringValue
         defaults.set(value, forKey: key)
         defaults.synchronize()
+    }
+    
+    @IBAction func dnsTimeoutChange(_ sender: NSTextField) {
+        let key = "dnsTimeout"
+        let defaults = UserDefaults.standard
+        let value = dnsTimeout.stringValue
+        defaults.set(value, forKey: key)
+        defaults.synchronize()
+    }
+    
+    @IBAction func close(_ sender: NSButton) {
+        self.dismiss(self)
     }
 }
