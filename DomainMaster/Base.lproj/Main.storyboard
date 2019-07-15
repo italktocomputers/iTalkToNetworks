@@ -360,7 +360,7 @@
                                                     </connections>
                                                 </comboBox>
                                                 <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NuE-hD-Faq">
-                                                    <rect key="frame" x="481" y="508" width="160" height="32"/>
+                                                    <rect key="frame" x="576" y="508" width="160" height="32"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <buttonCell key="cell" type="push" title="Advanced Options" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="Wxo-PV-605">
                                                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -368,6 +368,17 @@
                                                     </buttonCell>
                                                     <connections>
                                                         <segue destination="ZPc-t2-3Hl" kind="sheet" id="agJ-cx-ove"/>
+                                                    </connections>
+                                                </button>
+                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kRA-sX-zv7">
+                                                    <rect key="frame" x="493" y="508" width="83" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <buttonCell key="cell" type="push" title="Search" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="e6f-O4-BOW">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="lookUp:" target="XfG-lQ-9wD" id="Ego-QS-9bl"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -784,8 +795,9 @@
                         </subviews>
                     </view>
                     <connections>
-                        <outlet property="DNS_Domain" destination="nke-pa-eRQ" id="HmM-fw-GtR"/>
-                        <outlet property="DNS_ProgressBar" destination="WPP-LD-Q8Z" id="oCw-ai-qQz"/>
+                        <outlet property="dnsDomain" destination="nke-pa-eRQ" id="HmM-fw-GtR"/>
+                        <outlet property="dnsProgressBar" destination="WPP-LD-Q8Z" id="oCw-ai-qQz"/>
+                        <outlet property="lookupBtn" destination="kRA-sX-zv7" id="xix-m8-LQb"/>
                         <outlet property="tableView" destination="gvW-Nh-UaM" id="jdC-q7-nrD"/>
                     </connections>
                 </viewController>

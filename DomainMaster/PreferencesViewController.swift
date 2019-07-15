@@ -26,7 +26,7 @@ class PreferencesViewController : ViewController, NSWindowDelegate {
     
     override func viewDidLoad() {
         let defaults = UserDefaults.standard
-        let selectedResourceType = defaults.string(forKey: "ResourceType")
+        let selectedResourceType = defaults.string(forKey: "resourceType")
         let iPv4Value = defaults.string(forKey: "iPv4")
         let iPv6Value = defaults.string(forKey: "iPv6")
         let dnsPortValue = defaults.string(forKey: "dnsPort")
@@ -34,25 +34,25 @@ class PreferencesViewController : ViewController, NSWindowDelegate {
         let dnsTimeoutValue = defaults.string(forKey: "dnsTimeout")
         
         switch selectedResourceType {
-            case "rcA":
+            case "A":
                 rcA.state = NSControl.StateValue.on
-            case "rcAAAA":
+            case "AAAA":
                 rcAAAA.state = NSControl.StateValue.on
-            case "rcAlias":
+            case "ALIAS":
                 rcAlias.state = NSControl.StateValue.on
-            case "rcCname":
+            case "CNAME":
                 rcCname.state = NSControl.StateValue.on
-            case "rcMx":
+            case "MX":
                 rcMx.state = NSControl.StateValue.on
-            case "rcNs":
+            case "NS":
                 rcNs.state = NSControl.StateValue.on
-            case "rcPtr":
+            case "PTR":
                 rcPtr.state = NSControl.StateValue.on
-            case "rcSoa":
+            case "SOA":
                 rcSoa.state = NSControl.StateValue.on
-            case "rcSrv":
+            case "SRV":
                 rcSrv.state = NSControl.StateValue.on
-            case "rcTxt":
+            case "TXT":
                 rcTxt.state = NSControl.StateValue.on
             default:
                 rcAny.state = NSControl.StateValue.on
@@ -60,7 +60,7 @@ class PreferencesViewController : ViewController, NSWindowDelegate {
         
         if selectedResourceType == nil {
             // first value
-            defaults.set("rcAny", forKey: "ResourceType")
+            defaults.set("rcAny", forKey: "resourceType")
         }
         
         if dnsPortValue != nil {
@@ -145,33 +145,33 @@ class PreferencesViewController : ViewController, NSWindowDelegate {
             to 0)."
         */
         
-        let key = "ResourceType"
+        let key = "resourceType"
         let defaults = UserDefaults.standard
         var RcType: String
         
         switch sender as! NSButton {
             case rcA:
-                RcType = "rcA"
+                RcType = "A"
             case rcAAAA:
-                RcType = "rcAAAA"
+                RcType = "AAAA"
             case rcAlias:
-                RcType = "rcAlias"
+                RcType = "ALIAS"
             case rcCname:
-                RcType = "rcCname"
+                RcType = "CNAME"
             case rcMx:
-                RcType = "rcMx"
+                RcType = "MX"
             case rcNs:
-                RcType = "rcNs"
+                RcType = "NS"
             case rcPtr:
-                RcType = "rcPtr"
+                RcType = "PTR"
             case rcSoa:
-                RcType = "rcSoa"
+                RcType = "SOA"
             case rcSrv:
-                RcType = "rcSvr"
+                RcType = "SVR"
             case rcTxt:
-                RcType = "rcTxt"
+                RcType = "TXT"
             default:
-                RcType = "rcAny"
+                RcType = "ANY"
         }
         
         defaults.set(RcType, forKey: key)

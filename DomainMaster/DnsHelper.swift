@@ -59,7 +59,32 @@ class DnsHelper {
         return false;
     }
     
-    static func do_dsn_search() {
+    static func dnsLookUp(domain: String) -> [DnsRow] {
+        let defaults = UserDefaults.standard
+        let dnsPort = defaults.string(forKey: "dnsPort")
+        let dnsSource = defaults.string(forKey: "dnsSource")
+        let resourceType = defaults.string(forKey: "resourceType")
+        print("dig -p \(dnsPort!) @\(dnsSource!) +noall +answer \(domain) \(resourceType!)")
+        let results = Helper.shell("dig -p \(dnsPort!) @\(dnsSource!) +noall +answer \(domain) \(resourceType!)")
+        return parseDnsResponse(results: results)
+    }
     
+    static func parseDnsResponse(results: String) -> [DnsRow] {
+        var tblData: [DnsRow] = []
+        let rows = results.split(separator: "\n")
+        
+        for row in rows {
+            let cols = row.split(separator: "\t")
+            tblData.append(
+                DnsRow(
+                    domain: String(cols[0]),
+                    ttl: String(cols[1]),
+                    type: String(cols[3]),
+                    ip: String(cols[4])
+                )
+            )
+        }
+        
+        return tblData
     }
 }

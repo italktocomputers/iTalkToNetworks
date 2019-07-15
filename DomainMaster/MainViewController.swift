@@ -7,50 +7,45 @@ import Foundation
 import AppKit
 
 class MainViewController : ViewController, NSTableViewDataSource, NSTableViewDelegate, NSComboBoxDelegate {
-    @IBOutlet weak var DNS_Owner: NSTextField!
-    @IBOutlet weak var DNS_Email: NSTextField!
-    @IBOutlet weak var DNS_Registered: NSTextField!
-    @IBOutlet weak var DNS_Expires: NSTextField!
-    @IBOutlet weak var DNS_Registrar: NSTextField!
-    @IBOutlet weak var DNS_Abuse_Email: NSTextField!
-    @IBOutlet weak var DNS_Abuse_Phone: NSTextField!
-    @IBOutlet weak var DNS_Timeout: NSTextField!
-    @IBOutlet weak var DNS_ProgressBar: NSProgressIndicator!
+    @IBOutlet weak var dnsProgressBar: NSProgressIndicator!
     @IBOutlet weak var lookupBtn: NSButton!
     @IBOutlet weak var tableView: NSTableView!
-    @IBOutlet weak var DNS_Domain: NSComboBox!
+    @IBOutlet weak var dnsDomain: NSComboBox!
     
     var data: [DnsRow] = []
-    //let dnsSource = GoogleDnsDataSource()
     
     override func viewDidLoad() {
         tableView.delegate = self
         tableView.dataSource = self
-        DNS_Domain.delegate = self
+        dnsDomain.delegate = self
         addUrlCacheToComboBox()
     }
     
     func addUrlCacheToComboBox() {
         let urls = UrlCache.get()
         for i in urls {
-            DNS_Domain.addItem(withObjectValue: i)
+            dnsDomain.addItem(withObjectValue: i)
         }
     }
     
     @IBAction func lookUp(_ sender: Any) {
-        start_lookup()
+        startLookup()
     }
     
-    func start_lookup() {
-        print(Helper.shell("dig @8.8.8.8 +noall +answer cnn.com ANY"))
+    func startLookup() {
         lookupBtn.isEnabled = false
-        DNS_ProgressBar.isHidden = false
-        DNS_ProgressBar.startAnimation(self.view)
-        //data = dnsSource.dnsLookUp(searchTerm: DNS_Domain.stringValue, searchOptions: [])
-        UrlCache.add(url: DNS_Domain.stringValue)
-        tableView.reloadData()
-        lookupBtn.isEnabled = true
-        DNS_ProgressBar.isHidden = true
+        dnsProgressBar.isHidden = false
+        dnsProgressBar.startAnimation(self.view)
+        UrlCache.add(url: dnsDomain.stringValue)
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.data = DnsHelper.dnsLookUp(domain: self.dnsDomain.stringValue)
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+                self.lookupBtn.isEnabled = true
+                self.dnsProgressBar.isHidden = true
+            }
+        }
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
@@ -98,8 +93,8 @@ class MainViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     }
     
     @IBAction func comboOnChange(_ sender: Any) {
-        if DNS_Domain.stringValue != "" {
-            start_lookup()
+        if dnsDomain.stringValue != "" {
+            startLookup()
         }
     }
 }

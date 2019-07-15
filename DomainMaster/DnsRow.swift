@@ -7,11 +7,11 @@ import Foundation
 
 class DnsRow {
     var domain: String
-    var ttl: Int
+    var ttl: String
     var type: String
     var ip: String
     
-    init(domain: String?, ttl: Int?, type: String?, ip: String?) {
+    init(domain: String?, ttl: String?, type: String?, ip: String?) {
         if let domain = domain {
             self.domain = domain
         }
@@ -23,7 +23,7 @@ class DnsRow {
             self.ttl = ttl
         }
         else {
-            self.ttl = -1
+            self.ttl = "-1"
         }
         
         if let type = type {
