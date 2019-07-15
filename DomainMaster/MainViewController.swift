@@ -1,12 +1,12 @@
 //
-//  Created by Andrew Schools on 6/3/19.
-//  Copyright © 2019 Andrew Schools. All rights reserved.
+//  Created by Andrew Schools on 6/6/19.
+//  Copyright © 2019 iTalkToComputers. All rights reserved.
 //
 
 import Foundation
 import AppKit
 
-class MainViewController : ViewController, NSTableViewDataSource, NSTableViewDelegate {
+class MainViewController : ViewController, NSTableViewDataSource, NSTableViewDelegate, NSComboBoxDelegate {
     @IBOutlet weak var DNS_Owner: NSTextField!
     @IBOutlet weak var DNS_Email: NSTextField!
     @IBOutlet weak var DNS_Registered: NSTextField!
@@ -21,19 +21,36 @@ class MainViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     @IBOutlet weak var DNS_Domain: NSComboBox!
     
     var data: [DnsRow] = []
-    let dnsSource = GoogleDnsDataSource()
+    //let dnsSource = GoogleDnsDataSource()
     
     override func viewDidLoad() {
         tableView.delegate = self
         tableView.dataSource = self
+        DNS_Domain.delegate = self
+        addUrlCacheToComboBox()
+    }
+    
+    func addUrlCacheToComboBox() {
+        let urls = UrlCache.get()
+        for i in urls {
+            DNS_Domain.addItem(withObjectValue: i)
+        }
     }
     
     @IBAction func lookUp(_ sender: Any) {
-        lookupBtn.state = NSControl.StateValue.off
+        start_lookup()
+    }
+    
+    func start_lookup() {
+        print(Helper.shell("dig @8.8.8.8 +noall +answer cnn.com ANY"))
+        lookupBtn.isEnabled = false
         DNS_ProgressBar.isHidden = false
         DNS_ProgressBar.startAnimation(self.view)
-        data = dnsSource.dnsLookUp(searchTerm: DNS_Domain.stringValue, searchOptions: [])
+        //data = dnsSource.dnsLookUp(searchTerm: DNS_Domain.stringValue, searchOptions: [])
+        UrlCache.add(url: DNS_Domain.stringValue)
         tableView.reloadData()
+        lookupBtn.isEnabled = true
+        DNS_ProgressBar.isHidden = true
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
@@ -78,5 +95,11 @@ class MainViewController : ViewController, NSTableViewDataSource, NSTableViewDel
             }
         }
         return nil
+    }
+    
+    @IBAction func comboOnChange(_ sender: Any) {
+        if DNS_Domain.stringValue != "" {
+            start_lookup()
+        }
     }
 }

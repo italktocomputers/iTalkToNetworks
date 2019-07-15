@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		870C3F1B22AC102100B4EF32 /* UrlCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870C3F1A22AC102100B4EF32 /* UrlCache.swift */; };
+		87345DB722DBD02B0035349D /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87345DB622DBD02B0035349D /* PreferencesViewController.swift */; };
 		875CB7EC22A9C92D0059A7D6 /* DnsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875CB7EB22A9C92D0059A7D6 /* DnsHelper.swift */; };
-		875CB7EE22A9D60E0059A7D6 /* DnsSourceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875CB7ED22A9D60E0059A7D6 /* DnsSourceProtocol.swift */; };
 		875CB7F022A9D74E0059A7D6 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875CB7EF22A9D74E0059A7D6 /* Helper.swift */; };
 		875CB7F222A9D9A40059A7D6 /* DnsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875CB7F122A9D9A40059A7D6 /* DnsRow.swift */; };
-		875CB7F422A9DBE60059A7D6 /* GoogleDnsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875CB7F322A9DBE60059A7D6 /* GoogleDnsDataSource.swift */; };
 		87BA48E522A5E9B200E8DDB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA48E422A5E9B200E8DDB9 /* AppDelegate.swift */; };
 		87BA48E722A5E9B200E8DDB9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA48E622A5E9B200E8DDB9 /* ViewController.swift */; };
 		87BA48E922A5E9B300E8DDB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87BA48E822A5E9B300E8DDB9 /* Assets.xcassets */; };
@@ -20,11 +20,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		870C3F1A22AC102100B4EF32 /* UrlCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlCache.swift; sourceTree = "<group>"; };
+		87345DB622DBD02B0035349D /* PreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
 		875CB7EB22A9C92D0059A7D6 /* DnsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnsHelper.swift; sourceTree = "<group>"; };
-		875CB7ED22A9D60E0059A7D6 /* DnsSourceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnsSourceProtocol.swift; sourceTree = "<group>"; };
 		875CB7EF22A9D74E0059A7D6 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		875CB7F122A9D9A40059A7D6 /* DnsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnsRow.swift; sourceTree = "<group>"; };
-		875CB7F322A9DBE60059A7D6 /* GoogleDnsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleDnsDataSource.swift; sourceTree = "<group>"; };
 		87BA48E122A5E9B200E8DDB9 /* DomainMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DomainMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87BA48E422A5E9B200E8DDB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87BA48E622A5E9B200E8DDB9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -46,11 +46,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5356CDF428AF56BF490730D5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		87BA48D822A5E9B200E8DDB9 = {
 			isa = PBXGroup;
 			children = (
 				87BA48E322A5E9B200E8DDB9 /* DomainMaster */,
 				87BA48E222A5E9B200E8DDB9 /* Products */,
+				5356CDF428AF56BF490730D5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -65,8 +73,9 @@
 		87BA48E322A5E9B200E8DDB9 /* DomainMaster */ = {
 			isa = PBXGroup;
 			children = (
+				87345DB622DBD02B0035349D /* PreferencesViewController.swift */,
+				870C3F1A22AC102100B4EF32 /* UrlCache.swift */,
 				875CB7F122A9D9A40059A7D6 /* DnsRow.swift */,
-				875CB7ED22A9D60E0059A7D6 /* DnsSourceProtocol.swift */,
 				87BA48E422A5E9B200E8DDB9 /* AppDelegate.swift */,
 				87BA48E622A5E9B200E8DDB9 /* ViewController.swift */,
 				87BA48E822A5E9B300E8DDB9 /* Assets.xcassets */,
@@ -76,7 +85,6 @@
 				87BA48FA22A60DCF00E8DDB9 /* MainViewController.swift */,
 				875CB7EB22A9C92D0059A7D6 /* DnsHelper.swift */,
 				875CB7EF22A9D74E0059A7D6 /* Helper.swift */,
-				875CB7F322A9DBE60059A7D6 /* GoogleDnsDataSource.swift */,
 			);
 			path = DomainMaster;
 			sourceTree = "<group>";
@@ -113,6 +121,7 @@
 				TargetAttributes = {
 					87BA48E022A5E9B200E8DDB9 = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
 								enabled = 1;
@@ -156,14 +165,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				875CB7EE22A9D60E0059A7D6 /* DnsSourceProtocol.swift in Sources */,
-				875CB7F422A9DBE60059A7D6 /* GoogleDnsDataSource.swift in Sources */,
 				87BA48E722A5E9B200E8DDB9 /* ViewController.swift in Sources */,
 				875CB7EC22A9C92D0059A7D6 /* DnsHelper.swift in Sources */,
 				87BA48E522A5E9B200E8DDB9 /* AppDelegate.swift in Sources */,
+				87345DB722DBD02B0035349D /* PreferencesViewController.swift in Sources */,
 				87BA48FB22A60DCF00E8DDB9 /* MainViewController.swift in Sources */,
 				875CB7F022A9D74E0059A7D6 /* Helper.swift in Sources */,
 				875CB7F222A9D9A40059A7D6 /* DnsRow.swift in Sources */,
+				870C3F1B22AC102100B4EF32 /* UrlCache.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,7 +309,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = product2/product2.entitlements;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = DomainMaster/DomainMaster.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/DomainMaster/Info.plist";
@@ -310,6 +320,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.schools.domainmaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -318,7 +329,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = product2/product2.entitlements;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = DomainMaster/DomainMaster.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				INFOPLIST_FILE = "$(SRCROOT)/DomainMaster/Info.plist";

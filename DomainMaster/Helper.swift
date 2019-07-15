@@ -1,6 +1,6 @@
 //
 //  Created by Andrew Schools on 6/6/19.
-//  Copyright © 2019 Andrew Schools. All rights reserved.
+//  Copyright © 2019 iTalkToComputers. All rights reserved.
 //
 
 import Foundation
@@ -16,7 +16,7 @@ class Helper {
         alert.runModal()
     }
     
-    func dialogOKCancel(title: String, text: String) -> Bool {
+    static func dialogOKCancel(title: String, text: String) -> Bool {
         let alert = NSAlert()
         alert.messageText = title
         alert.informativeText = text
@@ -24,5 +24,20 @@ class Helper {
         alert.addButton(withTitle: "OK")
         alert.addButton(withTitle: "Cancel")
         return alert.runModal() == .alertFirstButtonReturn
+    }
+    
+    static func shell(_ command: String) -> String {
+        let task = Process()
+        task.launchPath = "/bin/bash"
+        task.arguments = ["-c", command]
+        
+        let pipe = Pipe()
+        task.standardOutput = pipe
+        task.launch()
+        
+        let data = pipe.fileHandleForReading.readDataToEndOfFile()
+        let output: String = NSString(data: data, encoding: String.Encoding.utf8.rawValue)! as String
+        
+        return output
     }
 }

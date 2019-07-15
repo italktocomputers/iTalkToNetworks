@@ -1,9 +1,10 @@
 //
 //  Created by Andrew Schools on 6/6/19.
-//  Copyright © 2019 Andrew Schools. All rights reserved.
+//  Copyright © 2019 iTalkToComputers. All rights reserved.
 //
 
 import Foundation
+import CoreFoundation
 
 class DnsHelper {
     static func getResourceType(by Id:Int) -> String {
@@ -42,5 +43,23 @@ class DnsHelper {
         ]
         
         return map[Id, default: "N/A"]
+    }
+    
+    static func validateIpAddress(ipToValidate: String) -> Bool {
+        var sin = sockaddr_in()
+        var sin6 = sockaddr_in6()
+        
+        if ipToValidate.withCString({ cstring in inet_pton(AF_INET6, cstring, &sin6.sin6_addr) }) == 1 {
+            return true
+        }
+        else if ipToValidate.withCString({ cstring in inet_pton(AF_INET, cstring, &sin.sin_addr) }) == 1 {
+            return true
+        }
+        
+        return false;
+    }
+    
+    static func do_dsn_search() {
+    
     }
 }

@@ -1,6 +1,6 @@
 //
-//  Created by Andrew Schools on 6/3/19.
-//  Copyright © 2019 Andrew Schools. All rights reserved.
+//  Created by Andrew Schools on 6/6/19.
+//  Copyright © 2019 iTalkToComputers. All rights reserved.
 //
 
 import Cocoa
