@@ -60,29 +60,74 @@ class DnsHelper {
     }
     
     static func dnsLookUp(domain: String) -> [DnsRow] {
+        var rLookUp = ""
         let defaults = UserDefaults.standard
         let dnsPort = defaults.string(forKey: "dnsPort")
         let dnsSource = defaults.string(forKey: "dnsSource")
-        let resourceType = defaults.string(forKey: "resourceType")
-        print("dig -p \(dnsPort!) @\(dnsSource!) +noall +answer \(domain) \(resourceType!)")
-        let results = Helper.shell("dig -p \(dnsPort!) @\(dnsSource!) +noall +answer \(domain) \(resourceType!)")
+        var resourceType = defaults.string(forKey: "resourceType")
+        
+        if validateIpAddress(ipToValidate: domain) {
+            rLookUp = "-x"
+            resourceType = "PTR"
+        }
+        
+        let results = Helper.shell("dig -p \(dnsPort!) @\(dnsSource!) +noall +answer \(rLookUp) \(domain) \(resourceType!)")
         return parseDnsResponse(results: results)
     }
     
     static func parseDnsResponse(results: String) -> [DnsRow] {
         var tblData: [DnsRow] = []
         let rows = results.split(separator: "\n")
+        let regex = try? NSRegularExpression(
+            pattern: "^([a-zA-Z0-9\\-.]{1,})[\\t\\s]{1,}([0-9]{1,})[\\t\\s]{1,}([a-zA-Z]{1,})[\\t\\s]{1,}([a-zA-Z]{1,})[\\t\\s]{1,}(.+)$",
+            options: NSRegularExpression.Options.caseInsensitive
+        )
         
         for row in rows {
-            let cols = row.split(separator: "\t")
-            tblData.append(
-                DnsRow(
-                    domain: String(cols[0]),
-                    ttl: String(cols[1]),
-                    type: String(cols[3]),
-                    ip: String(cols[4])
-                )
+            var domain = ""
+            var ttl = ""
+            var tclass = ""
+            var type = ""
+            var ip = ""
+            let myrow = String(row) // deep copy
+            
+            let matches = regex!.matches(
+                in: String(myrow),
+                options: [],
+                range: NSRange(location: 0, length: myrow.count)
             )
+            
+            if let match = matches.first {
+                if let domainRange = Range(match.range(at:1), in: String(myrow)) {
+                    domain = String(myrow[domainRange])
+                }
+                
+                if let ttlRange = Range(match.range(at:2), in: String(myrow)) {
+                    ttl = String(myrow[ttlRange])
+                }
+                
+                if let classRange = Range(match.range(at:3), in: String(myrow)) {
+                    tclass = String(myrow[classRange])
+                }
+                
+                if let typeRange = Range(match.range(at:4), in: String(myrow)) {
+                    type = String(myrow[typeRange])
+                }
+                
+                if let ipRange = Range(match.range(at:5), in: String(myrow)) {
+                    ip = String(myrow[ipRange])
+                }
+                
+                tblData.append(
+                    DnsRow(
+                        domain: domain,
+                        ttl: ttl,
+                        type: type,
+                        tclass: tclass,
+                        ip: ip
+                    )
+                )
+            }
         }
         
         return tblData

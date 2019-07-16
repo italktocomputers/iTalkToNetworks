@@ -9,9 +9,10 @@ class DnsRow {
     var domain: String
     var ttl: String
     var type: String
+    var tclass: String
     var ip: String
     
-    init(domain: String?, ttl: String?, type: String?, ip: String?) {
+    init(domain: String?, ttl: String?, type: String?, tclass: String?, ip: String?) {
         if let domain = domain {
             self.domain = domain
         }
@@ -31,6 +32,13 @@ class DnsRow {
         }
         else {
             self.type = "--"
+        }
+        
+        if let tclass = tclass {
+            self.tclass = tclass
+        }
+        else {
+            self.tclass = "--"
         }
         
         if let ip = ip {
