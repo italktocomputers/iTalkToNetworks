@@ -136,7 +136,7 @@
                                 <font key="font" size="13" name="Geneva"/>
                                 <tabViewItems>
                                     <tabViewItem label="DNS" identifier="" id="Uy5-8A-szC">
-                                        <view key="view" ambiguous="YES" id="ETb-Fs-d3d" customClass="DNSView" customModule="DomainMaster" customModuleProvider="target">
+                                        <view key="view" id="ETb-Fs-d3d" customClass="DNSView" customModule="DomainMaster" customModuleProvider="target">
                                             <rect key="frame" x="10" y="33" width="860" height="548"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
@@ -585,149 +585,128 @@
                                         </view>
                                     </tabViewItem>
                                     <tabViewItem label="WHOIS" identifier="" id="fBT-UT-ycG">
-                                        <view key="view" id="zFk-id-yd6">
+                                        <view key="view" ambiguous="YES" id="zFk-id-yd6">
                                             <rect key="frame" x="10" y="33" width="860" height="548"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
-                                                <box fixedFrame="YES" title="Info" translatesAutoresizingMaskIntoConstraints="NO" id="0f4-ph-eao">
-                                                    <rect key="frame" x="10" y="114" width="840" height="424"/>
+                                                <box fixedFrame="YES" title="Registrar" translatesAutoresizingMaskIntoConstraints="NO" id="0f4-ph-eao">
+                                                    <rect key="frame" x="10" y="349" width="844" height="146"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <view key="contentView" id="kxT-3q-Xg9">
-                                                        <rect key="frame" x="3" y="3" width="834" height="399"/>
+                                                        <rect key="frame" x="3" y="3" width="838" height="121"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <subviews>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uGj-sS-lcM">
-                                                                <rect key="frame" x="46" y="103" width="48" height="17"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Owner:" id="XDZ-Hx-RGP">
-                                                                    <font key="font" size="13" name="Geneva"/>
-                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                                </textFieldCell>
-                                                            </textField>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H6d-fl-qg3">
-                                                                <rect key="frame" x="101" y="103" width="104" height="17"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <textFieldCell key="cell" lineBreakMode="clipping" placeholderString="Andrew Schools" id="qVA-te-aHf">
-                                                                    <font key="font" size="13" name="Geneva"/>
-                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                                </textFieldCell>
-                                                            </textField>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4cK-rL-bkd">
-                                                                <rect key="frame" x="53" y="78" width="41" height="17"/>
+                                                                <rect key="frame" x="9" y="70" width="160" height="17"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
-                                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Email:" id="w8y-Cc-pFa">
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="WHOIS Server:" id="w8y-Cc-pFa">
                                                                     <font key="font" size="13" name="Geneva"/>
                                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 </textFieldCell>
                                                             </textField>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ufV-6f-y1e">
-                                                                <rect key="frame" x="101" y="78" width="157" height="17"/>
+                                                                <rect key="frame" x="172" y="70" width="600" height="17"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
-                                                                <textFieldCell key="cell" lineBreakMode="clipping" placeholderString="andrewschools@me.com" id="cru-UM-AH6">
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" id="cru-UM-AH6">
                                                                     <font key="font" size="13" name="Geneva"/>
-                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                                </textFieldCell>
-                                                            </textField>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SI3-O3-8RD">
-                                                                <rect key="frame" x="99" y="53" width="121" height="17"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <textFieldCell key="cell" lineBreakMode="clipping" placeholderString="January 1st, 2018" id="idb-5J-q0B">
-                                                                    <font key="font" size="13" name="Geneva"/>
+                                                                    <string key="placeholderString">......................................................................................................................................................</string>
                                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 </textFieldCell>
                                                             </textField>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Mwm-wk-id7">
-                                                                <rect key="frame" x="19" y="53" width="75" height="17"/>
+                                                                <rect key="frame" x="9" y="85" width="160" height="17"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
-                                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Registered:" id="N3q-tO-UwI">
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="URL:" id="N3q-tO-UwI">
                                                                     <font key="font" size="13" name="Geneva"/>
                                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 </textFieldCell>
                                                             </textField>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fgG-Dv-JHP">
-                                                                <rect key="frame" x="99" y="28" width="121" height="17"/>
+                                                                <rect key="frame" x="172" y="100" width="600" height="17"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
-                                                                <textFieldCell key="cell" lineBreakMode="clipping" placeholderString="January 1st, 2020" id="XPx-0x-iVx">
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" id="XPx-0x-iVx">
                                                                     <font key="font" size="13" name="Geneva"/>
+                                                                    <string key="placeholderString">......................................................................................................................................................</string>
                                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 </textFieldCell>
                                                             </textField>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ycn-oC-ffW">
-                                                                <rect key="frame" x="41" y="28" width="53" height="17"/>
+                                                                <rect key="frame" x="9" y="100" width="160" height="17"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
-                                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Expires:" id="6ya-ed-d2F">
-                                                                    <font key="font" size="13" name="Geneva"/>
-                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                                </textFieldCell>
-                                                            </textField>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gKS-hM-94K">
-                                                                <rect key="frame" x="480" y="103" width="82" height="17"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <textFieldCell key="cell" lineBreakMode="clipping" placeholderString="Amazon, Inc" id="okW-qY-jwY">
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Name:" id="6ya-ed-d2F">
                                                                     <font key="font" size="13" name="Geneva"/>
                                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 </textFieldCell>
                                                             </textField>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0iY-gS-dCA">
-                                                                <rect key="frame" x="408" y="103" width="64" height="17"/>
+                                                                <rect key="frame" x="9" y="55" width="160" height="17"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
-                                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Registrar:" id="xdn-Fh-IWQ">
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="IANA ID:" id="xdn-Fh-IWQ">
                                                                     <font key="font" size="13" name="Geneva"/>
                                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 </textFieldCell>
                                                             </textField>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3CH-fM-Xj3">
-                                                                <rect key="frame" x="388" y="78" width="84" height="17"/>
+                                                                <rect key="frame" x="9" y="40" width="160" height="17"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
-                                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Abuse Email:" id="mKL-Mm-c0W">
-                                                                    <font key="font" size="13" name="Geneva"/>
-                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                                </textFieldCell>
-                                                            </textField>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NbI-Of-rLh">
-                                                                <rect key="frame" x="480" y="78" width="235" height="17"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <textFieldCell key="cell" lineBreakMode="clipping" placeholderString="abusecomplaints@markmonitor.com " id="qhC-aN-4KH">
-                                                                    <font key="font" size="13" name="Geneva"/>
-                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                                </textFieldCell>
-                                                            </textField>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eIo-GD-mti">
-                                                                <rect key="frame" x="480" y="53" width="117" height="17"/>
-                                                                <autoresizingMask key="autoresizingMask"/>
-                                                                <textFieldCell key="cell" lineBreakMode="clipping" placeholderString="+1.2083895740 " id="C9r-lt-7OV">
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Abuse Email:" id="mKL-Mm-c0W">
                                                                     <font key="font" size="13" name="Geneva"/>
                                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 </textFieldCell>
                                                             </textField>
                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Unx-Vh-kIg">
-                                                                <rect key="frame" x="382" y="53" width="90" height="17"/>
+                                                                <rect key="frame" x="9" y="25" width="160" height="17"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
-                                                                <textFieldCell key="cell" lineBreakMode="clipping" title="Abuse Phone:" id="YuF-GF-8Kw">
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Abuse Phone:" id="YuF-GF-8Kw">
                                                                     <font key="font" size="13" name="Geneva"/>
                                                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 </textFieldCell>
                                                             </textField>
-                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qwI-cw-8AB">
-                                                                <rect key="frame" x="777" y="20" width="47" height="17"/>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SI3-O3-8RD">
+                                                                <rect key="frame" x="172" y="85" width="600" height="17"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
-                                                                <textFieldCell key="cell" lineBreakMode="clipping" title="More..." id="Agl-qd-Y32">
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" id="idb-5J-q0B">
                                                                     <font key="font" size="13" name="Geneva"/>
-                                                                    <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                    <string key="placeholderString">......................................................................................................................................................</string>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gKS-hM-94K">
+                                                                <rect key="frame" x="172" y="55" width="600" height="17"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" id="okW-qY-jwY">
+                                                                    <font key="font" size="13" name="Geneva"/>
+                                                                    <string key="placeholderString">......................................................................................................................................................</string>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NbI-Of-rLh">
+                                                                <rect key="frame" x="172" y="40" width="600" height="17"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" id="qhC-aN-4KH">
+                                                                    <font key="font" size="13" name="Geneva"/>
+                                                                    <string key="placeholderString">......................................................................................................................................................</string>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eIo-GD-mti">
+                                                                <rect key="frame" x="172" y="25" width="600" height="17"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" id="C9r-lt-7OV">
+                                                                    <font key="font" size="13" name="Geneva"/>
+                                                                    <string key="placeholderString">......................................................................................................................................................</string>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 </textFieldCell>
                                                             </textField>
@@ -735,6 +714,315 @@
                                                     </view>
                                                     <font key="titleFont" size="15" name="Geneva"/>
                                                 </box>
+                                                <box fixedFrame="YES" title="Registrant" translatesAutoresizingMaskIntoConstraints="NO" id="4gp-s0-YCT">
+                                                    <rect key="frame" x="10" y="199" width="844" height="146"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <view key="contentView" id="Ptm-2e-MRn">
+                                                        <rect key="frame" x="3" y="3" width="838" height="121"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <subviews>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IgZ-p7-UyN">
+                                                                <rect key="frame" x="9" y="70" width="160" height="17"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Country:" id="58e-9X-UhC">
+                                                                    <font key="font" size="13" name="Geneva"/>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EWn-Qw-5NI">
+                                                                <rect key="frame" x="172" y="70" width="600" height="17"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" id="WcF-rS-bIB">
+                                                                    <font key="font" size="13" name="Geneva"/>
+                                                                    <string key="placeholderString">......................................................................................................................................................</string>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1QG-hL-nnq">
+                                                                <rect key="frame" x="9" y="85" width="160" height="17"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="State/Province:" id="Psr-mF-Etj">
+                                                                    <font key="font" size="13" name="Geneva"/>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cFh-4q-EOH">
+                                                                <rect key="frame" x="172" y="100" width="600" height="17"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" id="Bnh-Ea-rsy">
+                                                                    <font key="font" size="13" name="Geneva"/>
+                                                                    <string key="placeholderString">......................................................................................................................................................</string>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zWW-m0-l0e">
+                                                                <rect key="frame" x="9" y="100" width="160" height="17"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Name:" id="hJK-9r-3U3">
+                                                                    <font key="font" size="13" name="Geneva"/>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zdS-0n-ndR">
+                                                                <rect key="frame" x="9" y="55" width="160" height="17"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="IANA ID:" id="woH-YX-FIK">
+                                                                    <font key="font" size="13" name="Geneva"/>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6uQ-FN-2wN">
+                                                                <rect key="frame" x="9" y="40" width="160" height="17"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Email:" id="kwa-9R-KlC">
+                                                                    <font key="font" size="13" name="Geneva"/>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qTf-tL-oSZ">
+                                                                <rect key="frame" x="9" y="25" width="160" height="17"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Admin Email:" id="AHu-xd-DXo">
+                                                                    <font key="font" size="13" name="Geneva"/>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s2d-yQ-75L">
+                                                                <rect key="frame" x="172" y="85" width="600" height="17"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" id="4lX-A7-Kqa">
+                                                                    <font key="font" size="13" name="Geneva"/>
+                                                                    <string key="placeholderString">......................................................................................................................................................</string>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vf1-X0-rV5">
+                                                                <rect key="frame" x="172" y="55" width="600" height="17"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" id="6ad-IU-T0L">
+                                                                    <font key="font" size="13" name="Geneva"/>
+                                                                    <string key="placeholderString">......................................................................................................................................................</string>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JeV-Pp-1AI">
+                                                                <rect key="frame" x="172" y="40" width="600" height="17"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" id="fWX-8m-wJ7">
+                                                                    <font key="font" size="13" name="Geneva"/>
+                                                                    <string key="placeholderString">......................................................................................................................................................</string>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Zx-nl-nPo">
+                                                                <rect key="frame" x="172" y="25" width="600" height="17"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" id="plE-DQ-RfS">
+                                                                    <font key="font" size="13" name="Geneva"/>
+                                                                    <string key="placeholderString">......................................................................................................................................................</string>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yc3-nr-BBb">
+                                                                <rect key="frame" x="172" y="10" width="600" height="17"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" id="VHv-NZ-lRY">
+                                                                    <font key="font" size="13" name="Geneva"/>
+                                                                    <string key="placeholderString">......................................................................................................................................................</string>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PU9-2e-k3e">
+                                                                <rect key="frame" x="9" y="10" width="160" height="17"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Tech Email:" id="k7n-jB-aEj">
+                                                                    <font key="font" size="13" name="Geneva"/>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                        </subviews>
+                                                    </view>
+                                                    <font key="titleFont" size="15" name="Geneva"/>
+                                                </box>
+                                                <box fixedFrame="YES" title="Domain" translatesAutoresizingMaskIntoConstraints="NO" id="Vtc-7Y-XWm">
+                                                    <rect key="frame" x="10" y="48" width="844" height="146"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <view key="contentView" id="qGd-bZ-w2i">
+                                                        <rect key="frame" x="3" y="3" width="838" height="121"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <subviews>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o5T-Zl-PYu">
+                                                                <rect key="frame" x="9" y="70" width="160" height="17"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Updated:" id="15h-I5-afI">
+                                                                    <font key="font" size="13" name="Geneva"/>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Qeh-KU-Hci">
+                                                                <rect key="frame" x="172" y="70" width="600" height="17"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" id="App-aP-alM">
+                                                                    <font key="font" size="13" name="Geneva"/>
+                                                                    <string key="placeholderString">......................................................................................................................................................</string>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yld-rW-RFE">
+                                                                <rect key="frame" x="9" y="85" width="160" height="17"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Created:" id="38L-1J-f62">
+                                                                    <font key="font" size="13" name="Geneva"/>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fQc-Gh-lqx">
+                                                                <rect key="frame" x="172" y="100" width="600" height="17"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" id="29M-O6-9kZ">
+                                                                    <font key="font" size="13" name="Geneva"/>
+                                                                    <string key="placeholderString">......................................................................................................................................................</string>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GKh-TK-8Yj">
+                                                                <rect key="frame" x="9" y="100" width="160" height="17"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Domain:" id="J0R-wv-pbz">
+                                                                    <font key="font" size="13" name="Geneva"/>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U4B-Pl-UG8">
+                                                                <rect key="frame" x="9" y="55" width="160" height="17"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Expiration:" id="ivc-cz-F2F">
+                                                                    <font key="font" size="13" name="Geneva"/>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7ey-cu-Mwe">
+                                                                <rect key="frame" x="9" y="40" width="160" height="17"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Abuse Email:" id="dDd-TO-Gm1">
+                                                                    <font key="font" size="13" name="Geneva"/>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cfu-QC-cZu">
+                                                                <rect key="frame" x="172" y="85" width="600" height="17"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" id="kCd-UT-KvY">
+                                                                    <font key="font" size="13" name="Geneva"/>
+                                                                    <string key="placeholderString">......................................................................................................................................................</string>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3dg-TH-3SU">
+                                                                <rect key="frame" x="172" y="55" width="600" height="17"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" id="LiA-50-AEf">
+                                                                    <font key="font" size="13" name="Geneva"/>
+                                                                    <string key="placeholderString">......................................................................................................................................................</string>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7XG-Ur-0jG">
+                                                                <rect key="frame" x="172" y="40" width="600" height="17"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" id="tKc-m3-UoE">
+                                                                    <font key="font" size="13" name="Geneva"/>
+                                                                    <string key="placeholderString">......................................................................................................................................................</string>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2XY-ae-zdh">
+                                                                <rect key="frame" x="172" y="25" width="600" height="17"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" id="sBi-qh-eF5">
+                                                                    <font key="font" size="13" name="Geneva"/>
+                                                                    <string key="placeholderString">......................................................................................................................................................</string>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2AS-e5-ZOw">
+                                                                <rect key="frame" x="9" y="25" width="160" height="17"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Abuse Phone:" id="VJQ-SM-8d3">
+                                                                    <font key="font" size="13" name="Geneva"/>
+                                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                                </textFieldCell>
+                                                            </textField>
+                                                        </subviews>
+                                                    </view>
+                                                    <font key="titleFont" size="15" name="Geneva"/>
+                                                </box>
+                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wrx-w1-c74">
+                                                    <rect key="frame" x="8" y="517" width="189" height="17"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <textFieldCell key="cell" lineBreakMode="clipping" title="Specify domain or ip address:" id="7Tp-0a-5I1">
+                                                        <font key="font" size="13" name="Geneva"/>
+                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </textFieldCell>
+                                                </textField>
+                                                <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vfH-md-v1G">
+                                                    <rect key="frame" x="203" y="512" width="279" height="26"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="Jp3-4L-Y3l">
+                                                        <font key="font" metaFont="system"/>
+                                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                    </comboBoxCell>
+                                                    <connections>
+                                                        <action selector="comboOnChange:" target="XfG-lQ-9wD" id="mL8-zl-tvK"/>
+                                                    </connections>
+                                                </comboBox>
+                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PZE-s9-xZf">
+                                                    <rect key="frame" x="576" y="508" width="160" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <buttonCell key="cell" type="push" title="Advanced Options" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="PfD-er-esm">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                </button>
+                                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cQq-28-8pX">
+                                                    <rect key="frame" x="493" y="508" width="83" height="32"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                                    <buttonCell key="cell" type="push" title="Search" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Wvc-xe-GZx">
+                                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                        <font key="font" metaFont="system"/>
+                                                    </buttonCell>
+                                                    <connections>
+                                                        <action selector="lookUp:" target="XfG-lQ-9wD" id="8VQ-Dn-6kB"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </view>
                                     </tabViewItem>
