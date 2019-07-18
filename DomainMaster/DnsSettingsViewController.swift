@@ -6,7 +6,7 @@
 import Foundation
 import AppKit
 
-class PreferencesViewController : ViewController, NSWindowDelegate {
+class DnsSettingsViewController : ViewController, NSWindowDelegate {
     @IBOutlet weak var iPv4: NSButton!
     @IBOutlet weak var iPv6: NSButton!
     @IBOutlet weak var rcA: NSButton!
