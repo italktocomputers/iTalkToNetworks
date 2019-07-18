@@ -13,6 +13,7 @@
 		875CB7F022A9D74E0059A7D6 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875CB7EF22A9D74E0059A7D6 /* Helper.swift */; };
 		875CB7F222A9D9A40059A7D6 /* DnsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875CB7F122A9D9A40059A7D6 /* DnsRow.swift */; };
 		875F4FB322E002320089C1CA /* WhoIsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875F4FB222E002320089C1CA /* WhoIsViewController.swift */; };
+		875F4FB522E007EE0089C1CA /* WhoIsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875F4FB422E007EE0089C1CA /* WhoIsHelper.swift */; };
 		87BA48E522A5E9B200E8DDB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA48E422A5E9B200E8DDB9 /* AppDelegate.swift */; };
 		87BA48E722A5E9B200E8DDB9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA48E622A5E9B200E8DDB9 /* ViewController.swift */; };
 		87BA48E922A5E9B300E8DDB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87BA48E822A5E9B300E8DDB9 /* Assets.xcassets */; };
@@ -28,6 +29,7 @@
 		875CB7EF22A9D74E0059A7D6 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		875CB7F122A9D9A40059A7D6 /* DnsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnsRow.swift; sourceTree = "<group>"; };
 		875F4FB222E002320089C1CA /* WhoIsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoIsViewController.swift; sourceTree = "<group>"; };
+		875F4FB422E007EE0089C1CA /* WhoIsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoIsHelper.swift; sourceTree = "<group>"; };
 		87BA48E122A5E9B200E8DDB9 /* DomainMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DomainMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87BA48E422A5E9B200E8DDB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87BA48E622A5E9B200E8DDB9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 		87BA48E322A5E9B200E8DDB9 /* DomainMaster */ = {
 			isa = PBXGroup;
 			children = (
+				875F4FB422E007EE0089C1CA /* WhoIsHelper.swift */,
 				875F4FB222E002320089C1CA /* WhoIsViewController.swift */,
 				87C3770E22DEBAB9002B1314 /* DnsViewController.swift */,
 				87345DB622DBD02B0035349D /* DnsSettingsViewController.swift */,
@@ -173,6 +176,7 @@
 			files = (
 				87BA48E722A5E9B200E8DDB9 /* ViewController.swift in Sources */,
 				87C3770F22DEBAB9002B1314 /* DnsViewController.swift in Sources */,
+				875F4FB522E007EE0089C1CA /* WhoIsHelper.swift in Sources */,
 				875CB7EC22A9C92D0059A7D6 /* DnsHelper.swift in Sources */,
 				875F4FB322E002320089C1CA /* WhoIsViewController.swift in Sources */,
 				87BA48E522A5E9B200E8DDB9 /* AppDelegate.swift in Sources */,

@@ -367,9 +367,12 @@
                                     <segue destination="ZPc-t2-3Hl" kind="sheet" id="RO0-F9-Hwx"/>
                                 </connections>
                             </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mxo-1V-tnZ">
-                                <rect key="frame" x="262" y="20" width="364" height="17"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mxo-1V-tnZ">
+                                <rect key="frame" x="258" y="20" width="364" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="360" id="Pi0-H2-zKA"/>
+                                    <constraint firstAttribute="height" constant="17" id="pL3-PH-sku"/>
+                                </constraints>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Copyright © 2019 iTalkToComputers. All rights reserved." id="MpL-1z-5AO">
                                     <font key="font" size="13" name="Geneva"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -379,9 +382,11 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="hdV-Ns-C0R" firstAttribute="leading" secondItem="qOT-kS-Ee5" secondAttribute="trailing" constant="90" id="0jg-2c-6Xi"/>
+                            <constraint firstItem="mxo-1V-tnZ" firstAttribute="top" secondItem="Zfq-oS-iui" secondAttribute="bottom" constant="15" id="4GJ-Eg-DVU"/>
                             <constraint firstItem="500-Bs-4dp" firstAttribute="top" secondItem="NZO-Li-MKl" secondAttribute="top" constant="28" id="61s-Fj-1U0"/>
                             <constraint firstItem="pp1-a6-fr1" firstAttribute="leading" secondItem="BJ0-Sa-Jky" secondAttribute="trailing" constant="20" id="6DJ-co-Liv"/>
                             <constraint firstItem="qOT-kS-Ee5" firstAttribute="leading" secondItem="pp1-a6-fr1" secondAttribute="trailing" constant="12" id="Bjc-2W-1cj"/>
+                            <constraint firstItem="mxo-1V-tnZ" firstAttribute="leading" secondItem="NZO-Li-MKl" secondAttribute="leading" constant="260" id="BsC-UL-58x"/>
                             <constraint firstAttribute="trailing" secondItem="Zfq-oS-iui" secondAttribute="trailing" constant="20" id="Ca2-Bd-o0A"/>
                             <constraint firstItem="hdV-Ns-C0R" firstAttribute="leading" secondItem="qOT-kS-Ee5" secondAttribute="trailing" constant="90" id="DGB-wy-tZ3"/>
                             <constraint firstItem="Zfq-oS-iui" firstAttribute="top" secondItem="hdV-Ns-C0R" secondAttribute="bottom" constant="8" id="DhH-13-kwa"/>
@@ -391,10 +396,12 @@
                             <constraint firstItem="Zfq-oS-iui" firstAttribute="top" secondItem="hdV-Ns-C0R" secondAttribute="bottom" constant="8" id="KoY-Ir-D9f"/>
                             <constraint firstItem="Zfq-oS-iui" firstAttribute="top" secondItem="qOT-kS-Ee5" secondAttribute="bottom" constant="13" id="LJF-Rd-aK6"/>
                             <constraint firstItem="500-Bs-4dp" firstAttribute="leading" secondItem="NZO-Li-MKl" secondAttribute="leading" constant="20" id="M59-n8-0mT"/>
+                            <constraint firstAttribute="bottom" secondItem="mxo-1V-tnZ" secondAttribute="bottom" constant="20" id="MnB-YP-DtL"/>
                             <constraint firstItem="Zfq-oS-iui" firstAttribute="top" secondItem="500-Bs-4dp" secondAttribute="bottom" constant="15" id="S6U-LF-GuA"/>
                             <constraint firstItem="qOT-kS-Ee5" firstAttribute="top" secondItem="NZO-Li-MKl" secondAttribute="top" constant="26" id="U13-M2-e4m"/>
                             <constraint firstAttribute="bottom" secondItem="Zfq-oS-iui" secondAttribute="bottom" constant="52" id="Wbg-Jh-nBH"/>
                             <constraint firstItem="qOT-kS-Ee5" firstAttribute="leading" secondItem="pp1-a6-fr1" secondAttribute="trailing" constant="12" id="ZGf-y3-Gyy"/>
+                            <constraint firstAttribute="trailing" secondItem="mxo-1V-tnZ" secondAttribute="trailing" constant="261" id="aTr-Vv-ctk"/>
                             <constraint firstItem="BJ0-Sa-Jky" firstAttribute="leading" secondItem="500-Bs-4dp" secondAttribute="trailing" constant="8" id="b1D-4h-Msj"/>
                             <constraint firstItem="Zfq-oS-iui" firstAttribute="top" secondItem="BJ0-Sa-Jky" secondAttribute="bottom" constant="14" id="gno-NI-apk"/>
                             <constraint firstItem="hdV-Ns-C0R" firstAttribute="top" secondItem="NZO-Li-MKl" secondAttribute="top" constant="20" id="kB4-c1-sK2"/>
@@ -423,11 +430,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="881" height="606"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <box fixedFrame="YES" title="Registrant" translatesAutoresizingMaskIntoConstraints="NO" id="O24-mn-jSo">
-                                <rect key="frame" x="20" y="249" width="844" height="146"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <box title="Registrant" translatesAutoresizingMaskIntoConstraints="NO" id="O24-mn-jSo">
+                                <rect key="frame" x="20" y="248" width="844" height="147"/>
                                 <view key="contentView" id="3Ti-g4-w1D">
-                                    <rect key="frame" x="3" y="3" width="838" height="121"/>
+                                    <rect key="frame" x="3" y="3" width="838" height="122"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="15E-22-EJb">
@@ -546,19 +552,25 @@
                                         </textField>
                                     </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="838" id="QHB-87-jp5"/>
+                                    <constraint firstAttribute="height" constant="143" id="wi9-Xz-uf1"/>
+                                </constraints>
                                 <font key="titleFont" size="15" name="Geneva"/>
                             </box>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ijl-VF-ex3">
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Ijl-VF-ex3">
                                 <rect key="frame" x="503" y="552" width="83" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="bzI-0O-ler"/>
+                                    <constraint firstAttribute="width" constant="71" id="qc1-5w-1It"/>
+                                </constraints>
                                 <buttonCell key="cell" type="push" title="Search" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="baJ-4K-hBX">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
-                            <box fixedFrame="YES" title="Domain" translatesAutoresizingMaskIntoConstraints="NO" id="9Zw-S0-cWi">
+                            <box title="Domain" translatesAutoresizingMaskIntoConstraints="NO" id="9Zw-S0-cWi">
                                 <rect key="frame" x="20" y="98" width="844" height="146"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="6BD-I3-7jM">
                                     <rect key="frame" x="3" y="3" width="838" height="121"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -641,20 +653,26 @@
                                         </textField>
                                     </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="142" id="T7Y-F9-lhC"/>
+                                    <constraint firstAttribute="width" constant="838" id="ggS-El-khj"/>
+                                </constraints>
                                 <font key="titleFont" size="15" name="Geneva"/>
                             </box>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XXJ-Ib-pAX">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XXJ-Ib-pAX">
                                 <rect key="frame" x="18" y="561" width="189" height="17"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="17" id="D08-G5-Hms"/>
+                                    <constraint firstAttribute="width" constant="185" id="EDS-cL-bga"/>
+                                </constraints>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Specify domain or ip address:" id="O60-Ez-UNr">
                                     <font key="font" size="13" name="Geneva"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <box fixedFrame="YES" title="Registrar" translatesAutoresizingMaskIntoConstraints="NO" id="dHS-u1-pyb">
+                            <box title="Registrar" translatesAutoresizingMaskIntoConstraints="NO" id="dHS-u1-pyb">
                                 <rect key="frame" x="20" y="399" width="844" height="146"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="E4a-me-5Fk">
                                     <rect key="frame" x="3" y="3" width="838" height="121"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -775,28 +793,41 @@
                                         </textField>
                                     </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="142" id="Pne-k0-KFm"/>
+                                    <constraint firstAttribute="width" constant="838" id="pmA-Li-czg"/>
+                                </constraints>
                                 <font key="titleFont" size="15" name="Geneva"/>
                             </box>
-                            <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="85B-2L-jSG">
+                            <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="85B-2L-jSG">
                                 <rect key="frame" x="213" y="556" width="279" height="26"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="276" id="Ze0-Ev-t66"/>
+                                    <constraint firstAttribute="height" constant="20" id="m4s-De-nH3"/>
+                                </constraints>
                                 <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="aMa-Yg-osQ">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </comboBoxCell>
                             </comboBox>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e8H-E8-UGB">
-                                <rect key="frame" x="586" y="552" width="160" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="e8H-E8-UGB">
+                                <rect key="frame" x="586" y="552" width="151" height="32"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="139" id="BT2-qF-UP0"/>
+                                    <constraint firstAttribute="height" constant="21" id="BsK-qr-bFF"/>
+                                </constraints>
                                 <buttonCell key="cell" type="push" title="Advanced Options" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="K0p-nA-PcE">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                             </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sML-0i-PCu">
-                                <rect key="frame" x="260" y="20" width="364" height="17"/>
-                                <autoresizingMask key="autoresizingMask"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="sML-0i-PCu">
+                                <rect key="frame" x="258" y="20" width="364" height="17"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="360" id="ZF8-Es-vPm"/>
+                                    <constraint firstAttribute="height" constant="17" id="sk2-R6-gg5"/>
+                                </constraints>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Copyright © 2019 iTalkToComputers. All rights reserved." id="JS5-KQ-KOy">
                                     <font key="font" size="13" name="Geneva"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -804,6 +835,40 @@
                                 </textFieldCell>
                             </textField>
                         </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="e8H-E8-UGB" secondAttribute="trailing" constant="150" id="14e-xq-nYd"/>
+                            <constraint firstItem="e8H-E8-UGB" firstAttribute="leading" secondItem="Ijl-VF-ex3" secondAttribute="trailing" constant="12" id="2Kh-K9-Upu"/>
+                            <constraint firstItem="sML-0i-PCu" firstAttribute="top" secondItem="9Zw-S0-cWi" secondAttribute="bottom" constant="65" id="2Yj-C1-Ssb"/>
+                            <constraint firstItem="9Zw-S0-cWi" firstAttribute="leading" secondItem="Lj6-e0-A36" secondAttribute="leading" constant="23" id="3Xl-ZQ-ba0"/>
+                            <constraint firstItem="Ijl-VF-ex3" firstAttribute="leading" secondItem="85B-2L-jSG" secondAttribute="trailing" constant="20" id="4EM-Pf-BXw"/>
+                            <constraint firstItem="85B-2L-jSG" firstAttribute="top" secondItem="Lj6-e0-A36" secondAttribute="top" constant="26" id="53y-DD-uFy"/>
+                            <constraint firstItem="O24-mn-jSo" firstAttribute="top" secondItem="dHS-u1-pyb" secondAttribute="bottom" constant="8" id="5zY-rd-1Eo"/>
+                            <constraint firstItem="85B-2L-jSG" firstAttribute="leading" secondItem="XXJ-Ib-pAX" secondAttribute="trailing" constant="8" id="B0E-s0-3qq"/>
+                            <constraint firstItem="O24-mn-jSo" firstAttribute="leading" secondItem="Lj6-e0-A36" secondAttribute="leading" constant="23" id="B8e-Fc-NYd"/>
+                            <constraint firstItem="XXJ-Ib-pAX" firstAttribute="leading" secondItem="Lj6-e0-A36" secondAttribute="leading" constant="20" id="BJn-xy-10L"/>
+                            <constraint firstItem="sML-0i-PCu" firstAttribute="top" secondItem="9Zw-S0-cWi" secondAttribute="bottom" constant="65" id="Dt2-ej-wAe"/>
+                            <constraint firstAttribute="trailing" secondItem="sML-0i-PCu" secondAttribute="trailing" constant="261" id="FRR-Hp-zL9"/>
+                            <constraint firstItem="O24-mn-jSo" firstAttribute="top" secondItem="dHS-u1-pyb" secondAttribute="bottom" constant="8" id="GBL-aD-sbl"/>
+                            <constraint firstItem="9Zw-S0-cWi" firstAttribute="top" secondItem="O24-mn-jSo" secondAttribute="bottom" constant="11" id="ISQ-WU-wfV"/>
+                            <constraint firstItem="dHS-u1-pyb" firstAttribute="leading" secondItem="Lj6-e0-A36" secondAttribute="leading" constant="23" id="KZ8-Fw-riL"/>
+                            <constraint firstAttribute="bottom" secondItem="sML-0i-PCu" secondAttribute="bottom" constant="20" id="NXl-VV-G2W"/>
+                            <constraint firstAttribute="trailing" secondItem="O24-mn-jSo" secondAttribute="trailing" constant="20" id="Nib-iA-i2f"/>
+                            <constraint firstItem="Ijl-VF-ex3" firstAttribute="top" secondItem="Lj6-e0-A36" secondAttribute="top" constant="26" id="Rsu-cb-6K5"/>
+                            <constraint firstItem="9Zw-S0-cWi" firstAttribute="top" secondItem="O24-mn-jSo" secondAttribute="bottom" constant="8" id="UPa-fX-TU8"/>
+                            <constraint firstItem="dHS-u1-pyb" firstAttribute="top" secondItem="XXJ-Ib-pAX" secondAttribute="bottom" constant="16" id="bAT-7m-A8M"/>
+                            <constraint firstItem="e8H-E8-UGB" firstAttribute="top" secondItem="Lj6-e0-A36" secondAttribute="top" constant="26" id="emN-yG-a12"/>
+                            <constraint firstItem="sML-0i-PCu" firstAttribute="leading" secondItem="Lj6-e0-A36" secondAttribute="leading" constant="260" id="ens-TS-mEP"/>
+                            <constraint firstItem="XXJ-Ib-pAX" firstAttribute="top" secondItem="Lj6-e0-A36" secondAttribute="top" constant="28" id="gAn-6d-pFe"/>
+                            <constraint firstItem="Ijl-VF-ex3" firstAttribute="leading" secondItem="85B-2L-jSG" secondAttribute="trailing" constant="20" id="gC0-x7-9fx"/>
+                            <constraint firstAttribute="trailing" secondItem="dHS-u1-pyb" secondAttribute="trailing" constant="20" id="hAB-VM-pS7"/>
+                            <constraint firstItem="85B-2L-jSG" firstAttribute="leading" secondItem="XXJ-Ib-pAX" secondAttribute="trailing" constant="8" id="qco-pu-Gr4"/>
+                            <constraint firstItem="dHS-u1-pyb" firstAttribute="top" secondItem="Ijl-VF-ex3" secondAttribute="bottom" constant="14" id="qim-aU-op0"/>
+                            <constraint firstItem="dHS-u1-pyb" firstAttribute="top" secondItem="85B-2L-jSG" secondAttribute="bottom" constant="15" id="roM-Kc-XhP"/>
+                            <constraint firstItem="dHS-u1-pyb" firstAttribute="top" secondItem="e8H-E8-UGB" secondAttribute="bottom" constant="14" id="sL6-i9-URX"/>
+                            <constraint firstAttribute="trailing" secondItem="9Zw-S0-cWi" secondAttribute="trailing" constant="20" id="t2P-ou-RCO"/>
+                            <constraint firstItem="dHS-u1-pyb" firstAttribute="top" secondItem="Ijl-VF-ex3" secondAttribute="bottom" constant="14" id="tt2-B8-EvZ"/>
+                            <constraint firstItem="e8H-E8-UGB" firstAttribute="leading" secondItem="Ijl-VF-ex3" secondAttribute="trailing" constant="12" id="vFH-Jp-CyU"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="createdOn" destination="9Jk-qH-A2b" id="Bl3-Cd-NeZ"/>
@@ -826,7 +891,7 @@
                 </viewController>
                 <customObject id="UWh-wf-t01" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-957" y="792"/>
+            <point key="canvasLocation" x="-957.5" y="792"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="wem-AO-Y47">
@@ -847,7 +912,7 @@
                 </windowController>
                 <customObject id="gDZ-9M-7Y9" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1112" y="558"/>
+            <point key="canvasLocation" x="766" y="307"/>
         </scene>
         <!--About Domain Master-->
         <scene sceneID="iyW-5T-UJB">
@@ -925,7 +990,7 @@
                 </viewController>
                 <customObject id="7OM-LW-dqv" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1112" y="960"/>
+            <point key="canvasLocation" x="766" y="733"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="Neg-1t-27m">
@@ -946,7 +1011,7 @@
                 </windowController>
                 <customObject id="Ff4-py-Sul" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="180" y="1525"/>
+            <point key="canvasLocation" x="-580" y="1337"/>
         </scene>
         <!--Dns Settings View Controller-->
         <scene sceneID="j2C-C3-Suy">
@@ -1229,7 +1294,7 @@
                 </viewController>
                 <customObject id="HGy-g7-An2" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="874" y="1482.5"/>
+            <point key="canvasLocation" x="111" y="1101"/>
         </scene>
         <!--TraceRoute-->
         <scene sceneID="5Nt-Oc-273">
@@ -1259,6 +1324,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="RO0-F9-Hwx"/>
+        <segue reference="Hbe-kZ-c2a"/>
     </inferredMetricsTieBreakers>
 </document>
