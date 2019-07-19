@@ -40,4 +40,27 @@ class Helper {
         
         return output
     }
+    
+    static func initTextBox(val: String?, box: NSTextField) {
+        if val != nil {
+            box.stringValue = val!
+        }
+    }
+    
+    static func initCheckBox(val: String?, box: NSButton) {
+        if val != nil {
+            if val == "on" {
+                box.state = NSControl.StateValue.on
+            }
+            else {
+                box.state = NSControl.StateValue.off
+            }
+        }
+    }
+    
+    static func saveSetting(key: String, value: String) {
+        let defaults = UserDefaults.standard
+        defaults.set(value, forKey: key)
+        defaults.synchronize()
+    }
 }

@@ -7,19 +7,20 @@ import Foundation
 import CoreFoundation
 
 class WhoIsHelper {
-    static func whoIsLookUp(domain: String) -> [[String:String]] {
+    static func whoIsLookUp(domain: String) -> [String:String] {
         //let defaults = UserDefaults.standard
         //let dnsPort = defaults.string(forKey: "dnsPort")
         //let dnsSource = defaults.string(forKey: "dnsSource")
         //var resourceType = defaults.string(forKey: "resourceType")
         
         let results = Helper.shell("whois \(domain)")
+        print(results)
         return parseWhoIsResponse(results: results)
     }
     
-    static func findField(string: String, label: String) -> [String:String]? {
+    static func findField(string: String, label: String) -> String? {
         let pattern = try! NSRegularExpression(
-            pattern: "^\(label):\\s(.+)$",
+            pattern: "\(label):\\s(.+)",
             options: NSRegularExpression.Options.caseInsensitive
         )
         
@@ -31,15 +32,15 @@ class WhoIsHelper {
         
         if let match = matches.first {
             if let range = Range(match.range(at:1), in: String(string)) {
-                return ["\(label)":String(string[range])]
+                return String(string[range])
             }
         }
         
         return nil
     }
     
-    static func parseWhoIsResponse(results: String) -> [[String: String]] {
-        var data: [[String: String]] = [[:]]
+    static func parseWhoIsResponse(results: String) -> [String: String] {
+        var data: [String: String] = [:]
         
         let fields = [
             "Registrar",
@@ -62,7 +63,7 @@ class WhoIsHelper {
         
         for field in fields {
             if let fieldValue = findField(string: results, label: field) {
-                data.append(fieldValue)
+                data[field] = fieldValue
             }
         }
         
