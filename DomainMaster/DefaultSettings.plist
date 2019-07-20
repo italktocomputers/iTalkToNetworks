@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>resourceType</key>
+	<string>ANY</string>
+	<key>iPv4</key>
+	<string>on</string>
+	<key>iPv6</key>
+	<string>on</string>
+	<key>dnsPort</key>
+	<string></string>
+	<key>dnsSource</key>
+	<string></string>
+	<key>dnsTimeout</key>
+	<string></string>
+	<key>whoIsArin</key>
+	<string></string>
+	<key>whoIsApnic</key>
+	<string></string>
+	<key>whoIsNac</key>
+	<string></string>
+	<key>whoIsAfriNic</key>
+	<string></string>
+	<key>whoIsInterNic</key>
+	<string></string>
+	<key>whoIsIana</key>
+	<string></string>
+	<key>whoIsKrnic</key>
+	<string></string>
+	<key>whoIsUsNonMilFedGov</key>
+	<string></string>
+	<key>whoIsLacNic</key>
+	<string></string>
+	<key>whoIsRadb</key>
+	<string></string>
+	<key>whoIsRipe</key>
+	<string></string>
+	<key>whoIsPeeringDb</key>
+	<string></string>
+	<key>whoIsCustomNic</key>
+	<string></string>
+	<key>whoIsSource</key>
+	<string></string>
+	<key>whoIsPort</key>
+	<string></string>
+</dict>
+</plist>

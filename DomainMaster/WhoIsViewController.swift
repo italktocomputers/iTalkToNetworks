@@ -70,14 +70,12 @@ class WhoIsViewController : ViewController, NSTableViewDataSource, NSTableViewDe
         
         DispatchQueue.global(qos: .userInitiated).async {
             let data: [String: String] = WhoIsHelper.whoIsLookUp(domain: searchTerm)
-            
-            for (i,v) in data {
-                self.map[i]!!.stringValue = v
-            }
-            
             DispatchQueue.main.async {
                 self.searchBtn.isEnabled = true
                 self.progressBar.isHidden = true
+                for (i,v) in data {
+                    self.map[i]!!.stringValue = v
+                }
             }
         }
     }

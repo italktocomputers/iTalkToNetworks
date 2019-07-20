@@ -58,9 +58,24 @@ class Helper {
         }
     }
     
+    static func getSetting(name: String) -> String {
+        let defaults = UserDefaults.standard
+        let value = defaults.string(forKey: name)
+        if (value != nil) {
+            return value!
+        }
+        else {
+            return ""
+        }
+    }
+    
     static func saveSetting(key: String, value: String) {
         let defaults = UserDefaults.standard
         defaults.set(value, forKey: key)
         defaults.synchronize()
+    }
+    
+    static func loadDefaultSettings() {
+        
     }
 }

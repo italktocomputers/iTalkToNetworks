@@ -37,9 +37,10 @@ class DnsViewController : ViewController, NSTableViewDataSource, NSTableViewDele
         dnsProgressBar.isHidden = false
         dnsProgressBar.startAnimation(self.view)
         UrlCache.add(url: dnsDomain.stringValue)
+        let searchTerm = self.dnsDomain.stringValue
         
         DispatchQueue.global(qos: .userInitiated).async {
-            self.data = DnsHelper.dnsLookUp(domain: self.dnsDomain.stringValue)
+            self.data = DnsHelper.dnsLookUp(domain: searchTerm)
             DispatchQueue.main.async {
                 self.tableView.reloadData()
                 self.lookupBtn.isEnabled = true
