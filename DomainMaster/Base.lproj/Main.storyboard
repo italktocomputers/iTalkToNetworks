@@ -23,11 +23,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="VOq-y0-SEH"/>
-                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW">
-                                            <connections>
-                                                <segue destination="ZPc-t2-3Hl" kind="modal" id="T1W-th-z7n"/>
-                                            </connections>
-                                        </menuItem>
+                                        <menuItem title="Preferences…" keyEquivalent="," id="BOF-NM-1cW"/>
                                         <menuItem isSeparatorItem="YES" id="wFC-TO-SCJ"/>
                                         <menuItem title="Quit DomainMaster" keyEquivalent="q" id="4sb-4s-VLi">
                                             <connections>
@@ -39,49 +35,6 @@
                             </menuItem>
                             <menuItem title="File" id="dMs-cI-mzQ">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="File" id="bib-Uj-vzu">
-                                    <items>
-                                        <menuItem title="History" id="tXI-mr-wws">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                            <menu key="submenu" title="History" systemMenu="recentDocuments" id="oas-Oc-fiZ">
-                                                <items>
-                                                    <menuItem title="Clear" id="vNY-rz-j42">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
-                                                        <connections>
-                                                            <action selector="clearRecentDocuments:" target="Ady-hI-5gd" id="Daa-9d-B3U"/>
-                                                        </connections>
-                                                    </menuItem>
-                                                </items>
-                                            </menu>
-                                        </menuItem>
-                                        <menuItem title="www.google.com" id="rln-dn-x2Z">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                        </menuItem>
-                                        <menuItem title="www.apple.com" id="TZk-D5-j7P" userLabel="www.apple.com">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                        </menuItem>
-                                        <menuItem title="www.wired.com" id="oOZ-Py-LOA">
-                                            <modifierMask key="keyEquivalentModifierMask"/>
-                                        </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="m54-Is-iLE"/>
-                                        <menuItem title="Close" keyEquivalent="w" id="DVo-aG-piG">
-                                            <connections>
-                                                <action selector="performClose:" target="Ady-hI-5gd" id="HmO-Ls-i7Q"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem title="Export" keyEquivalent="E" id="Bw7-FT-i3A">
-                                            <connections>
-                                                <action selector="saveDocumentAs:" target="Ady-hI-5gd" id="mDf-zr-I0C"/>
-                                            </connections>
-                                        </menuItem>
-                                        <menuItem isSeparatorItem="YES" id="aJh-i4-bef"/>
-                                        <menuItem title="Print…" keyEquivalent="p" id="aTl-1u-JFS">
-                                            <connections>
-                                                <action selector="print:" target="Ady-hI-5gd" id="qaZ-4w-aoO"/>
-                                            </connections>
-                                        </menuItem>
-                                    </items>
-                                </menu>
                             </menuItem>
                             <menuItem title="Window" id="aUF-d1-5bR">
                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -99,7 +52,7 @@
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="792" y="-36"/>
+            <point key="canvasLocation" x="331" y="-93"/>
         </scene>
         <!--Tab View Controller-->
         <scene sceneID="wTo-HP-hlH">
@@ -1346,26 +1299,18 @@
             <objects>
                 <viewController id="U8S-xO-Lpf" customClass="WhoIsSettingsViewController" customModule="DomainMaster" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="bes-5Q-qLb">
-                        <rect key="frame" x="0.0" y="0.0" width="696" height="331"/>
+                        <rect key="frame" x="0.0" y="0.0" width="696" height="398"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <box fixedFrame="YES" title="Network Information Center (NIC) Database" translatesAutoresizingMaskIntoConstraints="NO" id="hCT-6d-KrG">
-                                <rect key="frame" x="17" y="143" width="662" height="168"/>
+                                <rect key="frame" x="17" y="210" width="662" height="168"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="tvK-eF-hZp">
                                     <rect key="frame" x="3" y="3" width="656" height="147"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9i7-T3-6oS">
-                                            <rect key="frame" x="19" y="123" width="324" height="18"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="radio" title="Canada, USA, and some Caribbean Islands (ARIN)" bezelStyle="regularSquare" imagePosition="left" inset="2" id="YMU-go-gR0">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                        </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bb5-tB-gHr">
-                                            <rect key="frame" x="263" y="101" width="190" height="18"/>
+                                            <rect key="frame" x="386" y="98" width="190" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="radio" title="Asia/Pacific Region (APNIC)" bezelStyle="regularSquare" imagePosition="left" inset="2" id="UIq-mr-IQl">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -1373,7 +1318,7 @@
                                             </buttonCell>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7sr-MR-hDX">
-                                            <rect key="frame" x="338" y="57" width="206" height="18"/>
+                                            <rect key="frame" x="386" y="76" width="206" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="radio" title="Network Abuse Clearinghouse" bezelStyle="regularSquare" imagePosition="left" inset="2" id="0Wt-ix-2hr">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -1381,7 +1326,7 @@
                                             </buttonCell>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hsq-iC-Ibh">
-                                            <rect key="frame" x="348" y="123" width="160" height="18"/>
+                                            <rect key="frame" x="386" y="120" width="160" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="radio" title="Africa Region (AfriNIC)" bezelStyle="regularSquare" imagePosition="left" inset="2" id="ohg-v6-dEM">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -1389,7 +1334,7 @@
                                             </buttonCell>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dyz-Yg-2j9">
-                                            <rect key="frame" x="19" y="101" width="239" height="18"/>
+                                            <rect key="frame" x="386" y="32" width="239" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="radio" title="US non-military federal government" bezelStyle="regularSquare" imagePosition="left" inset="2" id="tSY-nn-Mr8">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -1397,7 +1342,7 @@
                                             </buttonCell>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m2u-s1-0C9">
-                                            <rect key="frame" x="19" y="13" width="290" height="18"/>
+                                            <rect key="frame" x="19" y="32" width="290" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="radio" title="Internet Assigned Numbers Authority (IANA)" bezelStyle="regularSquare" imagePosition="left" inset="2" id="8EO-44-A6y">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -1405,23 +1350,15 @@
                                             </buttonCell>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DvU-st-Yda">
-                                            <rect key="frame" x="19" y="35" width="362" height="18"/>
+                                            <rect key="frame" x="19" y="54" width="362" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="radio" title="National Internet Development Agency of Korea (KRNIC)" bezelStyle="regularSquare" imagePosition="left" inset="2" id="zBq-xC-34B">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                         </button>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0dJ-go-ghz">
-                                            <rect key="frame" x="263" y="79" width="340" height="18"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="radio" title="Latin America and some Caribbean Islands (LACNIC)" bezelStyle="regularSquare" imagePosition="left" inset="2" id="KOW-kK-TeE">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                        </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JOf-L4-Wzu">
-                                            <rect key="frame" x="386" y="35" width="212" height="18"/>
+                                            <rect key="frame" x="386" y="54" width="212" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="radio" title="Route Arbiter Database (RADB)" bezelStyle="regularSquare" imagePosition="left" inset="2" id="gsi-Qd-gtB">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -1429,7 +1366,7 @@
                                             </buttonCell>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dc7-ci-olb">
-                                            <rect key="frame" x="19" y="57" width="314" height="18"/>
+                                            <rect key="frame" x="19" y="76" width="314" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="radio" title="Europe, the Middle East, and Central Asia (RIPE)" bezelStyle="regularSquare" imagePosition="left" inset="2" id="j2C-3A-Ld8">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -1437,7 +1374,7 @@
                                             </buttonCell>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7jF-VZ-phy">
-                                            <rect key="frame" x="19" y="79" width="239" height="18"/>
+                                            <rect key="frame" x="19" y="98" width="239" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="radio" title="PeeringDB database of AS numbers" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Qs8-zf-wfC">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -1445,30 +1382,35 @@
                                             </buttonCell>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4DF-VR-lWE">
-                                            <rect key="frame" x="314" y="13" width="254" height="18"/>
+                                            <rect key="frame" x="386" y="10" width="254" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="radio" title="Network Information Center (InterNIC)" bezelStyle="regularSquare" imagePosition="left" inset="2" id="5YC-Mn-Oof">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                         </button>
-                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R9f-MY-0uT">
-                                            <rect key="frame" x="621" y="117" width="25" height="25"/>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9i7-T3-6oS">
+                                            <rect key="frame" x="19" y="10" width="324" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="hCz-yg-6Am">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <buttonCell key="cell" type="radio" title="Canada, USA, and some Caribbean Islands (ARIN)" bezelStyle="regularSquare" imagePosition="left" inset="2" id="YMU-go-gR0">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
-                                            <connections>
-                                                <segue destination="HlK-i0-i1b" kind="popover" popoverAnchorView="R9f-MY-0uT" popoverBehavior="t" preferredEdge="maxY" id="3na-le-kw9"/>
-                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0dJ-go-ghz">
+                                            <rect key="frame" x="19" y="120" width="340" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="radio" title="Latin America and some Caribbean Islands (LACNIC)" bezelStyle="regularSquare" imagePosition="left" inset="2" id="KOW-kK-TeE">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
                                         </button>
                                     </subviews>
                                 </view>
                                 <font key="titleFont" size="13" name="Geneva"/>
                             </box>
                             <box fixedFrame="YES" title="Custom Network Information Center Database" translatesAutoresizingMaskIntoConstraints="NO" id="sVH-K6-dem">
-                                <rect key="frame" x="17" y="57" width="662" height="57"/>
+                                <rect key="frame" x="17" y="124" width="662" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="bZ1-R6-LsF">
                                     <rect key="frame" x="3" y="3" width="656" height="36"/>
@@ -1504,17 +1446,6 @@
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="99t-pF-jfw">
-                                            <rect key="frame" x="6" y="10" width="28" height="20"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Spk-jO-Lne">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="prClick:" target="U8S-xO-Lpf" id="epq-f7-rsd"/>
-                                            </connections>
-                                        </button>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h4d-dw-2kg">
                                             <rect key="frame" x="323" y="9" width="50" height="22"/>
                                             <autoresizingMask key="autoresizingMask"/>
@@ -1527,19 +1458,51 @@
                                                 <action selector="portChange:" target="U8S-xO-Lpf" id="f1A-Ug-KVJ"/>
                                             </connections>
                                         </textField>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="99t-pF-jfw">
+                                            <rect key="frame" x="18" y="10" width="28" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="check" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Spk-jO-Lne">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="prClick:" target="U8S-xO-Lpf" id="epq-f7-rsd"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </view>
                                 <font key="titleFont" size="13" name="Geneva"/>
                             </box>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UPM-i1-7yg">
-                                <rect key="frame" x="315" y="243" width="35" height="17"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="-OR-" id="sDi-Ls-2uL">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
+                            <box fixedFrame="YES" title="Other" translatesAutoresizingMaskIntoConstraints="NO" id="qZu-ZU-Jz3">
+                                <rect key="frame" x="17" y="53" width="662" height="57"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <view key="contentView" id="hzl-2I-DJs">
+                                    <rect key="frame" x="3" y="3" width="656" height="36"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kdd-Cr-b1e">
+                                            <rect key="frame" x="18" y="8" width="110" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="check" title="Allow referrals" bezelStyle="regularSquare" imagePosition="left" inset="2" id="lQu-9T-zQe">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                        </button>
+                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2l1-t8-pnq">
+                                            <rect key="frame" x="628" y="3" width="25" height="25"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gMC-5a-7qD">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <segue destination="1uf-ZU-cPO" kind="popover" popoverAnchorView="2l1-t8-pnq" popoverBehavior="t" preferredEdge="maxY" id="0BO-2q-qkQ"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </view>
+                                <font key="titleFont" size="13" name="Geneva"/>
+                            </box>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IaL-Sh-zYS">
                                 <rect key="frame" x="607" y="13" width="75" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -1551,6 +1514,15 @@
                                     <action selector="close:" target="U8S-xO-Lpf" id="rQV-cM-HcU"/>
                                 </connections>
                             </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UPM-i1-7yg">
+                                <rect key="frame" x="331" y="189" width="35" height="17"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="-OR-" id="sDi-Ls-2uL">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
                         </subviews>
                     </view>
                     <connections>
@@ -1573,22 +1545,21 @@
                 </viewController>
                 <customObject id="bfL-Bm-lYa" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="111" y="1540.5"/>
+            <point key="canvasLocation" x="111" y="1574"/>
         </scene>
         <!--View Controller-->
-        <scene sceneID="kNL-1s-4uX">
+        <scene sceneID="Inl-fS-RsO">
             <objects>
-                <viewController id="HlK-i0-i1b" sceneMemberID="viewController">
-                    <view key="view" id="No8-Jr-dCr">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="166"/>
+                <viewController id="1uf-ZU-cPO" sceneMemberID="viewController">
+                    <view key="view" id="9Oe-s2-svJ">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="52"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ph8-wT-k4p">
-                                <rect key="frame" x="18" y="10" width="420" height="146"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NaL-Vq-Ab8">
+                                <rect key="frame" x="16" y="12" width="418" height="34"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" id="oXG-Zu-gxA">
+                                <textFieldCell key="cell" title="Allow Referrals: Do a recursive lookup; DomainMaster will attempt to follow referrals to other whois servers." id="Ecy-dR-vht">
                                     <font key="font" usesAppearanceFont="YES"/>
-                                    <mutableString key="title">By default whois starts by querying the Internet Assigned Numbers Authority (IANA) whois server, and follows referrals to whois servers that have more specific details about the query name.  The IANA whois server knows about IP address and AS numbers as well as domain names.  By specifying a NIC, a quick lookup will be performed; whois will not attempt to follow referrals to other whois servers.</mutableString>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -1596,12 +1567,12 @@
                         </subviews>
                     </view>
                 </viewController>
-                <customObject id="t4H-bx-4BF" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="bxZ-tc-mx6" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="830" y="1383"/>
+            <point key="canvasLocation" x="766" y="1747"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="T1W-th-z7n"/>
+        <segue reference="Hbe-kZ-c2a"/>
     </inferredMetricsTieBreakers>
 </document>
