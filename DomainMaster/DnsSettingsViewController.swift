@@ -9,110 +9,59 @@ import AppKit
 class DnsSettingsViewController : ViewController, NSWindowDelegate {
     @IBOutlet weak var iPv4: NSButton!
     @IBOutlet weak var iPv6: NSButton!
-    @IBOutlet weak var rcA: NSButton!
-    @IBOutlet weak var rcAAAA: NSButton!
-    @IBOutlet weak var rcAlias: NSButton!
-    @IBOutlet weak var rcCname: NSButton!
-    @IBOutlet weak var rcMx: NSButton!
-    @IBOutlet weak var rcNs: NSButton!
-    @IBOutlet weak var rcPtr: NSButton!
-    @IBOutlet weak var rcSoa: NSButton!
-    @IBOutlet weak var rcSrv: NSButton!
-    @IBOutlet weak var rcTxt: NSButton!
-    @IBOutlet weak var rcAny: NSButton!
+    @IBOutlet weak var rtA: NSButton!
+    @IBOutlet weak var rtAAAA: NSButton!
+    @IBOutlet weak var rtAlias: NSButton!
+    @IBOutlet weak var rtCname: NSButton!
+    @IBOutlet weak var rtMx: NSButton!
+    @IBOutlet weak var rtNs: NSButton!
+    @IBOutlet weak var rtPtr: NSButton!
+    @IBOutlet weak var rtSoa: NSButton!
+    @IBOutlet weak var rtSrv: NSButton!
+    @IBOutlet weak var rtTxt: NSButton!
+    @IBOutlet weak var rtAny: NSButton!
     @IBOutlet weak var dnsPort: NSTextField!
     @IBOutlet weak var dnsSource: NSTextField!
     @IBOutlet weak var dnsTimeout: NSTextField!
     
     override func viewDidLoad() {
-        let defaults = UserDefaults.standard
-        let selectedResourceType = defaults.string(forKey: "resourceType")
-        let iPv4Value = defaults.string(forKey: "iPv4")
-        let iPv6Value = defaults.string(forKey: "iPv6")
-        let dnsPortValue = defaults.string(forKey: "dnsPort")
-        let dnsSourceValue = defaults.string(forKey: "dnsSource")
-        let dnsTimeoutValue = defaults.string(forKey: "dnsTimeout")
+        let selectedResourceType = Helper.getSetting(name: "resourceType")
+        let iPv4Value = Helper.getSetting(name: "iPv4")
+        let iPv6Value = Helper.getSetting(name: "iPv6")
+        let dnsPortValue = Helper.getSetting(name: "dnsPort")
+        let dnsSourceValue = Helper.getSetting(name: "dnsSource")
+        let dnsTimeoutValue = Helper.getSetting(name: "dnsTimeout")
         
         switch selectedResourceType {
             case "A":
-                rcA.state = NSControl.StateValue.on
+                rtA.state = NSControl.StateValue.on
             case "AAAA":
-                rcAAAA.state = NSControl.StateValue.on
+                rtAAAA.state = NSControl.StateValue.on
             case "ALIAS":
-                rcAlias.state = NSControl.StateValue.on
+                rtAlias.state = NSControl.StateValue.on
             case "CNAME":
-                rcCname.state = NSControl.StateValue.on
+                rtCname.state = NSControl.StateValue.on
             case "MX":
-                rcMx.state = NSControl.StateValue.on
+                rtMx.state = NSControl.StateValue.on
             case "NS":
-                rcNs.state = NSControl.StateValue.on
+                rtNs.state = NSControl.StateValue.on
             case "PTR":
-                rcPtr.state = NSControl.StateValue.on
+                rtPtr.state = NSControl.StateValue.on
             case "SOA":
-                rcSoa.state = NSControl.StateValue.on
+                rtSoa.state = NSControl.StateValue.on
             case "SRV":
-                rcSrv.state = NSControl.StateValue.on
+                rtSrv.state = NSControl.StateValue.on
             case "TXT":
-                rcTxt.state = NSControl.StateValue.on
+                rtTxt.state = NSControl.StateValue.on
             default:
-                rcAny.state = NSControl.StateValue.on
+                rtAny.state = NSControl.StateValue.on
         }
         
-        if selectedResourceType == nil {
-            // first value
-            defaults.set("rcAny", forKey: "resourceType")
-        }
-        
-        if dnsPortValue != nil {
-            dnsPort.stringValue = dnsPortValue!
-        }
-        else {
-            // first value
-            defaults.set("53", forKey: "dnsPortValue")
-            dnsPort.stringValue = "53"
-        }
-        
-        if dnsSourceValue != nil {
-            dnsSource.stringValue = dnsSourceValue!
-        }
-        else {
-            // first value
-            defaults.set("8.8.8.8", forKey: "dnsSourceValue")
-            dnsSource.stringValue = "8.8.8.8"
-        }
-        
-        if dnsTimeoutValue != nil {
-            dnsTimeout.stringValue = dnsTimeoutValue!
-        }
-        else {
-            // first value
-            defaults.set("5", forKey: "dnsTimeoutValue")
-            dnsTimeout.stringValue = "5"
-        }
-        
-        if iPv4Value != nil {
-            if iPv4Value == "on" {
-                iPv4.state = NSControl.StateValue.on
-            }
-        }
-        else {
-            // first value
-            iPv4.state = NSControl.StateValue.on
-            defaults.set("on", forKey: "iPv4")
-        }
-        
-        if iPv6Value != nil {
-            if iPv6Value == "on" {
-                iPv6.state = NSControl.StateValue.on
-            }
-        }
-        else {
-            // first value
-            iPv6.state = NSControl.StateValue.on
-            defaults.set("on", forKey: "iPv6")
-        }
-        
-        defaults.synchronize()
+        Helper.initTextBox(val: dnsPortValue, box: dnsPort)
+        Helper.initTextBox(val: dnsSourceValue, box: dnsSource)
+        Helper.initTextBox(val: dnsTimeoutValue, box: dnsTimeout)
+        Helper.initCheckBox(val: iPv4Value, box: iPv4)
+        Helper.initCheckBox(val: iPv6Value, box: iPv6)
     }
     
     func windowWillClose(_ notification: Notification) {
@@ -120,19 +69,13 @@ class DnsSettingsViewController : ViewController, NSWindowDelegate {
     }
     
     @IBAction func iPv4Click(_ sender: NSButton) {
-        let key = "iPv4"
-        let defaults = UserDefaults.standard
         let state = iPv4.state == NSControl.StateValue.on ? "on" : "off"
-        defaults.set(state, forKey: key)
-        defaults.synchronize()
+        Helper.saveSetting(key: "iPv4", value: state)
     }
     
     @IBAction func iPv6Click(_ sender: NSButton) {
-        let key = "iPv6"
-        let defaults = UserDefaults.standard
         let state = iPv6.state == NSControl.StateValue.on ? "on" : "off"
-        defaults.set(state, forKey: key)
-        defaults.synchronize()
+        Helper.saveSetting(key: "iPv6", value: state)
     }
     
     @IBAction func prClick(_ sender: Any) {
@@ -144,62 +87,21 @@ class DnsSettingsViewController : ViewController, NSWindowDelegate {
             -state to 1), will uncheck all other buttons (by setting their -state
             to 0)."
         */
-        
-        let key = "resourceType"
-        let defaults = UserDefaults.standard
-        var RcType: String
-        
-        switch sender as! NSButton {
-            case rcA:
-                RcType = "A"
-            case rcAAAA:
-                RcType = "AAAA"
-            case rcAlias:
-                RcType = "ALIAS"
-            case rcCname:
-                RcType = "CNAME"
-            case rcMx:
-                RcType = "MX"
-            case rcNs:
-                RcType = "NS"
-            case rcPtr:
-                RcType = "PTR"
-            case rcSoa:
-                RcType = "SOA"
-            case rcSrv:
-                RcType = "SVR"
-            case rcTxt:
-                RcType = "TXT"
-            default:
-                RcType = "ANY"
-        }
-        
-        defaults.set(RcType, forKey: key)
-        defaults.synchronize()
+        let box = sender as! NSButton
+        print(box.title)
+        Helper.saveSetting(key: "resourceType", value: box.title)
     }
     
     @IBAction func dnsPortChange(_ sender: NSTextField) {
-        let key = "dnsPort"
-        let defaults = UserDefaults.standard
-        let value = dnsPort.stringValue
-        defaults.set(value, forKey: key)
-        defaults.synchronize()
+        Helper.saveSetting(key: "dnsPort", value: dnsPort.stringValue)
     }
     
     @IBAction func dnsSourceChange(_ sender: NSTextField) {
-        let key = "dnsSource"
-        let defaults = UserDefaults.standard
-        let value = dnsSource.stringValue
-        defaults.set(value, forKey: key)
-        defaults.synchronize()
+        Helper.saveSetting(key: "dnsSource", value: dnsSource.stringValue)
     }
     
     @IBAction func dnsTimeoutChange(_ sender: NSTextField) {
-        let key = "dnsTimeout"
-        let defaults = UserDefaults.standard
-        let value = dnsTimeout.stringValue
-        defaults.set(value, forKey: key)
-        defaults.synchronize()
+        Helper.saveSetting(key: "dnsTimeout", value: dnsTimeout.stringValue)
     }
     
     @IBAction func close(_ sender: NSButton) {

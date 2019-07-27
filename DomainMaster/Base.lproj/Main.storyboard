@@ -1318,17 +1318,17 @@
                         <outlet property="dnsTimeout" destination="piL-9p-9Kb" id="VJE-gX-V1M"/>
                         <outlet property="iPv4" destination="MQb-g5-MTT" id="VKM-2d-7fu"/>
                         <outlet property="iPv6" destination="JjE-kF-7xD" id="4dk-yY-rBB"/>
-                        <outlet property="rcA" destination="Xxc-ba-b10" id="p2l-hP-6B0"/>
-                        <outlet property="rcAAAA" destination="x5k-t9-R6E" id="hZh-Yh-hcx"/>
-                        <outlet property="rcAlias" destination="jjY-nC-2QS" id="edY-nq-GQy"/>
-                        <outlet property="rcAny" destination="Lyq-3I-JGR" id="9K2-Qu-Lnc"/>
-                        <outlet property="rcCname" destination="FeH-CH-MED" id="APV-uG-ZDK"/>
-                        <outlet property="rcMx" destination="jsc-tK-Pkp" id="bUf-7y-M3g"/>
-                        <outlet property="rcNs" destination="gdk-S9-oDx" id="kRs-kt-6x0"/>
-                        <outlet property="rcPtr" destination="Kpi-9a-gR6" id="UOo-ll-h22"/>
-                        <outlet property="rcSoa" destination="NQq-Ds-8rj" id="jAK-i8-En4"/>
-                        <outlet property="rcSrv" destination="9DU-Io-WKS" id="s3M-UM-Vle"/>
-                        <outlet property="rcTxt" destination="QAR-cA-am4" id="GP6-d7-8d3"/>
+                        <outlet property="rtA" destination="Xxc-ba-b10" id="XQr-Ez-uBZ"/>
+                        <outlet property="rtAAAA" destination="x5k-t9-R6E" id="kvq-Dy-eGl"/>
+                        <outlet property="rtAlias" destination="jjY-nC-2QS" id="YLw-2I-i20"/>
+                        <outlet property="rtAny" destination="Lyq-3I-JGR" id="fzy-gg-MUe"/>
+                        <outlet property="rtCname" destination="FeH-CH-MED" id="LC0-LG-O3k"/>
+                        <outlet property="rtMx" destination="jsc-tK-Pkp" id="DbK-bq-jMj"/>
+                        <outlet property="rtNs" destination="gdk-S9-oDx" id="CzH-ts-G5H"/>
+                        <outlet property="rtPtr" destination="Kpi-9a-gR6" id="230-qZ-bna"/>
+                        <outlet property="rtSoa" destination="NQq-Ds-8rj" id="hmm-2K-t9U"/>
+                        <outlet property="rtSrv" destination="9DU-Io-WKS" id="RcT-Bl-hZT"/>
+                        <outlet property="rtTxt" destination="QAR-cA-am4" id="wVe-aa-8te"/>
                     </connections>
                 </viewController>
                 <customObject id="HGy-g7-An2" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -1376,109 +1376,161 @@
                                     <rect key="frame" x="3" y="3" width="656" height="344"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m2u-s1-0C9">
+                                        <button identifier="IANA" toolTip="IANA" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m2u-s1-0C9">
                                             <rect key="frame" x="19" y="229" width="324" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="radio" title="Internet Assigned Numbers Authority (IANA)" bezelStyle="regularSquare" imagePosition="left" inset="2" id="8EO-44-A6y">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" size="13" name="Geneva"/>
                                             </buttonCell>
+                                            <accessibility identifier="IANA"/>
+                                            <connections>
+                                                <action selector="NicClick:" target="U8S-xO-Lpf" id="szc-y4-7yc"/>
+                                            </connections>
                                         </button>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DvU-st-Yda">
+                                        <button identifier="KRNIC" toolTip="KRNIC" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DvU-st-Yda">
                                             <rect key="frame" x="19" y="251" width="377" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="radio" title="National Internet Development Agency of Korea (KRNIC)" bezelStyle="regularSquare" imagePosition="left" inset="2" id="zBq-xC-34B">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" size="13" name="Geneva"/>
                                             </buttonCell>
+                                            <accessibility identifier="KRNIC"/>
+                                            <connections>
+                                                <action selector="NicClick:" target="U8S-xO-Lpf" id="dAT-2f-iYB"/>
+                                            </connections>
                                         </button>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dc7-ci-olb">
+                                        <button identifier="RIPE" toolTip="RIPE" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dc7-ci-olb">
                                             <rect key="frame" x="19" y="273" width="347" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="radio" title="Europe, the Middle East, and Central Asia (RIPE)" bezelStyle="regularSquare" imagePosition="left" inset="2" id="j2C-3A-Ld8">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" size="13" name="Geneva"/>
                                             </buttonCell>
+                                            <accessibility identifier="RIPE"/>
+                                            <connections>
+                                                <action selector="NicClick:" target="U8S-xO-Lpf" id="ALU-Q2-GRj"/>
+                                            </connections>
                                         </button>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7jF-VZ-phy">
+                                        <button identifier="PeeringDB" toolTip="PeeringDB" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7jF-VZ-phy">
                                             <rect key="frame" x="19" y="295" width="254" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="radio" title="PeeringDB database of AS numbers" bezelStyle="regularSquare" imagePosition="left" inset="2" id="Qs8-zf-wfC">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" size="13" name="Geneva"/>
                                             </buttonCell>
+                                            <accessibility identifier="PeeringDB"/>
+                                            <connections>
+                                                <action selector="NicClick:" target="U8S-xO-Lpf" id="7rf-KH-mKq"/>
+                                            </connections>
                                         </button>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9i7-T3-6oS">
+                                        <button identifier="ARIN" toolTip="ARIN" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9i7-T3-6oS">
                                             <rect key="frame" x="19" y="207" width="347" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="radio" title="Canada, USA, and some Caribbean Islands (ARIN)" bezelStyle="regularSquare" imagePosition="left" inset="2" id="YMU-go-gR0">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" size="13" name="Geneva"/>
                                             </buttonCell>
+                                            <accessibility identifier="ARIN"/>
+                                            <connections>
+                                                <action selector="NicClick:" target="U8S-xO-Lpf" id="pdA-gS-0C6"/>
+                                            </connections>
                                         </button>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0dJ-go-ghz">
+                                        <button identifier="LACNIC" toolTip="LACNIC" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0dJ-go-ghz">
                                             <rect key="frame" x="19" y="317" width="355" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="radio" title="Latin America and some Caribbean Islands (LACNIC)" bezelStyle="regularSquare" imagePosition="left" inset="2" id="KOW-kK-TeE">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" size="13" name="Geneva"/>
                                             </buttonCell>
+                                            <accessibility identifier="LACNIC"/>
+                                            <connections>
+                                                <action selector="NicClick:" target="U8S-xO-Lpf" id="L8V-eY-5fW"/>
+                                            </connections>
                                         </button>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bb5-tB-gHr">
+                                        <button identifier="APNIC" toolTip="APNIC" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bb5-tB-gHr">
                                             <rect key="frame" x="19" y="163" width="425" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="radio" title="Asia/Pacific Region (APNIC)" bezelStyle="regularSquare" imagePosition="left" inset="2" id="UIq-mr-IQl">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" size="13" name="Geneva"/>
                                             </buttonCell>
+                                            <accessibility identifier="APNIC"/>
+                                            <connections>
+                                                <action selector="NicClick:" target="U8S-xO-Lpf" id="5aL-sg-g9C"/>
+                                            </connections>
                                         </button>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7sr-MR-hDX">
+                                        <button identifier="NAC" toolTip="NAC" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7sr-MR-hDX">
                                             <rect key="frame" x="19" y="141" width="437" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="radio" title="Network Abuse Clearinghouse" bezelStyle="regularSquare" imagePosition="left" inset="2" id="0Wt-ix-2hr">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" size="13" name="Geneva"/>
                                             </buttonCell>
+                                            <accessibility identifier="NAC"/>
+                                            <connections>
+                                                <action selector="NicClick:" target="U8S-xO-Lpf" id="lwB-k2-P9E"/>
+                                            </connections>
                                         </button>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hsq-iC-Ibh">
+                                        <button identifier="AfriNIC" toolTip="AfriNIC" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hsq-iC-Ibh">
                                             <rect key="frame" x="19" y="185" width="391" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="radio" title="Africa Region (AfriNIC)" bezelStyle="regularSquare" imagePosition="left" inset="2" id="ohg-v6-dEM">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" size="13" name="Geneva"/>
                                             </buttonCell>
+                                            <accessibility identifier="AfriNIC"/>
+                                            <connections>
+                                                <action selector="NicClick:" target="U8S-xO-Lpf" id="3wK-Uc-Uoj"/>
+                                            </connections>
                                         </button>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dyz-Yg-2j9">
+                                        <button identifier="usNonMilFedGov" toolTip="usNonMilFedGov" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dyz-Yg-2j9">
                                             <rect key="frame" x="19" y="97" width="368" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="radio" title="US non-military federal government" bezelStyle="regularSquare" imagePosition="left" inset="2" id="tSY-nn-Mr8">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" size="13" name="Geneva"/>
                                             </buttonCell>
+                                            <accessibility identifier="usNonMilFedGov"/>
+                                            <connections>
+                                                <action selector="NicClick:" target="U8S-xO-Lpf" id="Sge-p2-IwD"/>
+                                            </connections>
                                         </button>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JOf-L4-Wzu">
+                                        <button identifier="RADB" toolTip="RADB" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JOf-L4-Wzu">
                                             <rect key="frame" x="19" y="119" width="391" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="radio" title="Route Arbiter Database (RADB)" bezelStyle="regularSquare" imagePosition="left" inset="2" id="gsi-Qd-gtB">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" size="13" name="Geneva"/>
                                             </buttonCell>
+                                            <accessibility identifier="RADB"/>
+                                            <connections>
+                                                <action selector="NicClick:" target="U8S-xO-Lpf" id="GPI-jU-A9c"/>
+                                            </connections>
                                         </button>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4DF-VR-lWE">
+                                        <button identifier="InterNIC" toolTip="InterNIC" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4DF-VR-lWE">
                                             <rect key="frame" x="19" y="75" width="391" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="radio" title="Network Information Center (InterNIC)" bezelStyle="regularSquare" imagePosition="left" inset="2" id="5YC-Mn-Oof">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" size="13" name="Geneva"/>
                                             </buttonCell>
+                                            <accessibility identifier="InterNIC"/>
+                                            <connections>
+                                                <action selector="NicClick:" target="U8S-xO-Lpf" id="f4L-yL-1Co"/>
+                                            </connections>
                                         </button>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2ug-Pg-Iwo">
+                                        <button identifier="CustomNIC" toolTip="CustomNIC" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2ug-Pg-Iwo">
                                             <rect key="frame" x="19" y="53" width="391" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="radio" title="Custom Network Information Center Database" bezelStyle="regularSquare" imagePosition="left" inset="2" id="H6F-Qd-0NH">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" size="13" name="Geneva"/>
                                             </buttonCell>
+                                            <accessibility identifier="CustomNIC"/>
+                                            <connections>
+                                                <action selector="NicClick:" target="U8S-xO-Lpf" id="Mv3-rN-glv"/>
+                                            </connections>
                                         </button>
                                         <box fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sVH-K6-dem">
                                             <rect key="frame" x="36" y="11" width="391" height="57"/>
@@ -1551,6 +1603,9 @@
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" size="13" name="Geneva"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="allowReferralsClick:" target="U8S-xO-Lpf" id="RLZ-eu-hAb"/>
+                                            </connections>
                                         </button>
                                         <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2l1-t8-pnq">
                                             <rect key="frame" x="628" y="3" width="25" height="25"/>

@@ -83,6 +83,7 @@
 			children = (
 				875F4FB422E007EE0089C1CA /* WhoIsHelper.swift */,
 				875F4FB222E002320089C1CA /* WhoIsViewController.swift */,
+				875F4FB622E13D4D0089C1CA /* WhoIsSettingsViewController.swift */,
 				873B266622EC9B16005BAA5F /* DnsViewController.swift */,
 				87345DB622DBD02B0035349D /* DnsSettingsViewController.swift */,
 				870C3F1A22AC102100B4EF32 /* UrlCache.swift */,
@@ -96,7 +97,6 @@
 				87BA48EE22A5E9B300E8DDB9 /* DomainMaster.entitlements */,
 				875CB7EB22A9C92D0059A7D6 /* DnsHelper.swift */,
 				875CB7EF22A9D74E0059A7D6 /* Helper.swift */,
-				875F4FB622E13D4D0089C1CA /* WhoIsSettingsViewController.swift */,
 			);
 			path = DomainMaster;
 			sourceTree = "<group>";

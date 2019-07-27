@@ -25,44 +25,50 @@ class WhoIsSettingsViewController : ViewController, NSWindowDelegate {
     @IBOutlet weak var allowReferrals: NSButton!
     
     override func viewDidLoad() {
-        let arinValue = Helper.getSetting(name: "whoIsArin")
-        let apnicValue = Helper.getSetting(name: "whoIsApnic")
-        let nacValue = Helper.getSetting(name: "whoIsNac")
-        let afriNicValue = Helper.getSetting(name: "whoIsAfriNic")
-        let interNicValue = Helper.getSetting(name: "whoIsInterNic")
-        let ianaValue = Helper.getSetting(name: "whoIsIana")
-        let krnicValue = Helper.getSetting(name: "whoIsKrnic")
-        let usNonMilFedGovValue = Helper.getSetting(name: "whoIsUsNonMilFedGov")
-        let lacNicValue = Helper.getSetting(name: "whoIsLacNic")
-        let radbValue = Helper.getSetting(name: "whoIsRadb")
-        let ripeValue = Helper.getSetting(name: "whoIsRipe")
-        let peeringDbValue = Helper.getSetting(name: "whoIsPeeringDb")
-        let customNicValue = Helper.getSetting(name: "whoIsCustomNic")
-        let hostValue = Helper.getSetting(name: "whoIsSource")
+        let NIC = Helper.getSetting(name: "whoIsNIC")
+        let hostValue = Helper.getSetting(name: "whoIsHost")
         let portValue = Helper.getSetting(name: "whoIsPort")
         let allowReferralsValue = Helper.getSetting(name: "whoIsAllowReferrals")
         
         Helper.initTextBox(val: hostValue, box: host)
         Helper.initTextBox(val: portValue, box: port)
-        
-        Helper.initCheckBox(val: arinValue, box: arin)
-        Helper.initCheckBox(val: apnicValue, box: apnic)
-        Helper.initCheckBox(val: nacValue, box: nac)
-        Helper.initCheckBox(val: afriNicValue, box: afriNic)
-        Helper.initCheckBox(val: interNicValue, box: interNic)
-        Helper.initCheckBox(val: ianaValue, box: iana)
-        Helper.initCheckBox(val: krnicValue, box: krnic)
-        Helper.initCheckBox(val: usNonMilFedGovValue, box: usNonMilFedGov)
-        Helper.initCheckBox(val: lacNicValue, box: lacNic)
-        Helper.initCheckBox(val: radbValue, box: radb)
-        Helper.initCheckBox(val: ripeValue, box: ripe)
-        Helper.initCheckBox(val: peeringDbValue, box: peeringDb)
-        Helper.initCheckBox(val: customNicValue, box: customNic)
         Helper.initCheckBox(val: allowReferralsValue, box: allowReferrals)
+        
+        switch NIC {
+            case "PeeringDB":
+                peeringDb.state = NSButton.StateValue.on
+            case "LACNIC":
+                lacNic.state = NSButton.StateValue.on
+            case "RIPE":
+                ripe.state = NSButton.StateValue.on
+            case "KRNIC":
+                krnic.state = NSButton.StateValue.on
+            case "IANA":
+                iana.state = NSButton.StateValue.on
+            case "ARIN":
+                arin.state = NSButton.StateValue.on
+            case "AfriNIC":
+                afriNic.state = NSButton.StateValue.on
+            case "APNIC":
+                apnic.state = NSButton.StateValue.on
+            case "NAC":
+                nac.state = NSButton.StateValue.on
+            case "RADB":
+                radb.state = NSButton.StateValue.on
+            case "usNonMilFedGov":
+                usNonMilFedGov.state = NSButton.StateValue.on
+            case "InterNIC":
+                interNic.state = NSButton.StateValue.on
+            case "CustomNIC":
+                customNic.state = NSButton.StateValue.on
+            default:
+                print("Unknown NIC \(NIC)")
+        }
     }
     
     @IBAction func NicClick(_ sender: NSButton) {
-        //let a = sender as! NSButton
+        print(sender.accessibilityIdentifier())
+        Helper.saveSetting(key: "whoIsNIC", value: sender.identifier!.rawValue)
     }
     
     @IBAction func portChange(_ sender: NSTextField) {
@@ -71,6 +77,11 @@ class WhoIsSettingsViewController : ViewController, NSWindowDelegate {
     
     @IBAction func hostChange(_ sender: NSTextField) {
         Helper.saveSetting(key: "whoIsHost", value: host.stringValue)
+    }
+    
+    
+    @IBAction func allowReferralsClick(_ sender: Any) {
+        Helper.saveSetting(key: "whoIsAllowReferrals", value: "on")
     }
     
     @IBAction func close(_ sender: NSButton) {

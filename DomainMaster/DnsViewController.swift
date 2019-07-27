@@ -20,6 +20,7 @@ class DnsViewController : ViewController, NSTableViewDataSource, NSTableViewDele
         dnsDomain.delegate = self
         addUrlCacheToComboBox()
         
+        // Set font for table header
         tableView.tableColumns.forEach { (column) in
             column.headerCell.attributedStringValue = NSAttributedString(
                 string: column.title,
