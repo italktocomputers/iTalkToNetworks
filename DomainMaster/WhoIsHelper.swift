@@ -8,14 +8,63 @@ import CoreFoundation
 
 class WhoIsHelper {
     static func whoIsLookUp(domain: String) -> [String:String] {
-        //let defaults = UserDefaults.standard
-        //let dnsPort = defaults.string(forKey: "dnsPort")
-        //let dnsSource = defaults.string(forKey: "dnsSource")
-        //var resourceType = defaults.string(forKey: "resourceType")
+        var whoIsString = ""
+        let host = Helper.getSetting(name: "whoIsHost")
+        let port = Helper.getSetting(name: "whoIsPort")
+        let nic = Helper.getSetting(name: "whoIsNIC")
+        let referrals = Helper.getSetting(name: "whoIsAllowReferrals")
         
-        let results = Helper.shell("whois \(domain)")
+        if referrals == "on" {
+            whoIsString += "-R "
+        }
+        else {
+            whoIsString += "-Q "
+        }
+        
+        if nic == "CustomNIC" {
+            whoIsString += "-h \(host) -p \(port) "
+        }
+        else {
+            let flag = settingToFlag(setting: nic)
+            whoIsString += "-\(flag) "
+        }
+        
+        print("whois \(whoIsString)\(domain)")
+        
+        let results = Helper.shell("whois \(whoIsString)\(domain)")
         print(results)
         return parseWhoIsResponse(results: results)
+    }
+    
+    static func settingToFlag(setting: String) -> String {
+        switch setting {
+            case "ARIN":
+                return "a"
+            case "APNIC":
+                return "A"
+            case "NAC":
+                return "b"
+            case "AfriNIC":
+                return "f"
+            case "usNonMilFedGov":
+                return "g"
+            case "InterNIC":
+                return "i"
+            case "IANA":
+                return "I"
+            case "KRNIC":
+                return "K"
+            case "LACNIC":
+                return "l"
+            case "RADB":
+                return "m"
+            case "PeeringDB":
+                return "P"
+            case "RIPE":
+                return "r"
+            default:
+                return "I"
+        }
     }
     
     static func findField(string: String, label: String) -> String? {

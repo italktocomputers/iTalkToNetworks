@@ -84,11 +84,11 @@
             <objects>
                 <viewController id="Nyk-X0-DVO" sceneMemberID="viewController">
                     <view key="view" id="uY8-Gy-0mg">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="150"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <box fixedFrame="YES" title="General" translatesAutoresizingMaskIntoConstraints="NO" id="aPM-dT-IWD">
-                                <rect key="frame" x="17" y="136" width="446" height="114"/>
+                            <box fixedFrame="YES" title="Data" translatesAutoresizingMaskIntoConstraints="NO" id="aPM-dT-IWD">
+                                <rect key="frame" x="17" y="16" width="446" height="114"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="H7f-Zz-Mqh">
                                     <rect key="frame" x="3" y="3" width="440" height="93"/>
@@ -119,7 +119,7 @@
                 </viewController>
                 <customObject id="sVc-fI-aUQ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="90" y="654"/>
+            <point key="canvasLocation" x="90" y="594"/>
         </scene>
         <!--Tab View Controller-->
         <scene sceneID="wTo-HP-hlH">

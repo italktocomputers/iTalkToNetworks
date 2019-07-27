@@ -62,6 +62,7 @@ class WhoIsViewController : ViewController, NSTableViewDataSource, NSTableViewDe
     }
     
     func startSearch() {
+        clearForm()
         searchBtn.isEnabled = false
         progressBar.isHidden = false
         progressBar.startAnimation(self.view)
@@ -77,6 +78,12 @@ class WhoIsViewController : ViewController, NSTableViewDataSource, NSTableViewDe
                     self.map[i]!!.stringValue = v
                 }
             }
+        }
+    }
+    
+    func clearForm() {
+        for (_,v) in map {
+            v?.stringValue = ""
         }
     }
     
