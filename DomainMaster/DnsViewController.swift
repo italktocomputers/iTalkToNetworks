@@ -19,6 +19,13 @@ class DnsViewController : ViewController, NSTableViewDataSource, NSTableViewDele
         tableView.dataSource = self
         dnsDomain.delegate = self
         addUrlCacheToComboBox()
+        
+        tableView.tableColumns.forEach { (column) in
+            column.headerCell.attributedStringValue = NSAttributedString(
+                string: column.title,
+                attributes: [NSAttributedString.Key.font: NSFont(name: "Geneva", size: 13.0) ?? "Arial"]
+            )
+        }
     }
     
     func addUrlCacheToComboBox() {

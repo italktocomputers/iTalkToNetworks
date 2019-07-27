@@ -22,6 +22,7 @@ class WhoIsSettingsViewController : ViewController, NSWindowDelegate {
     @IBOutlet weak var customNic: NSButton!
     @IBOutlet weak var host: NSTextField!
     @IBOutlet weak var port: NSTextField!
+    @IBOutlet weak var allowReferrals: NSButton!
     
     override func viewDidLoad() {
         let arinValue = Helper.getSetting(name: "whoIsArin")
@@ -39,6 +40,7 @@ class WhoIsSettingsViewController : ViewController, NSWindowDelegate {
         let customNicValue = Helper.getSetting(name: "whoIsCustomNic")
         let hostValue = Helper.getSetting(name: "whoIsSource")
         let portValue = Helper.getSetting(name: "whoIsPort")
+        let allowReferralsValue = Helper.getSetting(name: "whoIsAllowReferrals")
         
         Helper.initTextBox(val: hostValue, box: host)
         Helper.initTextBox(val: portValue, box: port)
@@ -56,6 +58,7 @@ class WhoIsSettingsViewController : ViewController, NSWindowDelegate {
         Helper.initCheckBox(val: ripeValue, box: ripe)
         Helper.initCheckBox(val: peeringDbValue, box: peeringDb)
         Helper.initCheckBox(val: customNicValue, box: customNic)
+        Helper.initCheckBox(val: allowReferralsValue, box: allowReferrals)
     }
     
     @IBAction func NicClick(_ sender: NSButton) {

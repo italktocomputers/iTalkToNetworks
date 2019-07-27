@@ -9,37 +9,37 @@
 	<key>iPv6</key>
 	<string>on</string>
 	<key>dnsPort</key>
-	<string></string>
+	<string>53</string>
 	<key>dnsSource</key>
-	<string></string>
+	<string>8.8.8.8</string>
 	<key>dnsTimeout</key>
-	<string></string>
+	<string>5</string>
 	<key>whoIsArin</key>
-	<string></string>
+	<string>off</string>
 	<key>whoIsApnic</key>
-	<string></string>
+	<string>off</string>
 	<key>whoIsNac</key>
-	<string></string>
+	<string>off</string>
 	<key>whoIsAfriNic</key>
-	<string></string>
+	<string>off</string>
 	<key>whoIsInterNic</key>
-	<string></string>
+	<string>off</string>
 	<key>whoIsIana</key>
-	<string></string>
+	<string>on</string>
 	<key>whoIsKrnic</key>
-	<string></string>
+	<string>off</string>
 	<key>whoIsUsNonMilFedGov</key>
-	<string></string>
+	<string>off</string>
 	<key>whoIsLacNic</key>
-	<string></string>
+	<string>off</string>
 	<key>whoIsRadb</key>
-	<string></string>
+	<string>off</string>
 	<key>whoIsRipe</key>
-	<string></string>
+	<string>off</string>
 	<key>whoIsPeeringDb</key>
-	<string></string>
+	<string>off</string>
 	<key>whoIsCustomNic</key>
-	<string></string>
+	<string>off</string>
 	<key>whoIsSource</key>
 	<string></string>
 	<key>whoIsPort</key>

@@ -76,6 +76,12 @@ class Helper {
     }
     
     static func loadDefaultSettings() {
-        
+        var nsDictionary: NSDictionary?
+        if let path = Bundle.main.path(forResource: "DefaultSettings", ofType: "plist") {
+            nsDictionary = NSDictionary(contentsOfFile: path)
+            for (i,v) in nsDictionary! {
+                Helper.saveSetting(key: i as! String, value: v as! String)
+            }
+        }
     }
 }
