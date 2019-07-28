@@ -1663,9 +1663,15 @@
                     </view>
                     <connections>
                         <outlet property="btn" destination="LdF-P1-9gf" id="4t5-5m-tCX"/>
+                        <outlet property="endTime" destination="Q0X-k2-PaB" id="fzs-Ya-4c3"/>
                         <outlet property="inputBox" destination="N1m-br-drB" id="D1M-GB-kXX"/>
+                        <outlet property="packetLoss" destination="c4N-uz-nPI" id="RPs-4L-bUh"/>
+                        <outlet property="packetsReceived" destination="Gye-0s-fuk" id="Lj3-1O-iup"/>
+                        <outlet property="packetsTransmitted" destination="B3N-aE-efI" id="Oih-dA-yvs"/>
                         <outlet property="progressBar" destination="ItU-CS-ztR" id="dxD-rp-8ra"/>
+                        <outlet property="startTime" destination="Zxg-7A-zHx" id="rzW-sm-q2D"/>
                         <outlet property="tableView" destination="gwH-DI-htm" id="YKY-xw-A9t"/>
+                        <outlet property="timeElapsed" destination="jjm-mk-TIk" id="reP-AU-ftj"/>
                     </connections>
                 </viewController>
                 <customObject id="hhe-SJ-eqr" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

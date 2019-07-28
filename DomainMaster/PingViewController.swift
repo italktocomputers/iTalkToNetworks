@@ -12,7 +12,16 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet weak var inputBox: NSComboBox!
     
+    @IBOutlet weak var packetsTransmitted: NSTextField!
+    @IBOutlet weak var packetsReceived: NSTextField!
+    @IBOutlet weak var packetLoss: NSTextField!
+    @IBOutlet weak var startTime: NSTextField!
+    @IBOutlet weak var timeElapsed: NSTextField!
+    @IBOutlet weak var endTime: NSTextField!
+
     var data: [PingRow] = []
+    var pingCount = 10
+    var okToPing = true
     
     override func viewDidLoad() {
         tableView.delegate = self
@@ -37,18 +46,39 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     }
     
     @IBAction func ping(_ sender: Any) {
-        startPing()
+        let btn = sender as! NSButton
+        print(btn.title)
+        if (btn.title == "Ping") {
+            startPing()
+        }
+        else {
+            okToPing = false
+        }
+    }
+
+    func updateStats() {
+
+    }
+
+    func clearTable() {
+        data = []
+        tableView.reloadData()
     }
     
     func startPing() {
-        btn.isEnabled = false
+        btn.title = "Stop"
         progressBar.isHidden = false
         progressBar.startAnimation(self.view)
         UrlCache.add(url: inputBox.stringValue)
         let searchTerm = self.inputBox.stringValue
 
+        clearTable()
+
         DispatchQueue.global(qos: .userInitiated).async {
-            for i in 0...50 {
+            for i in 0...self.pingCount {
+                if self.okToPing == false {
+                    break
+                }
                 let row = PingHelper.ping(domain: searchTerm)
                 row.seq = String(i)
                 self.data.append(row)
@@ -61,6 +91,8 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
             DispatchQueue.main.async {
                 self.btn.isEnabled = true
                 self.progressBar.isHidden = true
+                self.btn.title = "Ping"
+                self.okToPing = true
             }
         }
     }
