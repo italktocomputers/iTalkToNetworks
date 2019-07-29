@@ -140,8 +140,9 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
 
         DispatchQueue.global(qos: .userInitiated).async {
             self.setStartTime()
+            let pingMax = Helper.getSetting(name: "pingMax")
 
-            for i in 0...self.pingCount {
+            for i in 1...(Int(pingMax) ?? 1) {
                 if self.okToPing == false {
                     break
                 }

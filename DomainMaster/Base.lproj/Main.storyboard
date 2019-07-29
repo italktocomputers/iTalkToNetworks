@@ -1995,7 +1995,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vMY-K4-yfL">
-                                            <rect key="frame" x="104" y="18" width="48" height="22"/>
+                                            <rect key="frame" x="74" y="18" width="48" height="22"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="FCh-vn-u8Y">
                                                 <font key="font" size="13" name="Geneva"/>
@@ -2007,16 +2007,16 @@
                                             </connections>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SEK-Ww-BZe">
-                                            <rect key="frame" x="13" y="20" width="85" height="17"/>
+                                            <rect key="frame" x="13" y="20" width="55" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Ping interval:" id="jKo-Gw-N8N">
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Interval:" id="jKo-Gw-N8N">
                                                 <font key="font" size="13" name="Geneva"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cgn-Bs-a6e">
-                                            <rect key="frame" x="189" y="20" width="60" height="17"/>
+                                            <rect key="frame" x="157" y="20" width="60" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Timeout:" id="tdc-k5-WHi">
                                                 <font key="font" size="13" name="Geneva"/>
@@ -2025,7 +2025,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GNw-tm-GpB">
-                                            <rect key="frame" x="255" y="18" width="48" height="22"/>
+                                            <rect key="frame" x="223" y="18" width="48" height="22"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="dwY-Vj-7cF">
                                                 <font key="font" size="13" name="Geneva"/>
@@ -2037,7 +2037,7 @@
                                             </connections>
                                         </textField>
                                         <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1L9-82-yMN">
-                                            <rect key="frame" x="158" y="14" width="25" height="25"/>
+                                            <rect key="frame" x="128" y="14" width="25" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ihz-Jt-8hh">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -2048,7 +2048,7 @@
                                             </connections>
                                         </button>
                                         <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dLU-kz-acd">
-                                            <rect key="frame" x="309" y="15" width="25" height="25"/>
+                                            <rect key="frame" x="277" y="15" width="25" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Wr8-Tl-zYk">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -2058,6 +2058,27 @@
                                                 <segue destination="Ieb-qv-Tvx" kind="popover" popoverAnchorView="dLU-kz-acd" popoverBehavior="t" preferredEdge="maxY" id="NXB-VJ-b7i"/>
                                             </connections>
                                         </button>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N8H-60-DRF">
+                                            <rect key="frame" x="306" y="20" width="33" height="17"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Max:" id="Y9v-Xt-T5m">
+                                                <font key="font" size="13" name="Geneva"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4SA-Cg-613">
+                                            <rect key="frame" x="345" y="18" width="48" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="KEb-wY-BJF">
+                                                <font key="font" size="13" name="Geneva"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <action selector="onMaxChange:" target="2DM-qB-uM0" id="thZ-VL-rhN"/>
+                                            </connections>
+                                        </textField>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lIj-8u-Xln">
                                             <rect key="frame" x="570" y="10" width="70" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -2070,7 +2091,7 @@
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IZu-n6-Fla">
-                                            <rect key="frame" x="400" y="19" width="49" height="18"/>
+                                            <rect key="frame" x="449" y="19" width="49" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="IPv4" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="tWv-ic-3qG">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -2081,7 +2102,7 @@
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mIe-fH-ngr">
-                                            <rect key="frame" x="453" y="19" width="49" height="18"/>
+                                            <rect key="frame" x="502" y="19" width="49" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="IPv6" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Fbf-4q-2rH">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -2092,13 +2113,24 @@
                                             </connections>
                                         </button>
                                         <box fixedFrame="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="3Gd-1C-6Tv">
-                                            <rect key="frame" x="385" y="12" width="134" height="32"/>
+                                            <rect key="frame" x="434" y="12" width="134" height="32"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <view key="contentView" ambiguous="YES" id="UOz-pq-Fdg">
                                                 <rect key="frame" x="1" y="1" width="132" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             </view>
                                         </box>
+                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0ta-nI-0eM">
+                                            <rect key="frame" x="399" y="14" width="25" height="25"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nSQ-uY-uJ0">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <segue destination="G03-V2-EHN" kind="popover" popoverAnchorView="0ta-nI-0eM" popoverBehavior="t" preferredEdge="maxY" id="lh6-8V-27Q"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </view>
                                 <color key="borderColor" name="tertiaryLabelColor" catalog="System" colorSpace="catalog"/>
@@ -2110,6 +2142,7 @@
                         <outlet property="intervalTextbox" destination="vMY-K4-yfL" id="KA2-sn-WHX"/>
                         <outlet property="ipv4Checkbox" destination="IZu-n6-Fla" id="qbU-3l-W9O"/>
                         <outlet property="ipv6Checkbox" destination="mIe-fH-ngr" id="nc3-7N-P4t"/>
+                        <outlet property="maxTextbox" destination="4SA-Cg-613" id="n4W-UJ-t6u"/>
                         <outlet property="saveButton" destination="lIj-8u-Xln" id="YEr-ko-DnE"/>
                         <outlet property="timeoutTextbox" destination="GNw-tm-GpB" id="hyA-Tb-h3G"/>
                     </connections>
@@ -2176,9 +2209,9 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="voe-8c-JQV">
-                                <rect key="frame" x="18" y="17" width="343" height="17"/>
+                                <rect key="frame" x="18" y="17" width="294" height="17"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" title="Wait  interval  seconds between sending each packet." id="IfK-tf-iY9">
+                                <textFieldCell key="cell" title="Wait x seconds between sending each packet." id="IfK-tf-iY9">
                                     <font key="font" size="13" name="Geneva"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -2189,20 +2222,20 @@
                 </viewController>
                 <customObject id="5pf-RU-DPj" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3150" y="833"/>
+            <point key="canvasLocation" x="-3183" y="771"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="8oZ-qg-bF9">
             <objects>
                 <viewController id="Ieb-qv-Tvx" sceneMemberID="viewController">
                     <view key="view" id="YAZ-SQ-1Tl">
-                        <rect key="frame" x="0.0" y="0.0" width="372" height="52"/>
+                        <rect key="frame" x="0.0" y="0.0" width="372" height="66"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sel-oy-SOv">
-                                <rect key="frame" x="18" y="17" width="343" height="17"/>
+                                <rect key="frame" x="17" y="7" width="338" height="51"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" title="Wait  interval  seconds between sending each packet." id="KoJ-5W-sSo">
+                                <textFieldCell key="cell" title="Specify a timeout, in seconds, before DomainMaster exits regardless of how many packets have been received." id="KoJ-5W-sSo">
                                     <font key="font" size="13" name="Geneva"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -2213,7 +2246,7 @@
                 </viewController>
                 <customObject id="ac7-B8-gm7" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2740" y="833"/>
+            <point key="canvasLocation" x="-2735" y="765"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="9Fb-2D-DGD">
@@ -2248,6 +2281,30 @@ TXT (Descriptive text)</string>
                 <customObject id="D1e-Dj-Hzu" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-152.5" y="-353"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="czK-0t-mDh">
+            <objects>
+                <viewController id="G03-V2-EHN" sceneMemberID="viewController">
+                    <view key="view" id="0k0-C6-0fa">
+                        <rect key="frame" x="0.0" y="0.0" width="372" height="68"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FVt-th-USg">
+                                <rect key="frame" x="18" y="8" width="343" height="51"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" title="Specify a max number of pings before DomainMaster exits regardless of how many packets have been received." id="3i6-8U-CKl">
+                                    <font key="font" size="13" name="Geneva"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="7Jz-QO-4bc" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2958" y="912"/>
         </scene>
     </scenes>
 </document>

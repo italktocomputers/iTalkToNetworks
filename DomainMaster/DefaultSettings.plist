@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>pingMax</key>
+	<string>25</string>
 	<key>pingIpv6</key>
 	<string>on</string>
 	<key>pingIpv4</key>
