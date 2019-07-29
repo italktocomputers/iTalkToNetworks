@@ -22,6 +22,12 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     var data: [PingRow] = []
     var pingCount = 10
     var okToPing = true
+    var pingStartTime = Date()
+    var pingEndTime = Date()
+    var pingElapsedTime: TimeInterval = Date().timeIntervalSinceNow
+    var pingPacketsTransmitted = 0
+    var pingPacketsReceived = 0
+    var pingPacketsLossed = 0.0
     
     override func viewDidLoad() {
         tableView.delegate = self
@@ -56,13 +62,39 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
         }
     }
 
-    func updateStats() {
+    func updateStats(row: PingRow) {
+        //timeElapsed.stringValue = String(pingElapsedTime)
 
     }
 
     func clearTable() {
         data = []
         tableView.reloadData()
+    }
+
+    func setStartTime() {
+        DispatchQueue.main.async {
+            self.pingStartTime = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            self.startTime.stringValue = formatter.string(from: self.pingStartTime)
+        }
+    }
+
+    func setEndTime() {
+        DispatchQueue.main.async {
+            self.pingEndTime = Date()
+            let formatter = DateFormatter()
+            formatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+            self.endTime.stringValue = formatter.string(from: self.pingEndTime)
+        }
+    }
+
+    func setTimeElapsed() {
+        DispatchQueue.main.async {
+            self.pingElapsedTime = Date().timeIntervalSince(self.pingStartTime).rounded()
+            self.timeElapsed.stringValue = String(self.pingElapsedTime)
+        }
     }
     
     func startPing() {
@@ -75,6 +107,8 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
         clearTable()
 
         DispatchQueue.global(qos: .userInitiated).async {
+            self.setStartTime()
+
             for i in 0...self.pingCount {
                 if self.okToPing == false {
                     break
@@ -82,12 +116,19 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
                 let row = PingHelper.ping(domain: searchTerm)
                 row.seq = String(i)
                 self.data.append(row)
+
+
+
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                     self.tableView.scrollRowToVisible(i)
+                    //self.updateStats()
+                    self.setTimeElapsed()
                 }
                 sleep(1)
             }
+            print("okokokokokok")
+            self.setEndTime()
             DispatchQueue.main.async {
                 self.btn.isEnabled = true
                 self.progressBar.isHidden = true

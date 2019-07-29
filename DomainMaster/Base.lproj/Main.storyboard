@@ -1539,25 +1539,25 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B3N-aE-efI">
-                                            <rect key="frame" x="32" y="53" width="12" height="17"/>
+                                            <rect key="frame" x="168" y="53" width="75" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="5" id="INL-0a-l3V">
+                                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="00" id="INL-0a-l3V">
                                                 <font key="font" size="13" name="Geneva"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gye-0s-fuk">
-                                            <rect key="frame" x="226" y="53" width="12" height="17"/>
+                                            <rect key="frame" x="168" y="33" width="75" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="5" id="mRj-JM-OJr">
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="00" id="mRj-JM-OJr">
                                                 <font key="font" size="13" name="Geneva"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c4N-uz-nPI">
-                                            <rect key="frame" x="391" y="53" width="38" height="17"/>
+                                            <rect key="frame" x="167" y="13" width="75" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="0.0%" id="hxp-ZP-CQt">
                                                 <font key="font" size="13" name="Geneva"/>
@@ -1566,52 +1566,52 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f36-1v-hsp">
-                                            <rect key="frame" x="48" y="53" width="143" height="17"/>
+                                            <rect key="frame" x="32" y="53" width="143" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="packets transmitted" id="uH5-bR-gYv">
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Packets transmitted:" id="uH5-bR-gYv">
                                                 <font key="font" size="13" name="Geneva"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rol-8H-AT2">
-                                            <rect key="frame" x="242" y="53" width="107" height="17"/>
+                                            <rect key="frame" x="21" y="33" width="143" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="packets received" id="dod-25-FYu">
+                                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Packets received:" id="dod-25-FYu">
                                                 <font key="font" size="13" name="Geneva"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5ws-8O-FeA">
-                                            <rect key="frame" x="429" y="53" width="73" height="17"/>
+                                            <rect key="frame" x="21" y="13" width="143" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="packet loss" id="ODg-bf-fGs">
+                                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Packets lossed:" id="ODg-bf-fGs">
                                                 <font key="font" size="13" name="Geneva"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YLy-iA-tu9">
-                                            <rect key="frame" x="32" y="20" width="40" height="17"/>
+                                            <rect key="frame" x="269" y="53" width="91" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Start:" id="bm3-Hq-Jj2">
+                                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Start:" id="bm3-Hq-Jj2">
                                                 <font key="font" size="13" name="Geneva"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zxg-7A-zHx">
-                                            <rect key="frame" x="70" y="20" width="135" height="17"/>
+                                            <rect key="frame" x="364" y="53" width="200" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="07/04/19 12:04:02" id="t2O-2k-GXK">
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="__/__/____ __:__:__" id="t2O-2k-GXK">
                                                 <font key="font" size="13" name="Geneva"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PZ4-kv-fjz">
-                                            <rect key="frame" x="226" y="20" width="91" height="17"/>
+                                            <rect key="frame" x="269" y="13" width="91" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Time elapsed:" id="0kV-4W-yXL">
                                                 <font key="font" size="13" name="Geneva"/>
@@ -1619,28 +1619,28 @@
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jjm-mk-TIk">
-                                            <rect key="frame" x="317" y="20" width="157" height="17"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="24 minutes, 23 seconds" id="rMz-dl-HZW">
-                                                <font key="font" size="13" name="Geneva"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ea8-vF-rN6">
-                                            <rect key="frame" x="500" y="20" width="31" height="17"/>
+                                            <rect key="frame" x="269" y="33" width="91" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="End:" id="VrE-yD-Tpt">
+                                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="End:" id="VrE-yD-Tpt">
                                                 <font key="font" size="13" name="Geneva"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q0X-k2-PaB">
-                                            <rect key="frame" x="538" y="20" width="135" height="17"/>
+                                            <rect key="frame" x="364" y="33" width="200" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="07/04/19 12:28:25" id="yA8-8Q-GhB">
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="__/__/____ __:__:__" id="yA8-8Q-GhB">
+                                                <font key="font" size="13" name="Geneva"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tiG-5e-tg8">
+                                            <rect key="frame" x="364" y="13" width="200" height="17"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="00" id="pTA-vb-NIL">
                                                 <font key="font" size="13" name="Geneva"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1671,7 +1671,7 @@
                         <outlet property="progressBar" destination="ItU-CS-ztR" id="dxD-rp-8ra"/>
                         <outlet property="startTime" destination="Zxg-7A-zHx" id="rzW-sm-q2D"/>
                         <outlet property="tableView" destination="gwH-DI-htm" id="YKY-xw-A9t"/>
-                        <outlet property="timeElapsed" destination="jjm-mk-TIk" id="reP-AU-ftj"/>
+                        <outlet property="timeElapsed" destination="tiG-5e-tg8" id="aLu-ap-htX"/>
                     </connections>
                 </viewController>
                 <customObject id="hhe-SJ-eqr" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

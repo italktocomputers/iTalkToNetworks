@@ -33,6 +33,7 @@ class Helper {
         
         let pipe = Pipe()
         task.standardOutput = pipe
+        task.standardError = pipe
         task.launch()
         
         let data = pipe.fileHandleForReading.readDataToEndOfFile()

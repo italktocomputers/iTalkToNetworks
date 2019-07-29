@@ -9,7 +9,6 @@ import CoreFoundation
 class PingHelper {
     static func ping(domain: String) -> PingRow {
         let results = Helper.shell("ping -c 1 \(domain)")
-        //print(results)
         return parseResponse(results: results)
     }
     
@@ -27,17 +26,23 @@ class PingHelper {
             pattern: "^([0-9]{1,}) bytes from ([0-9.]{1,}): icmp_seq=([0-9]{1,}) ttl=([0-9]{1,}) time=([0-9.]{1,}) ms$",
             options: NSRegularExpression.Options.caseInsensitive
         )
-        let row = rows[1]
 
         var bytes = ""
         var from = ""
         var seq = ""
         var ttl = ""
         var time = ""
+
+        if results.contains("cannot resolve") {
+            return PingRow(bytes: "0", from: results, seq: "-1", ttl: "", time: "")
+        }
+
+        if results.contains("Request timeout") {
+            return PingRow(bytes: "0", from: results, seq: "-1", ttl: "", time: "")
+        }
+
+        let row = rows[1]
         let myrow = String(row) // deep copy
-
-        //print(myrow)
-
         let matches = regex!.matches(
             in: String(myrow),
             options: [],
