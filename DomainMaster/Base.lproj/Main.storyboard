@@ -58,7 +58,7 @@
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="331" y="-93"/>
+            <point key="canvasLocation" x="828" y="-231"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="hWI-N8-3A1">
@@ -79,7 +79,7 @@
                 </windowController>
                 <customObject id="hfR-Cy-l5J" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="90" y="279"/>
+            <point key="canvasLocation" x="618" y="298"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ofZ-5a-5BT">
@@ -121,7 +121,7 @@
                 </viewController>
                 <customObject id="sVc-fI-aUQ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="90" y="594"/>
+            <point key="canvasLocation" x="618" y="634"/>
         </scene>
         <!--Tab View Controller-->
         <scene sceneID="wTo-HP-hlH">
@@ -151,13 +151,13 @@
                 </tabViewController>
                 <customObject id="aFU-9P-jud" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2355" y="17"/>
+            <point key="canvasLocation" x="-2407" y="-476"/>
         </scene>
         <!--DNS-->
         <scene sceneID="SdH-Pl-cUa">
             <objects>
                 <viewController title="DNS" id="hC2-M1-9Mu" customClass="DnsViewController" customModule="DomainMaster" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" autoresizesSubviews="NO" id="NZO-Li-MKl">
+                    <view key="view" autoresizesSubviews="NO" misplaced="YES" id="NZO-Li-MKl">
                         <rect key="frame" x="0.0" y="0.0" width="881" height="606"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
@@ -377,10 +377,10 @@
                                 </connections>
                             </button>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qOT-kS-Ee5">
-                                <rect key="frame" x="586" y="552" width="155" height="32"/>
+                                <rect key="frame" x="586" y="552" width="151" height="32"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="qK5-ho-Il1"/>
-                                    <constraint firstAttribute="width" constant="143" id="zqR-yB-fgx"/>
+                                    <constraint firstAttribute="height" constant="21" id="Cd2-HV-2a4"/>
+                                    <constraint firstAttribute="width" constant="139" id="InB-6B-foE"/>
                                 </constraints>
                                 <buttonCell key="cell" type="push" title="Advanced Options" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="bjm-hH-aPb">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -406,26 +406,26 @@
                         <constraints>
                             <constraint firstItem="Zfq-oS-iui" firstAttribute="top" secondItem="hdV-Ns-C0R" secondAttribute="bottom" constant="8" id="1IR-ab-Mh8"/>
                             <constraint firstItem="BJ0-Sa-Jky" firstAttribute="leading" secondItem="500-Bs-4dp" secondAttribute="trailing" constant="8" id="2nH-4O-LfP"/>
-                            <constraint firstItem="qOT-kS-Ee5" firstAttribute="top" secondItem="NZO-Li-MKl" secondAttribute="top" constant="26" id="4Tg-Oo-LJc"/>
                             <constraint firstItem="500-Bs-4dp" firstAttribute="leading" secondItem="NZO-Li-MKl" secondAttribute="leading" constant="20" id="4r0-Ji-M4e"/>
                             <constraint firstAttribute="trailing" secondItem="Zfq-oS-iui" secondAttribute="trailing" constant="20" id="4tZ-Pu-XdK"/>
                             <constraint firstItem="JBW-oF-yAJ" firstAttribute="top" secondItem="Zfq-oS-iui" secondAttribute="bottom" constant="15" id="8Ps-AT-dia"/>
+                            <constraint firstItem="Zfq-oS-iui" firstAttribute="top" secondItem="qOT-kS-Ee5" secondAttribute="bottom" constant="13" id="CPh-HS-jow"/>
                             <constraint firstItem="JBW-oF-yAJ" firstAttribute="leading" secondItem="NZO-Li-MKl" secondAttribute="leading" constant="214" id="GGH-36-VQF"/>
-                            <constraint firstItem="Zfq-oS-iui" firstAttribute="top" secondItem="qOT-kS-Ee5" secondAttribute="bottom" constant="13" id="HNT-kX-ocI"/>
                             <constraint firstItem="500-Bs-4dp" firstAttribute="top" secondItem="NZO-Li-MKl" secondAttribute="top" constant="28" id="MSk-8S-Duu"/>
                             <constraint firstItem="pp1-a6-fr1" firstAttribute="top" secondItem="NZO-Li-MKl" secondAttribute="top" constant="26" id="SBY-Ka-u7H"/>
                             <constraint firstAttribute="bottom" secondItem="JBW-oF-yAJ" secondAttribute="bottom" constant="20" id="Sfw-Ag-YFh"/>
                             <constraint firstItem="Zfq-oS-iui" firstAttribute="top" secondItem="hdV-Ns-C0R" secondAttribute="bottom" constant="8" id="TFt-8A-V2n"/>
                             <constraint firstItem="JBW-oF-yAJ" firstAttribute="top" secondItem="Zfq-oS-iui" secondAttribute="bottom" constant="15" id="WnX-RY-JSH"/>
-                            <constraint firstItem="hdV-Ns-C0R" firstAttribute="leading" secondItem="qOT-kS-Ee5" secondAttribute="trailing" constant="86" id="Y8B-kp-HxE"/>
+                            <constraint firstItem="qOT-kS-Ee5" firstAttribute="top" secondItem="NZO-Li-MKl" secondAttribute="top" constant="26" id="akw-m4-LRK"/>
                             <constraint firstAttribute="trailing" secondItem="hdV-Ns-C0R" secondAttribute="trailing" constant="28" id="bM6-vf-P6J"/>
+                            <constraint firstItem="hdV-Ns-C0R" firstAttribute="leading" secondItem="qOT-kS-Ee5" secondAttribute="trailing" constant="90" id="fqk-FC-7Qx"/>
+                            <constraint firstItem="qOT-kS-Ee5" firstAttribute="leading" secondItem="pp1-a6-fr1" secondAttribute="trailing" constant="12" id="gXn-fa-fQo"/>
                             <constraint firstItem="hdV-Ns-C0R" firstAttribute="top" secondItem="NZO-Li-MKl" secondAttribute="top" constant="20" id="kIp-BY-c7r"/>
                             <constraint firstItem="Zfq-oS-iui" firstAttribute="top" secondItem="BJ0-Sa-Jky" secondAttribute="bottom" constant="14" id="mgv-C6-tfj"/>
                             <constraint firstItem="Zfq-oS-iui" firstAttribute="top" secondItem="500-Bs-4dp" secondAttribute="bottom" constant="15" id="nyq-fr-rWb"/>
                             <constraint firstAttribute="trailing" secondItem="JBW-oF-yAJ" secondAttribute="trailing" constant="206" id="ozz-x2-E8L"/>
                             <constraint firstItem="pp1-a6-fr1" firstAttribute="leading" secondItem="BJ0-Sa-Jky" secondAttribute="trailing" constant="20" id="r8X-1g-dtj"/>
                             <constraint firstItem="Zfq-oS-iui" firstAttribute="leading" secondItem="NZO-Li-MKl" secondAttribute="leading" constant="27" id="uqF-5a-IzY"/>
-                            <constraint firstItem="qOT-kS-Ee5" firstAttribute="leading" secondItem="pp1-a6-fr1" secondAttribute="trailing" constant="12" id="xad-cd-dOh"/>
                             <constraint firstItem="BJ0-Sa-Jky" firstAttribute="top" secondItem="NZO-Li-MKl" secondAttribute="top" constant="26" id="xgJ-jm-Oy6"/>
                         </constraints>
                     </view>
@@ -438,7 +438,7 @@
                 </viewController>
                 <customObject id="vhB-L0-NG5" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-962" y="95"/>
+            <point key="canvasLocation" x="-1637" y="-476"/>
         </scene>
         <!--WHOIS-->
         <scene sceneID="Tra-Up-ody">
@@ -867,7 +867,7 @@
                 </viewController>
                 <customObject id="UWh-wf-t01" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-957.5" y="792"/>
+            <point key="canvasLocation" x="-1638" y="210"/>
         </scene>
         <!--Window Controller-->
         <scene sceneID="wem-AO-Y47">
@@ -888,7 +888,7 @@
                 </windowController>
                 <customObject id="gDZ-9M-7Y9" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="766" y="307"/>
+            <point key="canvasLocation" x="1157" y="298"/>
         </scene>
         <!--About Domain Master-->
         <scene sceneID="iyW-5T-UJB">
@@ -966,28 +966,7 @@
                 </viewController>
                 <customObject id="7OM-LW-dqv" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="766" y="733"/>
-        </scene>
-        <!--Window Controller-->
-        <scene sceneID="Neg-1t-27m">
-            <objects>
-                <windowController id="PMP-GD-DqP" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="No4-lU-akT">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="294" y="313" width="480" height="270"/>
-                        <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1057"/>
-                        <connections>
-                            <outlet property="delegate" destination="PMP-GD-DqP" id="cah-8a-tr1"/>
-                        </connections>
-                    </window>
-                    <connections>
-                        <segue destination="ZPc-t2-3Hl" kind="relationship" relationship="window.shadowedContentViewController" id="Hbe-kZ-c2a"/>
-                    </connections>
-                </windowController>
-                <customObject id="Ff4-py-Sul" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-847" y="1381"/>
+            <point key="canvasLocation" x="1157" y="694"/>
         </scene>
         <!--Dns Settings View Controller-->
         <scene sceneID="j2C-C3-Suy">
@@ -1125,6 +1104,17 @@
                                                 <action selector="prClick:" target="ZPc-t2-3Hl" id="Knp-Vj-AC1"/>
                                             </connections>
                                         </button>
+                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DxN-of-8dc">
+                                            <rect key="frame" x="626" y="12" width="25" height="25"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Dzb-LE-emO">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <segue destination="RR7-px-bzU" kind="popover" popoverAnchorView="DxN-of-8dc" popoverBehavior="t" preferredEdge="maxY" id="C1s-0Q-fzC"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </view>
                                 <font key="titleFont" size="13" name="Geneva"/>
@@ -1239,7 +1229,7 @@
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oU8-n8-hBu">
                                 <rect key="frame" x="607" y="13" width="75" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DnC-Ji-fAa">
+                                <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DnC-Ji-fAa">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" size="13" name="Geneva"/>
                                 </buttonCell>
@@ -1270,7 +1260,7 @@
                 </viewController>
                 <customObject id="HGy-g7-An2" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="111" y="1100.5"/>
+            <point key="canvasLocation" x="-763" y="-424"/>
         </scene>
         <!--TraceRoute-->
         <scene sceneID="5Nt-Oc-273">
@@ -1283,7 +1273,7 @@
                 </viewController>
                 <customObject id="PXn-7c-Ek1" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3165" y="955"/>
+            <point key="canvasLocation" x="-3685" y="709"/>
         </scene>
         <!--Ping-->
         <scene sceneID="g6Y-qj-vnv">
@@ -1336,6 +1326,9 @@
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" size="13" name="Geneva"/>
                                 </buttonCell>
+                                <connections>
+                                    <segue destination="2DM-qB-uM0" kind="sheet" id="AeX-nq-hYE"/>
+                                </connections>
                             </button>
                             <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="69" horizontalPageScroll="10" verticalLineScroll="69" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgw-o2-j2P">
                                 <rect key="frame" x="27" y="168" width="834" height="378"/>
@@ -1539,36 +1532,36 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B3N-aE-efI">
-                                            <rect key="frame" x="168" y="53" width="75" height="17"/>
+                                            <rect key="frame" x="167" y="53" width="75" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="00" id="INL-0a-l3V">
                                                 <font key="font" size="13" name="Geneva"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="textColor" name="systemBlueColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gye-0s-fuk">
-                                            <rect key="frame" x="168" y="33" width="75" height="17"/>
+                                            <rect key="frame" x="167" y="33" width="75" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="00" id="mRj-JM-OJr">
                                                 <font key="font" size="13" name="Geneva"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="textColor" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c4N-uz-nPI">
                                             <rect key="frame" x="167" y="13" width="75" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="0.0%" id="hxp-ZP-CQt">
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="0.0" id="hxp-ZP-CQt">
                                                 <font key="font" size="13" name="Geneva"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f36-1v-hsp">
-                                            <rect key="frame" x="32" y="53" width="143" height="17"/>
+                                            <rect key="frame" x="21" y="53" width="143" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Packets transmitted:" id="uH5-bR-gYv">
+                                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Packets transmitted:" id="uH5-bR-gYv">
                                                 <font key="font" size="13" name="Geneva"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1586,7 +1579,7 @@
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5ws-8O-FeA">
                                             <rect key="frame" x="21" y="13" width="143" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Packets lossed:" id="ODg-bf-fGs">
+                                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Packets lossed (%):" id="ODg-bf-fGs">
                                                 <font key="font" size="13" name="Geneva"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1640,7 +1633,7 @@
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tiG-5e-tg8">
                                             <rect key="frame" x="364" y="13" width="200" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="00" id="pTA-vb-NIL">
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="0.0" id="pTA-vb-NIL">
                                                 <font key="font" size="13" name="Geneva"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1676,7 +1669,7 @@
                 </viewController>
                 <customObject id="hhe-SJ-eqr" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2107.5" y="1100"/>
+            <point key="canvasLocation" x="-3004" y="87"/>
         </scene>
         <!--Who Is Settings View Controller-->
         <scene sceneID="s0v-eZ-Q82">
@@ -1902,6 +1895,17 @@
                                             </view>
                                             <font key="titleFont" size="13" name="Geneva"/>
                                         </box>
+                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pm4-1W-jsy">
+                                            <rect key="frame" x="628" y="4" width="25" height="25"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="7JI-2x-frm">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <segue destination="JFr-B0-Yf3" kind="popover" popoverAnchorView="pm4-1W-jsy" popoverBehavior="t" preferredEdge="maxY" id="h08-vn-74v"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                 </view>
                                 <font key="titleFont" size="13" name="Geneva"/>
@@ -1914,7 +1918,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kdd-Cr-b1e">
-                                            <rect key="frame" x="18" y="8" width="110" height="20"/>
+                                            <rect key="frame" x="18" y="8" width="124" height="20"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Allow referrals" bezelStyle="regularSquare" imagePosition="left" inset="2" id="lQu-9T-zQe">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -1942,7 +1946,7 @@
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IaL-Sh-zYS">
                                 <rect key="frame" x="607" y="13" width="75" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Toe-4e-4BV">
+                                <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Toe-4e-4BV">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" size="13" name="Geneva"/>
                                 </buttonCell>
@@ -1973,7 +1977,146 @@
                 </viewController>
                 <customObject id="bfL-Bm-lYa" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="111" y="1630.5"/>
+            <point key="canvasLocation" x="-763" y="211"/>
+        </scene>
+        <!--Ping Settings View Controller-->
+        <scene sceneID="WJp-y6-09A">
+            <objects>
+                <viewController id="2DM-qB-uM0" customClass="PingSettingsViewController" customModule="DomainMaster" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="vtd-Gy-yLO">
+                        <rect key="frame" x="0.0" y="0.0" width="696" height="99"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <box fixedFrame="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="4iW-TJ-1hT">
+                                <rect key="frame" x="20" y="20" width="656" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <view key="contentView" ambiguous="YES" id="XCi-FV-9yY">
+                                    <rect key="frame" x="1" y="1" width="654" height="57"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vMY-K4-yfL">
+                                            <rect key="frame" x="104" y="18" width="48" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="FCh-vn-u8Y">
+                                                <font key="font" size="13" name="Geneva"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <action selector="onIntervalChange:" target="2DM-qB-uM0" id="6HF-Za-LQl"/>
+                                            </connections>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SEK-Ww-BZe">
+                                            <rect key="frame" x="13" y="20" width="85" height="17"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Ping interval:" id="jKo-Gw-N8N">
+                                                <font key="font" size="13" name="Geneva"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cgn-Bs-a6e">
+                                            <rect key="frame" x="189" y="20" width="60" height="17"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Timeout:" id="tdc-k5-WHi">
+                                                <font key="font" size="13" name="Geneva"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GNw-tm-GpB">
+                                            <rect key="frame" x="255" y="18" width="48" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="dwY-Vj-7cF">
+                                                <font key="font" size="13" name="Geneva"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <action selector="onTimeoutChange:" target="2DM-qB-uM0" id="NDR-Hx-DSY"/>
+                                            </connections>
+                                        </textField>
+                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1L9-82-yMN">
+                                            <rect key="frame" x="158" y="14" width="25" height="25"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ihz-Jt-8hh">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <segue destination="ncT-NY-gGv" kind="popover" popoverAnchorView="1L9-82-yMN" popoverBehavior="t" preferredEdge="maxY" id="AFt-YP-6sl"/>
+                                            </connections>
+                                        </button>
+                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dLU-kz-acd">
+                                            <rect key="frame" x="309" y="15" width="25" height="25"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Wr8-Tl-zYk">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <segue destination="Ieb-qv-Tvx" kind="popover" popoverAnchorView="dLU-kz-acd" popoverBehavior="t" preferredEdge="maxY" id="NXB-VJ-b7i"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lIj-8u-Xln">
+                                            <rect key="frame" x="570" y="10" width="70" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FtO-F0-zwA">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="close:" target="2DM-qB-uM0" id="6Wf-ST-4kO"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IZu-n6-Fla">
+                                            <rect key="frame" x="400" y="19" width="49" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="check" title="IPv4" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="tWv-ic-3qG">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" size="13" name="Geneva"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="ipv4Click:" target="2DM-qB-uM0" id="HCr-4n-PLt"/>
+                                            </connections>
+                                        </button>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mIe-fH-ngr">
+                                            <rect key="frame" x="453" y="19" width="49" height="18"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="check" title="IPv6" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Fbf-4q-2rH">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" size="13" name="Geneva"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="ipv6Click:" target="2DM-qB-uM0" id="EXE-Zb-c9z"/>
+                                            </connections>
+                                        </button>
+                                        <box fixedFrame="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="3Gd-1C-6Tv">
+                                            <rect key="frame" x="385" y="12" width="134" height="32"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <view key="contentView" ambiguous="YES" id="UOz-pq-Fdg">
+                                                <rect key="frame" x="1" y="1" width="132" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </view>
+                                        </box>
+                                    </subviews>
+                                </view>
+                                <color key="borderColor" name="tertiaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                <color key="fillColor" name="quaternaryLabelColor" catalog="System" colorSpace="catalog"/>
+                            </box>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="intervalTextbox" destination="vMY-K4-yfL" id="KA2-sn-WHX"/>
+                        <outlet property="ipv4Checkbox" destination="IZu-n6-Fla" id="qbU-3l-W9O"/>
+                        <outlet property="ipv6Checkbox" destination="mIe-fH-ngr" id="nc3-7N-P4t"/>
+                        <outlet property="saveButton" destination="lIj-8u-Xln" id="YEr-ko-DnE"/>
+                        <outlet property="timeoutTextbox" destination="GNw-tm-GpB" id="hyA-Tb-h3G"/>
+                    </connections>
+                </viewController>
+                <customObject id="hE1-z1-8EG" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3005" y="594.5"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Inl-fS-RsO">
@@ -1997,10 +2140,114 @@
                 </viewController>
                 <customObject id="bxZ-tc-mx6" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="766" y="1747"/>
+            <point key="canvasLocation" x="-77" y="87"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="40p-ge-uUf">
+            <objects>
+                <viewController id="JFr-B0-Yf3" sceneMemberID="viewController">
+                    <view key="view" id="RLO-2R-DQW">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="178"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WQN-DY-T5q">
+                                <rect key="frame" x="16" y="12" width="418" height="153"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" id="wKk-nL-mRO">
+                                    <font key="font" size="13" name="Geneva"/>
+                                    <mutableString key="title">A registry operator, sometimes called a network information center (NIC), maintains all administrative data of the domain and generates a zone file which contains the addresses of the nameservers for each domain. Each registry is an organization that manages the registration of domain names within the domains for which it is responsible, controls the policies of domain name allocation, and technically operates its domain. It may also fulfill the function of a domain name registrar, or may delegate that function to other entities.</mutableString>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="Rjb-B7-kUo" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-77" y="323"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="qdO-SP-07W">
+            <objects>
+                <viewController id="ncT-NY-gGv" sceneMemberID="viewController">
+                    <view key="view" id="bck-YJ-8TP">
+                        <rect key="frame" x="0.0" y="0.0" width="372" height="52"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="voe-8c-JQV">
+                                <rect key="frame" x="18" y="17" width="343" height="17"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" title="Wait  interval  seconds between sending each packet." id="IfK-tf-iY9">
+                                    <font key="font" size="13" name="Geneva"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="5pf-RU-DPj" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3150" y="833"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="8oZ-qg-bF9">
+            <objects>
+                <viewController id="Ieb-qv-Tvx" sceneMemberID="viewController">
+                    <view key="view" id="YAZ-SQ-1Tl">
+                        <rect key="frame" x="0.0" y="0.0" width="372" height="52"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sel-oy-SOv">
+                                <rect key="frame" x="18" y="17" width="343" height="17"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" title="Wait  interval  seconds between sending each packet." id="KoJ-5W-sSo">
+                                    <font key="font" size="13" name="Geneva"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="ac7-B8-gm7" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2740" y="833"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="9Fb-2D-DGD">
+            <objects>
+                <viewController id="RR7-px-bzU" sceneMemberID="viewController">
+                    <view key="view" id="SzU-UL-qK4">
+                        <rect key="frame" x="0.0" y="0.0" width="255" height="206"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Zb-7b-mpD">
+                                <rect key="frame" x="8" y="9" width="238" height="177"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" id="teg-nG-uer">
+                                    <font key="font" size="13" name="Geneva"/>
+                                    <string key="title">A (Host address)
+AAAA (IPv6 host address)
+ALIAS (Auto resolved alias)
+CNAME (Canonical name for an alias)
+MX (Mail eXchange)
+NS (Name Server)
+PTR (Pointer)
+SOA (Start Of Authority)
+SRV (location of service)
+TXT (Descriptive text)</string>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="D1e-Dj-Hzu" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-152.5" y="-353"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="RO0-F9-Hwx"/>
-    </inferredMetricsTieBreakers>
 </document>

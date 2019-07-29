@@ -27,18 +27,18 @@ class PingHelper {
             options: NSRegularExpression.Options.caseInsensitive
         )
 
-        var bytes = ""
-        var from = ""
-        var seq = ""
-        var ttl = ""
-        var time = ""
+        var bytes = 0
+        var from = "N/A"
+        var seq = 0
+        var ttl = 0
+        var time = 0.0
 
         if results.contains("cannot resolve") {
-            return PingRow(bytes: "0", from: results, seq: "-1", ttl: "", time: "")
+            return PingRow(bytes: 0, from: results, seq: -1, ttl: 0, time: 0.0)
         }
 
         if results.contains("Request timeout") {
-            return PingRow(bytes: "0", from: results, seq: "-1", ttl: "", time: "")
+            return PingRow(bytes: 0, from: results, seq: -1, ttl: 0, time: 0.0)
         }
 
         let row = rows[1]
@@ -51,7 +51,7 @@ class PingHelper {
 
         if let match = matches.first {
             if let range = Range(match.range(at:1), in: String(myrow)) {
-                bytes = String(myrow[range])
+                bytes = Int(myrow[range]) ?? 0
             }
 
             if let range = Range(match.range(at:2), in: String(myrow)) {
@@ -59,24 +59,18 @@ class PingHelper {
             }
 
             if let range = Range(match.range(at:3), in: String(myrow)) {
-                seq = String(myrow[range])
+                seq = Int(myrow[range]) ?? 0
             }
 
             if let range = Range(match.range(at:4), in: String(myrow)) {
-                ttl = String(myrow[range])
+                ttl = Int(myrow[range]) ?? 0
             }
 
             if let range = Range(match.range(at:5), in: String(myrow)) {
-                time = String(myrow[range])
+                time = Double(myrow[range]) ?? 0.0
             }
         }
 
-        return PingRow(
-            bytes: bytes,
-            from: from,
-            seq: seq,
-            ttl: ttl,
-            time: time
-        )
+        return PingRow(bytes: bytes, from: from, seq: seq,ttl: ttl, time: time)
     }
 }

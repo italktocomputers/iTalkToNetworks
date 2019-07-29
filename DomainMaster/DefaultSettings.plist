@@ -2,6 +2,14 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>pingIpv6</key>
+	<string>on</string>
+	<key>pingIpv4</key>
+	<string>on</string>
+	<key>pingTimeout</key>
+	<string>30</string>
+	<key>pingInterval</key>
+	<string>1</string>
 	<key>resourceType</key>
 	<string>ANY</string>
 	<key>iPv4</key>

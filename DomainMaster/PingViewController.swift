@@ -11,7 +11,6 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     @IBOutlet weak var btn: NSButton!
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet weak var inputBox: NSComboBox!
-    
     @IBOutlet weak var packetsTransmitted: NSTextField!
     @IBOutlet weak var packetsReceived: NSTextField!
     @IBOutlet weak var packetLoss: NSTextField!
@@ -27,7 +26,8 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     var pingElapsedTime: TimeInterval = Date().timeIntervalSinceNow
     var pingPacketsTransmitted = 0
     var pingPacketsReceived = 0
-    var pingPacketsLossed = 0.0
+    var pingPacketsLossed = 0
+    var pingPacketsLossedPercentage: Double = 0.0
     
     override func viewDidLoad() {
         tableView.delegate = self
@@ -39,7 +39,9 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
         tableView.tableColumns.forEach { (column) in
             column.headerCell.attributedStringValue = NSAttributedString(
                 string: column.title,
-                attributes: [NSAttributedString.Key.font: NSFont(name: "Geneva", size: 13.0) ?? "Arial"]
+                attributes: [
+                    NSAttributedString.Key.font: NSFont(name: "Geneva", size: 13.0) ?? "Arial"
+                ]
             )
         }
     }
@@ -53,7 +55,6 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     
     @IBAction func ping(_ sender: Any) {
         let btn = sender as! NSButton
-        print(btn.title)
         if (btn.title == "Ping") {
             startPing()
         }
@@ -63,13 +64,43 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     }
 
     func updateStats(row: PingRow) {
-        //timeElapsed.stringValue = String(pingElapsedTime)
+        pingPacketsTransmitted += 1
 
+        if row.seq == -1 {
+            pingPacketsLossed += 1
+        }
+        else {
+            pingPacketsReceived += 1
+        }
+
+        if pingPacketsTransmitted != 0 && pingPacketsLossed != 0 {
+            pingPacketsLossedPercentage = Double(pingPacketsTransmitted / pingPacketsLossed)
+        }
+        else {
+            pingPacketsLossedPercentage = 0.0
+        }
+
+        packetsTransmitted.stringValue = String(pingPacketsTransmitted)
+        packetsReceived.stringValue = String(pingPacketsReceived)
+        packetLoss.stringValue = String(pingPacketsLossedPercentage)
     }
 
     func clearTable() {
         data = []
         tableView.reloadData()
+    }
+
+    func clearStats() {
+        pingPacketsTransmitted = 0
+        pingPacketsReceived = 0
+        pingPacketsLossed = 0
+        pingPacketsLossedPercentage = 0.0
+        packetsTransmitted.stringValue = "00"
+        packetsReceived.stringValue = "00"
+        packetLoss.stringValue = "0.0%"
+        startTime.stringValue = "__/__/____ __:__:__"
+        endTime.stringValue = "__/__/____ __:__:__"
+        timeElapsed.stringValue = "0.0"
     }
 
     func setStartTime() {
@@ -105,6 +136,7 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
         let searchTerm = self.inputBox.stringValue
 
         clearTable()
+        clearStats()
 
         DispatchQueue.global(qos: .userInitiated).async {
             self.setStartTime()
@@ -113,22 +145,23 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
                 if self.okToPing == false {
                     break
                 }
+
                 let row = PingHelper.ping(domain: searchTerm)
-                row.seq = String(i)
+                row.seq = i
                 self.data.append(row)
-
-
 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                     self.tableView.scrollRowToVisible(i)
-                    //self.updateStats()
+                    self.updateStats(row: row)
                     self.setTimeElapsed()
                 }
+
                 sleep(1)
             }
-            print("okokokokokok")
+
             self.setEndTime()
+
             DispatchQueue.main.async {
                 self.btn.isEnabled = true
                 self.progressBar.isHidden = true
@@ -143,12 +176,25 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        var txtColor = NSColor.white
+
+        if self.data[row].seq == -1 {
+            txtColor = NSColor.red
+        }
+        else if self.data[row].time >= 1000 {
+            txtColor = NSColor.red
+        }
+        else if self.data[row].time >= 600 {
+            txtColor = NSColor.orange
+        }
+
         if (tableView.tableColumns[0] == tableColumn) {
             if let cell = tableView.makeView(
                 withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "bytes"),
                 owner: nil
                 ) as? NSTableCellView {
-                cell.textField?.stringValue = self.data[row].bytes
+                cell.textField?.stringValue = String(self.data[row].bytes)
+                cell.textField?.textColor = txtColor
                 return cell
             }
         }
@@ -158,6 +204,7 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
                 owner: nil
                 ) as? NSTableCellView {
                 cell.textField?.stringValue = String(self.data[row].from)
+                cell.textField?.textColor = txtColor
                 return cell
             }
         }
@@ -166,7 +213,8 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
                 withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "seq"),
                 owner: nil
                 ) as? NSTableCellView {
-                cell.textField?.stringValue = self.data[row].seq
+                cell.textField?.stringValue = String(self.data[row].seq)
+                cell.textField?.textColor = txtColor
                 return cell
             }
         }
@@ -175,7 +223,8 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
                 withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ttl"),
                 owner: nil
                 ) as? NSTableCellView {
-                cell.textField?.stringValue = self.data[row].ttl
+                cell.textField?.stringValue = String(self.data[row].ttl)
+                cell.textField?.textColor = txtColor
                 return cell
             }
         }
@@ -184,7 +233,8 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
                 withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "time"),
                 owner: nil
                 ) as? NSTableCellView {
-                cell.textField?.stringValue = self.data[row].time
+                cell.textField?.stringValue = String(self.data[row].time)
+                cell.textField?.textColor = txtColor
                 return cell
             }
         }
