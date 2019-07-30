@@ -25,6 +25,7 @@
 		87BA48EC22A5E9B300E8DDB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87BA48EA22A5E9B300E8DDB9 /* Main.storyboard */; };
 		87CACECA22EE121A006C1C34 /* PingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CACEC922EE121A006C1C34 /* PingViewController.swift */; };
 		87CACECC22EF906F006C1C34 /* PingSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CACECB22EF906F006C1C34 /* PingSettingsViewController.swift */; };
+		87CACECE22EFD83D006C1C34 /* TraceRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CACECD22EFD83D006C1C34 /* TraceRouteViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 		87BA48EE22A5E9B300E8DDB9 /* DomainMaster.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DomainMaster.entitlements; sourceTree = "<group>"; };
 		87CACEC922EE121A006C1C34 /* PingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingViewController.swift; sourceTree = "<group>"; };
 		87CACECB22EF906F006C1C34 /* PingSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingSettingsViewController.swift; sourceTree = "<group>"; };
+		87CACECD22EFD83D006C1C34 /* TraceRouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceRouteViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 		87BA48E322A5E9B200E8DDB9 /* DomainMaster */ = {
 			isa = PBXGroup;
 			children = (
+				87CACECD22EFD83D006C1C34 /* TraceRouteViewController.swift */,
 				87CACECB22EF906F006C1C34 /* PingSettingsViewController.swift */,
 				87CACEC922EE121A006C1C34 /* PingViewController.swift */,
 				875F4FB422E007EE0089C1CA /* WhoIsHelper.swift */,
@@ -196,6 +199,7 @@
 				873B266D22EE0A34005BAA5F /* PingHelper.swift in Sources */,
 				87CACECC22EF906F006C1C34 /* PingSettingsViewController.swift in Sources */,
 				875CB7EC22A9C92D0059A7D6 /* DnsHelper.swift in Sources */,
+				87CACECE22EFD83D006C1C34 /* TraceRouteViewController.swift in Sources */,
 				875F4FB322E002320089C1CA /* WhoIsViewController.swift in Sources */,
 				87BA48E522A5E9B200E8DDB9 /* AppDelegate.swift in Sources */,
 				87345DB722DBD02B0035349D /* DnsSettingsViewController.swift in Sources */,

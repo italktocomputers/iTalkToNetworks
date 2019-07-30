@@ -8,7 +8,8 @@ import CoreFoundation
 
 class PingHelper {
     static func ping(domain: String) -> PingRow {
-        let results = Helper.shell("ping -c 1 \(domain)")
+        let timeout = Helper.getSetting(name: "pingTimeout")
+        let results = Helper.shell("ping -c 1 -t \(timeout) \(domain)")
         return parseResponse(results: results)
     }
     
