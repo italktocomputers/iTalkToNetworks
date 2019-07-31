@@ -25,7 +25,10 @@
 		87BA48EC22A5E9B300E8DDB9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 87BA48EA22A5E9B300E8DDB9 /* Main.storyboard */; };
 		87CACECA22EE121A006C1C34 /* PingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CACEC922EE121A006C1C34 /* PingViewController.swift */; };
 		87CACECC22EF906F006C1C34 /* PingSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CACECB22EF906F006C1C34 /* PingSettingsViewController.swift */; };
-		87CACECE22EFD83D006C1C34 /* TraceRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CACECD22EFD83D006C1C34 /* TraceRouteViewController.swift */; };
+		87CACECF22F0799A006C1C34 /* TraceRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CACECD22EFD83D006C1C34 /* TraceRouteViewController.swift */; };
+		87CACED122F07BA5006C1C34 /* TraceRouteHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CACED022F07BA5006C1C34 /* TraceRouteHelper.swift */; };
+		87CACED322F07BEC006C1C34 /* TraceRouteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CACED222F07BEC006C1C34 /* TraceRouteRow.swift */; };
+		87CACEDD22F1091A006C1C34 /* traceroute.c in Sources */ = {isa = PBXBuildFile; fileRef = 87CACEDC22F1091A006C1C34 /* traceroute.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +54,11 @@
 		87CACEC922EE121A006C1C34 /* PingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingViewController.swift; sourceTree = "<group>"; };
 		87CACECB22EF906F006C1C34 /* PingSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingSettingsViewController.swift; sourceTree = "<group>"; };
 		87CACECD22EFD83D006C1C34 /* TraceRouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceRouteViewController.swift; sourceTree = "<group>"; };
+		87CACED022F07BA5006C1C34 /* TraceRouteHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceRouteHelper.swift; sourceTree = "<group>"; };
+		87CACED222F07BEC006C1C34 /* TraceRouteRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceRouteRow.swift; sourceTree = "<group>"; };
+		87CACEDA22F1091A006C1C34 /* DomainMaster-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DomainMaster-Bridging-Header.h"; sourceTree = "<group>"; };
+		87CACEDB22F1091A006C1C34 /* traceroute.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = traceroute.h; sourceTree = "<group>"; };
+		87CACEDC22F1091A006C1C34 /* traceroute.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = traceroute.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +120,11 @@
 				875CB7EF22A9D74E0059A7D6 /* Helper.swift */,
 				873B266A22EE0921005BAA5F /* PingRow.swift */,
 				873B266C22EE0A34005BAA5F /* PingHelper.swift */,
+				87CACED022F07BA5006C1C34 /* TraceRouteHelper.swift */,
+				87CACED222F07BEC006C1C34 /* TraceRouteRow.swift */,
+				87CACEDB22F1091A006C1C34 /* traceroute.h */,
+				87CACEDC22F1091A006C1C34 /* traceroute.c */,
+				87CACEDA22F1091A006C1C34 /* DomainMaster-Bridging-Header.h */,
 			);
 			path = DomainMaster;
 			sourceTree = "<group>";
@@ -148,7 +161,7 @@
 				TargetAttributes = {
 					87BA48E022A5E9B200E8DDB9 = {
 						CreatedOnToolsVersion = 10.2.1;
-						LastSwiftMigration = 1020;
+						LastSwiftMigration = 1030;
 						SystemCapabilities = {
 							com.apple.Sandbox = {
 								enabled = 1;
@@ -193,13 +206,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87CACED122F07BA5006C1C34 /* TraceRouteHelper.swift in Sources */,
+				87CACECF22F0799A006C1C34 /* TraceRouteViewController.swift in Sources */,
 				873B266722EC9B17005BAA5F /* DnsViewController.swift in Sources */,
 				87BA48E722A5E9B200E8DDB9 /* ViewController.swift in Sources */,
+				87CACED322F07BEC006C1C34 /* TraceRouteRow.swift in Sources */,
 				875F4FB522E007EE0089C1CA /* WhoIsHelper.swift in Sources */,
 				873B266D22EE0A34005BAA5F /* PingHelper.swift in Sources */,
 				87CACECC22EF906F006C1C34 /* PingSettingsViewController.swift in Sources */,
 				875CB7EC22A9C92D0059A7D6 /* DnsHelper.swift in Sources */,
-				87CACECE22EFD83D006C1C34 /* TraceRouteViewController.swift in Sources */,
+				87CACEDD22F1091A006C1C34 /* traceroute.c in Sources */,
 				875F4FB322E002320089C1CA /* WhoIsViewController.swift in Sources */,
 				87BA48E522A5E9B200E8DDB9 /* AppDelegate.swift in Sources */,
 				87345DB722DBD02B0035349D /* DnsSettingsViewController.swift in Sources */,
@@ -356,6 +372,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.schools.domainmaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DomainMaster/DomainMaster-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
@@ -376,6 +393,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.schools.domainmaster;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "DomainMaster/DomainMaster-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

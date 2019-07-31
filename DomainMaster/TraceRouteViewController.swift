@@ -12,13 +12,13 @@ class TraceRouteViewController : ViewController, NSTableViewDataSource, NSTableV
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet weak var inputBox: NSComboBox!
 
-    //var data: [PingRow] = []
+    var data: [TraceRouteRow] = []
 
     override func viewDidLoad() {
-        //tableView.delegate = self
-        //tableView.dataSource = self
-        //inputBox.delegate = self
-        //addUrlCacheToComboBox()
+        tableView.delegate = self
+        tableView.dataSource = self
+        inputBox.delegate = self
+        addUrlCacheToComboBox()
 
         // Set font for table header
         tableView.tableColumns.forEach { (column) in
@@ -30,7 +30,7 @@ class TraceRouteViewController : ViewController, NSTableViewDataSource, NSTableV
             )
         }
     }
-    /*
+
     func addUrlCacheToComboBox() {
         let urls = UrlCache.get()
         for i in urls {
@@ -38,47 +38,28 @@ class TraceRouteViewController : ViewController, NSTableViewDataSource, NSTableV
         }
     }
 
-    @IBAction func ping(_ sender: Any) {
+    @IBAction func trace(_ sender: Any) {
         start()
     }
 
+    func clearTable() {
+        data = []
+        tableView.reloadData()
+    }
+
     func start() {
+        btn.isEnabled = false
         progressBar.isHidden = false
         progressBar.startAnimation(self.view)
         UrlCache.add(url: inputBox.stringValue)
         let searchTerm = self.inputBox.stringValue
 
-        clearTable()
-
         DispatchQueue.global(qos: .userInitiated).async {
-            let pingMax = Helper.getSetting(name: "pingMax")
-
-            for i in 1...(Int(pingMax) ?? 1) {
-                if self.okToPing == false {
-                    break
-                }
-
-                let row = PingHelper.ping(domain: searchTerm)
-                row.seq = i
-                self.data.append(row)
-
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                    self.tableView.scrollRowToVisible(i)
-                    self.updateStats(row: row)
-                    self.setTimeElapsed()
-                }
-
-                sleep(1)
-            }
-
-            self.setEndTime()
-
+            self.data = TraceRouteHelper.trace(domain: searchTerm)
             DispatchQueue.main.async {
+                self.tableView.reloadData()
                 self.btn.isEnabled = true
                 self.progressBar.isHidden = true
-                self.btn.title = "Ping"
-                self.okToPing = true
             }
         }
     }
@@ -88,65 +69,48 @@ class TraceRouteViewController : ViewController, NSTableViewDataSource, NSTableV
     }
 
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        var txtColor = NSColor.white
-
-        if self.data[row].seq == -1 {
-            txtColor = NSColor.red
-        }
-        else if self.data[row].time >= 1000 {
-            txtColor = NSColor.red
-        }
-        else if self.data[row].time >= 600 {
-            txtColor = NSColor.orange
-        }
-
         if (tableView.tableColumns[0] == tableColumn) {
             if let cell = tableView.makeView(
-                withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "bytes"),
+                withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "hop"),
                 owner: nil
                 ) as? NSTableCellView {
-                cell.textField?.stringValue = String(self.data[row].bytes)
-                cell.textField?.textColor = txtColor
+                cell.textField?.stringValue = String(self.data[row].hop)
                 return cell
             }
         }
         else if (tableView.tableColumns[1] == tableColumn) {
             if let cell = tableView.makeView(
-                withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "from"),
+                withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "host"),
                 owner: nil
                 ) as? NSTableCellView {
-                cell.textField?.stringValue = String(self.data[row].from)
-                cell.textField?.textColor = txtColor
+                cell.textField?.stringValue = String(self.data[row].host)
                 return cell
             }
         }
         else if (tableView.tableColumns[2] == tableColumn) {
             if let cell = tableView.makeView(
-                withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "seq"),
+                withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "rtt1"),
                 owner: nil
                 ) as? NSTableCellView {
-                cell.textField?.stringValue = String(self.data[row].seq)
-                cell.textField?.textColor = txtColor
+                cell.textField?.stringValue = String(self.data[row].rtt1)
                 return cell
             }
         }
         else if (tableView.tableColumns[3] == tableColumn) {
             if let cell = tableView.makeView(
-                withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "ttl"),
+                withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "rtt2"),
                 owner: nil
                 ) as? NSTableCellView {
-                cell.textField?.stringValue = String(self.data[row].ttl)
-                cell.textField?.textColor = txtColor
+                cell.textField?.stringValue = String(self.data[row].rtt2)
                 return cell
             }
         }
         else if (tableView.tableColumns[4] == tableColumn) {
             if let cell = tableView.makeView(
-                withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "time"),
+                withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "rtt3"),
                 owner: nil
                 ) as? NSTableCellView {
-                cell.textField?.stringValue = String(self.data[row].time)
-                cell.textField?.textColor = txtColor
+                cell.textField?.stringValue = String(self.data[row].rtt3)
                 return cell
             }
         }
@@ -155,8 +119,7 @@ class TraceRouteViewController : ViewController, NSTableViewDataSource, NSTableV
 
     @IBAction func comboOnChange(_ sender: Any) {
         if inputBox.stringValue != "" {
-            startPing()
+            start()
         }
     }
-    */
 }
