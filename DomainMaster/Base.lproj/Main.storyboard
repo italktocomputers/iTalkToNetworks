@@ -126,15 +126,17 @@
         <!--Tab View Controller-->
         <scene sceneID="wTo-HP-hlH">
             <objects>
-                <tabViewController selectedTabViewItemIndex="0" tabStyle="unspecified" id="BCM-Uk-Eyc" sceneMemberID="viewController">
+                <tabViewController selectedTabViewItemIndex="5" tabStyle="unspecified" id="BCM-Uk-Eyc" sceneMemberID="viewController">
                     <tabViewItems>
                         <tabViewItem identifier="" id="Mul-wl-nUr"/>
                         <tabViewItem identifier="" id="i1p-Oo-nQT"/>
                         <tabViewItem id="oAn-hk-p84"/>
                         <tabViewItem id="P2W-2Y-v9z"/>
+                        <tabViewItem id="jlN-IV-XXO"/>
+                        <tabViewItem id="4GG-aS-3Lf"/>
                     </tabViewItems>
                     <tabView key="tabView" id="f7w-w6-88Y">
-                        <rect key="frame" x="0.0" y="0.0" width="357" height="122"/>
+                        <rect key="frame" x="0.0" y="0.0" width="457" height="230"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <font key="font" size="13" name="Geneva"/>
                         <connections>
@@ -147,11 +149,13 @@
                         <segue destination="YBz-jL-jZc" kind="relationship" relationship="tabItems" id="5bO-dH-Yrb"/>
                         <segue destination="FGj-Tn-ezA" kind="relationship" relationship="tabItems" id="JTL-pq-xad"/>
                         <segue destination="N5A-Nj-GHW" kind="relationship" relationship="tabItems" id="ed8-1b-KBr"/>
+                        <segue destination="9b1-U8-noe" kind="relationship" relationship="tabItems" id="wDf-34-ynu"/>
+                        <segue destination="vrT-cx-xkv" kind="relationship" relationship="tabItems" id="Shi-ij-NyU"/>
                     </connections>
                 </tabViewController>
                 <customObject id="aFU-9P-jud" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2407" y="-476"/>
+            <point key="canvasLocation" x="-2425" y="-436"/>
         </scene>
         <!--DNS-->
         <scene sceneID="SdH-Pl-cUa">
@@ -1365,7 +1369,7 @@
                                             <tableViewGridLines key="gridStyleMask" vertical="YES" dashed="YES"/>
                                             <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                             <tableColumns>
-                                                <tableColumn width="118" minWidth="40" maxWidth="1000" id="yuE-xi-8Ee">
+                                                <tableColumn identifier="hop" width="118" minWidth="40" maxWidth="1000" id="yuE-xi-8Ee">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Hop">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1398,7 +1402,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn width="66" minWidth="10" maxWidth="3.4028234663852886e+38" id="zdo-hg-oAh">
+                                                <tableColumn identifier="host" width="66" minWidth="10" maxWidth="3.4028234663852886e+38" id="zdo-hg-oAh">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Host">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1431,7 +1435,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn width="68" minWidth="10" maxWidth="3.4028234663852886e+38" id="1ua-0r-Rx7">
+                                                <tableColumn identifier="rtt1" width="68" minWidth="10" maxWidth="3.4028234663852886e+38" id="1ua-0r-Rx7">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="RTT1">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1464,7 +1468,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn width="66" minWidth="10" maxWidth="3.4028234663852886e+38" id="wO5-9o-b6E">
+                                                <tableColumn identifier="rtt2" width="66" minWidth="10" maxWidth="3.4028234663852886e+38" id="wO5-9o-b6E">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="RTT2">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1497,7 +1501,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn width="506" minWidth="10" maxWidth="3.4028234663852886e+38" id="8vm-rZ-jYp">
+                                                <tableColumn identifier="rtt3" width="506" minWidth="10" maxWidth="3.4028234663852886e+38" id="8vm-rZ-jYp">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="RTT3">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -2542,7 +2546,7 @@ TXT (Descriptive text)</string>
                 </viewController>
                 <customObject id="D1e-Dj-Hzu" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-152.5" y="-353"/>
+            <point key="canvasLocation" x="-148" y="-469"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="czK-0t-mDh">
@@ -2730,6 +2734,157 @@ TXT (Descriptive text)</string>
                 <customObject id="rdI-sb-m83" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2182" y="967"/>
+        </scene>
+        <!--CIDR Calc-->
+        <scene sceneID="FSb-0n-ObJ">
+            <objects>
+                <viewController title="CIDR Calc" id="vrT-cx-xkv" sceneMemberID="viewController">
+                    <view key="view" id="xJR-0C-eTA">
+                        <rect key="frame" x="0.0" y="0.0" width="670" height="229"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <box fixedFrame="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="dMk-dw-hBZ">
+                                <rect key="frame" x="20" y="20" width="630" height="189"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <view key="contentView" ambiguous="YES" id="AoH-Ml-m3R">
+                                    <rect key="frame" x="1" y="1" width="628" height="187"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R2X-82-Qv0">
+                                            <rect key="frame" x="93" y="140" width="179" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="10.0.0.0" drawsBackground="YES" id="MVa-RS-Fjc">
+                                                <font key="font" size="13" name="Geneva"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qKu-ko-uuv">
+                                            <rect key="frame" x="18" y="140" width="69" height="17"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Ip Address" id="bfx-2u-BlT">
+                                                <font key="font" size="13" name="Geneva"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ACs-v4-QOP">
+                                            <rect key="frame" x="174" y="116" width="96" height="17"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Max addresses" id="IOO-Xh-Uwn">
+                                                <font key="font" size="13" name="Geneva"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Nh-jA-0Ts">
+                                            <rect key="frame" x="6" y="115" width="83" height="17"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Max subnets" id="GcT-9L-yOv">
+                                                <font key="font" size="13" name="Geneva"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CX2-pG-GdA">
+                                            <rect key="frame" x="278" y="140" width="92" height="17"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="CIDR Netmask" id="1eM-NC-Tc4">
+                                                <font key="font" size="13" name="Geneva"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="abY-iI-Cg0">
+                                            <rect key="frame" x="93" y="111" width="78" height="26"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="FER-Ad-oGU">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                <objectValues>
+                                                    <string>Item 1</string>
+                                                    <string>Item 2</string>
+                                                    <string>Item 3</string>
+                                                </objectValues>
+                                            </comboBoxCell>
+                                        </comboBox>
+                                        <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lSK-VG-TAv">
+                                            <rect key="frame" x="373" y="137" width="179" height="26"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="255.0.0.0" drawsBackground="YES" completes="NO" numberOfVisibleItems="1" id="6pM-xb-hXd">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                <objectValues>
+                                                    <string>255.0.0.0</string>
+                                                </objectValues>
+                                            </comboBoxCell>
+                                        </comboBox>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lms-gu-J1T">
+                                            <rect key="frame" x="375" y="20" width="91" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="border" drawsBackground="YES" id="y8e-c9-Ed4">
+                                                <font key="font" size="13" name="Geneva"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nqp-jj-dG0">
+                                            <rect key="frame" x="253" y="19" width="85" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="UxQ-jZ-Oth">
+                                                <font key="font" size="13" name="Geneva"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nuK-wm-ud3">
+                                            <rect key="frame" x="280" y="111" width="78" height="26"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="aSR-VY-A7a">
+                                                <font key="font" metaFont="system"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                <objectValues>
+                                                    <string>Item 1</string>
+                                                    <string>Item 2</string>
+                                                    <string>Item 3</string>
+                                                </objectValues>
+                                            </comboBoxCell>
+                                        </comboBox>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aYY-UH-n9g">
+                                            <rect key="frame" x="93" y="20" width="91" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="border" drawsBackground="YES" id="Vyz-uj-LBd">
+                                                <font key="font" size="13" name="Geneva"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </subviews>
+                                </view>
+                                <color key="fillColor" name="quaternaryLabelColor" catalog="System" colorSpace="catalog"/>
+                            </box>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="v6R-8L-PB8" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2103" y="-1349.5"/>
+        </scene>
+        <!--Port Scan-->
+        <scene sceneID="N1Z-VD-694">
+            <objects>
+                <viewController title="Port Scan" id="9b1-U8-noe" sceneMemberID="viewController">
+                    <view key="view" id="isq-pb-2GW">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </view>
+                </viewController>
+                <customObject id="UPB-DM-Vbr" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2849" y="-811"/>
         </scene>
     </scenes>
 </document>

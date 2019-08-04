@@ -299,6 +299,7 @@ void print __P((u_char *, int, struct sockaddr_in *));
 void tvsub __P((struct timeval *, struct timeval *));
 char *inetname __P((struct in_addr));
 void usage __P(());
+void print2(u_char *buf, int cc, struct sockaddr_in *from, char* response);
 
 int s;                /* receive (icmp) socket file descriptor */
 int sndsock;            /* send (udp) socket file descriptor */
@@ -319,7 +320,7 @@ int verbose;
 int waittime = 5;        /* time to wait for response (in seconds) */
 int nflag;            /* print addresses numerically */
 
-int start_trace_route(int argc, char* argv[]) {
+int start_trace_route(int argc, char* argv[], char* response) {
     extern char *optarg;
     extern int optind;
     struct hostent *hp;
@@ -504,13 +505,12 @@ int start_trace_route(int argc, char* argv[]) {
         Fprintf(stderr, " from %s", source);
         Fprintf(stderr, ", %d hops max, %d byte packets\n", max_ttl, datalen);
         (void) fflush(stderr);
-        char response[1000];
 
         for (ttl = 1; ttl <= max_ttl; ++ttl) {
             u_long lastaddr = 0;
             int got_there = 0;
             int unreachable = 0;
-            char* ttl_f;
+            char ttl_f[100];
             sprintf(ttl_f, "%2d ", ttl);
             strcat(response, ttl_f);
             for (probe = 0; probe < nprobes; ++probe) {
@@ -525,10 +525,10 @@ int start_trace_route(int argc, char* argv[]) {
                     (void) gettimeofday(&t2, &tz);
                     if ((i = packet_ok(packet, cc, &from, seq))) {
                         if (from.sin_addr.s_addr != lastaddr) {
-                            print(packet, cc, &from);
+                            print2(packet, cc, &from, response);
                             lastaddr = from.sin_addr.s_addr;
                         }
-                        char* ms_f;
+                        char ms_f[100];
                         sprintf(ms_f, "  %g ms", deltaT(&t1, &t2));
                         strcat(response, ms_f);
                         switch(i - 1) {
@@ -568,9 +568,9 @@ int start_trace_route(int argc, char* argv[]) {
                     strcat(response, " *");
                 (void) fflush(stdout);
             }
-            putchar('\n');
-            if (got_there || unreachable >= nprobes-1)
-                exit(0);
+            //unsigned long int c = strlen(response);
+            //response[c+1] = '|';
+            strcat(response, "|");
         }
 
     return 0;
@@ -749,6 +749,33 @@ struct sockaddr_in *from;
             if (verbose)
                 Printf (" %d bytes to %s", cc, inet_ntoa (ip->ip_dst));
                 }
+
+
+void print2(u_char *buf, int cc, struct sockaddr_in *from, char* response) {
+    struct ip *ip;
+    int hlen;
+
+    ip = (struct ip *) buf;
+    hlen = ip->ip_hl << 2;
+    cc -= hlen;
+
+    if (nflag) {
+        char t[100];
+        sprintf(t, " %s", inet_ntoa(from->sin_addr));
+        strcat(response, t);
+    }
+    else {
+        char t[100];
+        sprintf(t, " %s (%s)", inetname(from->sin_addr),inet_ntoa(from->sin_addr));
+        strcat(response, t);
+
+        if (verbose) {
+            char t[100];
+            sprintf(t, " %d bytes to %s", cc, inet_ntoa (ip->ip_dst));
+            strcat(response, t);
+        }
+    }
+}
 
 
 #ifdef notyet

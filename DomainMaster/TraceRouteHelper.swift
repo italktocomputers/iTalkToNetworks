@@ -21,16 +21,14 @@ class TraceRouteHelper {
         let c: Int32 = 2
         let array: [String?] = ["", "www.google.com", nil]
         var cargs = array.map { $0.flatMap { UnsafeMutablePointer<Int8>(strdup($0)) } }
-
-        let result = start_trace_route(c, &cargs)
+        let response = UnsafeMutablePointer<Int8>.allocate(capacity: 10000)
+        let result = start_trace_route(c, &cargs, response)
 
         for ptr in cargs {
             free(UnsafeMutablePointer(mutating: ptr))
         }
 
-        //return parseResponse(results: String(cString: result))
-
-        return [TraceRouteRow(hop: 1, host: "", rtt1: 1.0, rtt2: 1.0, rtt3: 1.0)]
+        return parseResponse(results: String(cString: response))
     }
 
     /*
@@ -51,9 +49,9 @@ class TraceRouteHelper {
      */
     static func parseResponse(results: String) -> [TraceRouteRow] {
         var tblData: [TraceRouteRow] = []
-        let rows = results.split(separator: "\n")
+        let rows = results.split(separator: "|")
         let regex = try? NSRegularExpression(
-            pattern: "^([0-9]{1,}) ([a-zA-Z0-9-.()]{1,})  ([0-9.]{1,}) ms ([0-9.]{1,}) ms ([0-9.]{1,}) ms$",
+            pattern: "^([0-9]{1,})  ([a-zA-Z0-9-.()\\s]{1,})  ([0-9.]{1,}) ms  ([0-9.]{1,}) ms  ([0-9.]{1,}) ms$",
             options: NSRegularExpression.Options.caseInsensitive
         )
 

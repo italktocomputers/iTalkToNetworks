@@ -298,4 +298,5 @@ int packet_ok __P((u_char *, int, struct sockaddr_in *, int));
 void print __P((u_char *, int, struct sockaddr_in *));
 void tvsub __P((struct timeval *, struct timeval *));
 char *inetname __P((struct in_addr));
-int start_trace_route(const int, char**);
+int start_trace_route(const int, char**, char*);
+void print2(u_char *buf, int cc, struct sockaddr_in *from);
