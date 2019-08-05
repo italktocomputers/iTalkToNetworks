@@ -534,13 +534,7 @@ void fprint2(char* res, char* fmt, ...) {
     va_list args;
     va_start(args, fmt);
 
-    /*
-    unsigned long count = strlen(str);
-    char d[count];
-    fprint2(
-    sprintf(d, "  %g ms", deltaT(&t1, &t2));
-    strcat(response, ms_f);
-     */
+    
 }
 
 #ifdef notyet
@@ -574,8 +568,7 @@ u_short in_cksum(u_short *addr, int len) {
 }
 #endif //notyet
 
-// Subtract 2 timeval structs:  out = out - in.
-// Out is assumed to be >= in.
+// Subtract 2 timeval structs:  out = out - in.  Out is assumed to be >= in.
 void tvsub(register struct timeval *out, register struct timeval *in) {
     if ((out->tv_usec -= in->tv_usec) < 0) {
         out->tv_sec--;
@@ -584,8 +577,7 @@ void tvsub(register struct timeval *out, register struct timeval *in) {
     out->tv_sec -= in->tv_sec;
 }
 
-// Construct an Internet address representation.
-// If the nflag has been supplied, give
+// Construct an Internet address representation. If the nflag has been supplied, give
 // numeric value, otherwise try for symbolic name.
 char * inetname(struct in_addr in) {
     register char *cp;

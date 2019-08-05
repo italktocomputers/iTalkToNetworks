@@ -18,6 +18,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <stdarg.h>
 
 #define MAXPACKET    65535    /* max ip packet size */
 #ifndef MAXHOSTNAMELEN
