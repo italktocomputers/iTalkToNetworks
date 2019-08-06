@@ -72,7 +72,7 @@ int datalen; // how much data
 char *source = 0;
 char *hostname;
 int nprobes = 3;
-int max_ttl = 30;
+int max_hops = 30;
 u_short ident;
 u_short port = 32768+666; // start udp dest port # for probe packets
 int options; // socket options
@@ -86,7 +86,7 @@ int start_trace_route(int argc, char* argv[], char* response, void (^c)(char*)) 
     struct hostent *hp;
     struct protoent *pe;
     struct sockaddr_in from, *to;
-    int ch, i, on, probe, seq, tos, ttl;
+    int ch, i, on, probe, seq, tos, hop;
 
     on = 1;
     seq = tos = 0;
@@ -98,9 +98,9 @@ int start_trace_route(int argc, char* argv[], char* response, void (^c)(char*)) 
                 options |= SO_DEBUG;
                 break;
             case 'm':
-                max_ttl = atoi(optarg);
-                if (max_ttl <= 1) {
-                    strcat(response, "traceroute: max ttl must be >1.\n");
+                max_hops = atoi(optarg);
+                if (max_hops <= 1) {
+                    strcat(response, "traceroute: max hops must be >1.\n");
                     return 1;
                 }
                 break;
@@ -176,7 +176,7 @@ int start_trace_route(int argc, char* argv[], char* response, void (^c)(char*)) 
             bcopy(hp->h_addr, (caddr_t)&to->sin_addr, hp->h_length);
             hostname = hp->h_name;
         } else {
-            fprint2(response, "traceroute: unknown host %s\n", *argv);
+            to_res(response, "DomainMaster: unknown host %s\n", *argv);
             return 1;
         }
     }
@@ -186,7 +186,7 @@ int start_trace_route(int argc, char* argv[], char* response, void (^c)(char*)) 
     }
 
     if (datalen < 0 || datalen >= MAXPACKET - sizeof(struct opacket)) {
-        fprint2(response, "traceroute: packet size must be 0 <= s < %ld.\n", MAXPACKET - sizeof(struct opacket));
+        to_res(response, "DomainMaster: packet size must be 0 <= s < %ld.\n", MAXPACKET - sizeof(struct opacket));
         return 1;
     }
 
@@ -194,7 +194,7 @@ int start_trace_route(int argc, char* argv[], char* response, void (^c)(char*)) 
     outpacket = (struct opacket *)malloc((unsigned)datalen);
 
     if (! outpacket) {
-        perror("traceroute: malloc");
+        perror("DomainMaster: malloc");
         return 1;
     }
 
@@ -212,7 +212,7 @@ int start_trace_route(int argc, char* argv[], char* response, void (^c)(char*)) 
     }
 
     if ((s = socket(AF_INET, SOCK_RAW, pe->p_proto)) < 0) {
-        perror("traceroute: icmp socket");
+        perror("DomainMaster: icmp socket");
         return 5;
     }
 
@@ -225,20 +225,20 @@ int start_trace_route(int argc, char* argv[], char* response, void (^c)(char*)) 
     }
 
     if ((sndsock = socket(AF_INET, SOCK_RAW, IPPROTO_RAW)) < 0) {
-        perror("traceroute: raw socket");
+        perror("DomainMaster: raw socket");
         return 5;
     }
 
     #ifdef SO_SNDBUF
     if (setsockopt(sndsock, SOL_SOCKET, SO_SNDBUF, (char *)&datalen, sizeof(datalen)) < 0) {
-        perror("traceroute: SO_SNDBUF");
+        perror("DomainMaster: SO_SNDBUF");
         return 6;
     }
     #endif //SO_SNDBUF
 
     #ifdef IP_HDRINCL
     if (setsockopt(sndsock, IPPROTO_IP, IP_HDRINCL, (char *)&on, sizeof(on)) < 0) {
-        perror("traceroute: IP_HDRINCL");
+        perror("DomainMaster: IP_HDRINCL");
         return 6;
     }
     #endif //IP_HDRINCL
@@ -257,7 +257,7 @@ int start_trace_route(int argc, char* argv[], char* response, void (^c)(char*)) 
         from.sin_addr.s_addr = inet_addr(source);
 
         if (from.sin_addr.s_addr == -1) {
-            fprint2(response, "traceroute: unknown host %s\n", source);
+            to_res(response, "DomainMaster: unknown host %s\n", source);
             return 1;
         }
 
@@ -265,48 +265,48 @@ int start_trace_route(int argc, char* argv[], char* response, void (^c)(char*)) 
 
         #ifndef IP_HDRINCL
         if (bind(sndsock, (struct sockaddr *)&from, sizeof(from)) < 0) {
-            perror ("traceroute: bind:");
+            perror ("DomainMaster: bind:");
             return 1;
         }
         #endif //IP_HDRINCL
     }
 
-    Fprintf(stderr, "traceroute to %s (%s)", hostname, inet_ntoa(to->sin_addr));
+    to_res(response, "DomainMaster to %s (%s)", hostname, inet_ntoa(to->sin_addr));
 
     if (source) {
-        fprint2(response, " from %s", source);
+        to_res(response, " from %s", source);
     }
 
-    fprint2(response, ", %d hops max, %d byte packets\n", max_ttl, datalen);
+    to_res(response, ", %d hops max, %d byte packets|", max_hops, datalen);
 
     (void) fflush(stderr);
 
-    for (ttl = 1; ttl <= max_ttl; ++ttl) {
+    for (hop = 1; hop <= max_hops; ++hop) {
         u_long lastaddr = 0;
         int got_there = 0;
         int unreachable = 0;
 
-        fprint2(response, "%2d ", ttl);
+        to_res(response, "%2d ", hop);
 
         for (probe = 0; probe < nprobes; ++probe) {
-            int cc;
+            long cc;
             struct timeval t1, t2;
             struct timezone tz;
             struct ip *ip;
 
             (void) gettimeofday(&t1, &tz);
-            send_probe(++seq, ttl, response);
+            send_probe(++seq, hop, response);
 
-            while (cc = wait_for_reply(s, &from)) {
+            while ((cc = wait_for_reply(s, &from))) {
                 (void) gettimeofday(&t2, &tz);
 
                 if ((i = packet_ok(packet, cc, &from, seq, response))) {
                     if (from.sin_addr.s_addr != lastaddr) {
-                        print(packet, cc, &from, response);
+                        print_host(packet, cc, &from, response);
                         lastaddr = from.sin_addr.s_addr;
                     }
                     
-                    fprint2(response, "  %g ms", deltaT(&t1, &t2));
+                    to_res(response, "  %g ms", deltaT(&t1, &t2));
 
                     switch(i-1) {
                         case ICMP_UNREACH_PORT:
@@ -343,7 +343,7 @@ int start_trace_route(int argc, char* argv[], char* response, void (^c)(char*)) 
             }
 
             if (cc == 0) {
-                strcat(response, " N/A");
+                strcat(response, " *");
             }
 
             (void) fflush(stdout);
@@ -355,11 +355,11 @@ int start_trace_route(int argc, char* argv[], char* response, void (^c)(char*)) 
     return 0;
 }
 
-int wait_for_reply(int sock, struct sockaddr_in *from) {
+long wait_for_reply(int sock, struct sockaddr_in *from) {
     fd_set fds;
     struct timeval wait;
-    int cc = 0;
-    int fromlen = sizeof (*from);
+    long cc = 0;
+    unsigned int fromlen = sizeof (*from);
 
     FD_ZERO(&fds);
     FD_SET(sock, &fds);
@@ -376,7 +376,7 @@ void send_probe(int seq, int ttl, char* response) {
     struct opacket *op = outpacket;
     struct ip *ip = &op->ip;
     struct udphdr *up = &op->udp;
-    int i;
+    long i;
 
     ip->ip_off = 0;
     ip->ip_hl = sizeof(*ip) >> 2;
@@ -402,11 +402,10 @@ void send_probe(int seq, int ttl, char* response) {
             perror("sendto");
         }
 
-        fprint2(response, "traceroute: wrote %s %d chars, ret=%d\n", hostname, datalen, i);
+        to_res(response, "DomainMaster: wrote %s %d chars, ret=%d\n", hostname, datalen, i);
         (void) fflush(stdout);
     }
 }
-
 
 double deltaT(struct timeval* t1p, struct timeval* t2p) {
     register double dt;
@@ -414,7 +413,6 @@ double deltaT(struct timeval* t1p, struct timeval* t2p) {
     (double)(t2p->tv_usec - t1p->tv_usec) / 1000.0;
     return (dt);
 }
-
 
 // Convert an ICMP "type" field to a printable string.
 char* pr_type(u_char t) {
@@ -444,8 +442,7 @@ char* pr_type(u_char t) {
     return(ttab[t]);
 }
 
-
-int packet_ok(u_char *buf, int cc, struct sockaddr_in* from, int seq, char* response) {
+int packet_ok(u_char *buf, long cc, struct sockaddr_in* from, int seq, char* response) {
     register struct icmp *icp;
     u_char type, code;
     int hlen;
@@ -457,7 +454,7 @@ int packet_ok(u_char *buf, int cc, struct sockaddr_in* from, int seq, char* resp
 
     if (cc < hlen + ICMP_MINLEN) {
         if (verbose) {
-            fprint2(response, "packet too short (%d bytes) from %s\n", cc, inet_ntoa(from->sin_addr));
+            to_res(response, "packet too short (%d bytes) from %s\n", cc, inet_ntoa(from->sin_addr));
         }
         return (0);
     }
@@ -487,17 +484,17 @@ int packet_ok(u_char *buf, int cc, struct sockaddr_in* from, int seq, char* resp
         int i;
         u_long *lp = (u_long *)&icp->icmp_ip;
 
-        fprint2(response, "\n%d bytes from %s to %s", cc, inet_ntoa(from->sin_addr), inet_ntoa(ip->ip_dst));
-        fprint2(response, ": icmp type %d (%s) code %d\n", type, pr_type(type), icp->icmp_code);
+        to_res(response, "\n%d bytes from %s to %s", cc, inet_ntoa(from->sin_addr), inet_ntoa(ip->ip_dst));
+        to_res(response, ": icmp type %d (%s) code %d\n", type, pr_type(type), icp->icmp_code);
         for (i = 4; i < cc ; i += sizeof(long))
-            fprint2(response, "%2d: x%8.8lx\n", i, *lp++);
+            to_res(response, "%2d: x%8.8lx\n", i, *lp++);
     }
     #endif //ARCHAIC
 
     return(0);
 }
 
-void print(u_char *buf, int cc, struct sockaddr_in *from, char* response) {
+void print_host(u_char *buf, long cc, struct sockaddr_in *from, char* response) {
     struct ip *ip;
     int hlen;
 
@@ -506,19 +503,18 @@ void print(u_char *buf, int cc, struct sockaddr_in *from, char* response) {
     cc -= hlen;
 
     if (nflag) {
-        fprint2(response, " %s", inet_ntoa(from->sin_addr));
+        to_res(response, " %s", inet_ntoa(from->sin_addr));
     }
     else {
-        fprint2(response, " %s (%s)", inetname(from->sin_addr),inet_ntoa(from->sin_addr));
+        to_res(response, " %s (%s)", inetname(from->sin_addr), inet_ntoa(from->sin_addr));
 
         if (verbose) {
-            fprint2(response, " %d bytes to %s", cc, inet_ntoa (ip->ip_dst));
+            to_res(response, " %d bytes to %s", cc, inet_ntoa (ip->ip_dst));
         }
     }
 }
 
-
-void fprint2(char* res, char* format, ...) {
+void to_res(char* res, char* format, ...) {
     char buffer[256];
     va_list args;
     va_start(args, format);
@@ -602,9 +598,9 @@ char * inetname(struct in_addr in) {
         (void) strcpy(line, cp);
     }
     else {
-        in.s_addr = ntohl(in.s_addr);
-        #define C(x)    ((x) & 0xff)
-        Sprintf(line, "%lu.%lu.%lu.%lu", C(in.s_addr >> 24), C(in.s_addr >> 16), C(in.s_addr >> 8), C(in.s_addr));
+        in.s_addr = ntohl(in.s_addr); // network byte order to host byte order
+        #define C(x)    ((x) & 0xff) // only keep 8 bits
+        sprintf(line, "%u.%u.%u.%u", C(in.s_addr >> 24), C(in.s_addr >> 16), C(in.s_addr >> 8), C(in.s_addr)); // reorder bytes
     }
 
     return (line);

@@ -12,34 +12,18 @@ class TraceRouteHelper {
         let array: [String?] = ["", domain, nil]
         var cargs = array.map { $0.flatMap { UnsafeMutablePointer<Int8>(strdup($0)) } }
         let response = UnsafeMutablePointer<Int8>.allocate(capacity: 10000)
-        let result = start_trace_route(c, &cargs, response, controller.newTrace)
+        start_trace_route(c, &cargs, response, controller.newTrace)
         
         for ptr in cargs {
             free(UnsafeMutablePointer(mutating: ptr))
         }
     }
-
-    /*
-     traceroute to google.com (172.217.3.110), 64 hops max, 52 byte packets
-     1  10.0.0.1 (10.0.0.1)  4.552 ms  5.669 ms  5.038 ms
-     2  96.120.70.61 (96.120.70.61)  14.243 ms  17.746 ms  16.018 ms
-     3  96.108.100.1 (96.108.100.1)  15.571 ms  15.058 ms  16.149 ms
-     4  96.108.46.106 (96.108.46.106)  16.663 ms  13.859 ms  14.712 ms
-     5  be-315-ar01.needham.ma.boston.comcast.net (96.108.46.117)  22.021 ms  20.559 ms  21.353 ms
-     6  be-7015-cr02.newyork.ny.ibone.comcast.net (68.86.90.217)  27.535 ms  26.534 ms  27.525 ms
-     7  be-10381-pe02.111eighthave.ny.ibone.comcast.net (68.86.86.250)  31.563 ms  26.649 ms  26.130 ms
-     8  50.242.150.62 (50.242.150.62)  24.679 ms  24.890 ms  23.321 ms
-     9  108.170.248.97 (108.170.248.97)  26.695 ms
-     108.170.248.33 (108.170.248.33)  27.375 ms  27.335 ms
-     10  209.85.253.189 (209.85.253.189)  27.443 ms
-     209.85.244.65 (209.85.244.65)  28.556 ms  26.029 ms
-     11  lga34s18-in-f14.1e100.net (172.217.3.110)  26.150 ms  27.296 ms  26.213 ms
-     */
+    
     static func parseResponse(results: String) -> [TraceRouteRow] {
         var tblData: [TraceRouteRow] = []
         let rows = results.split(separator: "|")
         let regex = try? NSRegularExpression(
-            pattern: "^([0-9]{1,})  ([a-zA-Z0-9-.()\\s]{1,})  ([0-9.]{1,}) ms  ([0-9.]{1,}) ms  ([0-9.]{1,}) ms$",
+            pattern: "^\\s?([0-9]{1,})\\s+([a-zA-Z0-9-.()\\s]{1,})\\s+([0-9.]{1,}) ms\\s+([0-9.]{1,}) ms\\s+([0-9.]{1,}) ms$",
             options: NSRegularExpression.Options.caseInsensitive
         )
 

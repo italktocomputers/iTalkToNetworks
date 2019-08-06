@@ -126,7 +126,7 @@
         <!--Tab View Controller-->
         <scene sceneID="wTo-HP-hlH">
             <objects>
-                <tabViewController selectedTabViewItemIndex="5" tabStyle="unspecified" id="BCM-Uk-Eyc" sceneMemberID="viewController">
+                <tabViewController selectedTabViewItemIndex="0" tabStyle="unspecified" id="BCM-Uk-Eyc" sceneMemberID="viewController">
                     <tabViewItems>
                         <tabViewItem identifier="" id="Mul-wl-nUr"/>
                         <tabViewItem identifier="" id="i1p-Oo-nQT"/>
