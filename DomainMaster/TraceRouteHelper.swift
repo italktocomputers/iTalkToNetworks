@@ -35,9 +35,11 @@ class TraceRouteHelper {
             return [TraceRouteRow(hop: 0, host: results, rtt1: -1, rtt2: -1, rtt3: -1)]
         }
 
+        var i=0
         for row in rows {
-            var hop = 0
-            var host = "N/A"
+            print(row)
+            var hop = i
+            var host = "***"
             var rtt1 = 0.0
             var rtt2 = 0.0
             var rtt3 = 0.0
@@ -68,17 +70,19 @@ class TraceRouteHelper {
                 if let range = Range(match.range(at:5), in: String(myrow)) {
                     rtt3 = Double(myrow[range]) ?? 0.0
                 }
-
-                tblData.append(
-                    TraceRouteRow(
-                        hop: hop,
-                        host: host,
-                        rtt1: rtt1,
-                        rtt2: rtt2,
-                        rtt3: rtt3
-                    )
-                )
             }
+            
+            tblData.append(
+                TraceRouteRow(
+                    hop: hop,
+                    host: host,
+                    rtt1: rtt1,
+                    rtt2: rtt2,
+                    rtt3: rtt3
+                )
+            )
+            
+            i=i+1
         }
 
         return tblData
