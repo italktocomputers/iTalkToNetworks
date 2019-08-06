@@ -45,7 +45,7 @@
 		875F4FB422E007EE0089C1CA /* WhoIsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoIsHelper.swift; sourceTree = "<group>"; };
 		875F4FB622E13D4D0089C1CA /* WhoIsSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoIsSettingsViewController.swift; sourceTree = "<group>"; };
 		875F4FB822E1C4720089C1CA /* DefaultSettings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DefaultSettings.plist; sourceTree = "<group>"; };
-		87642DB122F32073000D96C1 /* traceroute.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = traceroute.h; path = ../traceroute.h; sourceTree = "<group>"; };
+		87642DB122F32073000D96C1 /* traceroute.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = traceroute.h; sourceTree = "<group>"; };
 		87BA48E122A5E9B200E8DDB9 /* DomainMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DomainMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87BA48E422A5E9B200E8DDB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87BA48E622A5E9B200E8DDB9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -123,8 +123,8 @@
 				873B266C22EE0A34005BAA5F /* PingHelper.swift */,
 				87CACED022F07BA5006C1C34 /* TraceRouteHelper.swift */,
 				87CACED222F07BEC006C1C34 /* TraceRouteRow.swift */,
-				87CACEDC22F1091A006C1C34 /* traceroute.c */,
 				87642DB122F32073000D96C1 /* traceroute.h */,
+				87CACEDC22F1091A006C1C34 /* traceroute.c */,
 				87CACEDA22F1091A006C1C34 /* DomainMaster-Bridging-Header.h */,
 			);
 			path = DomainMaster;

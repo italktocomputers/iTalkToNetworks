@@ -54,9 +54,9 @@ struct opacket    *outpacket;    /* last output (udp) packet */
 
 char* pr_type(u_char t);
 int wait_for_reply(int sock, struct sockaddr_in *from);
-void send_probe(int seq, int ttl);
+void send_probe(int seq, int ttl, char* response);
 double deltaT(struct timeval* t1p, struct timeval* t2p);
-int packet_ok(u_char *buf, int cc, struct sockaddr_in* from, int seq);
+int packet_ok(u_char *buf, int cc, struct sockaddr_in* from, int seq, char* response);
 void tvsub(register struct timeval *out, register struct timeval *in);
 char * inetname(struct in_addr in);
 int start_trace_route(const int, char**, char*);
