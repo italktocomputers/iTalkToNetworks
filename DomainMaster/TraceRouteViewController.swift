@@ -13,6 +13,14 @@ class TraceRouteViewController : ViewController, NSTableViewDataSource, NSTableV
     @IBOutlet weak var inputBox: NSComboBox!
 
     var data: [TraceRouteRow] = []
+    
+    func newTrace(trace: UnsafeMutablePointer<Int8>?) {
+        data = TraceRouteHelper.parseResponse(results: String(cString: trace!))
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+
 
     override func viewDidLoad() {
         tableView.delegate = self
@@ -55,9 +63,8 @@ class TraceRouteViewController : ViewController, NSTableViewDataSource, NSTableV
         let searchTerm = self.inputBox.stringValue
 
         DispatchQueue.global(qos: .userInitiated).async {
-            self.data = TraceRouteHelper.trace(domain: searchTerm)
+            TraceRouteHelper.trace(domain: searchTerm, controller: self)
             DispatchQueue.main.async {
-                self.tableView.reloadData()
                 self.btn.isEnabled = true
                 self.progressBar.isHidden = true
             }

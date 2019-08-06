@@ -20,7 +20,7 @@
 #include <unistd.h>
 #include <stdarg.h>
 
-#define MAXPACKET    65535    /* max ip packet size */
+#define MAXPACKET    65535 // max ip packet size
 #ifndef MAXHOSTNAMELEN
 #define MAXHOSTNAMELEN    64
 #endif
@@ -38,28 +38,26 @@
 #define Sprintf (void)sprintf
 #define Printf (void)printf
 
-/*
- * format of a (udp) probe packet.
- */
+// format of a (udp) probe packet.
 struct opacket {
     struct ip ip;
     struct udphdr udp;
-    u_char seq;        /* sequence number of this packet */
-    u_char ttl;        /* ttl packet left with */
-    struct timeval tv;    /* time packet left */
+    u_char seq; // sequence number of this packet
+    u_char ttl; // ttl packet left with
+    struct timeval tv; // time packet left
 };
 
-u_char    packet[512];        /* last inbound (icmp) packet */
-struct opacket    *outpacket;    /* last output (udp) packet */
+u_char packet[512]; // last inbound (icmp) packet
+struct opacket* outpacket; // last output (udp) packet
 
-char* pr_type(u_char t);
-int wait_for_reply(int sock, struct sockaddr_in *from);
-void send_probe(int seq, int ttl, char* response);
-double deltaT(struct timeval* t1p, struct timeval* t2p);
-int packet_ok(u_char *buf, int cc, struct sockaddr_in* from, int seq, char* response);
-void tvsub(register struct timeval *out, register struct timeval *in);
-char * inetname(struct in_addr in);
-int start_trace_route(const int, char**, char*);
-void print(u_char *buf, int cc, struct sockaddr_in *from, char* response);
-void fprint2(char* res, char* fmt, ...);
-u_short in_cksum(u_short *addr, int len);
+char* pr_type(u_char);
+int wait_for_reply(int, struct sockaddr_in*);
+void send_probe(int, int, char*);
+double deltaT(struct timeval*, struct timeval*);
+int packet_ok(u_char*, int, struct sockaddr_in*, int, char*);
+void tvsub(register struct timeval*, register struct timeval*);
+char * inetname(struct in_addr);
+int start_trace_route(const int, char**, char*, void (^c)(char*));
+void print(u_char*, int, struct sockaddr_in*, char*);
+void fprint2(char*, char*, ...);
+u_short in_cksum(u_short*, int);

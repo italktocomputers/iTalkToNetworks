@@ -7,28 +7,16 @@ import Foundation
 import CoreFoundation
 
 class TraceRouteHelper {
-    /*
-    static func trace(domain: String) -> [TraceRouteRow] {
-        //let timeout = Helper.getSetting(name: "pingTimeout")
-        let fileManager = FileManager.default
-        let path = fileManager.currentDirectoryPath
-        let results = Helper.shell("\(path)/traceroute \(domain)")
-        return parseResponse(results: results)
-    }
-    */
-
-    static func trace(domain: String) -> [TraceRouteRow] {
+    static func trace(domain: String, controller: TraceRouteViewController) {
         let c: Int32 = 2
-        let array: [String?] = ["", "www.google.com", nil]
+        let array: [String?] = ["", domain, nil]
         var cargs = array.map { $0.flatMap { UnsafeMutablePointer<Int8>(strdup($0)) } }
         let response = UnsafeMutablePointer<Int8>.allocate(capacity: 10000)
-        let result = start_trace_route(c, &cargs, response)
-
+        let result = start_trace_route(c, &cargs, response, controller.newTrace)
+        
         for ptr in cargs {
             free(UnsafeMutablePointer(mutating: ptr))
         }
-
-        return parseResponse(results: String(cString: response))
     }
 
     /*

@@ -80,7 +80,7 @@ int verbose;
 int waittime = 5; // time to wait for response (in seconds)
 int nflag; // print addresses numerically
 
-int start_trace_route(int argc, char* argv[], char* response) {
+int start_trace_route(int argc, char* argv[], char* response, void (^c)(char*)) {
     extern char *optarg;
     extern int optind;
     struct hostent *hp;
@@ -348,8 +348,8 @@ int start_trace_route(int argc, char* argv[], char* response) {
 
             (void) fflush(stdout);
         }
-        
         strcat(response, "|");
+        c(response);
     }
 
     return 0;
@@ -571,7 +571,7 @@ void tvsub(register struct timeval *out, register struct timeval *in) {
 // numeric value, otherwise try for symbolic name.
 char * inetname(struct in_addr in) {
     register char *cp;
-    static char line[50];
+    static char line[100];
     struct hostent *hp;
     static char domain[MAXHOSTNAMELEN + 1];
     static int first = 1;
