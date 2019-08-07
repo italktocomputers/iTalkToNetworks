@@ -30,6 +30,7 @@
 		87CACED122F07BA5006C1C34 /* TraceRouteHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CACED022F07BA5006C1C34 /* TraceRouteHelper.swift */; };
 		87CACED322F07BEC006C1C34 /* TraceRouteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CACED222F07BEC006C1C34 /* TraceRouteRow.swift */; };
 		87CACEDD22F1091A006C1C34 /* traceroute.c in Sources */ = {isa = PBXBuildFile; fileRef = 87CACEDC22F1091A006C1C34 /* traceroute.c */; };
+		A570BFE122FA1788006AA478 /* ping.c in Sources */ = {isa = PBXBuildFile; fileRef = A570BFE022FA1788006AA478 /* ping.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +61,8 @@
 		87CACED222F07BEC006C1C34 /* TraceRouteRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceRouteRow.swift; sourceTree = "<group>"; };
 		87CACEDA22F1091A006C1C34 /* DomainMaster-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DomainMaster-Bridging-Header.h"; sourceTree = "<group>"; };
 		87CACEDC22F1091A006C1C34 /* traceroute.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = traceroute.c; sourceTree = "<group>"; };
+		A570BFDF22FA1788006AA478 /* ping.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ping.h; sourceTree = "<group>"; };
+		A570BFE022FA1788006AA478 /* ping.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ping.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +129,8 @@
 				87642DB122F32073000D96C1 /* traceroute.h */,
 				87CACEDC22F1091A006C1C34 /* traceroute.c */,
 				87CACEDA22F1091A006C1C34 /* DomainMaster-Bridging-Header.h */,
+				A570BFDF22FA1788006AA478 /* ping.h */,
+				A570BFE022FA1788006AA478 /* ping.c */,
 			);
 			path = DomainMaster;
 			sourceTree = "<group>";
@@ -225,6 +230,7 @@
 				87642DB222F32073000D96C1 /* traceroute.h in Sources */,
 				873B266B22EE0921005BAA5F /* PingRow.swift in Sources */,
 				875F4FB722E13D4D0089C1CA /* WhoIsSettingsViewController.swift in Sources */,
+				A570BFE122FA1788006AA478 /* ping.c in Sources */,
 				875CB7F222A9D9A40059A7D6 /* DnsRow.swift in Sources */,
 				870C3F1B22AC102100B4EF32 /* UrlCache.swift in Sources */,
 			);

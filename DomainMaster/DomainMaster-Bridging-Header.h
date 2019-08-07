@@ -3,3 +3,4 @@
 //
 
 #include "traceroute.h"
+#include "ping.h"

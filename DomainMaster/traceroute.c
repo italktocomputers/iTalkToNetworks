@@ -64,21 +64,21 @@
 
 #include "traceroute.h"
 
-int s; // receive (icmp) socket file descriptor
-int sndsock; // send (udp) socket file descriptor
-struct timezone tz; // leftover
-struct sockaddr whereto; // who to try to reach
-int datalen; // how much data
-char *source = 0;
-char *hostname;
-int nprobes = 3;
-int max_hops = 30;
-u_short ident;
-u_short port = 32768+666; // start udp dest port # for probe packets
-int options; // socket options
-int verbose;
-int waittime = 5; // time to wait for response (in seconds)
-int nflag; // print addresses numerically
+static int s; // receive (icmp) socket file descriptor
+static int sndsock; // send (udp) socket file descriptor
+static struct timezone tz; // leftover
+static struct sockaddr whereto; // who to try to reach
+static int datalen; // how much data
+static char *source = 0;
+static char *hostname;
+static int nprobes = 3;
+static int max_hops = 30;
+static u_short ident;
+static u_short port = 32768+666; // start udp dest port # for probe packets
+static int options; // socket options
+static int verbose;
+static int waittime = 5; // time to wait for response (in seconds)
+static int nflag; // print addresses numerically
 
 int start_trace_route(int argc, char* argv[], char* response, void (^c)(char*)) {
     extern char *optarg;
@@ -355,7 +355,7 @@ int start_trace_route(int argc, char* argv[], char* response, void (^c)(char*)) 
     return 0;
 }
 
-long wait_for_reply(int sock, struct sockaddr_in *from) {
+static long wait_for_reply(int sock, struct sockaddr_in *from) {
     fd_set fds;
     struct timeval wait;
     long cc = 0;
@@ -372,7 +372,7 @@ long wait_for_reply(int sock, struct sockaddr_in *from) {
     return(cc);
 }
 
-void send_probe(int seq, int ttl, char* response) {
+static void send_probe(int seq, int ttl, char* response) {
     struct opacket *op = outpacket;
     struct ip *ip = &op->ip;
     struct udphdr *up = &op->udp;
@@ -407,7 +407,7 @@ void send_probe(int seq, int ttl, char* response) {
     }
 }
 
-double deltaT(struct timeval* t1p, struct timeval* t2p) {
+static double deltaT(struct timeval* t1p, struct timeval* t2p) {
     register double dt;
     dt = (double)(t2p->tv_sec - t1p->tv_sec) * 1000.0 +
     (double)(t2p->tv_usec - t1p->tv_usec) / 1000.0;
@@ -415,7 +415,7 @@ double deltaT(struct timeval* t1p, struct timeval* t2p) {
 }
 
 // Convert an ICMP "type" field to a printable string.
-char* pr_type(u_char t) {
+static char* pr_type(u_char t) {
     static char *ttab[] = {
         "Echo Reply",
         "ICMP 1",
@@ -442,7 +442,7 @@ char* pr_type(u_char t) {
     return(ttab[t]);
 }
 
-int packet_ok(u_char *buf, long cc, struct sockaddr_in* from, int seq, char* response) {
+static int packet_ok(u_char *buf, long cc, struct sockaddr_in* from, int seq, char* response) {
     register struct icmp *icp;
     u_char type, code;
     int hlen;
@@ -494,7 +494,7 @@ int packet_ok(u_char *buf, long cc, struct sockaddr_in* from, int seq, char* res
     return(0);
 }
 
-void print_host(u_char *buf, long cc, struct sockaddr_in *from, char* response) {
+static void print_host(u_char *buf, long cc, struct sockaddr_in *from, char* response) {
     struct ip *ip;
     int hlen;
 
@@ -514,7 +514,7 @@ void print_host(u_char *buf, long cc, struct sockaddr_in *from, char* response) 
     }
 }
 
-void to_res(char* res, char* format, ...) {
+static void to_res(char* res, char* format, ...) {
     char buffer[256];
     va_list args;
     va_start(args, format);
@@ -525,7 +525,7 @@ void to_res(char* res, char* format, ...) {
 
 #ifdef notyet
 // Checksum routine for Internet Protocol family headers (C Version)
-u_short in_cksum(u_short *addr, int len) {
+static u_short in_cksum(u_short *addr, int len) {
     register int nleft = len;
     register u_short *w = addr;
     register u_short answer;
@@ -555,7 +555,7 @@ u_short in_cksum(u_short *addr, int len) {
 #endif //notyet
 
 // Subtract 2 timeval structs:  out = out - in.  Out is assumed to be >= in.
-void tvsub(register struct timeval *out, register struct timeval *in) {
+static void tvsub(register struct timeval *out, register struct timeval *in) {
     if ((out->tv_usec -= in->tv_usec) < 0) {
         out->tv_sec--;
         out->tv_usec += 1000000;
@@ -565,7 +565,7 @@ void tvsub(register struct timeval *out, register struct timeval *in) {
 
 // Construct an Internet address representation. If the nflag has been supplied, give
 // numeric value, otherwise try for symbolic name.
-char * inetname(struct in_addr in) {
+static char * inetname(struct in_addr in) {
     register char *cp;
     static char line[100];
     struct hostent *hp;

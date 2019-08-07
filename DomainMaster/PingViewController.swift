@@ -28,6 +28,15 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     var pingPacketsReceived = 0
     var pingPacketsLossed = 0
     var pingPacketsLossedPercentage: Double = 0.0
+
+    func newPing(ping: UnsafeMutablePointer<Int8>?) {
+        data = PingHelper.parseResponse(results: String(cString: ping!))
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+            self.tableView.scrollRowToVisible(self.data.count)
+            self.updateStats()
+        }
+    }
     
     override func viewDidLoad() {
         tableView.delegate = self
@@ -63,7 +72,8 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
         }
     }
 
-    func updateStats(row: PingRow) {
+    func updateStats() {
+        /*
         pingPacketsTransmitted += 1
 
         if row.seq == -1 {
@@ -83,6 +93,7 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
         packetsTransmitted.stringValue = String(pingPacketsTransmitted)
         packetsReceived.stringValue = String(pingPacketsReceived)
         packetLoss.stringValue = String(pingPacketsLossedPercentage)
+         */
     }
 
     func clearTable() {
@@ -140,25 +151,10 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
 
         DispatchQueue.global(qos: .userInitiated).async {
             self.setStartTime()
-            let pingMax = Helper.getSetting(name: "pingMax")
+            PingHelper.ping(domain: searchTerm, controller: self)
 
-            for i in 1...(Int(pingMax) ?? 1) {
-                if self.okToPing == false {
-                    break
-                }
-
-                let row = PingHelper.ping(domain: searchTerm)
-                row.seq = i
-                self.data.append(row)
-
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                    self.tableView.scrollRowToVisible(i)
-                    self.updateStats(row: row)
-                    self.setTimeElapsed()
-                }
-
-                sleep(1)
+            DispatchQueue.main.async {
+                self.setTimeElapsed()
             }
 
             self.setEndTime()

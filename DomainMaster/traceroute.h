@@ -43,17 +43,17 @@ struct opacket {
     struct timeval tv; // time packet left
 };
 
-u_char packet[512]; // last inbound (icmp) packet
-struct opacket* outpacket; // last output (udp) packet
+static u_char packet[512]; // last inbound (icmp) packet
+static struct opacket* outpacket; // last output (udp) packet
 
-char* pr_type(u_char);
-long wait_for_reply(int, struct sockaddr_in*);
-void send_probe(int, int, char*);
-double deltaT(struct timeval*, struct timeval*);
-int packet_ok(u_char*, long, struct sockaddr_in*, int, char*);
-void tvsub(register struct timeval*, register struct timeval*);
-char * inetname(struct in_addr);
+static char* pr_type(u_char);
+static long wait_for_reply(int, struct sockaddr_in*);
+static void send_probe(int, int, char*);
+static double deltaT(struct timeval*, struct timeval*);
+static int packet_ok(u_char*, long, struct sockaddr_in*, int, char*);
+static void tvsub(register struct timeval*, register struct timeval*);
+static char * inetname(struct in_addr);
 int start_trace_route(const int, char**, char*, void (^c)(char*));
-void print_host(u_char*, long, struct sockaddr_in*, char*);
-void to_res(char*, char*, ...);
-u_short in_cksum(u_short*, int);
+static void print_host(u_char*, long, struct sockaddr_in*, char*);
+static void to_res(char*, char*, ...);
+static u_short in_cksum(u_short*, int);
