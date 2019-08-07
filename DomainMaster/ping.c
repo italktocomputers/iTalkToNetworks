@@ -133,7 +133,7 @@ static double tsumsq = 0.0; // sum of all times squared, for std. dev.
 static volatile sig_atomic_t finish_up; // nonzero if we've been told to finish up
 static volatile sig_atomic_t siginfo_p;
 
-int start_ping(int argc, char** argv, char* response, void (^c)(char*)) {
+int start_ping(int argc, char** argv, char* response, void (^c)(char*), bool* ok_to_ping) {
     struct sockaddr_in from, sock_in;
     struct in_addr ifaddr;
     struct timeval last, intvl;
@@ -858,7 +858,7 @@ int start_ping(int argc, char** argv, char* response, void (^c)(char*)) {
     
     almost_done = 0;
 
-    while (!finish_up) {
+    while (!finish_up && ok_to_ping) {
         struct timeval now, timeout;
         fd_set rfds;
         int cc, n;

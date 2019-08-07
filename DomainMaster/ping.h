@@ -28,6 +28,7 @@
 #include <sysexits.h>
 #include <unistd.h>
 #include <stdarg.h>
+#include <stdbool.h> 
 
 #define    INADDR_LEN    ((int)sizeof(in_addr_t))
 #define    TIMEVAL_LEN    ((int)sizeof(struct tv32))
@@ -102,5 +103,5 @@ static void pr_retip(struct ip*, char* response);
 static void status(int);
 static void stopit(int);
 static void tvsub(struct timeval*, struct timeval*);
-int start_ping(int, char**, char*, void (^c)(char*));
+int start_ping(int, char**, char*, void (^c)(char*), bool*);
 static void to_res(char*, char*, ...);

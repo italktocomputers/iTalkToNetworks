@@ -7,20 +7,14 @@ import Foundation
 import CoreFoundation
 
 class PingHelper {
-    /*
-    static func ping(domain: String) -> PingRow {
-        let timeout = Helper.getSetting(name: "pingTimeout")
-        let results = Helper.shell("ping -c 1 -t \(timeout) \(domain)")
-        return parseResponse(results: results)
-    }
-    */
-
     static func ping(domain: String, controller: PingViewController) {
         let c: Int32 = 2
         let array: [String?] = ["", domain, nil]
         var cargs = array.map { $0.flatMap { UnsafeMutablePointer<Int8>(strdup($0)) } }
         let response = UnsafeMutablePointer<Int8>.allocate(capacity: 10000)
-        start_ping(c, &cargs, response, controller.newPing)
+        let okToPing = UnsafeMutablePointer<Bool>.allocate(capacity: 1)
+        okToPing.pointee = true
+        start_ping(c, &cargs, response, controller.newPing, okToPing)
 
         for ptr in cargs {
             free(UnsafeMutablePointer(mutating: ptr))

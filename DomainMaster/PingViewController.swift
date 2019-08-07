@@ -32,8 +32,8 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     func newPing(ping: UnsafeMutablePointer<Int8>?) {
         data = PingHelper.parseResponse(results: String(cString: ping!))
         DispatchQueue.main.async {
+            self.data.reverse()
             self.tableView.reloadData()
-            self.tableView.scrollRowToVisible(self.data.count)
             self.updateStats()
         }
     }
