@@ -73,27 +73,34 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     }
 
     func updateStats() {
-        /*
-        pingPacketsTransmitted += 1
+        pingPacketsTransmitted = 0
+        pingPacketsReceived = 0
+        pingPacketsLossed = 0
+        pingPacketsLossedPercentage = 0.0
 
-        if row.seq == -1 {
-            pingPacketsLossed += 1
-        }
-        else {
-            pingPacketsReceived += 1
+        for i in data {
+            pingPacketsTransmitted += 1
+
+            if i.seq == -1 {
+                pingPacketsLossed += 1
+            }
+            else {
+                pingPacketsReceived += 1
+            }
+
+            if pingPacketsTransmitted != 0 && pingPacketsLossed != 0 {
+                pingPacketsLossedPercentage = Double(pingPacketsTransmitted / pingPacketsLossed)
+            }
+            else {
+                pingPacketsLossedPercentage = 0.0
+            }
+
+            packetsTransmitted.stringValue = String(pingPacketsTransmitted)
+            packetsReceived.stringValue = String(pingPacketsReceived)
+            packetLoss.stringValue = String(pingPacketsLossedPercentage)
         }
 
-        if pingPacketsTransmitted != 0 && pingPacketsLossed != 0 {
-            pingPacketsLossedPercentage = Double(pingPacketsTransmitted / pingPacketsLossed)
-        }
-        else {
-            pingPacketsLossedPercentage = 0.0
-        }
-
-        packetsTransmitted.stringValue = String(pingPacketsTransmitted)
-        packetsReceived.stringValue = String(pingPacketsReceived)
-        packetLoss.stringValue = String(pingPacketsLossedPercentage)
-         */
+        setTimeElapsed()
     }
 
     func clearTable() {
@@ -154,10 +161,6 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
         DispatchQueue.global(qos: .userInitiated).async {
             self.setStartTime()
             PingHelper.ping(domain: searchTerm, controller: self, okToPing: self.okToPing)
-
-            DispatchQueue.main.async {
-                self.setTimeElapsed()
-            }
 
             self.setEndTime()
 
