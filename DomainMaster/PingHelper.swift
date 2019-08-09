@@ -7,28 +7,22 @@ import Foundation
 import CoreFoundation
 
 class PingHelper {
-    static func ping(domain: String, controller: PingViewController) {
+    static func ping(domain: String, controller: PingViewController, okToPing: UnsafeMutablePointer<Bool>) -> Int32 {
+        var ret: Int32 = 0;
         let c: Int32 = 2
         let array: [String?] = ["", domain, nil]
         var cargs = array.map { $0.flatMap { UnsafeMutablePointer<Int8>(strdup($0)) } }
         let response = UnsafeMutablePointer<Int8>.allocate(capacity: 10000)
-        let okToPing = UnsafeMutablePointer<Bool>.allocate(capacity: 1)
-        okToPing.pointee = true
-        start_ping(c, &cargs, response, controller.newPing, okToPing)
+        
+        ret = start_ping(c, &cargs, response, controller.newPing, okToPing);
 
         for ptr in cargs {
             free(UnsafeMutablePointer(mutating: ptr))
         }
+
+        return ret
     }
-    
-    /*
-     PING www.google.com (172.217.11.36): 56 data bytes
-     64 bytes from 172.217.11.36: icmp_seq=0 ttl=53 time=267.126 ms
-     
-     --- www.google.com ping statistics ---
-     1 packets transmitted, 1 packets received, 0.0% packet loss
-     round-trip min/avg/max/stddev = 267.126/267.126/267.126/0.000 ms
-    */
+
     static func parseResponse(results: String) -> [PingRow] {
         var tblData: [PingRow] = []
         let rows = results.split(separator: "\n")
@@ -42,17 +36,14 @@ class PingHelper {
         var seq = 0
         var ttl = 0
         var time = 0.0
-
-        if results.contains("cannot resolve") {
-            return [PingRow(bytes: 0, from: results, seq: -1, ttl: 0, time: 0.0)]
-        }
-
-        if results.contains("Request timeout") {
-            return [PingRow(bytes: 0, from: results, seq: -1, ttl: 0, time: 0.0)]
-        }
-
         var i=0
+        
         for row in rows {
+            if i == 0 {
+                i=i+1
+                continue; // skip header
+            }
+
             let myrow = String(row) // deep copy
             let matches = regex!.matches(
                 in: String(myrow),

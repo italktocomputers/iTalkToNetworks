@@ -92,7 +92,7 @@ int options;
 static int fill(char*, char*, char* response);
 static u_short in_cksum(u_short*, int);
 static void check_status(char* response);
-static int finish(char* response) __dead2;
+static int finish(char* response);
 static void pinger(void);
 static char *pr_addr(struct in_addr, char* response);
 static char *pr_ntime(n_time, char* response);

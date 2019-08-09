@@ -20,7 +20,6 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
 
     var data: [PingRow] = []
     var pingCount = 10
-    var okToPing = true
     var pingStartTime = Date()
     var pingEndTime = Date()
     var pingElapsedTime: TimeInterval = Date().timeIntervalSinceNow
@@ -28,6 +27,7 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     var pingPacketsReceived = 0
     var pingPacketsLossed = 0
     var pingPacketsLossedPercentage: Double = 0.0
+    var okToPing = UnsafeMutablePointer<Bool>.allocate(capacity: 1)
 
     func newPing(ping: UnsafeMutablePointer<Int8>?) {
         data = PingHelper.parseResponse(results: String(cString: ping!))
@@ -68,7 +68,7 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
             startPing()
         }
         else {
-            okToPing = false
+            okToPing.pointee = false
         }
     }
 
@@ -140,8 +140,10 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     }
     
     func startPing() {
+        okToPing.pointee = true
         btn.title = "Stop"
         progressBar.isHidden = false
+        inputBox.isEnabled = false
         progressBar.startAnimation(self.view)
         UrlCache.add(url: inputBox.stringValue)
         let searchTerm = self.inputBox.stringValue
@@ -151,7 +153,7 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
 
         DispatchQueue.global(qos: .userInitiated).async {
             self.setStartTime()
-            PingHelper.ping(domain: searchTerm, controller: self)
+            PingHelper.ping(domain: searchTerm, controller: self, okToPing: self.okToPing)
 
             DispatchQueue.main.async {
                 self.setTimeElapsed()
@@ -160,10 +162,11 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
             self.setEndTime()
 
             DispatchQueue.main.async {
+                self.inputBox.isEnabled = true
                 self.btn.isEnabled = true
                 self.progressBar.isHidden = true
                 self.btn.title = "Ping"
-                self.okToPing = true
+                self.okToPing.pointee = true
             }
         }
     }
