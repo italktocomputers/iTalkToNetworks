@@ -19,7 +19,6 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     @IBOutlet weak var endTime: NSTextField!
 
     var data: [PingRow] = []
-    var pingCount = 10
     var pingStartTime = Date()
     var pingEndTime = Date()
     var pingElapsedTime: TimeInterval = Date().timeIntervalSinceNow
@@ -29,10 +28,11 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     var pingPacketsLossedPercentage: Double = 0.0
     var okToPing = UnsafeMutablePointer<Bool>.allocate(capacity: 1)
 
-    func newPing(ping: UnsafeMutablePointer<Int8>?) {
-        data = PingHelper.parseResponse(results: String(cString: ping!))
+    func notify(pingdata: UnsafeMutablePointer<Int8>?, err: UnsafeMutablePointer<Int8>?, transmitted: UnsafeMutablePointer<Int>?, received: UnsafeMutablePointer<Int>?) {
+        pingPacketsReceived = received!.pointee
+        pingPacketsTransmitted = transmitted!.pointee
+        data = PingHelper.parseResponse(results: String(cString: pingdata!))
         DispatchQueue.main.async {
-            self.data.reverse()
             self.tableView.reloadData()
             self.updateStats()
         }
