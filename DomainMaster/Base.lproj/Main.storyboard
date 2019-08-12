@@ -1875,9 +1875,9 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5ws-8O-FeA">
-                                            <rect key="frame" x="21" y="13" width="143" height="17"/>
+                                            <rect key="frame" x="19" y="13" width="145" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Packets lossed (%):" id="ODg-bf-fGs">
+                                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Packets Received (%):" id="ODg-bf-fGs">
                                                 <font key="font" size="13" name="Geneva"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1956,8 +1956,8 @@
                         <outlet property="btn" destination="LdF-P1-9gf" id="4t5-5m-tCX"/>
                         <outlet property="endTime" destination="Q0X-k2-PaB" id="fzs-Ya-4c3"/>
                         <outlet property="inputBox" destination="N1m-br-drB" id="D1M-GB-kXX"/>
-                        <outlet property="packetLoss" destination="c4N-uz-nPI" id="RPs-4L-bUh"/>
                         <outlet property="packetsReceived" destination="Gye-0s-fuk" id="Lj3-1O-iup"/>
+                        <outlet property="packetsReceivedPercentage" destination="c4N-uz-nPI" id="EQ8-15-vze"/>
                         <outlet property="packetsTransmitted" destination="B3N-aE-efI" id="Oih-dA-yvs"/>
                         <outlet property="progressBar" destination="ItU-CS-ztR" id="dxD-rp-8ra"/>
                         <outlet property="startTime" destination="Zxg-7A-zHx" id="rzW-sm-q2D"/>

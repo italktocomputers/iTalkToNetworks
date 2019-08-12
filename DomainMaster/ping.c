@@ -958,7 +958,7 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
         }
 
         pr_pack((char *)packet, cc, &from, tv);
-        if ((options & F_ONCE && nreceived) || (npackets && *nreceived >= npackets))
+        if ((options & F_ONCE && *nreceived) || (npackets && *nreceived >= npackets))
             break;
         }
 
@@ -982,7 +982,7 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
                 almost_done = 1;
                 intvl.tv_usec = 0;
 
-                if (nreceived) {
+                if (*nreceived) {
                     intvl.tv_sec = 2 * tmax / 1000;
                     if (!intvl.tv_sec)
                         intvl.tv_sec = 1;
@@ -994,13 +994,13 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
             }
 
             (void)gettimeofday(&last, NULL);
-            if (ntransmitted - nreceived - 1 > nmissedmax) {
-                nmissedmax = ntransmitted - nreceived - 1;
+            if (*ntransmitted - *nreceived - 1 > nmissedmax) {
+                nmissedmax = *ntransmitted - *nreceived - 1;
 
                 if (options & F_MISSED)
                     (void)write(STDOUT_FILENO, &BBELL, 1);
                 if (!(options & F_QUIET))
-                    to_res("Request timeout for icmp_seq %ld\n", ntransmitted - 2);
+                    to_res("Request timeout for icmp_seq %ld\n", *ntransmitted - 2);
             }
         }
     }
@@ -1018,7 +1018,7 @@ static void stopit(int sig __unused) {
     // When doing reverse DNS lookups, the finish_up flag might not
     // be noticed for a while.  Just exit if we get a second SIGINT.
     if (!(options & F_NUMERIC) && finish_up)
-        _exit(nreceived ? 0 : 2);
+        _exit(*nreceived ? 0 : 2);
     finish_up = 1;
 }
 
@@ -1087,7 +1087,7 @@ static void pinger(void) {
         }
     }
 
-    ntransmitted++;
+    (*ntransmitted)++;
     sntransmitted++;
 
     if (!(options & F_QUIET) && options & F_FLOOD)
@@ -1126,7 +1126,7 @@ static void pr_pack(char* buf, int cc, struct sockaddr_in* from, struct timeval*
     if (icp->icmp_type == icmp_type_rsp) {
         if (icp->icmp_id != ident)
             return; // 'Twas not our ECHO
-        ++nreceived;
+        ++(*nreceived);
         triptime = 0.0;
 
         if (timing) {
@@ -1167,7 +1167,7 @@ static void pr_pack(char* buf, int cc, struct sockaddr_in* from, struct timeval*
         
         if (TST(seq % mx_dup_ck)) {
             ++nrepeats;
-            --nreceived;
+            --(*nreceived);
             dupflag = 1;
         }
         else {
@@ -1443,7 +1443,7 @@ static void check_status() {
     if (siginfo_p) {
         siginfo_p = 0;
         to_res("\r%ld/%ld packets received (%.1f%%)", *nreceived, *ntransmitted, *ntransmitted ? *nreceived * 100.0 / *ntransmitted : 0.0);
-        if (nreceived && timing)
+        if (*nreceived && timing)
             to_res(" %.3f min / %.3f avg / %.3f max", tmin, tsum / (*nreceived + nrepeats), tmax);
         to_res("\n");
     }
@@ -1456,12 +1456,12 @@ static int finish() {
     (void)signal(SIGALRM, SIG_IGN);
     to_res("\n");
     to_res("--- %s ping statistics ---\n", hostname);
-    to_res("%ld packets transmitted, ", ntransmitted);
-    to_res("%ld packets received, ", nreceived);
+    to_res("%ld packets transmitted, ", *ntransmitted);
+    to_res("%ld packets received, ", *nreceived);
     if (nrepeats)
         to_res("+%ld duplicates, ", nrepeats);
-    if (ntransmitted) {
-        if (nreceived > ntransmitted)
+    if (*ntransmitted) {
+        if (*nreceived > *ntransmitted)
             to_res("-- somebody's printing up packets!");
         else
             to_res("%.1f%% packet loss", ((*ntransmitted - *nreceived) * 100.0) / *ntransmitted);
@@ -1470,7 +1470,7 @@ static int finish() {
         to_res(", %ld packets out of wait time", nrcvtimeout);
     to_res("\n");
 
-    if (nreceived && timing) {
+    if (*nreceived && timing) {
         double n = *nreceived + nrepeats;
         double avg = tsum / n;
         double vari = tsumsq / n - avg * avg;
