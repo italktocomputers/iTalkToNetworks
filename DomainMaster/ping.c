@@ -806,7 +806,8 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
     if (uid == 0) {
         (void)setsockopt(s, SOL_SOCKET, SO_SNDBUF, (char *)&hold, sizeof(hold));
     }
-            
+
+    /*
     if (to->sin_family == AF_INET) {
         to_res("PING %s (%s)", hostname, inet_ntoa(to->sin_addr));
 
@@ -829,6 +830,7 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
             to_res("PING %s: %d data bytes\n", hostname, datalen);
         }
     }
+     */
     
     // Use sigaction() instead of signal() to get unambiguous semantics,
     // in particular with SA_RESTART not set.
