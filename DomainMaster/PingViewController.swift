@@ -30,9 +30,6 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
         pingPacketsReceived = received!.pointee
         pingPacketsTransmitted = transmitted!.pointee
 
-        print("Transmitted: \(pingPacketsTransmitted)")
-        print("Received: \(pingPacketsReceived)")
-
         data = PingHelper.parseResponse(results: String(cString: pingdata!))
 
         DispatchQueue.main.async {
@@ -106,8 +103,8 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
         packetsTransmitted.stringValue = "0"
         packetsReceived.stringValue = "0"
         packetsReceivedPercentage.stringValue = "0%"
-        startTime.stringValue = "__/__/____ __:__:__"
-        endTime.stringValue = "__/__/____ __:__:__"
+        startTime.stringValue = "yyyy-MM-dd HH:mm:ss"
+        endTime.stringValue = "yyyy-MM-dd HH:mm:ss"
         timeElapsed.stringValue = "0"
     }
 

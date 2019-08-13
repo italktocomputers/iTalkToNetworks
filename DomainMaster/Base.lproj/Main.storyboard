@@ -1832,7 +1832,7 @@
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B3N-aE-efI">
                                             <rect key="frame" x="167" y="53" width="75" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="00" id="INL-0a-l3V">
+                                            <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="0" id="INL-0a-l3V">
                                                 <font key="font" size="13" name="Geneva"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1841,7 +1841,7 @@
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gye-0s-fuk">
                                             <rect key="frame" x="167" y="33" width="75" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="00" id="mRj-JM-OJr">
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="0" id="mRj-JM-OJr">
                                                 <font key="font" size="13" name="Geneva"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1850,7 +1850,7 @@
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c4N-uz-nPI">
                                             <rect key="frame" x="167" y="13" width="75" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="0.0" id="hxp-ZP-CQt">
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="0" id="hxp-ZP-CQt">
                                                 <font key="font" size="13" name="Geneva"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1895,7 +1895,7 @@
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zxg-7A-zHx">
                                             <rect key="frame" x="364" y="53" width="200" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="__/__/____ __:__:__" id="t2O-2k-GXK">
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="yyyy-MM-dd HH:mm:ss" id="t2O-2k-GXK">
                                                 <font key="font" size="13" name="Geneva"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1922,7 +1922,7 @@
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q0X-k2-PaB">
                                             <rect key="frame" x="364" y="33" width="200" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="__/__/____ __:__:__" id="yA8-8Q-GhB">
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="yyyy-MM-dd HH:mm:ss" id="yA8-8Q-GhB">
                                                 <font key="font" size="13" name="Geneva"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1931,7 +1931,7 @@
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tiG-5e-tg8">
                                             <rect key="frame" x="364" y="13" width="200" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="0.0" id="pTA-vb-NIL">
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="0" id="pTA-vb-NIL">
                                                 <font key="font" size="13" name="Geneva"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
