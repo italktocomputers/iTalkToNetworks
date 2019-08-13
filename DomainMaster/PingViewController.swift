@@ -29,6 +29,10 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     func notify(pingdata: UnsafeMutablePointer<Int8>?, err: UnsafeMutablePointer<Int8>?, transmitted: UnsafeMutablePointer<Int>?, received: UnsafeMutablePointer<Int>?) {
         pingPacketsReceived = received!.pointee
         pingPacketsTransmitted = transmitted!.pointee
+
+        print("Transmitted: \(pingPacketsTransmitted)")
+        print("Received: \(pingPacketsReceived)")
+
         data = PingHelper.parseResponse(results: String(cString: pingdata!))
 
         DispatchQueue.main.async {
@@ -73,14 +77,15 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
 
     func updateStats() {
         if pingPacketsTransmitted == pingPacketsReceived {
-            packetsReceivedPercentage.stringValue = "100.0"
+            packetsReceivedPercentage.stringValue = "100"
         }
         else {
             if pingPacketsTransmitted != 0 && pingPacketsReceived != 0 {
-                packetsReceivedPercentage.stringValue = String((Double(pingPacketsTransmitted / pingPacketsReceived))*0.100)
+                let percentage = Int(round(Double(pingPacketsReceived)/Double(pingPacketsTransmitted)*100.0))
+                packetsReceivedPercentage.stringValue = String(percentage)
             }
             else {
-                packetsReceivedPercentage.stringValue = "0.0"
+                packetsReceivedPercentage.stringValue = "0"
             }
         }
 
@@ -98,12 +103,12 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     func clearStats() {
         pingPacketsTransmitted = 0
         pingPacketsReceived = 0
-        packetsTransmitted.stringValue = "00"
-        packetsReceived.stringValue = "00"
-        packetsReceivedPercentage.stringValue = "0.0%"
+        packetsTransmitted.stringValue = "0"
+        packetsReceived.stringValue = "0"
+        packetsReceivedPercentage.stringValue = "0%"
         startTime.stringValue = "__/__/____ __:__:__"
         endTime.stringValue = "__/__/____ __:__:__"
-        timeElapsed.stringValue = "0.0"
+        timeElapsed.stringValue = "0"
     }
 
     func setStartTime() {
