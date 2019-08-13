@@ -54,6 +54,17 @@ struct tv32 {
     u_int32_t tv32_usec;
 };
 
+struct swift_pak {
+    char* res;
+    char* error;
+    long* transmitted;
+    long* received;
+    void (^call)(char*, char*, long*, long*);
+    bool* ok_to_ping;
+};
+
+typedef struct swift_pak swift_pak;
+
 // various options
 int options;
 #define    F_FLOOD        0x0001
@@ -103,5 +114,5 @@ static void pr_retip(struct ip*);
 static void status(int);
 static void stopit(int);
 static void tvsub(struct timeval*, struct timeval*);
-int start_ping(int, char**, char*, char*, long*, long*, void (^c)(char*, char*, long*, long*), bool*);
+int start_ping(int, char**, char*, char*, long*, long*, void (^call)(char*, char*, long*, long*), bool*);
 static void to_res(char*, ...);

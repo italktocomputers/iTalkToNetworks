@@ -6,6 +6,17 @@
 import Foundation
 import CoreFoundation
 
+/*
+struct swift_pak {
+    var res: UnsafeMutablePointer<Int8>
+    var error: UnsafeMutablePointer<Int8>
+    var transmitted: UnsafeMutablePointer<Int>
+    var received: UnsafeMutablePointer<Int>
+    let call: (UnsafeMutablePointer<Int8>, UnsafeMutablePointer<Int8>, UnsafeMutablePointer<Int>, UnsafeMutablePointer<Int>) -> Void
+    var ok_to_ping: UnsafeMutablePointer<Bool>
+}
+*/
+
 class PingHelper {
     static func ping(domain: String, controller: PingViewController, okToPing: UnsafeMutablePointer<Bool>) -> Int32 {
         var ret: Int32 = 0;
@@ -16,6 +27,7 @@ class PingHelper {
         let err = UnsafeMutablePointer<Int8>.allocate(capacity: 10000)
         let transmitted = UnsafeMutablePointer<Int>.allocate(capacity: 10000)
         let received = UnsafeMutablePointer<Int>.allocate(capacity: 10000)
+            
         
         ret = start_ping(c, &cargs, res, err, transmitted, received, controller.notify, okToPing);
 

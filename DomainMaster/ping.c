@@ -1454,27 +1454,35 @@ static void check_status() {
 static int finish() {
     (void)signal(SIGINT, SIG_IGN);
     (void)signal(SIGALRM, SIG_IGN);
-    to_res("\n");
-    to_res("--- %s ping statistics ---\n", hostname);
-    to_res("%ld packets transmitted, ", *ntransmitted);
-    to_res("%ld packets received, ", *nreceived);
-    if (nrepeats)
-        to_res("+%ld duplicates, ", nrepeats);
-    if (*ntransmitted) {
-        if (*nreceived > *ntransmitted)
-            to_res("-- somebody's printing up packets!");
-        else
-            to_res("%.1f%% packet loss", ((*ntransmitted - *nreceived) * 100.0) / *ntransmitted);
+    //to_res("\n");
+    //to_res("--- %s ping statistics ---\n", hostname);
+    //to_res("%ld packets transmitted, ", *ntransmitted);
+    //to_res("%ld packets received, ", *nreceived);
+
+    if (nrepeats) {
+        //to_res("+%ld duplicates, ", nrepeats);
     }
-    if (nrcvtimeout)
-        to_res(", %ld packets out of wait time", nrcvtimeout);
-    to_res("\n");
+
+    if (*ntransmitted) {
+        if (*nreceived > *ntransmitted) {
+            //to_res("-- somebody's printing up packets!");
+        }
+        else {
+            //to_res("%.1f%% packet loss", ((*ntransmitted - *nreceived) * 100.0) / *ntransmitted);
+        }
+    }
+
+    if (nrcvtimeout) {
+        //to_res(", %ld packets out of wait time", nrcvtimeout);
+    }
+
+    //to_res("\n");
 
     if (*nreceived && timing) {
         double n = *nreceived + nrepeats;
         double avg = tsum / n;
         double vari = tsumsq / n - avg * avg;
-        to_res("round-trip min/avg/max/stddev = %.3f/%.3f/%.3f/%.3f ms\n", tmin, avg, tmax, sqrt(vari));
+        //to_res("round-trip min/avg/max/stddev = %.3f/%.3f/%.3f/%.3f ms\n", tmin, avg, tmax, sqrt(vari));
     }
     
     if (*nreceived)
