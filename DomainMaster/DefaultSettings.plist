@@ -2,12 +2,24 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>pingInterfaceAddress</key>
+	<string></string>
+	<key>pingSourceAddress</key>
+	<string></string>
+	<key>pingPacketSize</key>
+	<string></string>
+	<key>pingTTL</key>
+	<string></string>
+	<key>pingWait</key>
+	<string></string>
 	<key>pingMax</key>
 	<string>25</string>
-	<key>pingIpv6</key>
-	<string>on</string>
-	<key>pingIpv4</key>
-	<string>on</string>
+	<key>pingBypassRoute</key>
+	<string>off</string>
+	<key>pingNoFragment</key>
+	<string>off</string>
+	<key>pingSuppressLoopback</key>
+	<string>off</string>
 	<key>pingTimeout</key>
 	<string>30</string>
 	<key>pingInterval</key>

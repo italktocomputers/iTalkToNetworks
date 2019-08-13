@@ -2322,7 +2322,7 @@
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <connections>
-                                                <action selector="onIntervalChange:" target="2DM-qB-uM0" id="zQB-f9-fcT"/>
+                                                <action selector="onWaitChange:" target="2DM-qB-uM0" id="3Kx-rD-wuw"/>
                                             </connections>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A23-Oj-FcF">
@@ -2386,7 +2386,7 @@
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <connections>
-                                                <action selector="onIntervalChange:" target="2DM-qB-uM0" id="dAp-cX-cgN"/>
+                                                <action selector="onTTLChange:" target="2DM-qB-uM0" id="jGH-iq-qQ2"/>
                                             </connections>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eic-9n-GHj">
@@ -2406,7 +2406,7 @@
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
-                                                <segue destination="3qf-vj-FlA" kind="popover" popoverAnchorView="dlQ-yd-QD3" popoverBehavior="t" preferredEdge="maxY" id="gNY-Wd-Z9L"/>
+                                                <segue destination="3qf-vj-FlA" kind="popover" popoverAnchorView="dlQ-yd-QD3" popoverBehavior="t" preferredEdge="maxY" id="wms-Ib-4fJ"/>
                                             </connections>
                                         </button>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BKJ-u9-xeN">
@@ -2418,7 +2418,7 @@
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <connections>
-                                                <action selector="onIntervalChange:" target="2DM-qB-uM0" id="v3v-Ez-vlG"/>
+                                                <action selector="onPacketSizeChange:" target="2DM-qB-uM0" id="5I0-3Z-j0u"/>
                                             </connections>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aZl-Tf-OeM">
@@ -2438,7 +2438,7 @@
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
-                                                <segue destination="Ylj-fG-E6v" kind="popover" popoverAnchorView="FUb-kV-psz" popoverBehavior="t" preferredEdge="maxY" id="Cv4-Rc-fTY"/>
+                                                <segue destination="Ylj-fG-E6v" kind="popover" popoverAnchorView="FUb-kV-psz" popoverBehavior="t" preferredEdge="maxY" id="3RT-vU-Q4P"/>
                                             </connections>
                                         </button>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zfr-rv-uMj">
@@ -2450,7 +2450,7 @@
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <connections>
-                                                <action selector="onIntervalChange:" target="2DM-qB-uM0" id="SNp-A5-krG"/>
+                                                <action selector="onSourceAddressChange:" target="2DM-qB-uM0" id="rdj-3O-bhY"/>
                                             </connections>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="50D-y7-1YY">
@@ -2469,6 +2469,9 @@
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <segue destination="d86-co-I3c" kind="popover" popoverAnchorView="Kka-TQ-6SY" popoverBehavior="t" preferredEdge="maxY" id="XQu-xz-GLj"/>
+                                            </connections>
                                         </button>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qVW-1Z-kNM">
                                             <rect key="frame" x="276" y="61" width="48" height="22"/>
@@ -2479,7 +2482,7 @@
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <connections>
-                                                <action selector="onIntervalChange:" target="2DM-qB-uM0" id="DA7-eO-bby"/>
+                                                <action selector="onInterfaceAddresshange:" target="2DM-qB-uM0" id="fsa-eZ-oJ4"/>
                                             </connections>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fjc-MX-V9t">
@@ -2541,6 +2544,9 @@
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <segue destination="qTB-0C-Yc7" kind="popover" popoverAnchorView="tF9-gX-NCj" popoverBehavior="t" preferredEdge="maxY" id="34x-pb-xpJ"/>
+                                            </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kFb-Ob-EtF">
                                             <rect key="frame" x="355" y="138" width="153" height="18"/>
@@ -2549,6 +2555,9 @@
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="bypassRouteClick:" target="2DM-qB-uM0" id="aij-3N-v5c"/>
+                                            </connections>
                                         </button>
                                         <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hrK-5v-8z1">
                                             <rect key="frame" x="324" y="82" width="25" height="25"/>
@@ -2557,6 +2566,9 @@
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <segue destination="soO-aY-bCI" kind="popover" popoverAnchorView="hrK-5v-8z1" popoverBehavior="t" preferredEdge="maxY" id="b2n-wg-Gw0"/>
+                                            </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="suv-VB-hEk">
                                             <rect key="frame" x="355" y="86" width="264" height="18"/>
@@ -2565,6 +2577,9 @@
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="suppressLoopbackClick:" target="2DM-qB-uM0" id="jtk-Cz-4rg"/>
+                                            </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b4C-iR-H9b">
                                             <rect key="frame" x="355" y="111" width="190" height="18"/>
@@ -2573,6 +2588,9 @@
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="noFragmentClick:" target="2DM-qB-uM0" id="Uuz-7f-lA9"/>
+                                            </connections>
                                         </button>
                                         <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="By7-k7-lxV">
                                             <rect key="frame" x="543" y="107" width="25" height="25"/>
@@ -2581,6 +2599,9 @@
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <segue destination="Uax-WH-0qv" kind="popover" popoverAnchorView="By7-k7-lxV" popoverBehavior="t" preferredEdge="maxY" id="Hcd-06-Vke"/>
+                                            </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lIj-8u-Xln">
                                             <rect key="frame" x="570" y="13" width="70" height="32"/>
@@ -2601,10 +2622,18 @@
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="bypassRouteCheckbox" destination="kFb-Ob-EtF" id="3Pn-Lf-bsg"/>
+                        <outlet property="interfaceAddressTextbox" destination="qVW-1Z-kNM" id="Pp1-ab-fWQ"/>
                         <outlet property="intervalTextbox" destination="vMY-K4-yfL" id="KA2-sn-WHX"/>
                         <outlet property="maxTextbox" destination="4SA-Cg-613" id="n4W-UJ-t6u"/>
+                        <outlet property="noFragmentCheckbox" destination="b4C-iR-H9b" id="cQg-Es-9fw"/>
+                        <outlet property="packetSizeTextbox" destination="BKJ-u9-xeN" id="sUz-Zq-EP5"/>
                         <outlet property="saveButton" destination="lIj-8u-Xln" id="YEr-ko-DnE"/>
+                        <outlet property="sourceAddressTextbox" destination="Zfr-rv-uMj" id="myE-aR-WkW"/>
+                        <outlet property="supressLoopbackCheckbox" destination="suv-VB-hEk" id="Ccm-df-gdg"/>
                         <outlet property="timeoutTextbox" destination="GNw-tm-GpB" id="hyA-Tb-h3G"/>
+                        <outlet property="ttlTextbox" destination="bNe-zV-2tb" id="Zvn-dp-fK3"/>
+                        <outlet property="waitTextbox" destination="nz7-bO-ith" id="XNX-4J-0LA"/>
                     </connections>
                 </viewController>
                 <customObject id="hE1-z1-8EG" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -3152,7 +3181,7 @@ TXT (Descriptive text)</string>
                 </viewController>
                 <customObject id="CnI-TH-FcT" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2898" y="1202"/>
+            <point key="canvasLocation" x="-2898" y="1186"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="y5h-dp-Qzl">
@@ -3178,7 +3207,7 @@ TXT (Descriptive text)</string>
                 </viewController>
                 <customObject id="kkY-gl-Rzg" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2898" y="1400.5"/>
+            <point key="canvasLocation" x="-2494" y="1222"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="QgS-5W-eEO">
@@ -3204,7 +3233,7 @@ TXT (Descriptive text)</string>
                 </viewController>
                 <customObject id="uM5-V9-QGl" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2480" y="1251.5"/>
+            <point key="canvasLocation" x="-3313" y="1406"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="3ac-EQ-p9D">
@@ -3228,7 +3257,7 @@ TXT (Descriptive text)</string>
                 </viewController>
                 <customObject id="tN0-o2-c2Z" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2480" y="1423"/>
+            <point key="canvasLocation" x="-2898" y="1341"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="RJy-FC-MFM">
@@ -3253,7 +3282,7 @@ TXT (Descriptive text)</string>
                 </viewController>
                 <customObject id="EOT-GE-QCL" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2480" y="1578"/>
+            <point key="canvasLocation" x="-3313" y="1238"/>
         </scene>
     </scenes>
 </document>
