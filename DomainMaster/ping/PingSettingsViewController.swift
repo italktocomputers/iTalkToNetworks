@@ -28,6 +28,9 @@ class PingSettingsViewController : ViewController, NSWindowDelegate {
     @IBOutlet weak var supressLoopbackCheckbox: NSButton!
     @IBOutlet weak var floodPingCheckbox: NSButton!
 
+    
+    @IBOutlet weak var countFormatter: NumberFormatter!
+    
     override func viewDidLoad() {
         let pingCount = Helper.getSetting(name: "pingCount")
         let pingWait = Helper.getSetting(name: "pingWait")
@@ -92,7 +95,17 @@ class PingSettingsViewController : ViewController, NSWindowDelegate {
     }
 
     @IBAction func onCountChange(_ sender: Any) {
-        Helper.saveSetting(key: "pingCount", value: countTextbox.stringValue)
+        if countTextbox.stringValue.contains("0987654321") {
+            Helper.saveSetting(key: "pingCount", value: countTextbox.stringValue)
+        }
+        else {
+            let sb = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
+            if let vc: NSViewController = sb.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("error_integer_only")) as? NSViewController {
+
+                self.present(vc, asPopoverRelativeTo: ((sender as AnyObject).bounds)!, of: sender as! NSView, preferredEdge: NSRectEdge.maxX, behavior: NSPopover.Behavior.transient)
+            }
+        }
+
     }
 
     @IBAction func onTimeoutChange(_ sender: Any) {
