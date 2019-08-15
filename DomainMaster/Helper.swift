@@ -123,7 +123,7 @@ class Helper {
                 return true
             }
         }
-        
+
         if let num = Int(str) {
             if num >= from && num <= to {
                 return true
