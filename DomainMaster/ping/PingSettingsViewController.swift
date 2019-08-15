@@ -122,7 +122,7 @@ class PingSettingsViewController : ViewController, NSWindowDelegate {
     }
 
     @IBAction func onWaitChange(_ sender: Any) {
-        if Helper.isNumeric(str: waitTextbox.stringValue) {
+        if Helper.isDecimal(str: waitTextbox.stringValue) {
             Helper.saveSetting(key: "pingWait", value: waitTextbox.stringValue)
         }
         else {
@@ -131,12 +131,12 @@ class PingSettingsViewController : ViewController, NSWindowDelegate {
                 waitTextbox.stringValue = value
             }
 
-            Helper.showIntegerOnlyPopover(view: self, sender: sender)
+            Helper.showDecimalOnlyPopover(view: self, sender: sender)
         }
     }
 
     @IBAction func onTTLChange(_ sender: Any) {
-        if Helper.isNumeric(str: ttlTextbox.stringValue) {
+        if Helper.isNumeric(str: ttlTextbox.stringValue) && Helper.between(str: ttlTextbox.stringValue, from: 1, to: 255) {
             Helper.saveSetting(key: "pingTTL", value: ttlTextbox.stringValue)
         }
         else {

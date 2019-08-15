@@ -3619,18 +3619,18 @@ TXT (Descriptive text)</string>
             </objects>
             <point key="canvasLocation" x="-1990" y="825"/>
         </scene>
-        <!--Error-->
+        <!--Integer Only Error-->
         <scene sceneID="z9p-VO-EdW">
             <objects>
-                <viewController title="Error" identifier="error_integer_only" storyboardIdentifier="error_integer_only" id="PdH-6v-OYS" sceneMemberID="viewController">
+                <viewController title="Integer Only Error" identifier="error_integer_only" storyboardIdentifier="error_integer_only" id="PdH-6v-OYS" sceneMemberID="viewController">
                     <view key="view" id="9vk-ny-Ddz">
                         <rect key="frame" x="0.0" y="0.0" width="372" height="57"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3vH-ro-KtQ">
-                                <rect key="frame" x="18" y="20" width="336" height="17"/>
+                                <rect key="frame" x="18" y="12" width="336" height="34"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" title="Only integers are allowed here." id="9Wo-0j-7eF">
+                                <textFieldCell key="cell" title="Only integers are allowed here.  Also make sure the value is within the appropriate range." id="9Wo-0j-7eF">
                                     <font key="font" size="13" name="Geneva"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -3641,7 +3641,31 @@ TXT (Descriptive text)</string>
                 </viewController>
                 <customObject id="CLf-Em-4BF" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2318" y="362"/>
+            <point key="canvasLocation" x="-2318" y="346"/>
+        </scene>
+        <!--Decimal Only Error-->
+        <scene sceneID="cC3-vg-5yw">
+            <objects>
+                <viewController title="Decimal Only Error" identifier="error_decimal_only" storyboardIdentifier="error_decimal_only" id="yxy-c4-cgn" sceneMemberID="viewController">
+                    <view key="view" id="yBb-fc-VV9">
+                        <rect key="frame" x="0.0" y="0.0" width="372" height="57"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pWP-8I-UPG">
+                                <rect key="frame" x="18" y="12" width="336" height="34"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" title="Only decimals are allowed here.  Also make sure the value is within the appropriate range." id="4j5-wB-Cgx">
+                                    <font key="font" size="13" name="Geneva"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="hIH-Rg-ety" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2318" y="150"/>
         </scene>
     </scenes>
 </document>

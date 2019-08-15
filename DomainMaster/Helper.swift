@@ -100,14 +100,72 @@ class Helper {
         return nil
     }
 
-    static func isNumeric(str: String) -> Bool {
+    static func isNumeric(str: String, emptyAllowed: Bool=true) -> Bool {
+        if str == "" {
+            if emptyAllowed == false {
+                return false
+            }
+            else {
+                return true
+            }
+        }
+
         let nums: Set<Character> = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"]
         return Set(str).isSubset(of: nums)
+    }
+
+    static func between(str: String, from: Int, to: Int, emptyAllowed: Bool=true) -> Bool {
+        if str == "" {
+            if emptyAllowed == false {
+                return false
+            }
+            else {
+                return true
+            }
+        }
+        
+        if let num = Int(str) {
+            if num >= from && num <= to {
+                return true
+            }
+        }
+
+        return false
+    }
+
+    static func isDecimal(str: String, emptyAllowed: Bool=true) -> Bool {
+        if str == "" {
+            if emptyAllowed == false {
+                return false
+            }
+            else {
+                return true
+            }
+        }
+
+        let nums: Set<Character> = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "."]
+        if Set(str).isSubset(of: nums) {
+            let dotCount = str.filter{$0 == "."}.count
+            if dotCount <= 1 {
+                if Decimal(string: str) != nil {
+                    return true
+                }
+            }
+        }
+        return false
     }
 
     static func showIntegerOnlyPopover(view: ViewController, sender: Any) {
         let sb = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
         if let vc: NSViewController = sb.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("error_integer_only")) as? NSViewController {
+
+            view.present(vc, asPopoverRelativeTo: ((sender as AnyObject).bounds)!, of: sender as! NSView, preferredEdge: NSRectEdge.maxX, behavior: NSPopover.Behavior.transient)
+        }
+    }
+
+    static func showDecimalOnlyPopover(view: ViewController, sender: Any) {
+        let sb = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
+        if let vc: NSViewController = sb.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("error_decimal_only")) as? NSViewController {
 
             view.present(vc, asPopoverRelativeTo: ((sender as AnyObject).bounds)!, of: sender as! NSView, preferredEdge: NSRectEdge.maxX, behavior: NSPopover.Behavior.transient)
         }
