@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>pingCount</key>
-	<string>1</string>
+	<string>30</string>
 	<key>pingWait</key>
 	<string></string>
 	<key>pingTimeout</key>

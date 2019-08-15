@@ -95,15 +95,15 @@ class PingSettingsViewController : ViewController, NSWindowDelegate {
     }
 
     @IBAction func onCountChange(_ sender: Any) {
-        if countTextbox.stringValue.contains("0987654321") {
+        if Helper.isNumeric(str: countTextbox.stringValue) {
             Helper.saveSetting(key: "pingCount", value: countTextbox.stringValue)
         }
         else {
-            let sb = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
-            if let vc: NSViewController = sb.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("error_integer_only")) as? NSViewController {
-
-                self.present(vc, asPopoverRelativeTo: ((sender as AnyObject).bounds)!, of: sender as! NSView, preferredEdge: NSRectEdge.maxX, behavior: NSPopover.Behavior.transient)
+            if let value = Helper.getDefaultSettings(index: "pingCount") {
+                countTextbox.stringValue = value
             }
+            
+            Helper.showIntegerOnlyPopover(view: self, sender: sender)
         }
 
     }
