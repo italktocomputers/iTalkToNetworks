@@ -54,8 +54,19 @@ struct tv32 {
     u_int32_t tv32_usec;
 };
 
+struct swift_pak {
+    char* res;
+    char* error;
+    long* transmitted;
+    long* received;
+    void (^call)(char*, char*, long*, long*);
+    bool* ok_to_ping;
+};
+
+typedef struct swift_pak swift_pak;
+
 // various options
-int options;
+
 #define    F_FLOOD        0x0001
 #define    F_INTERVAL    0x0002
 #define    F_NUMERIC    0x0004
@@ -89,19 +100,19 @@ int options;
 // to 8192 for complete accuracy...
 #define    MAX_DUP_CHK    (8 * 128)
 
-static int fill(char*, char*, char* response);
+static int fill(char*, char*);
 static u_short in_cksum(u_short*, int);
-static void check_status(char* response);
-static int finish(char* response);
+static void check_status(void);
+static int finish(void);
 static void pinger(void);
-static char *pr_addr(struct in_addr, char* response);
-static char *pr_ntime(n_time, char* response);
-static void pr_icmph(struct icmp*, char* response);
-static void pr_iph(struct ip*, char* response);
-static void pr_pack(char*, int, struct sockaddr_in*, struct timeval*, char* response);
-static void pr_retip(struct ip*, char* response);
+static char *pr_addr(struct in_addr);
+static char *pr_ntime(n_time);
+static void pr_icmph(struct icmp*);
+static void pr_iph(struct ip*);
+static void pr_pack(char*, int, struct sockaddr_in*, struct timeval*);
+static void pr_retip(struct ip*);
 static void status(int);
 static void stopit(int);
 static void tvsub(struct timeval*, struct timeval*);
-int start_ping(int, char**, char*, void (^c)(char*), bool*);
-static void to_res(char*, char*, ...);
+int start_ping(int, char**, char*, char*, long*, long*, void (^call)(char*, char*, long*, long*), bool*);
+static void to_res(char*, ...);

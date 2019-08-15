@@ -13,26 +13,26 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     @IBOutlet weak var inputBox: NSComboBox!
     @IBOutlet weak var packetsTransmitted: NSTextField!
     @IBOutlet weak var packetsReceived: NSTextField!
-    @IBOutlet weak var packetLoss: NSTextField!
+    @IBOutlet weak var packetsReceivedPercentage: NSTextField!
     @IBOutlet weak var startTime: NSTextField!
     @IBOutlet weak var timeElapsed: NSTextField!
     @IBOutlet weak var endTime: NSTextField!
 
     var data: [PingRow] = []
-    var pingCount = 10
     var pingStartTime = Date()
     var pingEndTime = Date()
     var pingElapsedTime: TimeInterval = Date().timeIntervalSinceNow
     var pingPacketsTransmitted = 0
     var pingPacketsReceived = 0
-    var pingPacketsLossed = 0
-    var pingPacketsLossedPercentage: Double = 0.0
     var okToPing = UnsafeMutablePointer<Bool>.allocate(capacity: 1)
 
-    func newPing(ping: UnsafeMutablePointer<Int8>?) {
-        data = PingHelper.parseResponse(results: String(cString: ping!))
+    func notify(pingdata: UnsafeMutablePointer<Int8>?, err: UnsafeMutablePointer<Int8>?, transmitted: UnsafeMutablePointer<Int>?, received: UnsafeMutablePointer<Int>?) {
+        pingPacketsReceived = received!.pointee
+        pingPacketsTransmitted = transmitted!.pointee
+
+        data = PingHelper.parseResponse(results: String(cString: pingdata!))
+
         DispatchQueue.main.async {
-            self.data.reverse()
             self.tableView.reloadData()
             self.updateStats()
         }
@@ -73,32 +73,21 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     }
 
     func updateStats() {
-        pingPacketsTransmitted = 0
-        pingPacketsReceived = 0
-        pingPacketsLossed = 0
-        pingPacketsLossedPercentage = 0.0
-
-        for i in data {
-            pingPacketsTransmitted += 1
-
-            if i.seq == -1 {
-                pingPacketsLossed += 1
-            }
-            else {
-                pingPacketsReceived += 1
-            }
-
-            if pingPacketsTransmitted != 0 && pingPacketsLossed != 0 {
-                pingPacketsLossedPercentage = Double(pingPacketsTransmitted / pingPacketsLossed)
-            }
-            else {
-                pingPacketsLossedPercentage = 0.0
-            }
-
-            packetsTransmitted.stringValue = String(pingPacketsTransmitted)
-            packetsReceived.stringValue = String(pingPacketsReceived)
-            packetLoss.stringValue = String(pingPacketsLossedPercentage)
+        if pingPacketsTransmitted == pingPacketsReceived {
+            packetsReceivedPercentage.stringValue = "100"
         }
+        else {
+            if pingPacketsTransmitted != 0 && pingPacketsReceived != 0 {
+                let percentage = Int(round(Double(pingPacketsReceived)/Double(pingPacketsTransmitted)*100.0))
+                packetsReceivedPercentage.stringValue = String(percentage)
+            }
+            else {
+                packetsReceivedPercentage.stringValue = "0"
+            }
+        }
+
+        packetsTransmitted.stringValue = String(pingPacketsTransmitted)
+        packetsReceived.stringValue = String(pingPacketsReceived)
 
         setTimeElapsed()
     }
@@ -111,14 +100,12 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     func clearStats() {
         pingPacketsTransmitted = 0
         pingPacketsReceived = 0
-        pingPacketsLossed = 0
-        pingPacketsLossedPercentage = 0.0
-        packetsTransmitted.stringValue = "00"
-        packetsReceived.stringValue = "00"
-        packetLoss.stringValue = "0.0%"
-        startTime.stringValue = "__/__/____ __:__:__"
-        endTime.stringValue = "__/__/____ __:__:__"
-        timeElapsed.stringValue = "0.0"
+        packetsTransmitted.stringValue = "0"
+        packetsReceived.stringValue = "0"
+        packetsReceivedPercentage.stringValue = "0%"
+        startTime.stringValue = "yyyy-MM-dd HH:mm:ss"
+        endTime.stringValue = "yyyy-MM-dd HH:mm:ss"
+        timeElapsed.stringValue = "0"
     }
 
     func setStartTime() {

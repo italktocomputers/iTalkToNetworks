@@ -176,7 +176,7 @@ int start_trace_route(int argc, char* argv[], char* response, void (^c)(char*)) 
             bcopy(hp->h_addr, (caddr_t)&to->sin_addr, hp->h_length);
             hostname = hp->h_name;
         } else {
-            to_res(response, "DomainMaster: unknown host %s\n", *argv);
+            to_res2(response, "DomainMaster: unknown host %s\n", *argv);
             return 1;
         }
     }
@@ -186,7 +186,7 @@ int start_trace_route(int argc, char* argv[], char* response, void (^c)(char*)) 
     }
 
     if (datalen < 0 || datalen >= MAXPACKET - sizeof(struct opacket)) {
-        to_res(response, "DomainMaster: packet size must be 0 <= s < %ld.\n", MAXPACKET - sizeof(struct opacket));
+        to_res2(response, "DomainMaster: packet size must be 0 <= s < %ld.\n", MAXPACKET - sizeof(struct opacket));
         return 1;
     }
 
@@ -257,7 +257,7 @@ int start_trace_route(int argc, char* argv[], char* response, void (^c)(char*)) 
         from.sin_addr.s_addr = inet_addr(source);
 
         if (from.sin_addr.s_addr == -1) {
-            to_res(response, "DomainMaster: unknown host %s\n", source);
+            to_res2(response, "DomainMaster: unknown host %s\n", source);
             return 1;
         }
 
@@ -271,13 +271,13 @@ int start_trace_route(int argc, char* argv[], char* response, void (^c)(char*)) 
         #endif //IP_HDRINCL
     }
 
-    to_res(response, "DomainMaster to %s (%s)", hostname, inet_ntoa(to->sin_addr));
+    to_res2(response, "DomainMaster to %s (%s)", hostname, inet_ntoa(to->sin_addr));
 
     if (source) {
-        to_res(response, " from %s", source);
+        to_res2(response, " from %s", source);
     }
 
-    to_res(response, ", %d hops max, %d byte packets|", max_hops, datalen);
+    to_res2(response, ", %d hops max, %d byte packets|", max_hops, datalen);
 
     (void) fflush(stderr);
 
@@ -286,7 +286,7 @@ int start_trace_route(int argc, char* argv[], char* response, void (^c)(char*)) 
         int got_there = 0;
         int unreachable = 0;
 
-        to_res(response, "%2d ", hop);
+        to_res2(response, "%2d ", hop);
 
         for (probe = 0; probe < nprobes; ++probe) {
             long cc;
@@ -306,7 +306,7 @@ int start_trace_route(int argc, char* argv[], char* response, void (^c)(char*)) 
                         lastaddr = from.sin_addr.s_addr;
                     }
                     
-                    to_res(response, "  %g ms", deltaT(&t1, &t2));
+                    to_res2(response, "  %g ms", deltaT(&t1, &t2));
 
                     switch(i-1) {
                         case ICMP_UNREACH_PORT:
@@ -402,7 +402,7 @@ static void send_probe(int seq, int ttl, char* response) {
             perror("sendto");
         }
 
-        to_res(response, "DomainMaster: wrote %s %d chars, ret=%d\n", hostname, datalen, i);
+        to_res2(response, "DomainMaster: wrote %s %d chars, ret=%d\n", hostname, datalen, i);
         (void) fflush(stdout);
     }
 }
@@ -454,7 +454,7 @@ static int packet_ok(u_char *buf, long cc, struct sockaddr_in* from, int seq, ch
 
     if (cc < hlen + ICMP_MINLEN) {
         if (verbose) {
-            to_res(response, "packet too short (%d bytes) from %s\n", cc, inet_ntoa(from->sin_addr));
+            to_res2(response, "packet too short (%d bytes) from %s\n", cc, inet_ntoa(from->sin_addr));
         }
         return (0);
     }
@@ -484,10 +484,10 @@ static int packet_ok(u_char *buf, long cc, struct sockaddr_in* from, int seq, ch
         int i;
         u_long *lp = (u_long *)&icp->icmp_ip;
 
-        to_res(response, "\n%d bytes from %s to %s", cc, inet_ntoa(from->sin_addr), inet_ntoa(ip->ip_dst));
-        to_res(response, ": icmp type %d (%s) code %d\n", type, pr_type(type), icp->icmp_code);
+        to_res2(response, "\n%d bytes from %s to %s", cc, inet_ntoa(from->sin_addr), inet_ntoa(ip->ip_dst));
+        to_res2(response, ": icmp type %d (%s) code %d\n", type, pr_type(type), icp->icmp_code);
         for (i = 4; i < cc ; i += sizeof(long))
-            to_res(response, "%2d: x%8.8lx\n", i, *lp++);
+            to_res2(response, "%2d: x%8.8lx\n", i, *lp++);
     }
     #endif //ARCHAIC
 
@@ -503,18 +503,18 @@ static void print_host(u_char *buf, long cc, struct sockaddr_in *from, char* res
     cc -= hlen;
 
     if (nflag) {
-        to_res(response, " %s", inet_ntoa(from->sin_addr));
+        to_res2(response, " %s", inet_ntoa(from->sin_addr));
     }
     else {
-        to_res(response, " %s (%s)", inetname(from->sin_addr), inet_ntoa(from->sin_addr));
+        to_res2(response, " %s (%s)", inetname(from->sin_addr), inet_ntoa(from->sin_addr));
 
         if (verbose) {
-            to_res(response, " %d bytes to %s", cc, inet_ntoa (ip->ip_dst));
+            to_res2(response, " %d bytes to %s", cc, inet_ntoa (ip->ip_dst));
         }
     }
 }
 
-static void to_res(char* res, char* format, ...) {
+static void to_res2(char* res, char* format, ...) {
     char buffer[256];
     va_list args;
     va_start(args, format);

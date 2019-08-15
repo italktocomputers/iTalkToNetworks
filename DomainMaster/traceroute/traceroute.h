@@ -55,5 +55,5 @@ static void tvsub(register struct timeval*, register struct timeval*);
 static char * inetname(struct in_addr);
 int start_trace_route(const int, char**, char*, void (^c)(char*));
 static void print_host(u_char*, long, struct sockaddr_in*, char*);
-static void to_res(char*, char*, ...);
+static void to_res2(char*, char*, ...);
 static u_short in_cksum(u_short*, int);

@@ -31,6 +31,7 @@
 		87CACED322F07BEC006C1C34 /* TraceRouteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CACED222F07BEC006C1C34 /* TraceRouteRow.swift */; };
 		87CACEDD22F1091A006C1C34 /* traceroute.c in Sources */ = {isa = PBXBuildFile; fileRef = 87CACEDC22F1091A006C1C34 /* traceroute.c */; };
 		A570BFE122FA1788006AA478 /* ping.c in Sources */ = {isa = PBXBuildFile; fileRef = A570BFE022FA1788006AA478 /* ping.c */; };
+		A570BFE423037962006AA478 /* whois.c in Sources */ = {isa = PBXBuildFile; fileRef = A570BFE323037962006AA478 /* whois.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +64,8 @@
 		87CACEDC22F1091A006C1C34 /* traceroute.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = traceroute.c; sourceTree = "<group>"; };
 		A570BFDF22FA1788006AA478 /* ping.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ping.h; sourceTree = "<group>"; };
 		A570BFE022FA1788006AA478 /* ping.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ping.c; sourceTree = "<group>"; };
+		A570BFE223037962006AA478 /* whois.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = whois.h; sourceTree = "<group>"; };
+		A570BFE323037962006AA478 /* whois.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = whois.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,36 +106,78 @@
 		87BA48E322A5E9B200E8DDB9 /* DomainMaster */ = {
 			isa = PBXGroup;
 			children = (
-				87CACECD22EFD83D006C1C34 /* TraceRouteViewController.swift */,
-				87CACECB22EF906F006C1C34 /* PingSettingsViewController.swift */,
-				87CACEC922EE121A006C1C34 /* PingViewController.swift */,
-				875F4FB422E007EE0089C1CA /* WhoIsHelper.swift */,
-				875F4FB222E002320089C1CA /* WhoIsViewController.swift */,
-				875F4FB622E13D4D0089C1CA /* WhoIsSettingsViewController.swift */,
-				873B266622EC9B16005BAA5F /* DnsViewController.swift */,
-				87345DB622DBD02B0035349D /* DnsSettingsViewController.swift */,
+				87BA48ED22A5E9B300E8DDB9 /* Info.plist */,
+				A570BFE923037C1D006AA478 /* plists */,
+				A570BFE823037BE8006AA478 /* nslookup */,
+				A570BFE723037BCB006AA478 /* whois */,
+				A570BFE623037B9F006AA478 /* traceroute */,
+				A570BFE523037B7F006AA478 /* ping */,
 				870C3F1A22AC102100B4EF32 /* UrlCache.swift */,
-				875CB7F122A9D9A40059A7D6 /* DnsRow.swift */,
-				875F4FB822E1C4720089C1CA /* DefaultSettings.plist */,
 				87BA48E422A5E9B200E8DDB9 /* AppDelegate.swift */,
 				87BA48E622A5E9B200E8DDB9 /* ViewController.swift */,
 				87BA48E822A5E9B300E8DDB9 /* Assets.xcassets */,
 				87BA48EA22A5E9B300E8DDB9 /* Main.storyboard */,
-				87BA48ED22A5E9B300E8DDB9 /* Info.plist */,
 				87BA48EE22A5E9B300E8DDB9 /* DomainMaster.entitlements */,
-				875CB7EB22A9C92D0059A7D6 /* DnsHelper.swift */,
 				875CB7EF22A9D74E0059A7D6 /* Helper.swift */,
-				873B266A22EE0921005BAA5F /* PingRow.swift */,
-				873B266C22EE0A34005BAA5F /* PingHelper.swift */,
-				87CACED022F07BA5006C1C34 /* TraceRouteHelper.swift */,
-				87CACED222F07BEC006C1C34 /* TraceRouteRow.swift */,
-				87642DB122F32073000D96C1 /* traceroute.h */,
-				87CACEDC22F1091A006C1C34 /* traceroute.c */,
 				87CACEDA22F1091A006C1C34 /* DomainMaster-Bridging-Header.h */,
-				A570BFDF22FA1788006AA478 /* ping.h */,
-				A570BFE022FA1788006AA478 /* ping.c */,
 			);
 			path = DomainMaster;
+			sourceTree = "<group>";
+		};
+		A570BFE523037B7F006AA478 /* ping */ = {
+			isa = PBXGroup;
+			children = (
+				A570BFDF22FA1788006AA478 /* ping.h */,
+				A570BFE022FA1788006AA478 /* ping.c */,
+				87CACECB22EF906F006C1C34 /* PingSettingsViewController.swift */,
+				873B266A22EE0921005BAA5F /* PingRow.swift */,
+				873B266C22EE0A34005BAA5F /* PingHelper.swift */,
+				87CACEC922EE121A006C1C34 /* PingViewController.swift */,
+			);
+			path = ping;
+			sourceTree = "<group>";
+		};
+		A570BFE623037B9F006AA478 /* traceroute */ = {
+			isa = PBXGroup;
+			children = (
+				87CACEDC22F1091A006C1C34 /* traceroute.c */,
+				87642DB122F32073000D96C1 /* traceroute.h */,
+				87CACED222F07BEC006C1C34 /* TraceRouteRow.swift */,
+				87CACED022F07BA5006C1C34 /* TraceRouteHelper.swift */,
+				87CACECD22EFD83D006C1C34 /* TraceRouteViewController.swift */,
+			);
+			path = traceroute;
+			sourceTree = "<group>";
+		};
+		A570BFE723037BCB006AA478 /* whois */ = {
+			isa = PBXGroup;
+			children = (
+				A570BFE223037962006AA478 /* whois.h */,
+				A570BFE323037962006AA478 /* whois.c */,
+				875F4FB422E007EE0089C1CA /* WhoIsHelper.swift */,
+				875F4FB222E002320089C1CA /* WhoIsViewController.swift */,
+				875F4FB622E13D4D0089C1CA /* WhoIsSettingsViewController.swift */,
+			);
+			path = whois;
+			sourceTree = "<group>";
+		};
+		A570BFE823037BE8006AA478 /* nslookup */ = {
+			isa = PBXGroup;
+			children = (
+				875CB7EB22A9C92D0059A7D6 /* DnsHelper.swift */,
+				873B266622EC9B16005BAA5F /* DnsViewController.swift */,
+				87345DB622DBD02B0035349D /* DnsSettingsViewController.swift */,
+				875CB7F122A9D9A40059A7D6 /* DnsRow.swift */,
+			);
+			path = nslookup;
+			sourceTree = "<group>";
+		};
+		A570BFE923037C1D006AA478 /* plists */ = {
+			isa = PBXGroup;
+			children = (
+				875F4FB822E1C4720089C1CA /* DefaultSettings.plist */,
+			);
+			path = plists;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,6 +273,7 @@
 				87CACECA22EE121A006C1C34 /* PingViewController.swift in Sources */,
 				875CB7F022A9D74E0059A7D6 /* Helper.swift in Sources */,
 				87642DB222F32073000D96C1 /* traceroute.h in Sources */,
+				A570BFE423037962006AA478 /* whois.c in Sources */,
 				873B266B22EE0921005BAA5F /* PingRow.swift in Sources */,
 				875F4FB722E13D4D0089C1CA /* WhoIsSettingsViewController.swift in Sources */,
 				A570BFE122FA1788006AA478 /* ping.c in Sources */,
