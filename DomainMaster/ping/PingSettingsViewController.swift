@@ -28,8 +28,7 @@ class PingSettingsViewController : ViewController, NSWindowDelegate {
     @IBOutlet weak var supressLoopbackCheckbox: NSButton!
     @IBOutlet weak var floodPingCheckbox: NSButton!
 
-    
-    @IBOutlet weak var countFormatter: NumberFormatter!
+    var errorOnClose = false
     
     override func viewDidLoad() {
         let pingCount = Helper.getSetting(name: "pingCount")
@@ -99,29 +98,69 @@ class PingSettingsViewController : ViewController, NSWindowDelegate {
             Helper.saveSetting(key: "pingCount", value: countTextbox.stringValue)
         }
         else {
+            errorOnClose = true
             if let value = Helper.getDefaultSettings(index: "pingCount") {
                 countTextbox.stringValue = value
             }
             
             Helper.showIntegerOnlyPopover(view: self, sender: sender)
         }
-
     }
 
     @IBAction func onTimeoutChange(_ sender: Any) {
-        Helper.saveSetting(key: "pingTimeout", value: timeoutTextbox.stringValue)
+        if Helper.isNumeric(str: timeoutTextbox.stringValue) {
+            Helper.saveSetting(key: "pingTimeout", value: timeoutTextbox.stringValue)
+        }
+        else {
+            errorOnClose = true
+            if let value = Helper.getDefaultSettings(index: "pingTimeout") {
+                timeoutTextbox.stringValue = value
+            }
+
+            Helper.showIntegerOnlyPopover(view: self, sender: sender)
+        }
     }
 
     @IBAction func onWaitChange(_ sender: Any) {
-        Helper.saveSetting(key: "pingWait", value: waitTextbox.stringValue)
+        if Helper.isNumeric(str: waitTextbox.stringValue) {
+            Helper.saveSetting(key: "pingWait", value: waitTextbox.stringValue)
+        }
+        else {
+            errorOnClose = true
+            if let value = Helper.getDefaultSettings(index: "pingWait") {
+                waitTextbox.stringValue = value
+            }
+
+            Helper.showIntegerOnlyPopover(view: self, sender: sender)
+        }
     }
 
     @IBAction func onTTLChange(_ sender: Any) {
-        Helper.saveSetting(key: "pingTTL", value: ttlTextbox.stringValue)
+        if Helper.isNumeric(str: ttlTextbox.stringValue) {
+            Helper.saveSetting(key: "pingTTL", value: ttlTextbox.stringValue)
+        }
+        else {
+            errorOnClose = true
+            if let value = Helper.getDefaultSettings(index: "pingTTL") {
+                ttlTextbox.stringValue = value
+            }
+
+            Helper.showIntegerOnlyPopover(view: self, sender: sender)
+        }
     }
 
     @IBAction func onPacketSizeChange(_ sender: Any) {
-        Helper.saveSetting(key: "pingPacketSize", value: packetSizeTextbox.stringValue)
+        if Helper.isNumeric(str: packetSizeTextbox.stringValue) {
+            Helper.saveSetting(key: "pingPacketSize", value: packetSizeTextbox.stringValue)
+        }
+        else {
+            errorOnClose = true
+            if let value = Helper.getDefaultSettings(index: "pingPacketSize") {
+                packetSizeTextbox.stringValue = value
+            }
+
+            Helper.showIntegerOnlyPopover(view: self, sender: sender)
+        }
     }
 
     @IBAction func onSourceAddressChange(_ sender: Any) {
@@ -133,7 +172,17 @@ class PingSettingsViewController : ViewController, NSWindowDelegate {
     }
 
     @IBAction func onPreloadChange(_ sender: Any) {
-        Helper.saveSetting(key: "pingPreload", value: preloadTextbox.stringValue)
+        if Helper.isNumeric(str: preloadTextbox.stringValue) {
+            Helper.saveSetting(key: "pingPreload", value: preloadTextbox.stringValue)
+        }
+        else {
+            errorOnClose = true
+            if let value = Helper.getDefaultSettings(index: "pingPreload") {
+                preloadTextbox.stringValue = value
+            }
+
+            Helper.showIntegerOnlyPopover(view: self, sender: sender)
+        }
     }
 
     @IBAction func onMaskChange(_ sender: Any) {
@@ -145,15 +194,45 @@ class PingSettingsViewController : ViewController, NSWindowDelegate {
     }
 
     @IBAction func onSweepMaxSizeChange(_ sender: Any) {
-        Helper.saveSetting(key: "pingSweepMaxSize", value: sweepMaxSizeTextbox.stringValue)
+        if Helper.isNumeric(str: sweepMaxSizeTextbox.stringValue) {
+            Helper.saveSetting(key: "pingSweepMaxSize", value: sweepMaxSizeTextbox.stringValue)
+        }
+        else {
+            errorOnClose = true
+            if let value = Helper.getDefaultSettings(index: "pingSweepMaxSize") {
+                sweepMaxSizeTextbox.stringValue = value
+            }
+
+            Helper.showIntegerOnlyPopover(view: self, sender: sender)
+        }
     }
 
     @IBAction func onSweepMinSizeChange(_ sender: Any) {
-        Helper.saveSetting(key: "pingSweepMinSize", value: sweepMinSizeTextbox.stringValue)
+        if Helper.isNumeric(str: sweepMinSizeTextbox.stringValue) {
+            Helper.saveSetting(key: "pingSweepMinSize", value: sweepMinSizeTextbox.stringValue)
+        }
+        else {
+            errorOnClose = true
+            if let value = Helper.getDefaultSettings(index: "pingSweepMinSize") {
+                sweepMinSizeTextbox.stringValue = value
+            }
+
+            Helper.showIntegerOnlyPopover(view: self, sender: sender)
+        }
     }
 
     @IBAction func onSweeIncSizeChange(_ sender: Any) {
-        Helper.saveSetting(key: "pingSweepIncSize", value: sweepIncSizeTextbox.stringValue)
+        if Helper.isNumeric(str: sweepIncSizeTextbox.stringValue) {
+            Helper.saveSetting(key: "pingSweepIncSize", value: sweepIncSizeTextbox.stringValue)
+        }
+        else {
+            errorOnClose = true
+            if let value = Helper.getDefaultSettings(index: "pingSweepIncSize") {
+                sweepIncSizeTextbox.stringValue = value
+            }
+
+            Helper.showIntegerOnlyPopover(view: self, sender: sender)
+        }
     }
 
     @IBAction func onPatternChange(_ sender: Any) {
@@ -165,6 +244,13 @@ class PingSettingsViewController : ViewController, NSWindowDelegate {
     }
     
     @IBAction func close(_ sender: NSButton) {
-        self.dismiss(self)
+        self.view.window?.makeFirstResponder(sender)
+
+        if errorOnClose == false {
+            self.dismiss(self)
+        }
+        else {
+            errorOnClose = false
+        }
     }
 }
