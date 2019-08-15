@@ -12,8 +12,6 @@
 	<string></string>
 	<key>pingWait</key>
 	<string></string>
-	<key>pingMax</key>
-	<string>25</string>
 	<key>pingBypassRoute</key>
 	<string>off</string>
 	<key>pingNoFragment</key>
@@ -22,7 +20,7 @@
 	<string>off</string>
 	<key>pingTimeout</key>
 	<string>30</string>
-	<key>pingInterval</key>
+	<key>pingCount</key>
 	<string>1</string>
 	<key>resourceType</key>
 	<string>ANY</string>

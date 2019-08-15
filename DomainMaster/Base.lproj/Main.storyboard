@@ -2282,39 +2282,50 @@
             <objects>
                 <viewController id="2DM-qB-uM0" customClass="PingSettingsViewController" customModule="DomainMaster" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="vtd-Gy-yLO">
-                        <rect key="frame" x="0.0" y="0.0" width="696" height="247"/>
+                        <rect key="frame" x="0.0" y="0.0" width="941" height="433"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <box fixedFrame="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="4iW-TJ-1hT">
-                                <rect key="frame" x="20" y="29" width="656" height="198"/>
+                            <box fixedFrame="YES" title="Basic" translatesAutoresizingMaskIntoConstraints="NO" id="g97-47-NCB">
+                                <rect key="frame" x="17" y="351" width="907" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <view key="contentView" ambiguous="YES" id="XCi-FV-9yY">
-                                    <rect key="frame" x="1" y="1" width="654" height="196"/>
+                                <view key="contentView" id="Loo-qQ-NxI">
+                                    <rect key="frame" x="3" y="3" width="901" height="45"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
-                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vMY-K4-yfL">
-                                            <rect key="frame" x="74" y="136" width="48" height="22"/>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4SA-Cg-613">
+                                            <rect key="frame" x="70" y="12" width="48" height="22"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="FCh-vn-u8Y">
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="KEb-wY-BJF">
                                                 <font key="font" size="13" name="Geneva"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <connections>
-                                                <action selector="onIntervalChange:" target="2DM-qB-uM0" id="6HF-Za-LQl"/>
+                                                <action selector="onCountChange:" target="2DM-qB-uM0" id="Seo-sp-gpt"/>
                                             </connections>
                                         </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SEK-Ww-BZe">
-                                            <rect key="frame" x="13" y="138" width="55" height="17"/>
+                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0ta-nI-0eM">
+                                            <rect key="frame" x="124" y="8" width="25" height="25"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Interval:" id="jKo-Gw-N8N">
+                                            <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nSQ-uY-uJ0">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <segue destination="G03-V2-EHN" kind="popover" popoverAnchorView="0ta-nI-0eM" popoverBehavior="t" preferredEdge="maxY" id="lh6-8V-27Q"/>
+                                            </connections>
+                                        </button>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N8H-60-DRF">
+                                            <rect key="frame" x="18" y="14" width="46" height="17"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Count:" id="Y9v-Xt-T5m">
                                                 <font key="font" size="13" name="Geneva"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nz7-bO-ith">
-                                            <rect key="frame" x="74" y="61" width="48" height="22"/>
+                                            <rect key="frame" x="204" y="12" width="48" height="22"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="cot-d8-RSn">
                                                 <font key="font" size="13" name="Geneva"/>
@@ -2326,7 +2337,7 @@
                                             </connections>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="A23-Oj-FcF">
-                                            <rect key="frame" x="31" y="63" width="37" height="17"/>
+                                            <rect key="frame" x="161" y="14" width="37" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Wait:" id="3w1-MC-NcT">
                                                 <font key="font" size="13" name="Geneva"/>
@@ -2334,8 +2345,19 @@
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
+                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rdS-mb-yfp">
+                                            <rect key="frame" x="258" y="8" width="25" height="25"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0pt-R5-Zl7">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <segue destination="l83-G0-lS7" kind="popover" popoverAnchorView="rdS-mb-yfp" popoverBehavior="t" preferredEdge="maxY" id="3Ro-Np-ZkE"/>
+                                            </connections>
+                                        </button>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Cgn-Bs-a6e">
-                                            <rect key="frame" x="8" y="113" width="60" height="17"/>
+                                            <rect key="frame" x="291" y="14" width="60" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Timeout:" id="tdc-k5-WHi">
                                                 <font key="font" size="13" name="Geneva"/>
@@ -2344,7 +2366,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GNw-tm-GpB">
-                                            <rect key="frame" x="74" y="111" width="48" height="22"/>
+                                            <rect key="frame" x="357" y="12" width="48" height="22"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="dwY-Vj-7cF">
                                                 <font key="font" size="13" name="Geneva"/>
@@ -2355,30 +2377,30 @@
                                                 <action selector="onTimeoutChange:" target="2DM-qB-uM0" id="NDR-Hx-DSY"/>
                                             </connections>
                                         </textField>
-                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1L9-82-yMN">
-                                            <rect key="frame" x="122" y="132" width="25" height="25"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ihz-Jt-8hh">
+                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dLU-kz-acd">
+                                            <rect key="frame" x="411" y="8" width="25" height="25"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Wr8-Tl-zYk">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
-                                                <segue destination="ncT-NY-gGv" kind="popover" popoverAnchorView="1L9-82-yMN" popoverBehavior="t" preferredEdge="maxY" id="AFt-YP-6sl"/>
+                                                <segue destination="Ieb-qv-Tvx" kind="popover" popoverAnchorView="dLU-kz-acd" popoverBehavior="t" preferredEdge="maxY" id="NXB-VJ-b7i"/>
                                             </connections>
                                         </button>
-                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rdS-mb-yfp">
-                                            <rect key="frame" x="122" y="58" width="25" height="25"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0pt-R5-Zl7">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <segue destination="l83-G0-lS7" kind="popover" popoverAnchorView="rdS-mb-yfp" popoverBehavior="t" preferredEdge="maxY" id="3Ro-Np-ZkE"/>
-                                            </connections>
-                                        </button>
+                                    </subviews>
+                                </view>
+                                <font key="titleFont" size="13" name="Geneva"/>
+                            </box>
+                            <box fixedFrame="YES" title="Advanced" translatesAutoresizingMaskIntoConstraints="NO" id="tYa-cy-Bdc">
+                                <rect key="frame" x="17" y="59" width="907" height="281"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <view key="contentView" id="Fa6-aU-zvo">
+                                    <rect key="frame" x="3" y="3" width="901" height="260"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bNe-zV-2tb">
-                                            <rect key="frame" x="276" y="136" width="48" height="22"/>
+                                            <rect key="frame" x="151" y="88" width="48" height="22"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="lzm-wP-MJN">
                                                 <font key="font" size="13" name="Geneva"/>
@@ -2386,11 +2408,11 @@
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <connections>
-                                                <action selector="onTTLChange:" target="2DM-qB-uM0" id="jGH-iq-qQ2"/>
+                                                <action selector="onPacketSizeChange:" target="2DM-qB-uM0" id="QS5-l3-QaE"/>
                                             </connections>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eic-9n-GHj">
-                                            <rect key="frame" x="237" y="138" width="33" height="17"/>
+                                            <rect key="frame" x="104" y="210" width="33" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="TTL:" id="0c2-Z8-qVI">
                                                 <font key="font" size="13" name="Geneva"/>
@@ -2399,7 +2421,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dlQ-yd-QD3">
-                                            <rect key="frame" x="324" y="132" width="25" height="25"/>
+                                            <rect key="frame" x="205" y="204" width="25" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="paR-Ih-kpV">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -2410,7 +2432,7 @@
                                             </connections>
                                         </button>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BKJ-u9-xeN">
-                                            <rect key="frame" x="276" y="111" width="48" height="22"/>
+                                            <rect key="frame" x="151" y="208" width="48" height="22"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="7e9-Lv-RmA">
                                                 <font key="font" size="13" name="Geneva"/>
@@ -2418,11 +2440,11 @@
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <connections>
-                                                <action selector="onPacketSizeChange:" target="2DM-qB-uM0" id="5I0-3Z-j0u"/>
+                                                <action selector="onTTLChange:" target="2DM-qB-uM0" id="pdx-Gk-AYX"/>
                                             </connections>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aZl-Tf-OeM">
-                                            <rect key="frame" x="190" y="113" width="80" height="17"/>
+                                            <rect key="frame" x="57" y="90" width="80" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Packet Size:" id="EWH-CU-dWt">
                                                 <font key="font" size="13" name="Geneva"/>
@@ -2431,7 +2453,7 @@
                                             </textFieldCell>
                                         </textField>
                                         <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FUb-kV-psz">
-                                            <rect key="frame" x="324" y="107" width="25" height="25"/>
+                                            <rect key="frame" x="205" y="84" width="25" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="TOc-wq-JYH">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -2442,7 +2464,7 @@
                                             </connections>
                                         </button>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zfr-rv-uMj">
-                                            <rect key="frame" x="276" y="86" width="48" height="22"/>
+                                            <rect key="frame" x="151" y="148" width="174" height="22"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="a6p-ez-FhL">
                                                 <font key="font" size="13" name="Geneva"/>
@@ -2454,7 +2476,7 @@
                                             </connections>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="50D-y7-1YY">
-                                            <rect key="frame" x="163" y="88" width="107" height="17"/>
+                                            <rect key="frame" x="30" y="150" width="107" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Source Address:" id="Fgm-IU-rW7">
                                                 <font key="font" size="13" name="Geneva"/>
@@ -2462,8 +2484,19 @@
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
+                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hrK-5v-8z1">
+                                            <rect key="frame" x="331" y="145" width="25" height="25"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="JWe-Xf-Wo8">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <segue destination="soO-aY-bCI" kind="popover" popoverAnchorView="hrK-5v-8z1" popoverBehavior="t" preferredEdge="maxY" id="b2n-wg-Gw0"/>
+                                            </connections>
+                                        </button>
                                         <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Kka-TQ-6SY">
-                                            <rect key="frame" x="324" y="58" width="25" height="25"/>
+                                            <rect key="frame" x="331" y="174" width="25" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Waj-Ch-RRW">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -2473,20 +2506,8 @@
                                                 <segue destination="d86-co-I3c" kind="popover" popoverAnchorView="Kka-TQ-6SY" popoverBehavior="t" preferredEdge="maxY" id="XQu-xz-GLj"/>
                                             </connections>
                                         </button>
-                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qVW-1Z-kNM">
-                                            <rect key="frame" x="276" y="61" width="48" height="22"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="idD-Vf-p4F">
-                                                <font key="font" size="13" name="Geneva"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                            <connections>
-                                                <action selector="onInterfaceAddresshange:" target="2DM-qB-uM0" id="fsa-eZ-oJ4"/>
-                                            </connections>
-                                        </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fjc-MX-V9t">
-                                            <rect key="frame" x="151" y="63" width="119" height="17"/>
+                                            <rect key="frame" x="18" y="180" width="119" height="17"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="Interface Address:" id="Lek-SZ-TLt">
                                                 <font key="font" size="13" name="Geneva"/>
@@ -2494,51 +2515,276 @@
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                         </textField>
-                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dLU-kz-acd">
-                                            <rect key="frame" x="122" y="107" width="25" height="25"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Wr8-Tl-zYk">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <segue destination="Ieb-qv-Tvx" kind="popover" popoverAnchorView="dLU-kz-acd" popoverBehavior="t" preferredEdge="maxY" id="NXB-VJ-b7i"/>
-                                            </connections>
-                                        </button>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N8H-60-DRF">
-                                            <rect key="frame" x="30" y="88" width="33" height="17"/>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="meh-h9-chN">
+                                            <rect key="frame" x="151" y="119" width="48" height="22"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Max:" id="Y9v-Xt-T5m">
-                                                <font key="font" size="13" name="Geneva"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4SA-Cg-613">
-                                            <rect key="frame" x="74" y="86" width="48" height="22"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="KEb-wY-BJF">
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="t8K-9E-K9p">
                                                 <font key="font" size="13" name="Geneva"/>
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
                                             <connections>
-                                                <action selector="onMaxChange:" target="2DM-qB-uM0" id="thZ-VL-rhN"/>
+                                                <action selector="onPreloadChange:" target="2DM-qB-uM0" id="sX5-nR-nYa"/>
                                             </connections>
                                         </textField>
-                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0ta-nI-0eM">
-                                            <rect key="frame" x="122" y="82" width="25" height="25"/>
+                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8c8-lB-bIp">
+                                            <rect key="frame" x="205" y="116" width="25" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="nSQ-uY-uJ0">
+                                            <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Jcc-i2-AT5">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
-                                                <segue destination="G03-V2-EHN" kind="popover" popoverAnchorView="0ta-nI-0eM" popoverBehavior="t" preferredEdge="maxY" id="lh6-8V-27Q"/>
+                                                <segue destination="1IN-4b-bmC" kind="popover" popoverAnchorView="8c8-lB-bIp" popoverBehavior="t" preferredEdge="maxY" id="0RI-c8-DDz"/>
+                                            </connections>
+                                        </button>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p23-Rw-MKa">
+                                            <rect key="frame" x="83" y="120" width="54" height="17"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Preload:" id="3hl-9t-Em2">
+                                                <font key="font" size="13" name="Geneva"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qVW-1Z-kNM">
+                                            <rect key="frame" x="151" y="178" width="174" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="idD-Vf-p4F">
+                                                <font key="font" size="13" name="Geneva"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <action selector="onInterfaceAddressChange:" target="2DM-qB-uM0" id="f1k-eJ-eNx"/>
+                                            </connections>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4bb-HP-DGf">
+                                            <rect key="frame" x="64" y="60" width="73" height="17"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Mask|Time:" id="8UU-8f-4xD">
+                                                <font key="font" size="13" name="Geneva"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="muI-X0-tx1">
+                                            <rect key="frame" x="151" y="58" width="174" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="Drd-bh-s0I">
+                                                <font key="font" size="13" name="Geneva"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <action selector="onMaskChange:" target="2DM-qB-uM0" id="8RJ-oh-fGk"/>
+                                            </connections>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="thq-ao-f6D">
+                                            <rect key="frame" x="56" y="30" width="81" height="17"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="IPsec policy:" id="0HR-1k-OIz">
+                                                <font key="font" size="13" name="Geneva"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CZT-AM-rIP">
+                                            <rect key="frame" x="151" y="28" width="174" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="vqr-Pe-2U5">
+                                                <font key="font" size="13" name="Geneva"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <action selector="onIpsecPolicyChange:" target="2DM-qB-uM0" id="Vht-c0-A95"/>
+                                            </connections>
+                                        </textField>
+                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QbG-sI-1cl">
+                                            <rect key="frame" x="331" y="54" width="25" height="25"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="G8x-rA-gMX">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <segue destination="Y74-f2-dHP" kind="popover" popoverAnchorView="QbG-sI-1cl" popoverBehavior="t" preferredEdge="maxY" id="n2k-mE-888"/>
+                                            </connections>
+                                        </button>
+                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NJG-Tv-OxF">
+                                            <rect key="frame" x="331" y="24" width="25" height="25"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="As1-tB-hEo">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <segue destination="95o-9M-YzT" kind="popover" popoverAnchorView="NJG-Tv-OxF" popoverBehavior="t" preferredEdge="maxY" id="sdg-MM-Q7U"/>
+                                            </connections>
+                                        </button>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UNJ-q3-ew8">
+                                            <rect key="frame" x="365" y="210" width="108" height="17"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Sweep Max Size:" id="YNj-da-FEu">
+                                                <font key="font" size="13" name="Geneva"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tzK-nm-oax">
+                                            <rect key="frame" x="479" y="208" width="48" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="Dfh-CV-uSF">
+                                                <font key="font" size="13" name="Geneva"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <action selector="onSweepMaxSizeChange:" target="2DM-qB-uM0" id="tAe-Bs-vF0"/>
+                                            </connections>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Oeg-jn-qaP">
+                                            <rect key="frame" x="365" y="180" width="104" height="17"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Sweep Min Size:" id="60m-La-FnX">
+                                                <font key="font" size="13" name="Geneva"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="beX-Mx-wF4">
+                                            <rect key="frame" x="479" y="178" width="48" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="daz-QC-r8Z">
+                                                <font key="font" size="13" name="Geneva"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <action selector="onSweepMinSizeChange:" target="2DM-qB-uM0" id="fAo-oj-W2B"/>
+                                            </connections>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vkq-Yp-lEu">
+                                            <rect key="frame" x="372" y="150" width="101" height="17"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Sweep Inc Size:" id="v68-Vs-DU3">
+                                                <font key="font" size="13" name="Geneva"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="07S-Bh-m1D">
+                                            <rect key="frame" x="479" y="148" width="48" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="lpA-ZW-v20">
+                                                <font key="font" size="13" name="Geneva"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <action selector="onSweeIncSizeChange:" target="2DM-qB-uM0" id="M9f-Wf-GIK"/>
+                                            </connections>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n5I-wo-cyT">
+                                            <rect key="frame" x="418" y="120" width="55" height="17"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Pattern:" id="lRW-Q9-IEX">
+                                                <font key="font" size="13" name="Geneva"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="d17-HU-xwD">
+                                            <rect key="frame" x="479" y="119" width="48" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="zeb-jx-qfc">
+                                                <font key="font" size="13" name="Geneva"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <action selector="onPatternChange:" target="2DM-qB-uM0" id="atc-76-U66"/>
+                                            </connections>
+                                        </textField>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mOj-WA-BY6">
+                                            <rect key="frame" x="439" y="90" width="34" height="17"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="TOS:" id="xah-MI-lh7">
+                                                <font key="font" size="13" name="Geneva"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i8Y-tZ-Fj0">
+                                            <rect key="frame" x="479" y="88" width="48" height="22"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="5kA-gP-Vg9">
+                                                <font key="font" size="13" name="Geneva"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                            <connections>
+                                                <action selector="onTosChange:" target="2DM-qB-uM0" id="PGi-D8-pLF"/>
+                                            </connections>
+                                        </textField>
+                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GXU-Jz-gaY">
+                                            <rect key="frame" x="533" y="202" width="25" height="25"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5r7-xO-4VQ">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <segue destination="1YW-8v-1i3" kind="popover" popoverAnchorView="GXU-Jz-gaY" popoverBehavior="t" preferredEdge="maxY" id="HaY-Pi-j5X"/>
+                                            </connections>
+                                        </button>
+                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="urU-4H-cRh">
+                                            <rect key="frame" x="533" y="172" width="25" height="25"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="OZs-3m-B8s">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <segue destination="Yvv-re-XgH" kind="popover" popoverAnchorView="urU-4H-cRh" popoverBehavior="t" preferredEdge="maxY" id="AVm-Dg-9QU"/>
+                                            </connections>
+                                        </button>
+                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qlj-Ah-8Kl">
+                                            <rect key="frame" x="533" y="145" width="25" height="25"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Ji6-Xy-n75">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <segue destination="Xwe-YQ-GcV" kind="popover" popoverAnchorView="qlj-Ah-8Kl" popoverBehavior="t" preferredEdge="maxY" id="VVs-tN-qHR"/>
+                                            </connections>
+                                        </button>
+                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b5v-zn-j9E">
+                                            <rect key="frame" x="533" y="116" width="25" height="25"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="kFN-Mu-icu">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <segue destination="7CL-Dl-8ca" kind="popover" popoverAnchorView="b5v-zn-j9E" popoverBehavior="t" preferredEdge="maxY" id="RY7-kS-sSp"/>
+                                            </connections>
+                                        </button>
+                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oLf-ck-YCP">
+                                            <rect key="frame" x="533" y="85" width="25" height="25"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="diD-EZ-ON7">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <segue destination="oPZ-hf-1gg" kind="popover" popoverAnchorView="oLf-ck-YCP" popoverBehavior="t" preferredEdge="maxY" id="S0R-TC-ndI"/>
                                             </connections>
                                         </button>
                                         <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tF9-gX-NCj">
-                                            <rect key="frame" x="509" y="132" width="25" height="25"/>
+                                            <rect key="frame" x="742" y="202" width="25" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="88W-U9-TeA">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -2549,7 +2795,7 @@
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kFb-Ob-EtF">
-                                            <rect key="frame" x="355" y="138" width="153" height="18"/>
+                                            <rect key="frame" x="581" y="208" width="153" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Bypass routing tables" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="vEJ-uC-whR">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -2559,19 +2805,8 @@
                                                 <action selector="bypassRouteClick:" target="2DM-qB-uM0" id="aij-3N-v5c"/>
                                             </connections>
                                         </button>
-                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hrK-5v-8z1">
-                                            <rect key="frame" x="324" y="82" width="25" height="25"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="JWe-Xf-Wo8">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <segue destination="soO-aY-bCI" kind="popover" popoverAnchorView="hrK-5v-8z1" popoverBehavior="t" preferredEdge="maxY" id="b2n-wg-Gw0"/>
-                                            </connections>
-                                        </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="suv-VB-hEk">
-                                            <rect key="frame" x="355" y="86" width="264" height="18"/>
+                                            <rect key="frame" x="581" y="150" width="264" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title="Suppress loopback of multicast packets" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="i7R-XT-4RV">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -2582,7 +2817,7 @@
                                             </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b4C-iR-H9b">
-                                            <rect key="frame" x="355" y="111" width="190" height="18"/>
+                                            <rect key="frame" x="581" y="178" width="190" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="check" title=" Set the Don't Fragment bit." bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="bZX-KH-ohz">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
@@ -2593,7 +2828,7 @@
                                             </connections>
                                         </button>
                                         <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="By7-k7-lxV">
-                                            <rect key="frame" x="543" y="107" width="25" height="25"/>
+                                            <rect key="frame" x="853" y="144" width="25" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="M3B-oM-Axr">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
@@ -2603,47 +2838,87 @@
                                                 <segue destination="Uax-WH-0qv" kind="popover" popoverAnchorView="By7-k7-lxV" popoverBehavior="t" preferredEdge="maxY" id="Hcd-06-Vke"/>
                                             </connections>
                                         </button>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lIj-8u-Xln">
-                                            <rect key="frame" x="570" y="13" width="70" height="32"/>
+                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G4h-Gx-Tvu">
+                                            <rect key="frame" x="581" y="122" width="86" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FtO-F0-zwA">
+                                            <buttonCell key="cell" type="check" title="Flood ping" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="1fh-Ia-qCx">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="floodPingClick:" target="2DM-qB-uM0" id="MFs-0s-mER"/>
+                                            </connections>
+                                        </button>
+                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fei-6R-yyJ">
+                                            <rect key="frame" x="675" y="115" width="25" height="25"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="iL8-4x-Biv">
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
                                             <connections>
-                                                <action selector="close:" target="2DM-qB-uM0" id="6Wf-ST-4kO"/>
+                                                <segue destination="gJb-a5-hfI" kind="popover" popoverAnchorView="Fei-6R-yyJ" popoverBehavior="t" preferredEdge="maxY" id="Ub4-FO-9uD"/>
+                                            </connections>
+                                        </button>
+                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UMf-S1-eb6">
+                                            <rect key="frame" x="779" y="172" width="25" height="25"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="sPS-Ac-EH4">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <segue destination="gpe-o4-nsm" kind="popover" popoverAnchorView="UMf-S1-eb6" popoverBehavior="t" preferredEdge="maxY" id="KW0-ze-s4O"/>
                                             </connections>
                                         </button>
                                     </subviews>
                                 </view>
-                                <color key="borderColor" name="tertiaryLabelColor" catalog="System" colorSpace="catalog"/>
-                                <color key="fillColor" name="quaternaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                <font key="titleFont" size="13" name="Geneva"/>
                             </box>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lIj-8u-Xln">
+                                <rect key="frame" x="852" y="15" width="75" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FtO-F0-zwA">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="close:" target="2DM-qB-uM0" id="6Wf-ST-4kO"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="bypassRouteCheckbox" destination="kFb-Ob-EtF" id="3Pn-Lf-bsg"/>
+                        <outlet property="countTextbox" destination="4SA-Cg-613" id="dIJ-AG-mFW"/>
+                        <outlet property="floodPingCheckbox" destination="G4h-Gx-Tvu" id="L8u-mq-xUx"/>
                         <outlet property="interfaceAddressTextbox" destination="qVW-1Z-kNM" id="Pp1-ab-fWQ"/>
-                        <outlet property="intervalTextbox" destination="vMY-K4-yfL" id="KA2-sn-WHX"/>
-                        <outlet property="maxTextbox" destination="4SA-Cg-613" id="n4W-UJ-t6u"/>
+                        <outlet property="ipsecPolicyTextbox" destination="CZT-AM-rIP" id="ytO-Kx-ibA"/>
+                        <outlet property="maskTextbox" destination="muI-X0-tx1" id="eq8-AN-mlR"/>
                         <outlet property="noFragmentCheckbox" destination="b4C-iR-H9b" id="cQg-Es-9fw"/>
-                        <outlet property="packetSizeTextbox" destination="BKJ-u9-xeN" id="sUz-Zq-EP5"/>
+                        <outlet property="packetSizeTextbox" destination="bNe-zV-2tb" id="hoM-f9-T5c"/>
+                        <outlet property="patternTextbox" destination="d17-HU-xwD" id="bWJ-YN-epa"/>
+                        <outlet property="preloadTextbox" destination="meh-h9-chN" id="FvI-bX-owQ"/>
                         <outlet property="saveButton" destination="lIj-8u-Xln" id="YEr-ko-DnE"/>
                         <outlet property="sourceAddressTextbox" destination="Zfr-rv-uMj" id="myE-aR-WkW"/>
                         <outlet property="supressLoopbackCheckbox" destination="suv-VB-hEk" id="Ccm-df-gdg"/>
+                        <outlet property="sweepIncSizeTextbox" destination="07S-Bh-m1D" id="gdr-qm-jBQ"/>
+                        <outlet property="sweepMaxSizeTextbox" destination="tzK-nm-oax" id="2FD-Pf-qPO"/>
+                        <outlet property="sweepMinSizeTextbox" destination="beX-Mx-wF4" id="FAx-0X-apV"/>
                         <outlet property="timeoutTextbox" destination="GNw-tm-GpB" id="hyA-Tb-h3G"/>
-                        <outlet property="ttlTextbox" destination="bNe-zV-2tb" id="Zvn-dp-fK3"/>
-                        <outlet property="waitTextbox" destination="nz7-bO-ith" id="XNX-4J-0LA"/>
+                        <outlet property="tosTextbox" destination="i8Y-tZ-Fj0" id="OZd-LQ-Yb3"/>
+                        <outlet property="ttlTextbox" destination="BKJ-u9-xeN" id="Q3k-ke-hAQ"/>
+                        <outlet property="waitTextbox" destination="nz7-bO-ith" id="dUH-jf-XWe"/>
                     </connections>
                 </viewController>
                 <customObject id="hE1-z1-8EG" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3005" y="579.5"/>
+            <point key="canvasLocation" x="-2882.5" y="672.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Allow Referrals Popover-->
         <scene sceneID="Inl-fS-RsO">
             <objects>
-                <viewController id="1uf-ZU-cPO" sceneMemberID="viewController">
+                <viewController title="Allow Referrals Popover" id="1uf-ZU-cPO" sceneMemberID="viewController">
                     <view key="view" id="9Oe-s2-svJ">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="52"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2664,10 +2939,10 @@
             </objects>
             <point key="canvasLocation" x="-77" y="87"/>
         </scene>
-        <!--View Controller-->
+        <!--Registry Operator Popover-->
         <scene sceneID="40p-ge-uUf">
             <objects>
-                <viewController id="JFr-B0-Yf3" sceneMemberID="viewController">
+                <viewController title="Registry Operator Popover" id="JFr-B0-Yf3" sceneMemberID="viewController">
                     <view key="view" id="RLO-2R-DQW">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="178"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2689,34 +2964,10 @@
             </objects>
             <point key="canvasLocation" x="-77" y="323"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="qdO-SP-07W">
-            <objects>
-                <viewController id="ncT-NY-gGv" sceneMemberID="viewController">
-                    <view key="view" id="bck-YJ-8TP">
-                        <rect key="frame" x="0.0" y="0.0" width="372" height="52"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="voe-8c-JQV">
-                                <rect key="frame" x="18" y="17" width="294" height="17"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" title="Wait x seconds between sending each packet." id="IfK-tf-iY9">
-                                    <font key="font" size="13" name="Geneva"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                        </subviews>
-                    </view>
-                </viewController>
-                <customObject id="5pf-RU-DPj" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-3313" y="835"/>
-        </scene>
-        <!--View Controller-->
+        <!--Ping Timeout Popover-->
         <scene sceneID="8oZ-qg-bF9">
             <objects>
-                <viewController id="Ieb-qv-Tvx" sceneMemberID="viewController">
+                <viewController title="Ping Timeout Popover" id="Ieb-qv-Tvx" sceneMemberID="viewController">
                     <view key="view" id="YAZ-SQ-1Tl">
                         <rect key="frame" x="0.0" y="0.0" width="372" height="66"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2724,7 +2975,7 @@
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sel-oy-SOv">
                                 <rect key="frame" x="17" y="7" width="338" height="51"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" title="Specify a timeout, in seconds, before DomainMaster exits regardless of how many packets have been received." id="KoJ-5W-sSo">
+                                <textFieldCell key="cell" title="Specify a timeout, in seconds, before DomainMaster stops regardless of how many packets have been received." id="KoJ-5W-sSo">
                                     <font key="font" size="13" name="Geneva"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -2735,12 +2986,12 @@
                 </viewController>
                 <customObject id="ac7-B8-gm7" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3313" y="1106"/>
+            <point key="canvasLocation" x="-3344" y="1245"/>
         </scene>
-        <!--View Controller-->
+        <!--Dns Resource Type Popover-->
         <scene sceneID="9Fb-2D-DGD">
             <objects>
-                <viewController id="RR7-px-bzU" sceneMemberID="viewController">
+                <viewController title="Dns Resource Type Popover" id="RR7-px-bzU" sceneMemberID="viewController">
                     <view key="view" id="SzU-UL-qK4">
                         <rect key="frame" x="0.0" y="0.0" width="255" height="206"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -2771,19 +3022,20 @@ TXT (Descriptive text)</string>
             </objects>
             <point key="canvasLocation" x="-148" y="-469"/>
         </scene>
-        <!--View Controller-->
+        <!--Ping Count Popover-->
         <scene sceneID="czK-0t-mDh">
             <objects>
-                <viewController id="G03-V2-EHN" sceneMemberID="viewController">
+                <viewController title="Ping Count Popover" id="G03-V2-EHN" sceneMemberID="viewController">
                     <view key="view" id="0k0-C6-0fa">
-                        <rect key="frame" x="0.0" y="0.0" width="372" height="68"/>
+                        <rect key="frame" x="0.0" y="0.0" width="372" height="125"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FVt-th-USg">
-                                <rect key="frame" x="18" y="8" width="343" height="51"/>
+                                <rect key="frame" x="11" y="20" width="343" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" title="Specify a max number of pings before DomainMaster exits regardless of how many packets have been received." id="3i6-8U-CKl">
+                                <textFieldCell key="cell" id="3i6-8U-CKl">
                                     <font key="font" size="13" name="Geneva"/>
+                                    <string key="title">Stop after sending (and receiving) count ECHO_RESPONSE packets.  If this option is not specified, DomainMaster will operate until interrupted.  If this option is specified in conjunction with ping sweeps, each sweep will consist of count packets.</string>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -2793,170 +3045,7 @@ TXT (Descriptive text)</string>
                 </viewController>
                 <customObject id="7Jz-QO-4bc" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3313" y="973"/>
-        </scene>
-        <!--Ping Settings View Controller-->
-        <scene sceneID="4OS-sN-ef1">
-            <objects>
-                <viewController id="Yr3-Tx-5kr" customClass="PingSettingsViewController" customModule="DomainMaster" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="dGb-9r-ezB">
-                        <rect key="frame" x="0.0" y="0.0" width="696" height="99"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <box fixedFrame="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="mjv-uv-zMK">
-                                <rect key="frame" x="20" y="20" width="656" height="59"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <view key="contentView" ambiguous="YES" id="dam-J5-Nuv">
-                                    <rect key="frame" x="1" y="1" width="654" height="57"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r3W-oi-pTG">
-                                            <rect key="frame" x="74" y="18" width="48" height="22"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="MGL-Nz-NHj">
-                                                <font key="font" size="13" name="Geneva"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                            <connections>
-                                                <action selector="onIntervalChange:" target="Yr3-Tx-5kr" id="mcA-3o-DFo"/>
-                                            </connections>
-                                        </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="s6P-yb-i3B">
-                                            <rect key="frame" x="13" y="20" width="55" height="17"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Interval:" id="faU-FO-wJt">
-                                                <font key="font" size="13" name="Geneva"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="58L-9s-heQ">
-                                            <rect key="frame" x="157" y="20" width="60" height="17"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Timeout:" id="lko-dP-C1y">
-                                                <font key="font" size="13" name="Geneva"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wxs-In-xXj">
-                                            <rect key="frame" x="223" y="18" width="48" height="22"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="nZQ-ML-lR5">
-                                                <font key="font" size="13" name="Geneva"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                            <connections>
-                                                <action selector="onTimeoutChange:" target="Yr3-Tx-5kr" id="Teo-BV-kTO"/>
-                                            </connections>
-                                        </textField>
-                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ONp-we-4Wp">
-                                            <rect key="frame" x="128" y="14" width="25" height="25"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Nod-zv-ysk">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                        </button>
-                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k4q-UH-Mn7">
-                                            <rect key="frame" x="277" y="15" width="25" height="25"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="c0i-5b-04C">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                        </button>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7M3-2f-AXV">
-                                            <rect key="frame" x="306" y="20" width="33" height="17"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Max:" id="S6Q-zb-CXV">
-                                                <font key="font" size="13" name="Geneva"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PyG-X7-4Sv">
-                                            <rect key="frame" x="345" y="18" width="48" height="22"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="pbt-lo-WjY">
-                                                <font key="font" size="13" name="Geneva"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                            <connections>
-                                                <action selector="onMaxChange:" target="Yr3-Tx-5kr" id="VSQ-u8-cH1"/>
-                                            </connections>
-                                        </textField>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gi9-zo-B8B">
-                                            <rect key="frame" x="570" y="10" width="70" height="32"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="h9S-d3-WHN">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="close:" target="Yr3-Tx-5kr" id="7AL-8D-RCX"/>
-                                            </connections>
-                                        </button>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CbJ-j3-YzK">
-                                            <rect key="frame" x="449" y="19" width="49" height="18"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="check" title="IPv4" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="g0l-w1-Yf4">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" size="13" name="Geneva"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="ipv4Click:" target="Yr3-Tx-5kr" id="EPS-yU-fMy"/>
-                                            </connections>
-                                        </button>
-                                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ahy-ic-ng2">
-                                            <rect key="frame" x="502" y="19" width="49" height="18"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="check" title="IPv6" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="2VZ-3X-HYF">
-                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
-                                                <font key="font" size="13" name="Geneva"/>
-                                            </buttonCell>
-                                            <connections>
-                                                <action selector="ipv6Click:" target="Yr3-Tx-5kr" id="VGG-Ui-dHD"/>
-                                            </connections>
-                                        </button>
-                                        <box fixedFrame="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="BOa-Oa-naf">
-                                            <rect key="frame" x="434" y="12" width="134" height="32"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <view key="contentView" ambiguous="YES" id="DPv-Kb-QsL">
-                                                <rect key="frame" x="1" y="1" width="132" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            </view>
-                                        </box>
-                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z5k-ea-ymF">
-                                            <rect key="frame" x="399" y="14" width="25" height="25"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="v3o-7q-Voq">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
-                                        </button>
-                                    </subviews>
-                                </view>
-                                <color key="borderColor" name="tertiaryLabelColor" catalog="System" colorSpace="catalog"/>
-                                <color key="fillColor" name="quaternaryLabelColor" catalog="System" colorSpace="catalog"/>
-                            </box>
-                        </subviews>
-                    </view>
-                    <connections>
-                        <outlet property="intervalTextbox" destination="r3W-oi-pTG" id="gAn-nz-hT5"/>
-                        <outlet property="ipv4Checkbox" destination="CbJ-j3-YzK" id="eeZ-ak-Ixd"/>
-                        <outlet property="ipv6Checkbox" destination="ahy-ic-ng2" id="f9f-Ce-CH9"/>
-                        <outlet property="maxTextbox" destination="PyG-X7-4Sv" id="hsI-it-Xpd"/>
-                        <outlet property="saveButton" destination="gi9-zo-B8B" id="Jub-ek-1Z0"/>
-                        <outlet property="timeoutTextbox" destination="Wxs-In-xXj" id="ZGu-pz-tUC"/>
-                    </connections>
-                </viewController>
-                <customObject id="rdI-sb-m83" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2182" y="967"/>
+            <point key="canvasLocation" x="-3745" y="1493"/>
         </scene>
         <!--CIDR Calc-->
         <scene sceneID="FSb-0n-ObJ">
@@ -3109,10 +3198,10 @@ TXT (Descriptive text)</string>
             </objects>
             <point key="canvasLocation" x="-2849" y="-811"/>
         </scene>
-        <!--View Controller-->
+        <!--Ping Wait Popover-->
         <scene sceneID="3gY-M7-xTr">
             <objects>
-                <viewController id="l83-G0-lS7" sceneMemberID="viewController">
+                <viewController title="Ping Wait Popover" id="l83-G0-lS7" sceneMemberID="viewController">
                     <view key="view" id="KaT-hv-ZBh">
                         <rect key="frame" x="0.0" y="0.0" width="372" height="118"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -3132,12 +3221,12 @@ TXT (Descriptive text)</string>
                 </viewController>
                 <customObject id="rxF-5m-yMN" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2898" y="868"/>
+            <point key="canvasLocation" x="-2494" y="1022"/>
         </scene>
-        <!--View Controller-->
+        <!--Ping TTL Popover-->
         <scene sceneID="ZvG-oP-MKi">
             <objects>
-                <viewController id="3qf-vj-FlA" sceneMemberID="viewController">
+                <viewController title="Ping TTL Popover" id="3qf-vj-FlA" sceneMemberID="viewController">
                     <view key="view" id="lKb-Cm-obD">
                         <rect key="frame" x="0.0" y="0.0" width="372" height="91"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -3158,10 +3247,10 @@ TXT (Descriptive text)</string>
             </objects>
             <point key="canvasLocation" x="-2898" y="1035.5"/>
         </scene>
-        <!--View Controller-->
+        <!--Ping Packet Size Popover-->
         <scene sceneID="Vr2-qY-4Xt">
             <objects>
-                <viewController id="Ylj-fG-E6v" sceneMemberID="viewController">
+                <viewController title="Ping Packet Size Popover" id="Ylj-fG-E6v" sceneMemberID="viewController">
                     <view key="view" id="tNc-ka-UQR">
                         <rect key="frame" x="0.0" y="0.0" width="372" height="91"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -3183,10 +3272,10 @@ TXT (Descriptive text)</string>
             </objects>
             <point key="canvasLocation" x="-2898" y="1186"/>
         </scene>
-        <!--View Controller-->
+        <!--Ping Source Address Popover-->
         <scene sceneID="y5h-dp-Qzl">
             <objects>
-                <viewController id="soO-aY-bCI" sceneMemberID="viewController">
+                <viewController title="Ping Source Address Popover" id="soO-aY-bCI" sceneMemberID="viewController">
                     <view key="view" id="gb4-Lx-QWv">
                         <rect key="frame" x="0.0" y="0.0" width="372" height="163"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -3209,10 +3298,10 @@ TXT (Descriptive text)</string>
             </objects>
             <point key="canvasLocation" x="-2494" y="1222"/>
         </scene>
-        <!--View Controller-->
+        <!--Ping Bypass Route Table Popover-->
         <scene sceneID="QgS-5W-eEO">
             <objects>
-                <viewController id="qTB-0C-Yc7" sceneMemberID="viewController">
+                <viewController title="Ping Bypass Route Table Popover" id="qTB-0C-Yc7" sceneMemberID="viewController">
                     <view key="view" id="ckB-u4-hdE">
                         <rect key="frame" x="0.0" y="0.0" width="372" height="131"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -3233,12 +3322,12 @@ TXT (Descriptive text)</string>
                 </viewController>
                 <customObject id="uM5-V9-QGl" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3313" y="1406"/>
+            <point key="canvasLocation" x="-3334" y="1545"/>
         </scene>
-        <!--View Controller-->
+        <!--Ping Suppress Loopback Popover-->
         <scene sceneID="3ac-EQ-p9D">
             <objects>
-                <viewController id="Uax-WH-0qv" sceneMemberID="viewController">
+                <viewController title="Ping Suppress Loopback Popover" id="Uax-WH-0qv" sceneMemberID="viewController">
                     <view key="view" id="gla-gh-lRl">
                         <rect key="frame" x="0.0" y="0.0" width="372" height="86"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -3259,10 +3348,10 @@ TXT (Descriptive text)</string>
             </objects>
             <point key="canvasLocation" x="-2898" y="1341"/>
         </scene>
-        <!--View Controller-->
+        <!--Ping Interface Address Popover-->
         <scene sceneID="RJy-FC-MFM">
             <objects>
-                <viewController id="d86-co-I3c" sceneMemberID="viewController">
+                <viewController title="Ping Interface Address Popover" id="d86-co-I3c" sceneMemberID="viewController">
                     <view key="view" id="Y6S-Qz-5wp">
                         <rect key="frame" x="0.0" y="0.0" width="372" height="86"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -3282,7 +3371,253 @@ TXT (Descriptive text)</string>
                 </viewController>
                 <customObject id="EOT-GE-QCL" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3313" y="1238"/>
+            <point key="canvasLocation" x="-3344" y="1388"/>
+        </scene>
+        <!--Ping Preload Popover-->
+        <scene sceneID="nY1-pW-MKK">
+            <objects>
+                <viewController title="Ping Preload Popover" id="1IN-4b-bmC" sceneMemberID="viewController">
+                    <view key="view" id="LqX-lm-fHu">
+                        <rect key="frame" x="0.0" y="0.0" width="372" height="108"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SKc-qf-cce">
+                                <rect key="frame" x="18" y="20" width="336" height="68"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" id="FW4-A7-fUF">
+                                    <font key="font" size="13" name="Geneva"/>
+                                    <string key="title">If preload is specified, ping sends that many packets as fast as possible before falling into its normal mode of behavior.  Only the super-user may use this option.</string>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="Qzw-Rc-wUQ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2898" y="1501"/>
+        </scene>
+        <!--Ping Mask Popover-->
+        <scene sceneID="m20-y2-4dO">
+            <objects>
+                <viewController title="Ping Mask Popover" id="Y74-f2-dHP" sceneMemberID="viewController">
+                    <view key="view" id="Os3-1O-rKg">
+                        <rect key="frame" x="0.0" y="0.0" width="372" height="125"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tYm-ZW-DoY">
+                                <rect key="frame" x="11" y="12" width="343" height="102"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" id="Pcg-5b-XXc">
+                                    <font key="font" size="13" name="Geneva"/>
+                                    <string key="title">Use ICMP_MASKREQ or ICMP_TSTAMP instead of ICMP_ECHO.  For mask, print the netmask of the remote machine.  Set the net.inet.icmp.maskrepl MIB variable to enable ICMP_MASKREPLY.  For time, print the origination, reception and transmission timestamps.</string>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="86c-7G-OeW" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3745" y="1313"/>
+        </scene>
+        <!--Ping Mask Popover-->
+        <scene sceneID="eiT-bP-dWK">
+            <objects>
+                <viewController title="Ping Mask Popover" id="95o-9M-YzT" sceneMemberID="viewController">
+                    <view key="view" id="mh8-kP-bWC">
+                        <rect key="frame" x="0.0" y="0.0" width="372" height="91"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z22-ds-wss">
+                                <rect key="frame" x="15" y="20" width="343" height="51"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" title="Policy specifies IPsec policy for the ping session.  For details please refer to ipsec(4) and ipsec_set_policy(3)." id="Ucl-0A-eLq">
+                                    <font key="font" size="13" name="Geneva"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="xCI-1i-6SQ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3745" y="1158"/>
+        </scene>
+        <!--Ping Sweep Max Size Popover-->
+        <scene sceneID="2WS-uC-nDX">
+            <objects>
+                <viewController title="Ping Sweep Max Size Popover" id="1YW-8v-1i3" sceneMemberID="viewController">
+                    <view key="view" id="KyJ-5n-fag">
+                        <rect key="frame" x="0.0" y="0.0" width="372" height="91"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1aA-Yh-bPq">
+                                <rect key="frame" x="15" y="20" width="343" height="51"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" title="Specify the maximum size of ICMP payload when sending sweeping pings.  This option is required for ping sweeps." id="COe-uw-ked">
+                                    <font key="font" size="13" name="Geneva"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="fhY-1B-eb3" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3578" y="510"/>
+        </scene>
+        <!--Ping Sweep Min Size Popover-->
+        <scene sceneID="hXF-v6-FDg">
+            <objects>
+                <viewController title="Ping Sweep Min Size Popover" id="Yvv-re-XgH" sceneMemberID="viewController">
+                    <view key="view" id="epr-vG-JTG">
+                        <rect key="frame" x="0.0" y="0.0" width="372" height="74"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CbU-sz-hRz">
+                                <rect key="frame" x="15" y="20" width="343" height="34"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" title="Specify the size of ICMP payload to start with when sending sweeping pings.  The default value is 0." id="lUF-A9-gop">
+                                    <font key="font" size="13" name="Geneva"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="q3T-sc-ALz" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3578" y="655"/>
+        </scene>
+        <!--Ping Sweep Inc Size Popover-->
+        <scene sceneID="dsv-pV-GYb">
+            <objects>
+                <viewController title="Ping Sweep Inc Size Popover" id="Xwe-YQ-GcV" sceneMemberID="viewController">
+                    <view key="view" id="OE8-I4-CvS">
+                        <rect key="frame" x="0.0" y="0.0" width="372" height="74"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pRN-G5-ApQ">
+                                <rect key="frame" x="18" y="11" width="343" height="51"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" id="Sq9-Pd-77x">
+                                    <font key="font" size="13" name="Geneva"/>
+                                    <string key="title">Specify the number of bytes to increment the size of ICMP payload after each sweep when sending sweeping pings. The default value is 1.</string>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="RcR-z8-uYq" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3578" y="792"/>
+        </scene>
+        <!--Ping TOS Popover-->
+        <scene sceneID="Pui-a8-MWw">
+            <objects>
+                <viewController title="Ping TOS Popover" id="oPZ-hf-1gg" sceneMemberID="viewController">
+                    <view key="view" id="2Hq-8V-0gX">
+                        <rect key="frame" x="0.0" y="0.0" width="372" height="57"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FSb-FM-rrV">
+                                <rect key="frame" x="18" y="20" width="214" height="17"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" title="Use the specified type of service." id="fre-iz-AVo">
+                                    <font key="font" size="13" name="Geneva"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="OYt-uI-6Nv" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3578" y="917.5"/>
+        </scene>
+        <!--Ping Pattern Popover-->
+        <scene sceneID="Yis-2g-nnS">
+            <objects>
+                <viewController title="Ping Pattern Popover" id="7CL-Dl-8ca" sceneMemberID="viewController">
+                    <view key="view" id="pwE-MX-jTu">
+                        <rect key="frame" x="0.0" y="0.0" width="372" height="129"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HYv-T0-6Ut">
+                                <rect key="frame" x="18" y="20" width="336" height="89"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" id="wb0-Cf-MmT">
+                                    <font key="font" size="13" name="Geneva"/>
+                                    <string key="title">You may specify up to 16 ``pad'' bytes to fill out the packet you send.  This is useful for diagnosing data-dependent problems in a network.  For example, ``-p ff'' will cause the sent packet to be filled with all ones.</string>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="jeX-BQ-b0d" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3344" y="1082"/>
+        </scene>
+        <!--Ping No Fragment Popover-->
+        <scene sceneID="SAf-mG-dyO">
+            <objects>
+                <viewController title="Ping No Fragment Popover" id="gpe-o4-nsm" sceneMemberID="viewController">
+                    <view key="view" id="veW-ev-7c0">
+                        <rect key="frame" x="0.0" y="0.0" width="372" height="57"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dgo-as-aYe">
+                                <rect key="frame" x="18" y="20" width="336" height="17"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" title="Set the Don't Fragment bit." id="INR-bn-E3p">
+                                    <font key="font" size="13" name="Geneva"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="pxg-QZ-4hJ" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2163" y="647"/>
+        </scene>
+        <!--Ping Flood Popover-->
+        <scene sceneID="oh7-y9-6I3">
+            <objects>
+                <viewController title="Ping Flood Popover" id="gJb-a5-hfI" sceneMemberID="viewController">
+                    <view key="view" id="D1g-25-IOr">
+                        <rect key="frame" x="0.0" y="0.0" width="372" height="173"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pe3-ax-Jg6">
+                                <rect key="frame" x="18" y="10" width="336" height="143"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" id="m1w-vJ-QLt">
+                                    <font key="font" size="13" name="Geneva"/>
+                                    <string key="title">Flood ping.  Outputs packets as fast as they come back or one hundred times per second, whichever is more.  For every ECHO_REQUEST sent a period ``.'' is printed, while for every ECHO_REPLY received a backspace is printed. This provides a rapid display of how many packets are being dropped.  Only the super-user may use this option. This can be very hard on a network and should be used with caution.
+</string>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="b2v-bs-LyG" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1990" y="825"/>
         </scene>
     </scenes>
 </document>

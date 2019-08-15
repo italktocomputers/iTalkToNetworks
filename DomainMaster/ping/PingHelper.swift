@@ -21,8 +21,69 @@ class PingHelper {
     static func ping(domain: String, controller: PingViewController, okToPing: UnsafeMutablePointer<Bool>) -> Int32 {
         var ret: Int32 = 0;
         let c: Int32 = 2
-        let array: [String?] = ["", domain, nil]
-        var cargs = array.map { $0.flatMap { UnsafeMutablePointer<Int8>(strdup($0)) } }
+
+        let interfaceAddress = Helper.getSetting(name: "pingInterfaceAddress")
+        let pingSourceAddress = Helper.getSetting(name: "pingSourceAddress")
+        let pingPacketSize = Helper.getSetting(name: "pingPacketSize")
+        let pingTTL = Helper.getSetting(name: "pingTTL")
+        let pingWait = Helper.getSetting(name: "pingWait")
+        let pingMax = Helper.getSetting(name: "pingMax")
+        let pingBypassRoute = Helper.getSetting(name: "pingBypassRoute")
+        let pingNoFragment = Helper.getSetting(name: "pingNoFragment")
+        let pingSuppressLoopback = Helper.getSetting(name: "pingSuppressLoopback")
+        let pingTimeout = Helper.getSetting(name: "pingTimeout")
+
+        var uargs: [String] = []
+
+        if interfaceAddress != "" {
+            uargs.append("-I")
+            uargs.append(interfaceAddress)
+        }
+
+        if pingSourceAddress != "" {
+            uargs.append("-S")
+            uargs.append(pingSourceAddress)
+        }
+
+        if pingPacketSize != "" {
+            uargs.append("-s")
+            uargs.append(pingPacketSize)
+        }
+
+        if pingTTL != "" {
+            uargs.append("-T")
+            uargs.append(pingTTL)
+        }
+
+        if pingWait != "" {
+            uargs.append("-W")
+            uargs.append(pingWait)
+        }
+
+        if pingMax != "" {
+            uargs.append("-c")
+            uargs.append(pingMax)
+        }
+
+        if pingTimeout != "" {
+            uargs.append("-t")
+            uargs.append(pingTimeout)
+        }
+
+        if pingBypassRoute != "" {
+            uargs.append("-r")
+        }
+
+        if pingNoFragment != "" {
+            uargs.append("-D")
+        }
+
+        if pingSuppressLoopback != "" {
+            uargs.append("-L")
+        }
+
+        let args: [String?] = ["", domain, nil]
+        var cargs = args.map { $0.flatMap { UnsafeMutablePointer<Int8>(strdup($0)) } }
         let res = UnsafeMutablePointer<Int8>.allocate(capacity: 10000)
         let err = UnsafeMutablePointer<Int8>.allocate(capacity: 10000)
         let transmitted = UnsafeMutablePointer<Int>.allocate(capacity: 10000)
