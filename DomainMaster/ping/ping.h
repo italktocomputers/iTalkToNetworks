@@ -66,7 +66,7 @@ struct swift_pak {
 typedef struct swift_pak swift_pak;
 
 // various options
-int options;
+
 #define    F_FLOOD        0x0001
 #define    F_INTERVAL    0x0002
 #define    F_NUMERIC    0x0004

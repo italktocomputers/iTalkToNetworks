@@ -137,6 +137,8 @@ static void (^notify)(char*, char*, long*, long*);
 static char* res;
 static char* error;
 
+static int options;
+
 void init() {
     phdr_len = 0;
     send_len = 0;
@@ -159,6 +161,7 @@ void init() {
     tmax = 0.0;
     tsum = 0.0;
     tsumsq = 0.0;
+    options = 0;
 }
 
 int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitted, long* received, void (^call)(char*, char*, long*, long*), bool* ok_to_ping) {
@@ -167,6 +170,12 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
     // with each element of argv[].  Because start_ping can be called many times, we must reset
     // optind to 1.
     optind = 1;
+
+    /*
+    for (int i=0; i<argc; i++) {
+        printf("%s\n", argv[i]);
+    }
+    */
 
     notify = call;
     ntransmitted = transmitted;
