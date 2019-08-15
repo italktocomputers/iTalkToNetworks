@@ -162,6 +162,12 @@ void init() {
 }
 
 int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitted, long* received, void (^call)(char*, char*, long*, long*), bool* ok_to_ping) {
+    // The variable optind is the index of the next element of the argv[] vector to be processed.
+    // It shall be initialized to 1 by the system, and getopt() shall update it when it finishes
+    // with each element of argv[].  Because start_ping can be called many times, we must reset
+    // optind to 1.
+    optind = 1;
+
     notify = call;
     ntransmitted = transmitted;
     nreceived = received;

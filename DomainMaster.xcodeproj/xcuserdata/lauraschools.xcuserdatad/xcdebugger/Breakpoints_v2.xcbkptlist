@@ -387,5 +387,132 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DomainMaster/ping/PingHelper.swift"
+            timestampString = "587524982.97751"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "ping(domain:controller:okToPing:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static DomainMaster.PingHelper.ping(domain: Swift.String, controller: DomainMaster.PingViewController, okToPing: Swift.UnsafeMutablePointer&lt;Swift.Bool&gt;) -&gt; Swift.Int32"
+                  moduleName = "DomainMaster"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lauraschools/DomainMaster/DomainMaster/ping/PingHelper.swift"
+                  timestampString = "587522972.99642"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "144"
+                  endingLineNumber = "144"
+                  offsetFromSymbolStart = "6935">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.Optional&lt;Swift.String&gt;) -&gt; Swift.Optional&lt;Swift.UnsafeMutablePointer&lt;Swift.Int8&gt;&gt; in static DomainMaster.PingHelper.ping(domain: Swift.String, controller: DomainMaster.PingViewController, okToPing: Swift.UnsafeMutablePointer&lt;Swift.Bool&gt;) -&gt; Swift.Int32"
+                  moduleName = "DomainMaster"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lauraschools/DomainMaster/DomainMaster/ping/PingHelper.swift"
+                  timestampString = "587522972.997993"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "144"
+                  endingLineNumber = "144"
+                  offsetFromSymbolStart = "34">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (Swift.String) -&gt; Swift.Optional&lt;Swift.UnsafeMutablePointer&lt;Swift.Int8&gt;&gt; in closure #1 (Swift.Optional&lt;Swift.String&gt;) -&gt; Swift.Optional&lt;Swift.UnsafeMutablePointer&lt;Swift.Int8&gt;&gt; in static DomainMaster.PingHelper.ping(domain: Swift.String, controller: DomainMaster.PingViewController, okToPing: Swift.UnsafeMutablePointer&lt;Swift.Bool&gt;) -&gt; Swift.Int32"
+                  moduleName = "DomainMaster"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lauraschools/DomainMaster/DomainMaster/ping/PingHelper.swift"
+                  timestampString = "587522972.999475"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "144"
+                  endingLineNumber = "144"
+                  offsetFromSymbolStart = "23">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DomainMaster/ping/ping.c"
+            timestampString = "587524982.977589"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "246"
+            endingLineNumber = "246"
+            landmarkName = "start_ping()"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DomainMaster/ping/ping.c"
+            timestampString = "587524982.977964"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "499"
+            endingLineNumber = "499"
+            landmarkName = "start_ping()"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DomainMaster/ping/ping.c"
+            timestampString = "587524982.9782341"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "502"
+            endingLineNumber = "502"
+            landmarkName = "start_ping()"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "DomainMaster/ping/ping.c"
+            timestampString = "587524982.978492"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "268"
+            endingLineNumber = "268"
+            landmarkName = "start_ping()"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

@@ -19,21 +19,53 @@ struct swift_pak {
 
 class PingHelper {
     static func ping(domain: String, controller: PingViewController, okToPing: UnsafeMutablePointer<Bool>) -> Int32 {
-        var ret: Int32 = 0;
-        let c: Int32 = 2
+        var ret: Int32 = 0
+        let c: Int32 = 6
 
+        let pingCount = Helper.getSetting(name: "pingCount")
+        let pingWait = Helper.getSetting(name: "pingWait")
+        let pingTimeout = Helper.getSetting(name: "pingTimeout")
+        let pingTTL = Helper.getSetting(name: "pingTTL")
         let interfaceAddress = Helper.getSetting(name: "pingInterfaceAddress")
         let pingSourceAddress = Helper.getSetting(name: "pingSourceAddress")
+        let pingPreload = Helper.getSetting(name: "pingPreload")
         let pingPacketSize = Helper.getSetting(name: "pingPacketSize")
-        let pingTTL = Helper.getSetting(name: "pingTTL")
-        let pingWait = Helper.getSetting(name: "pingWait")
-        let pingMax = Helper.getSetting(name: "pingMax")
-        let pingBypassRoute = Helper.getSetting(name: "pingBypassRoute")
-        let pingNoFragment = Helper.getSetting(name: "pingNoFragment")
-        let pingSuppressLoopback = Helper.getSetting(name: "pingSuppressLoopback")
-        let pingTimeout = Helper.getSetting(name: "pingTimeout")
+        let pingMask = Helper.getSetting(name: "pingMask")
+        let pingIpsecPolicy = Helper.getSetting(name: "pingIpsecPolicy")
+        let pingSweepMaxSize = Helper.getSetting(name: "pingSweepMaxSize")
+        let pingSweepMinSize = Helper.getSetting(name: "pingSweepMinSize")
+        let pingSweepIncSize = Helper.getSetting(name: "pingSweepIncSize")
+        let pingPattern = Helper.getSetting(name: "pingPattern")
+        let pingTos = Helper.getSetting(name: "pingTos")
 
-        var uargs: [String] = []
+        let pingBypassRoute = Helper.getSetting(name: "pingBypassRoute")
+        let pingSuppressLoopback = Helper.getSetting(name: "pingSuppressLoopback")
+        let pingNoFragment = Helper.getSetting(name: "pingNoFragment")
+        let pingFlood = Helper.getSetting(name: "pingFlood")
+        
+        var uargs: [String?] = []
+
+        uargs.append("")
+
+        if pingCount != "" {
+            uargs.append("-c")
+            uargs.append(pingCount)
+        }
+
+        if pingWait != "" {
+            uargs.append("-W")
+            uargs.append(pingWait)
+        }
+
+        if pingTimeout != "" {
+            uargs.append("-t")
+            uargs.append(pingTimeout)
+        }
+
+        if pingTTL != "" {
+            uargs.append("-T")
+            uargs.append(pingTTL)
+        }
 
         if interfaceAddress != "" {
             uargs.append("-I")
@@ -45,45 +77,71 @@ class PingHelper {
             uargs.append(pingSourceAddress)
         }
 
+        if pingPreload != "" {
+            uargs.append("-l")
+            uargs.append(pingPreload)
+        }
+
         if pingPacketSize != "" {
             uargs.append("-s")
             uargs.append(pingPacketSize)
         }
 
-        if pingTTL != "" {
-            uargs.append("-T")
-            uargs.append(pingTTL)
+        if pingMask != "" {
+            uargs.append("-M")
+            uargs.append(pingMask)
         }
 
-        if pingWait != "" {
-            uargs.append("-W")
-            uargs.append(pingWait)
+        if pingIpsecPolicy != "" {
+            uargs.append("-P")
+            uargs.append(pingIpsecPolicy)
         }
 
-        if pingMax != "" {
-            uargs.append("-c")
-            uargs.append(pingMax)
+        if pingSweepMaxSize != "" {
+            uargs.append("-G")
+            uargs.append(pingSweepMaxSize)
         }
 
-        if pingTimeout != "" {
-            uargs.append("-t")
-            uargs.append(pingTimeout)
+        if pingSweepMinSize != "" {
+            uargs.append("-g")
+            uargs.append(pingSweepMinSize)
         }
 
-        if pingBypassRoute != "" {
+        if pingSweepIncSize != "" {
+            uargs.append("-h")
+            uargs.append(pingSweepIncSize)
+        }
+
+        if pingPattern != "" {
+            uargs.append("-p")
+            uargs.append(pingPattern)
+        }
+
+        if pingTos != "" {
+            uargs.append("-z")
+            uargs.append(pingTos)
+        }
+
+        if pingBypassRoute != "off" {
             uargs.append("-r")
         }
 
-        if pingNoFragment != "" {
+        if pingNoFragment != "off" {
             uargs.append("-D")
         }
 
-        if pingSuppressLoopback != "" {
+        if pingSuppressLoopback != "off" {
             uargs.append("-L")
         }
 
-        let args: [String?] = ["", domain, nil]
-        var cargs = args.map { $0.flatMap { UnsafeMutablePointer<Int8>(strdup($0)) } }
+        if pingFlood != "off" {
+            uargs.append("-f")
+        }
+
+        uargs.append(domain)
+        uargs.append(nil)
+
+        var cargs = uargs.map { $0.flatMap { UnsafeMutablePointer<Int8>(strdup($0)) } }
         let res = UnsafeMutablePointer<Int8>.allocate(capacity: 10000)
         let err = UnsafeMutablePointer<Int8>.allocate(capacity: 10000)
         let transmitted = UnsafeMutablePointer<Int>.allocate(capacity: 10000)
