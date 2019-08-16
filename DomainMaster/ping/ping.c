@@ -237,12 +237,8 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
     alarmtimeout = df = preload = tos = 0;
 
     outpack = outpackhdr + sizeof(struct ip);
-    while ((ch = getopt(argc, argv, "Aab:c:DdfG:g:h:I:i:Ll:M:m:nop:QqRrS:s:T:t:vW:z:"
-    #ifdef IPSEC
-    #ifdef IPSEC_POLICY_IPSEC
-    "P:"
-    #endif //IPSEC_POLICY_IPSEC
-    #endif //IPSEC
+    while ((ch = getopt(argc, argv, "Aab:c:DdfG:g:h:I:i:Ll:M:m:nop:QqRrS:s:T:t:vW:z:P:"
+
     #if defined(IP_FORCE_OUT_IFP) && TARGET_OS_EMBEDDED
     "B:"
     #endif //IP_FORCE_OUT_IFP
@@ -397,8 +393,7 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
             case 'o':
                 options |= F_ONCE;
                 break;
-            #ifdef IPSEC
-            #ifdef IPSEC_POLICY_IPSEC
+            /*
             case 'P':
                 options |= F_POLICY;
                 if (!strncmp("in", optarg, 2)) {
@@ -412,8 +407,7 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
                     return 1;
                 }
                 break;
-                #endif // IPSEC_POLICY_IPSEC
-                #endif // IPSEC
+            */
             case 'p': // fill buffer with user pattern
                 options |= F_PINGFILLED;
                 payload = optarg;
@@ -658,8 +652,7 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
         (void)setsockopt(s, SOL_SOCKET, SO_DONTROUTE, (char *)&hold, sizeof(hold));
     }
 
-    #ifdef IPSEC
-    #ifdef IPSEC_POLICY_IPSEC
+    /*
     if (options & F_POLICY) {
         char *buf;
         if (policy_in != NULL) {
@@ -694,9 +687,8 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
             free(buf);
         }
     }
-    #endif //IPSEC_POLICY_IPSEC
-    #endif //IPSEC
-    
+    */
+
     if (options & F_HDRINCL) {
         ip = (struct ip*)outpackhdr;
 

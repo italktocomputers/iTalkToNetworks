@@ -16,7 +16,7 @@ class PingSettingsViewController : ViewController, NSWindowDelegate {
     @IBOutlet weak var sourceAddressTextbox: NSTextField!
     @IBOutlet weak var preloadTextbox: NSTextField!
     @IBOutlet weak var packetSizeTextbox: NSTextField!
-    @IBOutlet weak var maskTextbox: NSTextField!
+    @IBOutlet weak var maskDropdown: NSPopUpButton!
     @IBOutlet weak var ipsecPolicyTextbox: NSTextField!
     @IBOutlet weak var sweepMaxSizeTextbox: NSTextField!
     @IBOutlet weak var sweepMinSizeTextbox: NSTextField!
@@ -59,7 +59,7 @@ class PingSettingsViewController : ViewController, NSWindowDelegate {
         Helper.initTextBox(val: pingSourceAddress, box: sourceAddressTextbox)
         Helper.initTextBox(val: pingPreload, box: preloadTextbox)
         Helper.initTextBox(val: pingPacketSize, box: packetSizeTextbox)
-        Helper.initTextBox(val: pingMask, box: maskTextbox)
+        //Helper.initTextBox(val: pingMask, box: maskDropdown)
         Helper.initTextBox(val: pingIpsecPolicy, box: ipsecPolicyTextbox)
         Helper.initTextBox(val: pingSweepMaxSize, box: sweepMaxSizeTextbox)
         Helper.initTextBox(val: pingSweepMinSize, box: sweepMinSizeTextbox)
@@ -192,7 +192,7 @@ class PingSettingsViewController : ViewController, NSWindowDelegate {
     }
 
     @IBAction func onMaskChange(_ sender: Any) {
-        Helper.saveSetting(key: "pingMask", value: maskTextbox.stringValue)
+        //Helper.saveSetting(key: "pingMask", value: maskTextbox.stringValue)
     }
 
     @IBAction func onIpsecPolicyChange(_ sender: Any) {
