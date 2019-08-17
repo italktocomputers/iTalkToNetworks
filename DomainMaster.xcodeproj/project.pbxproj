@@ -32,6 +32,7 @@
 		87CACEDD22F1091A006C1C34 /* traceroute.c in Sources */ = {isa = PBXBuildFile; fileRef = 87CACEDC22F1091A006C1C34 /* traceroute.c */; };
 		A570BFE122FA1788006AA478 /* ping.c in Sources */ = {isa = PBXBuildFile; fileRef = A570BFE022FA1788006AA478 /* ping.c */; };
 		A570BFE423037962006AA478 /* whois.c in Sources */ = {isa = PBXBuildFile; fileRef = A570BFE323037962006AA478 /* whois.c */; };
+		A5F198C923079A1F006E1272 /* ErrorBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F198C823079A1F006E1272 /* ErrorBoxViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		A570BFE022FA1788006AA478 /* ping.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = ping.c; sourceTree = "<group>"; };
 		A570BFE223037962006AA478 /* whois.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = whois.h; sourceTree = "<group>"; };
 		A570BFE323037962006AA478 /* whois.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = whois.c; sourceTree = "<group>"; };
+		A5F198C823079A1F006E1272 /* ErrorBoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorBoxViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				870C3F1A22AC102100B4EF32 /* UrlCache.swift */,
 				87BA48E422A5E9B200E8DDB9 /* AppDelegate.swift */,
 				87BA48E622A5E9B200E8DDB9 /* ViewController.swift */,
+				A5F198C823079A1F006E1272 /* ErrorBoxViewController.swift */,
 				87BA48E822A5E9B300E8DDB9 /* Assets.xcassets */,
 				87BA48EA22A5E9B300E8DDB9 /* Main.storyboard */,
 				87BA48EE22A5E9B300E8DDB9 /* DomainMaster.entitlements */,
@@ -278,6 +281,7 @@
 				875F4FB722E13D4D0089C1CA /* WhoIsSettingsViewController.swift in Sources */,
 				A570BFE122FA1788006AA478 /* ping.c in Sources */,
 				875CB7F222A9D9A40059A7D6 /* DnsRow.swift in Sources */,
+				A5F198C923079A1F006E1272 /* ErrorBoxViewController.swift in Sources */,
 				870C3F1B22AC102100B4EF32 /* UrlCache.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

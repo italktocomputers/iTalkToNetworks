@@ -178,6 +178,44 @@
             </objects>
             <point key="canvasLocation" x="-2425" y="-436"/>
         </scene>
+        <!--ErrorBox-->
+        <scene sceneID="jsD-Tz-7q2">
+            <objects>
+                <viewController title="ErrorBox" identifier="errorbox" storyboardIdentifier="errorbox" id="dkE-aP-Z2V" customClass="ErrorBoxViewController" customModule="DomainMaster" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="D4a-lU-JqE">
+                        <rect key="frame" x="0.0" y="0.0" width="710" height="174"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I45-7K-3bj">
+                                <rect key="frame" x="18" y="43" width="674" height="111"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Error message can go here..." id="kYC-qA-yOQ">
+                                    <font key="font" size="13" name="Geneva"/>
+                                    <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rTv-VZ-oL9">
+                                <rect key="frame" x="641" y="12" width="49" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="roundTextured" title="Close" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5Jy-Nm-pbl">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" size="13" name="Geneva"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="onClose:" target="dkE-aP-Z2V" id="0lq-Ry-2Me"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="msg" destination="I45-7K-3bj" id="wbh-YY-umd"/>
+                    </connections>
+                </viewController>
+                <customObject id="opc-xD-9qL" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1711" y="-1251"/>
+        </scene>
         <!--DNS-->
         <scene sceneID="SdH-Pl-cUa">
             <objects>
@@ -186,7 +224,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="881" height="606"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="500-Bs-4dp">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="500-Bs-4dp" propertyAccessControl="all">
                                 <rect key="frame" x="18" y="561" width="189" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="TS9-ll-q9v"/>
@@ -198,7 +236,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <scrollView autohidesScrollers="YES" horizontalLineScroll="44" horizontalPageScroll="10" verticalLineScroll="44" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zfq-oS-iui">
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="44" horizontalPageScroll="10" verticalLineScroll="44" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zfq-oS-iui" propertyAccessControl="all">
                                 <rect key="frame" x="27" y="52" width="834" height="494"/>
                                 <clipView key="contentView" id="UiS-or-Tsb">
                                     <rect key="frame" x="1" y="0.0" width="832" height="493"/>
@@ -365,7 +403,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
-                            <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BJ0-Sa-Jky">
+                            <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BJ0-Sa-Jky" propertyAccessControl="all">
                                 <rect key="frame" x="213" y="556" width="279" height="26"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="0dA-6i-rVL"/>
@@ -380,14 +418,14 @@
                                     <action selector="comboOnChange:" target="hC2-M1-9Mu" id="qWn-mq-Oa4"/>
                                 </connections>
                             </comboBox>
-                            <progressIndicator hidden="YES" wantsLayer="YES" maxValue="100" displayedWhenStopped="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="hdV-Ns-C0R">
+                            <progressIndicator hidden="YES" wantsLayer="YES" maxValue="100" displayedWhenStopped="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="hdV-Ns-C0R" propertyAccessControl="all">
                                 <rect key="frame" x="821" y="554" width="32" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="8DG-tG-Ld3"/>
                                     <constraint firstAttribute="width" constant="32" id="UrW-jD-g2Z"/>
                                 </constraints>
                             </progressIndicator>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pp1-a6-fr1">
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pp1-a6-fr1" propertyAccessControl="all">
                                 <rect key="frame" x="503" y="552" width="83" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Isd-lj-bp3"/>
@@ -401,7 +439,7 @@
                                     <action selector="lookUp:" target="hC2-M1-9Mu" id="mhS-x4-4iT"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qOT-kS-Ee5">
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qOT-kS-Ee5" propertyAccessControl="all">
                                 <rect key="frame" x="586" y="552" width="151" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Cd2-HV-2a4"/>
@@ -415,7 +453,7 @@
                                     <segue destination="ZPc-t2-3Hl" kind="sheet" id="RO0-F9-Hwx"/>
                                 </connections>
                             </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JBW-oF-yAJ">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JBW-oF-yAJ" propertyAccessControl="all">
                                 <rect key="frame" x="212" y="20" width="465" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="044-yv-eK1"/>
@@ -473,7 +511,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="881" height="606"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <box fixedFrame="YES" title="Registrant" translatesAutoresizingMaskIntoConstraints="NO" id="O24-mn-jSo">
+                            <box fixedFrame="YES" title="Registrant" translatesAutoresizingMaskIntoConstraints="NO" id="O24-mn-jSo" propertyAccessControl="all">
                                 <rect key="frame" x="20" y="248" width="844" height="147"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="3Ti-g4-w1D">
@@ -598,7 +636,7 @@
                                 </view>
                                 <font key="titleFont" size="15" name="Geneva"/>
                             </box>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ijl-VF-ex3">
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ijl-VF-ex3" propertyAccessControl="all">
                                 <rect key="frame" x="503" y="552" width="83" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Search" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="baJ-4K-hBX">
@@ -609,7 +647,7 @@
                                     <action selector="onSearch:" target="YBz-jL-jZc" id="TuC-rF-R60"/>
                                 </connections>
                             </button>
-                            <box fixedFrame="YES" title="Domain" translatesAutoresizingMaskIntoConstraints="NO" id="9Zw-S0-cWi">
+                            <box fixedFrame="YES" title="Domain" translatesAutoresizingMaskIntoConstraints="NO" id="9Zw-S0-cWi" propertyAccessControl="all">
                                 <rect key="frame" x="20" y="98" width="844" height="146"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="6BD-I3-7jM">
@@ -696,7 +734,7 @@
                                 </view>
                                 <font key="titleFont" size="15" name="Geneva"/>
                             </box>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XXJ-Ib-pAX">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XXJ-Ib-pAX" propertyAccessControl="all">
                                 <rect key="frame" x="18" y="561" width="189" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Specify domain or ip address:" id="O60-Ez-UNr">
@@ -705,7 +743,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <box fixedFrame="YES" title="Registrar" translatesAutoresizingMaskIntoConstraints="NO" id="dHS-u1-pyb">
+                            <box fixedFrame="YES" title="Registrar" translatesAutoresizingMaskIntoConstraints="NO" id="dHS-u1-pyb" propertyAccessControl="all">
                                 <rect key="frame" x="20" y="399" width="844" height="146"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="E4a-me-5Fk">
@@ -830,7 +868,7 @@
                                 </view>
                                 <font key="titleFont" size="15" name="Geneva"/>
                             </box>
-                            <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="85B-2L-jSG">
+                            <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="85B-2L-jSG" propertyAccessControl="all">
                                 <rect key="frame" x="213" y="556" width="279" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="aMa-Yg-osQ">
@@ -842,7 +880,7 @@
                                     <action selector="comboOnChange:" target="YBz-jL-jZc" id="Wf5-ai-glG"/>
                                 </connections>
                             </comboBox>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e8H-E8-UGB">
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e8H-E8-UGB" propertyAccessControl="all">
                                 <rect key="frame" x="586" y="552" width="151" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Advanced Options" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="K0p-nA-PcE">
@@ -853,11 +891,11 @@
                                     <segue destination="U8S-xO-Lpf" kind="sheet" id="OId-WT-GIk"/>
                                 </connections>
                             </button>
-                            <progressIndicator hidden="YES" wantsLayer="YES" fixedFrame="YES" maxValue="100" displayedWhenStopped="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="83G-xK-xZ8">
+                            <progressIndicator hidden="YES" wantsLayer="YES" fixedFrame="YES" maxValue="100" displayedWhenStopped="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="83G-xK-xZ8" propertyAccessControl="all">
                                 <rect key="frame" x="821" y="554" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </progressIndicator>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gOt-V1-0X2">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gOt-V1-0X2" propertyAccessControl="all">
                                 <rect key="frame" x="212" y="20" width="465" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="DomainMaster | Copyright © 2019 iTalkToComputers. All rights reserved." id="X9L-RS-G65">
@@ -1001,7 +1039,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="696" height="296"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <box fixedFrame="YES" title="Resource Types" translatesAutoresizingMaskIntoConstraints="NO" id="tlL-ja-nla">
+                            <box fixedFrame="YES" title="Resource Types" translatesAutoresizingMaskIntoConstraints="NO" id="tlL-ja-nla" propertyAccessControl="all">
                                 <rect key="frame" x="17" y="201" width="662" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="PCF-IN-dN9">
@@ -1144,7 +1182,7 @@
                                 </view>
                                 <font key="titleFont" size="13" name="Geneva"/>
                             </box>
-                            <box fixedFrame="YES" title="Advanced" translatesAutoresizingMaskIntoConstraints="NO" id="6FF-N7-J5I">
+                            <box fixedFrame="YES" title="Advanced" translatesAutoresizingMaskIntoConstraints="NO" id="6FF-N7-J5I" propertyAccessControl="all">
                                 <rect key="frame" x="17" y="57" width="662" height="133"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="vYg-bs-gbq">
@@ -1244,7 +1282,6 @@
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             </view>
                                             <color key="fillColor" name="quaternaryLabelColor" catalog="System" colorSpace="catalog"/>
-                                            <font key="titleFont" metaFont="smallSystem"/>
                                         </box>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fLW-wv-2BJ">
                                             <rect key="frame" x="289" y="85" width="120" height="17"/>
@@ -1259,7 +1296,7 @@
                                 </view>
                                 <font key="titleFont" size="13" name="Geneva"/>
                             </box>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oU8-n8-hBu">
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oU8-n8-hBu" propertyAccessControl="all">
                                 <rect key="frame" x="607" y="13" width="75" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DnC-Ji-fAa">
@@ -1303,7 +1340,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="881" height="606"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C9p-qY-NQ5">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C9p-qY-NQ5" propertyAccessControl="all">
                                 <rect key="frame" x="18" y="561" width="189" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Specify domain or ip address:" id="haA-tE-Lsd">
@@ -1312,7 +1349,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HoG-tv-KJH">
+                            <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HoG-tv-KJH" propertyAccessControl="all">
                                 <rect key="frame" x="213" y="556" width="279" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="enD-Aq-DMc">
@@ -1324,11 +1361,11 @@
                                     <action selector="comboOnChange:" target="FGj-Tn-ezA" id="MhH-it-rVL"/>
                                 </connections>
                             </comboBox>
-                            <progressIndicator hidden="YES" wantsLayer="YES" fixedFrame="YES" maxValue="100" displayedWhenStopped="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="8Hq-Eh-DCG">
+                            <progressIndicator hidden="YES" wantsLayer="YES" fixedFrame="YES" maxValue="100" displayedWhenStopped="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="8Hq-Eh-DCG" propertyAccessControl="all">
                                 <rect key="frame" x="821" y="554" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </progressIndicator>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D94-Ga-GrC">
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D94-Ga-GrC" propertyAccessControl="all">
                                 <rect key="frame" x="503" y="552" width="83" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Trace" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9HT-Z5-N9m">
@@ -1339,7 +1376,7 @@
                                     <action selector="trace:" target="FGj-Tn-ezA" id="ZlN-Xa-Kf2"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tlg-4J-1hQ">
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tlg-4J-1hQ" propertyAccessControl="all">
                                 <rect key="frame" x="586" y="552" width="151" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Advanced Options" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="idM-Co-UR2">
@@ -1347,7 +1384,7 @@
                                     <font key="font" size="13" name="Geneva"/>
                                 </buttonCell>
                             </button>
-                            <box fixedFrame="YES" title="Ping statistics" translatesAutoresizingMaskIntoConstraints="NO" id="MKi-dQ-xo5">
+                            <box fixedFrame="YES" title="Ping statistics" translatesAutoresizingMaskIntoConstraints="NO" id="MKi-dQ-xo5" propertyAccessControl="all">
                                 <rect key="frame" x="24" y="56" width="840" height="104"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="zuq-uv-PxG">
@@ -1376,7 +1413,7 @@
                                 </view>
                                 <font key="titleFont" size="13" name="Geneva"/>
                             </box>
-                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MmE-kc-tYg">
+                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MmE-kc-tYg" propertyAccessControl="all">
                                 <rect key="frame" x="20" y="167" width="841" height="378"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" ambiguous="YES" id="JhL-vH-Aqq">
@@ -1573,7 +1610,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="66l-kx-XWy">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="66l-kx-XWy" propertyAccessControl="all">
                                 <rect key="frame" x="208" y="20" width="465" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="DomainMaster | Copyright © 2019 iTalkToComputers. All rights reserved." id="BLY-fJ-3at">
@@ -1603,7 +1640,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="881" height="606"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ITR-sp-Mdu">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ITR-sp-Mdu" propertyAccessControl="all">
                                 <rect key="frame" x="18" y="561" width="189" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Specify domain or ip address:" id="Yn2-ms-bIP">
@@ -1612,7 +1649,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N1m-br-drB">
+                            <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N1m-br-drB" propertyAccessControl="all">
                                 <rect key="frame" x="213" y="556" width="279" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="AT1-wd-zFX">
@@ -1624,11 +1661,11 @@
                                     <action selector="comboOnChange:" target="N5A-Nj-GHW" id="RJY-De-e1o"/>
                                 </connections>
                             </comboBox>
-                            <progressIndicator hidden="YES" wantsLayer="YES" fixedFrame="YES" maxValue="100" displayedWhenStopped="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="ItU-CS-ztR">
+                            <progressIndicator hidden="YES" wantsLayer="YES" fixedFrame="YES" maxValue="100" displayedWhenStopped="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="ItU-CS-ztR" propertyAccessControl="all">
                                 <rect key="frame" x="821" y="554" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </progressIndicator>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LdF-P1-9gf">
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LdF-P1-9gf" propertyAccessControl="all">
                                 <rect key="frame" x="503" y="552" width="83" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Ping" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jW0-dc-RCG">
@@ -1639,7 +1676,7 @@
                                     <action selector="ping:" target="N5A-Nj-GHW" id="fVA-s5-nAO"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NT3-2d-Gkp">
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NT3-2d-Gkp" propertyAccessControl="all">
                                 <rect key="frame" x="586" y="552" width="151" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Advanced Options" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="zku-6A-Dxp">
@@ -1650,7 +1687,7 @@
                                     <segue destination="2DM-qB-uM0" kind="sheet" id="AeX-nq-hYE"/>
                                 </connections>
                             </button>
-                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="69" horizontalPageScroll="10" verticalLineScroll="69" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgw-o2-j2P">
+                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="69" horizontalPageScroll="10" verticalLineScroll="69" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgw-o2-j2P" propertyAccessControl="all">
                                 <rect key="frame" x="27" y="168" width="834" height="378"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" ambiguous="YES" id="a2g-JJ-Qzb">
@@ -1844,7 +1881,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
-                            <box fixedFrame="YES" title="Ping statistics" translatesAutoresizingMaskIntoConstraints="NO" id="x05-Mu-RIF">
+                            <box fixedFrame="YES" title="Ping statistics" translatesAutoresizingMaskIntoConstraints="NO" id="x05-Mu-RIF" propertyAccessControl="all">
                                 <rect key="frame" x="24" y="56" width="840" height="104"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="Gpm-gT-hcS">
@@ -1963,7 +2000,7 @@
                                 </view>
                                 <font key="titleFont" size="13" name="Geneva"/>
                             </box>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6bF-iX-7KG">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6bF-iX-7KG" propertyAccessControl="all">
                                 <rect key="frame" x="212" y="20" width="465" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="DomainMaster | Copyright © 2019 iTalkToComputers. All rights reserved." id="pwF-Rl-mLZ">
@@ -1999,7 +2036,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="696" height="511"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <box fixedFrame="YES" title="Network Information Center (NIC) Database" translatesAutoresizingMaskIntoConstraints="NO" id="hCT-6d-KrG">
+                            <box fixedFrame="YES" title="Network Information Center (NIC) Database" translatesAutoresizingMaskIntoConstraints="NO" id="hCT-6d-KrG" propertyAccessControl="all">
                                 <rect key="frame" x="17" y="126" width="662" height="365"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="tvK-eF-hZp">
@@ -2230,7 +2267,7 @@
                                 </view>
                                 <font key="titleFont" size="13" name="Geneva"/>
                             </box>
-                            <box fixedFrame="YES" title="Other" translatesAutoresizingMaskIntoConstraints="NO" id="qZu-ZU-Jz3">
+                            <box fixedFrame="YES" title="Other" translatesAutoresizingMaskIntoConstraints="NO" id="qZu-ZU-Jz3" propertyAccessControl="all">
                                 <rect key="frame" x="17" y="53" width="662" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="hzl-2I-DJs">
@@ -2263,7 +2300,7 @@
                                 </view>
                                 <font key="titleFont" size="13" name="Geneva"/>
                             </box>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IaL-Sh-zYS">
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IaL-Sh-zYS" propertyAccessControl="all">
                                 <rect key="frame" x="607" y="13" width="75" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Toe-4e-4BV">
@@ -2307,7 +2344,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="941" height="433"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <box fixedFrame="YES" title="Basic" translatesAutoresizingMaskIntoConstraints="NO" id="g97-47-NCB">
+                            <box fixedFrame="YES" title="Basic" translatesAutoresizingMaskIntoConstraints="NO" id="g97-47-NCB" propertyAccessControl="all">
                                 <rect key="frame" x="17" y="351" width="907" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="Loo-qQ-NxI">
@@ -2414,7 +2451,7 @@
                                 </view>
                                 <font key="titleFont" size="13" name="Geneva"/>
                             </box>
-                            <box fixedFrame="YES" title="Advanced" translatesAutoresizingMaskIntoConstraints="NO" id="tYa-cy-Bdc">
+                            <box fixedFrame="YES" title="Advanced" translatesAutoresizingMaskIntoConstraints="NO" id="tYa-cy-Bdc" propertyAccessControl="all">
                                 <rect key="frame" x="17" y="59" width="907" height="281"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="Fa6-aU-zvo">
@@ -2895,12 +2932,15 @@
                                                     </items>
                                                 </menu>
                                             </popUpButtonCell>
+                                            <connections>
+                                                <action selector="onMaskChange:" target="2DM-qB-uM0" id="zns-WA-bFy"/>
+                                            </connections>
                                         </popUpButton>
                                     </subviews>
                                 </view>
                                 <font key="titleFont" size="13" name="Geneva"/>
                             </box>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lIj-8u-Xln">
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lIj-8u-Xln" propertyAccessControl="all">
                                 <rect key="frame" x="852" y="15" width="75" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FtO-F0-zwA">

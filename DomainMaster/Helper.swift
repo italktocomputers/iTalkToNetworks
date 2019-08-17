@@ -58,6 +58,12 @@ class Helper {
             }
         }
     }
+
+    static func initDropDown(val: String?, box: NSPopUpButton) {
+        if val != nil {
+            box.selectItem(withTitle: val!)
+        }
+    }
     
     static func getSetting(name: String) -> String {
         let defaults = UserDefaults.standard
@@ -168,6 +174,14 @@ class Helper {
         if let vc: NSViewController = sb.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("error_decimal_only")) as? NSViewController {
 
             view.present(vc, asPopoverRelativeTo: ((sender as AnyObject).bounds)!, of: sender as! NSView, preferredEdge: NSRectEdge.maxX, behavior: NSPopover.Behavior.transient)
+        }
+    }
+
+    static func showErrorBox(view: ViewController, msg: String) {
+        let sb = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)
+        if let vc: ErrorBoxViewController = sb.instantiateController(withIdentifier: NSStoryboard.SceneIdentifier("errorbox")) as? ErrorBoxViewController {
+            view.presentAsSheet(vc)
+            vc.msg.stringValue = msg
         }
     }
 }

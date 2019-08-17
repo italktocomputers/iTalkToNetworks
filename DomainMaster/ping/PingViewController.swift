@@ -147,7 +147,7 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
 
         DispatchQueue.global(qos: .userInitiated).async {
             self.setStartTime()
-            PingHelper.ping(domain: searchTerm, controller: self, okToPing: self.okToPing)
+            let result = PingHelper.ping(domain: searchTerm, controller: self, okToPing: self.okToPing)
 
             self.setEndTime()
 
@@ -157,6 +157,11 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
                 self.progressBar.isHidden = true
                 self.btn.title = "Ping"
                 self.okToPing.pointee = true
+
+                if result != 0 {
+                    // There was an error so we report it to user now.
+                    Helper.showErrorBox(view: self, msg: "This is a test error!")
+                }
             }
         }
     }
