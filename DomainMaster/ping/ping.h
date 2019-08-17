@@ -110,3 +110,4 @@ static void stopit(int);
 static void tvsub(struct timeval*, struct timeval*);
 int start_ping(int, char**, char*, char*, long*, long*, void (^call)(char*, char*, long*, long*), bool*);
 static void to_res(char*, ...);
+static void to_err(char*, ...);
