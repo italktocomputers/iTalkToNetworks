@@ -26,7 +26,9 @@
 #include <sysexits.h>
 #include <unistd.h>
 #include <stdarg.h>
-#include <stdbool.h> 
+#include <stdbool.h>
+
+#include "common.h"
 
 #define    INADDR_LEN    ((int)sizeof(in_addr_t))
 #define    TIMEVAL_LEN    ((int)sizeof(struct tv32))
@@ -51,17 +53,6 @@ struct tv32 {
     u_int32_t tv32_sec;
     u_int32_t tv32_usec;
 };
-
-struct swift_pak {
-    char* res;
-    char* error;
-    long* transmitted;
-    long* received;
-    void (^call)(char*, char*, long*, long*);
-    bool* ok_to_ping;
-};
-
-typedef struct swift_pak swift_pak;
 
 // various options
 
@@ -108,6 +99,4 @@ static void pr_retip(struct ip*);
 static void status(int);
 static void stopit(int);
 static void tvsub(struct timeval*, struct timeval*);
-int start_ping(int, char**, char*, char*, long*, long*, void (^call)(char*, char*, long*, long*), bool*);
-static void to_res(char*, ...);
-static void to_err(char*, ...);
+int start_ping(int, char**, long*, long*, bool*);

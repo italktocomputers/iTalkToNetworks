@@ -26,11 +26,11 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     var pingPacketsReceived = 0
     var okToPing = UnsafeMutablePointer<Bool>.allocate(capacity: 1)
 
-    func notify(pingdata: UnsafeMutablePointer<Int8>?, err: UnsafeMutablePointer<Int8>?, transmitted: UnsafeMutablePointer<Int>?, received: UnsafeMutablePointer<Int>?) {
+    func ping_notify(res: UnsafeMutablePointer<Int8>?, err: UnsafeMutablePointer<Int8>?, transmitted: UnsafeMutablePointer<Int>?, received: UnsafeMutablePointer<Int>?) {
         pingPacketsReceived = received!.pointee
         pingPacketsTransmitted = transmitted!.pointee
 
-        data = PingHelper.parseResponse(results: String(cString: pingdata!))
+        data = PingHelper.parseResponse(results: String(cString: res!))
 
         DispatchQueue.main.async {
             self.tableView.reloadData()
@@ -141,9 +141,8 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
         progressBar.startAnimation(self.view)
         UrlCache.add(url: inputBox.stringValue)
         let searchTerm = self.inputBox.stringValue
-
-        let res = UnsafeMutablePointer<Int8>.allocate(capacity: 10000)
-        let err = UnsafeMutablePointer<Int8>.allocate(capacity: 10000)
+        let res = UnsafeMutablePointer<CChar>.allocate(capacity: 10000)
+        let err = UnsafeMutablePointer<CChar>.allocate(capacity: 10000)
         let transmitted = UnsafeMutablePointer<Int>.allocate(capacity: 10000)
         let received = UnsafeMutablePointer<Int>.allocate(capacity: 10000)
 
@@ -151,8 +150,11 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
         clearStats()
 
         DispatchQueue.global(qos: .userInitiated).async {
+            init_res(0, res, err)
+            set_ping_notify(self.ping_notify)
             self.setStartTime()
-            let result = PingHelper.ping(domain: searchTerm, controller: self, okToPing: self.okToPing, res: res, err: err, transmitted: transmitted, received: received)
+            
+            let result = PingHelper.ping(domain: searchTerm, controller: self, okToPing: self.okToPing, transmitted: transmitted, received: received)
 
             self.setEndTime()
 

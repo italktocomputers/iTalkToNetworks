@@ -33,6 +33,7 @@
 		A570BFE122FA1788006AA478 /* ping.c in Sources */ = {isa = PBXBuildFile; fileRef = A570BFE022FA1788006AA478 /* ping.c */; };
 		A570BFE423037962006AA478 /* whois.c in Sources */ = {isa = PBXBuildFile; fileRef = A570BFE323037962006AA478 /* whois.c */; };
 		A5F198C923079A1F006E1272 /* ErrorBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F198C823079A1F006E1272 /* ErrorBoxViewController.swift */; };
+		A5F198CC23084BAD006E1272 /* common.c in Sources */ = {isa = PBXBuildFile; fileRef = A5F198CB23084BAD006E1272 /* common.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,8 @@
 		A570BFE223037962006AA478 /* whois.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = whois.h; sourceTree = "<group>"; };
 		A570BFE323037962006AA478 /* whois.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = whois.c; sourceTree = "<group>"; };
 		A5F198C823079A1F006E1272 /* ErrorBoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorBoxViewController.swift; sourceTree = "<group>"; };
+		A5F198CA23084BAD006E1272 /* common.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = common.h; sourceTree = "<group>"; };
+		A5F198CB23084BAD006E1272 /* common.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = common.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +111,8 @@
 		87BA48E322A5E9B200E8DDB9 /* DomainMaster */ = {
 			isa = PBXGroup;
 			children = (
+				A5F198CA23084BAD006E1272 /* common.h */,
+				A5F198CB23084BAD006E1272 /* common.c */,
 				87BA48ED22A5E9B300E8DDB9 /* Info.plist */,
 				A570BFE923037C1D006AA478 /* plists */,
 				A570BFE823037BE8006AA478 /* nslookup */,
@@ -278,6 +283,7 @@
 				87642DB222F32073000D96C1 /* traceroute.h in Sources */,
 				A570BFE423037962006AA478 /* whois.c in Sources */,
 				873B266B22EE0921005BAA5F /* PingRow.swift in Sources */,
+				A5F198CC23084BAD006E1272 /* common.c in Sources */,
 				875F4FB722E13D4D0089C1CA /* WhoIsSettingsViewController.swift in Sources */,
 				A570BFE122FA1788006AA478 /* ping.c in Sources */,
 				875CB7F222A9D9A40059A7D6 /* DnsRow.swift in Sources */,
