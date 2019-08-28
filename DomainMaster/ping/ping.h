@@ -12,9 +12,7 @@
 #include <arpa/inet.h>
 #include <net/if.h>
 
-#ifdef IPSEC
-#include <netinet6/ipsec.h>
-#endif //IPSEC
+//#include <netinet6/ipsec.h>
 
 #include <ctype.h>
 #include <err.h>
@@ -81,11 +79,7 @@ typedef struct swift_pak swift_pak;
 #define    F_MTTL        0x0800
 #define    F_MIF        0x1000
 #define    F_AUDIBLE    0x2000
-#ifdef IPSEC
-#ifdef IPSEC_POLICY_IPSEC
-#define F_POLICY    0x4000
-#endif // IPSEC_POLICY_IPSEC
-#endif // IPSEC
+#define    F_POLICY    0x4000
 #define    F_TTL        0x8000
 #define    F_MISSED    0x10000
 #define    F_ONCE        0x20000
@@ -116,3 +110,4 @@ static void stopit(int);
 static void tvsub(struct timeval*, struct timeval*);
 int start_ping(int, char**, char*, char*, long*, long*, void (^call)(char*, char*, long*, long*), bool*);
 static void to_res(char*, ...);
+static void to_err(char*, ...);

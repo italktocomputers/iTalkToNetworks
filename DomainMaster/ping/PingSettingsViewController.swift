@@ -16,7 +16,7 @@ class PingSettingsViewController : ViewController, NSWindowDelegate {
     @IBOutlet weak var sourceAddressTextbox: NSTextField!
     @IBOutlet weak var preloadTextbox: NSTextField!
     @IBOutlet weak var packetSizeTextbox: NSTextField!
-    @IBOutlet weak var maskTextbox: NSTextField!
+    @IBOutlet weak var maskDropdown: NSPopUpButton!
     @IBOutlet weak var ipsecPolicyTextbox: NSTextField!
     @IBOutlet weak var sweepMaxSizeTextbox: NSTextField!
     @IBOutlet weak var sweepMinSizeTextbox: NSTextField!
@@ -59,7 +59,7 @@ class PingSettingsViewController : ViewController, NSWindowDelegate {
         Helper.initTextBox(val: pingSourceAddress, box: sourceAddressTextbox)
         Helper.initTextBox(val: pingPreload, box: preloadTextbox)
         Helper.initTextBox(val: pingPacketSize, box: packetSizeTextbox)
-        Helper.initTextBox(val: pingMask, box: maskTextbox)
+        Helper.initDropDown(val: pingMask, box: maskDropdown)
         Helper.initTextBox(val: pingIpsecPolicy, box: ipsecPolicyTextbox)
         Helper.initTextBox(val: pingSweepMaxSize, box: sweepMaxSizeTextbox)
         Helper.initTextBox(val: pingSweepMinSize, box: sweepMinSizeTextbox)
@@ -95,6 +95,7 @@ class PingSettingsViewController : ViewController, NSWindowDelegate {
 
     @IBAction func onCountChange(_ sender: Any) {
         if Helper.isNumeric(str: countTextbox.stringValue) {
+            errorOnClose = false
             Helper.saveSetting(key: "pingCount", value: countTextbox.stringValue)
         }
         else {
@@ -109,6 +110,7 @@ class PingSettingsViewController : ViewController, NSWindowDelegate {
 
     @IBAction func onTimeoutChange(_ sender: Any) {
         if Helper.isNumeric(str: timeoutTextbox.stringValue) {
+            errorOnClose = false
             Helper.saveSetting(key: "pingTimeout", value: timeoutTextbox.stringValue)
         }
         else {
@@ -123,6 +125,7 @@ class PingSettingsViewController : ViewController, NSWindowDelegate {
 
     @IBAction func onWaitChange(_ sender: Any) {
         if Helper.isDecimal(str: waitTextbox.stringValue) {
+            errorOnClose = false
             Helper.saveSetting(key: "pingWait", value: waitTextbox.stringValue)
         }
         else {
@@ -137,6 +140,7 @@ class PingSettingsViewController : ViewController, NSWindowDelegate {
 
     @IBAction func onTTLChange(_ sender: Any) {
         if Helper.isNumeric(str: ttlTextbox.stringValue) && Helper.between(str: ttlTextbox.stringValue, from: 1, to: 255) {
+            errorOnClose = false
             Helper.saveSetting(key: "pingTTL", value: ttlTextbox.stringValue)
         }
         else {
@@ -151,6 +155,7 @@ class PingSettingsViewController : ViewController, NSWindowDelegate {
 
     @IBAction func onPacketSizeChange(_ sender: Any) {
         if Helper.isNumeric(str: packetSizeTextbox.stringValue) {
+            errorOnClose = false
             Helper.saveSetting(key: "pingPacketSize", value: packetSizeTextbox.stringValue)
         }
         else {
@@ -173,6 +178,7 @@ class PingSettingsViewController : ViewController, NSWindowDelegate {
 
     @IBAction func onPreloadChange(_ sender: Any) {
         if Helper.isNumeric(str: preloadTextbox.stringValue) {
+            errorOnClose = false
             Helper.saveSetting(key: "pingPreload", value: preloadTextbox.stringValue)
         }
         else {
@@ -186,7 +192,7 @@ class PingSettingsViewController : ViewController, NSWindowDelegate {
     }
 
     @IBAction func onMaskChange(_ sender: Any) {
-        Helper.saveSetting(key: "pingMask", value: maskTextbox.stringValue)
+        Helper.saveSetting(key: "pingMask", value: maskDropdown.selectedItem!.title)
     }
 
     @IBAction func onIpsecPolicyChange(_ sender: Any) {
@@ -195,6 +201,7 @@ class PingSettingsViewController : ViewController, NSWindowDelegate {
 
     @IBAction func onSweepMaxSizeChange(_ sender: Any) {
         if Helper.isNumeric(str: sweepMaxSizeTextbox.stringValue) {
+            errorOnClose = false
             Helper.saveSetting(key: "pingSweepMaxSize", value: sweepMaxSizeTextbox.stringValue)
         }
         else {
@@ -209,6 +216,7 @@ class PingSettingsViewController : ViewController, NSWindowDelegate {
 
     @IBAction func onSweepMinSizeChange(_ sender: Any) {
         if Helper.isNumeric(str: sweepMinSizeTextbox.stringValue) {
+            errorOnClose = false
             Helper.saveSetting(key: "pingSweepMinSize", value: sweepMinSizeTextbox.stringValue)
         }
         else {
@@ -223,6 +231,7 @@ class PingSettingsViewController : ViewController, NSWindowDelegate {
 
     @IBAction func onSweeIncSizeChange(_ sender: Any) {
         if Helper.isNumeric(str: sweepIncSizeTextbox.stringValue) {
+            errorOnClose = false
             Helper.saveSetting(key: "pingSweepIncSize", value: sweepIncSizeTextbox.stringValue)
         }
         else {

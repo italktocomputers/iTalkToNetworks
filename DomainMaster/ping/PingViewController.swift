@@ -142,12 +142,17 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
         UrlCache.add(url: inputBox.stringValue)
         let searchTerm = self.inputBox.stringValue
 
+        let res = UnsafeMutablePointer<Int8>.allocate(capacity: 10000)
+        let err = UnsafeMutablePointer<Int8>.allocate(capacity: 10000)
+        let transmitted = UnsafeMutablePointer<Int>.allocate(capacity: 10000)
+        let received = UnsafeMutablePointer<Int>.allocate(capacity: 10000)
+
         clearTable()
         clearStats()
 
         DispatchQueue.global(qos: .userInitiated).async {
             self.setStartTime()
-            PingHelper.ping(domain: searchTerm, controller: self, okToPing: self.okToPing)
+            let result = PingHelper.ping(domain: searchTerm, controller: self, okToPing: self.okToPing, res: res, err: err, transmitted: transmitted, received: received)
 
             self.setEndTime()
 
@@ -157,6 +162,16 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
                 self.progressBar.isHidden = true
                 self.btn.title = "Ping"
                 self.okToPing.pointee = true
+
+                if result != 0 {
+                    // There was an error so we report it to user now.
+                    Helper.showErrorBox(view: self, msg: String(cString: err))
+                }
+
+                free(UnsafeMutablePointer(mutating: res))
+                free(UnsafeMutablePointer(mutating: err))
+                free(UnsafeMutablePointer(mutating: transmitted))
+                free(UnsafeMutablePointer(mutating: received))
             }
         }
     }

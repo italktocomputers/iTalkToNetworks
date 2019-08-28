@@ -18,7 +18,7 @@ struct swift_pak {
 */
 
 class PingHelper {
-    static func ping(domain: String, controller: PingViewController, okToPing: UnsafeMutablePointer<Bool>) -> Int32 {
+    static func ping(domain: String, controller: PingViewController, okToPing: UnsafeMutablePointer<Bool>, res: UnsafeMutablePointer<Int8>, err: UnsafeMutablePointer<Int8>, transmitted: UnsafeMutablePointer<Int>, received: UnsafeMutablePointer<Int>) -> Int32 {
         var ret: Int32 = 0
         let c: Int32
 
@@ -144,10 +144,6 @@ class PingHelper {
         c = Int32(uargs.count - 1)
 
         var cargs = uargs.map { $0.flatMap { UnsafeMutablePointer<Int8>(strdup($0)) } }
-        let res = UnsafeMutablePointer<Int8>.allocate(capacity: 10000)
-        let err = UnsafeMutablePointer<Int8>.allocate(capacity: 10000)
-        let transmitted = UnsafeMutablePointer<Int>.allocate(capacity: 10000)
-        let received = UnsafeMutablePointer<Int>.allocate(capacity: 10000)
         
         ret = start_ping(c, &cargs, res, err, transmitted, received, controller.notify, okToPing);
 

@@ -237,12 +237,8 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
     alarmtimeout = df = preload = tos = 0;
 
     outpack = outpackhdr + sizeof(struct ip);
-    while ((ch = getopt(argc, argv, "Aab:c:DdfG:g:h:I:i:Ll:M:m:nop:QqRrS:s:T:t:vW:z:"
-    #ifdef IPSEC
-    #ifdef IPSEC_POLICY_IPSEC
-    "P:"
-    #endif //IPSEC_POLICY_IPSEC
-    #endif //IPSEC
+    while ((ch = getopt(argc, argv, "Aab:c:DdfG:g:h:I:i:Ll:M:m:nop:QqRrS:s:T:t:vW:z:P:"
+
     #if defined(IP_FORCE_OUT_IFP) && TARGET_OS_EMBEDDED
     "B:"
     #endif //IP_FORCE_OUT_IFP
@@ -266,7 +262,7 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
             case 'c':
                 ultmp = strtoul(optarg, &ep, 0);
                 if (*ep || ep == optarg || ultmp > LONG_MAX || !ultmp) {
-                    to_res("invalid count of packets to transmit: `%s'", optarg);
+                    to_err("invalid count of packets to transmit: `%s'", optarg);
                     return 1;
                 }
                 npackets = ultmp;
@@ -280,7 +276,7 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
                 break;
             case 'f':
                 if (uid) {
-                    to_res("-f flag");
+                    to_err("-f flag");
                     return 1;
                 }
                 options |= F_FLOOD;
@@ -289,12 +285,12 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
             case 'G': // Maximum packet size for ping sweep
                 ultmp = strtoul(optarg, &ep, 0);
                 if (*ep || ep == optarg) {
-                    to_res("invalid packet size: `%s'", optarg);
+                    to_err("invalid packet size: `%s'", optarg);
                     return 1;
                 }
                 #ifndef __APPLE__
                 if (uid != 0 && ultmp > DEFDATALEN) {
-                    to_res("packet size too large: %lu > %u", ultmp, DEFDATALEN);
+                    to_err("packet size too large: %lu > %u", ultmp, DEFDATALEN);
                     return 1;
                 }
                 #endif //__APPLE__
@@ -304,12 +300,12 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
             case 'g': // Minimum packet size for ping sweep
                 ultmp = strtoul(optarg, &ep, 0);
                 if (*ep || ep == optarg) {
-                    to_res("invalid packet size: `%s'", optarg);
+                    to_err("invalid packet size: `%s'", optarg);
                     return 1;
                 }
                 #ifndef __APPLE__
                 if (uid != 0 && ultmp > DEFDATALEN) {
-                    to_res("packet size too large: %lu > %u", ultmp, DEFDATALEN);
+                    to_err("packet size too large: %lu > %u", ultmp, DEFDATALEN);
                     return 1;
                 }
                 #endif // __APPLE__
@@ -319,12 +315,12 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
             case 'h': // Packet size increment for ping sweep
                 ultmp = strtoul(optarg, &ep, 0);
                 if (*ep || ep == optarg || ultmp < 1) {
-                    to_res("invalid increment size: `%s'", optarg);
+                    to_err("invalid increment size: `%s'", optarg);
                     return 1;
                 }
                 #ifndef __APPLE__
                 if (uid != 0 && ultmp > DEFDATALEN) {
-                    to_res("packet size too large: %lu > %u", ultmp, DEFDATALEN);
+                    to_err("packet size too large: %lu > %u", ultmp, DEFDATALEN);
                     return 1;
                 }
                 #endif // __APPLE__
@@ -333,7 +329,7 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
                 break;
             case 'I': // multicast interface
                 if (inet_aton(optarg, &ifaddr) == 0) {
-                    to_res("invalid multicast interface: `%s'", optarg);
+                    to_err("invalid multicast interface: `%s'", optarg);
                     return 1;
                 }
                 options |= F_MIF;
@@ -341,13 +337,13 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
             case 'i': // wait between sending packets
                 t = strtod(optarg, &ep) * 1000.0;
                 if (*ep || ep == optarg || t > (double)INT_MAX) {
-                    to_res("invalid timing interval: `%s'", optarg);
+                    to_err("invalid timing interval: `%s'", optarg);
                     return 1;
                 }
                 options |= F_INTERVAL;
                 interval = (int)t;
                 if (uid && interval < 1000) {
-                    to_res("-i interval too short");
+                    to_err("-i interval too short");
                     return 1;
                 }
                 break;
@@ -358,11 +354,11 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
             case 'l':
                 ultmp = strtoul(optarg, &ep, 0);
                 if (*ep || ep == optarg || ultmp > INT_MAX) {
-                    to_res("invalid preload value: `%s'", optarg);
+                    to_err("invalid preload value: `%s'", optarg);
                     return 1;
                 }
                 if (uid) {
-                    to_res("-l flag");
+                    to_err("-l flag");
                     return 1;
                 }
                 preload = ultmp;
@@ -378,14 +374,14 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
                         options |= F_TIME;
                         break;
                     default:
-                        to_res("invalid message: `%c'", optarg[0]);
+                        to_err("invalid message: `%c'", optarg[0]);
                         return 1;
                 }
                 break;
             case 'm': // TTL
                 ultmp = strtoul(optarg, &ep, 0);
                 if (*ep || ep == optarg || ultmp > MAXTTL) {
-                    to_res("invalid TTL: `%s'", optarg);
+                    to_err("invalid TTL: `%s'", optarg);
                     return 1;
                 }
                 ttl = ultmp;
@@ -397,8 +393,7 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
             case 'o':
                 options |= F_ONCE;
                 break;
-            #ifdef IPSEC
-            #ifdef IPSEC_POLICY_IPSEC
+            /*
             case 'P':
                 options |= F_POLICY;
                 if (!strncmp("in", optarg, 2)) {
@@ -412,8 +407,7 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
                     return 1;
                 }
                 break;
-                #endif // IPSEC_POLICY_IPSEC
-                #endif // IPSEC
+            */
             case 'p': // fill buffer with user pattern
                 options |= F_PINGFILLED;
                 payload = optarg;
@@ -436,12 +430,12 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
             case 's': // size of packet to send
                 ultmp = strtoul(optarg, &ep, 0);
                 if (*ep || ep == optarg) {
-                    to_res("invalid packet size: `%s'", optarg);
+                    to_err("invalid packet size: `%s'", optarg);
                     return 1;
                 }
                 #ifndef __APPLE__
                 if (uid != 0 && ultmp > DEFDATALEN) {
-                    to_res("packet size too large: %lu > %u", ultmp, DEFDATALEN);
+                    to_err("packet size too large: %lu > %u", ultmp, DEFDATALEN);
                     return 1;
                 }
                 #endif //__APPLE__
@@ -450,7 +444,7 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
             case 'T': // multicast TTL
                 ultmp = strtoul(optarg, &ep, 0);
                 if (*ep || ep == optarg || ultmp > MAXTTL) {
-                    to_res("invalid multicast TTL: `%s'", optarg);
+                    to_err("invalid multicast TTL: `%s'", optarg);
                     return 1;
                 }
                 mttl = ultmp;
@@ -459,11 +453,11 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
             case 't':
                 alarmtimeout = strtoul(optarg, &ep, 0);
                 if ((alarmtimeout < 1) || (alarmtimeout == ULONG_MAX)) {
-                    to_res("invalid timeout: `%s'", optarg);
+                    to_err("invalid timeout: `%s'", optarg);
                     return 1;
                 }
                 if (alarmtimeout > MAXALARM) {
-                    to_res("invalid timeout: `%s' > %d", optarg, MAXALARM);
+                    to_err("invalid timeout: `%s' > %d", optarg, MAXALARM);
                     return 1;
                 }
                 alarm((unsigned int)alarmtimeout);
@@ -474,7 +468,7 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
             case 'W': // wait ms for answer
                 t = strtod(optarg, &ep);
                 if (*ep || ep == optarg || t > (double)INT_MAX) {
-                    to_res("invalid timing interval: `%s'", optarg);
+                    to_err("invalid timing interval: `%s'", optarg);
                     return 1;
                 }
                 options |= F_WAITTIME;
@@ -484,7 +478,7 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
                 options |= F_HDRINCL;
                 ultmp = strtoul(optarg, &ep, 0);
                 if (*ep || ep == optarg || ultmp > MAXTOS) {
-                    to_res("invalid TOS: `%s'", optarg);
+                    to_err("invalid TOS: `%s'", optarg);
                     return 1;
                 }
                 tos = ultmp;
@@ -495,7 +489,7 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
     }
     
     if (boundif != NULL && (ifscope = if_nametoindex(boundif)) == 0) {
-        to_res("bad interface name");
+        to_err("bad interface name");
         return 1;
     }
         
@@ -523,7 +517,7 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
                 (void)printf("ICMP_TSTAMP\n");
             break;
         default:
-            to_res("ICMP_TSTAMP and ICMP_MASKREQ are exclusive.");
+            to_err("ICMP_TSTAMP and ICMP_MASKREQ are exclusive.");
             return 1;
     }
 
@@ -536,7 +530,7 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
     maxpayload = IP_MAXPACKET - icmp_len;
 
     if (datalen > maxpayload) {
-        to_res("packet size too large: %d > %d", datalen, maxpayload);
+        to_err("packet size too large: %d > %d", datalen, maxpayload);
         return 1;
     }
 
@@ -557,13 +551,13 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
         else {
             hp = gethostbyname2(source, AF_INET);
             if (!hp) {
-                to_res("cannot resolve %s: %s", source, hstrerror(h_errno));
+                to_err("cannot resolve %s: %s", source, hstrerror(h_errno));
                 return 1;
             }
             
             sock_in.sin_len = sizeof sock_in;
             if ((unsigned)hp->h_length > sizeof(sock_in.sin_addr) || hp->h_length < 0) {
-                to_res("gethostbyname2: illegal address");
+                to_err("gethostbyname2: illegal address");
                 return 1;
             }
 
@@ -574,7 +568,7 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
         }
 
         if (bind(s, (struct sockaddr *)&sock_in, sizeof sock_in) == -1) {
-            to_res("bind");
+            to_err("bind");
             return 1;
         }
     }
@@ -590,12 +584,12 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
     else {
         hp = gethostbyname2(target, AF_INET);
         if (!hp) {
-            to_res("cannot resolve %s: %s", target, hstrerror(h_errno));
+            to_err("cannot resolve %s: %s", target, hstrerror(h_errno));
             return 1;
         }
         
         if ((unsigned)hp->h_length > sizeof(to->sin_addr)) {
-            to_res("gethostbyname2 returned an illegal address");
+            to_err("gethostbyname2 returned an illegal address");
             return 1;
         }
 
@@ -606,17 +600,17 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
     }
     
     if (options & F_FLOOD && options & F_INTERVAL) {
-        to_res("-f and -i: incompatible options");
+        to_err("-f and -i: incompatible options");
         return 1;
     }
         
     if (options & F_FLOOD && IN_MULTICAST(ntohl(to->sin_addr.s_addr))) {
-        to_res("-f flag cannot be used with multicast destination");
+        to_err("-f flag cannot be used with multicast destination");
         return 1;
     }
 
     if (options & (F_MIF | F_NOLOOP | F_MTTL) && !IN_MULTICAST(ntohl(to->sin_addr.s_addr))) {
-        to_res("-I, -L, -T flags cannot be used with unicast destination");
+        to_err("-I, -L, -T flags cannot be used with unicast destination");
         return 1;
     }
 
@@ -631,21 +625,21 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
     ident = getpid() & 0xFFFF;
 
     if (s < 0) {
-        to_res("socket");
+        to_err("socket");
         return 1;
     }
 
     hold = 1;
     if (ifscope != 0) {
         if (setsockopt(s, IPPROTO_IP, IP_BOUND_IF, (char *)&ifscope, sizeof (ifscope)) != 0) {
-            to_res("setsockopt(IP_BOUND_IF)");
+            to_err("setsockopt(IP_BOUND_IF)");
             return 1;
         }
     }
     #if defined(IP_FORCE_OUT_IFP) && TARGET_OS_EMBEDDED
     else if (boundifname[0] != 0) {
         if (setsockopt(s, IPPROTO_IP, IP_FORCE_OUT_IFP, boundifname, sizeof (boundifname)) != 0) {
-            to_res("setsockopt(IP_FORCE_OUT_IFP)");
+            to_err("setsockopt(IP_FORCE_OUT_IFP)");
             return 1;
         }
     }
@@ -658,8 +652,7 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
         (void)setsockopt(s, SOL_SOCKET, SO_DONTROUTE, (char *)&hold, sizeof(hold));
     }
 
-    #ifdef IPSEC
-    #ifdef IPSEC_POLICY_IPSEC
+    /*
     if (options & F_POLICY) {
         char *buf;
         if (policy_in != NULL) {
@@ -694,9 +687,8 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
             free(buf);
         }
     }
-    #endif //IPSEC_POLICY_IPSEC
-    #endif //IPSEC
-    
+    */
+
     if (options & F_HDRINCL) {
         ip = (struct ip*)outpackhdr;
 
@@ -707,7 +699,7 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
             mib[3] = IPCTL_DEFTTL;
             sz = sizeof(ttl);
             if (sysctl(mib, 4, &ttl, &sz, NULL, 0) == -1) {
-                to_res("sysctl(net.inet.ip.ttl)");
+                to_err("sysctl(net.inet.ip.ttl)");
                 return 1;
             }
         }
@@ -734,39 +726,39 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
         rspace[sizeof(rspace) - 1] = IPOPT_EOL;
         
         if (setsockopt(s, IPPROTO_IP, IP_OPTIONS, rspace, sizeof(rspace)) < 0) {
-            to_res("setsockopt IP_OPTIONS");
+            to_err("setsockopt IP_OPTIONS");
             return 1;
         }
         #else
-        to_res("record route not available in this implementation");
+        to_err("record route not available in this implementation");
         return 1;
         #endif //IP_OPTIONS
     }
     
     if (options & F_TTL) {
         if (setsockopt(s, IPPROTO_IP, IP_TTL, &ttl, sizeof(ttl)) < 0) {
-            to_res("setsockopt IP_TTL");
+            to_err("setsockopt IP_TTL");
             return 1;
         }
     }
     
     if (options & F_NOLOOP) {
         if (setsockopt(s, IPPROTO_IP, IP_MULTICAST_LOOP, &loop, sizeof(loop)) < 0) {
-            to_res("setsockopt IP_MULTICAST_LOOP");
+            to_err("setsockopt IP_MULTICAST_LOOP");
             return 1;
         }
     }
     
     if (options & F_MTTL) {
         if (setsockopt(s, IPPROTO_IP, IP_MULTICAST_TTL, &mttl, sizeof(mttl)) < 0) {
-            to_res("setsockopt IP_MULTICAST_TTL");
+            to_err("setsockopt IP_MULTICAST_TTL");
             return 1;
         }
     }
     
     if (options & F_MIF) {
         if (setsockopt(s, IPPROTO_IP, IP_MULTICAST_IF, &ifaddr, sizeof(ifaddr)) < 0) {
-            to_res("setsockopt IP_MULTICAST_IF");
+            to_err("setsockopt IP_MULTICAST_IF");
             return 1;
         }
     }
@@ -774,7 +766,7 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
     #ifdef SO_TIMESTAMP
     { int on = 1;
         if (setsockopt(s, SOL_SOCKET, SO_TIMESTAMP, &on, sizeof(on)) < 0) {
-            to_res("setsockopt SO_TIMESTAMP");
+            to_err("setsockopt SO_TIMESTAMP");
             return 1;
         }
     }
@@ -782,12 +774,12 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
     
     if (sweepmax) {
         if (sweepmin >= sweepmax) {
-            to_res("Maximum packet size must be greater than the minimum packet size");
+            to_err("Maximum packet size must be greater than the minimum packet size");
             return 1;
         }
         
         if (datalen != DEFDATALEN) {
-            to_res("Packet size and ping sweep are mutually exclusive");
+            to_err("Packet size and ping sweep are mutually exclusive");
             return 1;
         }
         
@@ -804,7 +796,7 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
     }
     
     if (options & F_SWEEP && !sweepmax) {
-        to_res("Maximum sweep size must be specified");
+        to_err("Maximum sweep size must be specified");
         return 1;
     }
     
@@ -855,20 +847,20 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
     
     si_sa.sa_handler = stopit;
     if (sigaction(SIGINT, &si_sa, 0) == -1) {
-        to_res("sigaction SIGINT");
+        to_err("sigaction SIGINT");
         return 1;
     }
     
     si_sa.sa_handler = status;
     if (sigaction(SIGINFO, &si_sa, 0) == -1) {
-        to_res("sigaction");
+        to_err("sigaction");
         return 1;
     }
     
     if (alarmtimeout > 0) {
         si_sa.sa_handler = stopit;
         if (sigaction(SIGALRM, &si_sa, 0) == -1) {
-            to_res("sigaction SIGALRM");
+            to_err("sigaction SIGALRM");
             return 1;
         }
     }
@@ -917,7 +909,7 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
         check_status(   );
 
         if ((unsigned)s >= FD_SETSIZE) {
-            to_res("descriptor too large");
+            to_err("descriptor too large");
             return 1;
         }
 
@@ -1097,10 +1089,10 @@ static void pinger(void) {
                 usleep(FLOOD_BACKOFF);
                 return;
             }
-            warn("sendto");
+            to_res("sendto");
         }
         else {
-            warn("%s: partial write: %d of %d bytes", hostname, i, cc);
+            to_res("%s: partial write: %d of %d bytes", hostname, i, cc);
         }
     }
 
@@ -1133,7 +1125,7 @@ static void pr_pack(char* buf, int cc, struct sockaddr_in* from, struct timeval*
     recv_len = cc;
     if (cc < hlen + ICMP_MINLEN) {
         if (options & F_VERBOSE)
-            warn("packet too short (%d bytes) from %s", cc, inet_ntoa(from->sin_addr));
+            to_res("packet too short (%d bytes) from %s", cc, inet_ntoa(from->sin_addr));
         return;
     }
     
@@ -1769,6 +1761,16 @@ static void to_res(char* format, ...) {
     va_start(args, format);
     vsprintf(buffer, format, args);
     strcat(res, buffer);
+    va_end (args);
+    notify(res, error, ntransmitted, nreceived);
+}
+
+static void to_err(char* format, ...) {
+    char buffer[256];
+    va_list args;
+    va_start(args, format);
+    vsprintf(buffer, format, args);
+    strcat(error, buffer);
     va_end (args);
     notify(res, error, ntransmitted, nreceived);
 }

@@ -132,13 +132,36 @@
                         <tabViewItem identifier="" id="i1p-Oo-nQT"/>
                         <tabViewItem id="oAn-hk-p84"/>
                         <tabViewItem id="P2W-2Y-v9z"/>
-                        <tabViewItem id="jlN-IV-XXO"/>
-                        <tabViewItem id="4GG-aS-3Lf"/>
                     </tabViewItems>
                     <tabView key="tabView" id="f7w-w6-88Y">
                         <rect key="frame" x="0.0" y="0.0" width="457" height="230"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <font key="font" size="13" name="Geneva"/>
+                        <tabViewItems>
+                            <tabViewItem label="Item 0" identifier="" id="CQ1-av-NlV">
+                                <view key="view" id="FfA-7e-Im2">
+                                    <rect key="frame" x="10" y="33" width="437" height="184"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </view>
+                            </tabViewItem>
+                            <tabViewItem label="Item 1" identifier="" id="ZnY-cf-Rcy">
+                                <view key="view" id="nO1-D9-7bs">
+                                    <rect key="frame" x="10" y="33" width="437" height="184"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </view>
+                            </tabViewItem>
+                            <tabViewItem label="Item 2" identifier="" id="INu-Om-gaH">
+                                <view key="view" id="jmS-g3-fyh">
+                                    <rect key="frame" x="10" y="33" width="437" height="184"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </view>
+                            </tabViewItem>
+                            <tabViewItem label="Item 3" identifier="" id="79B-9i-JZn">
+                                <view key="view" id="EiY-6r-Sg0">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </view>
+                            </tabViewItem>
+                        </tabViewItems>
                         <connections>
                             <outlet property="delegate" destination="BCM-Uk-Eyc" id="exp-rp-gup"/>
                         </connections>
@@ -149,13 +172,49 @@
                         <segue destination="YBz-jL-jZc" kind="relationship" relationship="tabItems" id="5bO-dH-Yrb"/>
                         <segue destination="FGj-Tn-ezA" kind="relationship" relationship="tabItems" id="JTL-pq-xad"/>
                         <segue destination="N5A-Nj-GHW" kind="relationship" relationship="tabItems" id="ed8-1b-KBr"/>
-                        <segue destination="9b1-U8-noe" kind="relationship" relationship="tabItems" id="wDf-34-ynu"/>
-                        <segue destination="vrT-cx-xkv" kind="relationship" relationship="tabItems" id="Shi-ij-NyU"/>
                     </connections>
                 </tabViewController>
                 <customObject id="aFU-9P-jud" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2425" y="-436"/>
+        </scene>
+        <!--ErrorBox-->
+        <scene sceneID="jsD-Tz-7q2">
+            <objects>
+                <viewController title="ErrorBox" identifier="errorbox" storyboardIdentifier="errorbox" id="dkE-aP-Z2V" customClass="ErrorBoxViewController" customModule="DomainMaster" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="D4a-lU-JqE">
+                        <rect key="frame" x="0.0" y="0.0" width="710" height="174"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I45-7K-3bj">
+                                <rect key="frame" x="18" y="43" width="674" height="111"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Error message can go here..." id="kYC-qA-yOQ">
+                                    <font key="font" size="13" name="Geneva"/>
+                                    <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rTv-VZ-oL9">
+                                <rect key="frame" x="641" y="12" width="49" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="roundTextured" title="Close" bezelStyle="texturedRounded" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="5Jy-Nm-pbl">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" size="13" name="Geneva"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="onClose:" target="dkE-aP-Z2V" id="0lq-Ry-2Me"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="msg" destination="I45-7K-3bj" id="wbh-YY-umd"/>
+                    </connections>
+                </viewController>
+                <customObject id="opc-xD-9qL" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1711" y="-1251"/>
         </scene>
         <!--DNS-->
         <scene sceneID="SdH-Pl-cUa">
@@ -165,7 +224,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="881" height="606"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="500-Bs-4dp">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="500-Bs-4dp" propertyAccessControl="all">
                                 <rect key="frame" x="18" y="561" width="189" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="TS9-ll-q9v"/>
@@ -177,7 +236,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <scrollView autohidesScrollers="YES" horizontalLineScroll="44" horizontalPageScroll="10" verticalLineScroll="44" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zfq-oS-iui">
+                            <scrollView autohidesScrollers="YES" horizontalLineScroll="44" horizontalPageScroll="10" verticalLineScroll="44" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zfq-oS-iui" propertyAccessControl="all">
                                 <rect key="frame" x="27" y="52" width="834" height="494"/>
                                 <clipView key="contentView" id="UiS-or-Tsb">
                                     <rect key="frame" x="1" y="0.0" width="832" height="493"/>
@@ -344,7 +403,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
-                            <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BJ0-Sa-Jky">
+                            <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="BJ0-Sa-Jky" propertyAccessControl="all">
                                 <rect key="frame" x="213" y="556" width="279" height="26"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="0dA-6i-rVL"/>
@@ -359,14 +418,14 @@
                                     <action selector="comboOnChange:" target="hC2-M1-9Mu" id="qWn-mq-Oa4"/>
                                 </connections>
                             </comboBox>
-                            <progressIndicator hidden="YES" wantsLayer="YES" maxValue="100" displayedWhenStopped="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="hdV-Ns-C0R">
+                            <progressIndicator hidden="YES" wantsLayer="YES" maxValue="100" displayedWhenStopped="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="hdV-Ns-C0R" propertyAccessControl="all">
                                 <rect key="frame" x="821" y="554" width="32" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="8DG-tG-Ld3"/>
                                     <constraint firstAttribute="width" constant="32" id="UrW-jD-g2Z"/>
                                 </constraints>
                             </progressIndicator>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pp1-a6-fr1">
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="pp1-a6-fr1" propertyAccessControl="all">
                                 <rect key="frame" x="503" y="552" width="83" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Isd-lj-bp3"/>
@@ -380,7 +439,7 @@
                                     <action selector="lookUp:" target="hC2-M1-9Mu" id="mhS-x4-4iT"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qOT-kS-Ee5">
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qOT-kS-Ee5" propertyAccessControl="all">
                                 <rect key="frame" x="586" y="552" width="151" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="Cd2-HV-2a4"/>
@@ -394,7 +453,7 @@
                                     <segue destination="ZPc-t2-3Hl" kind="sheet" id="RO0-F9-Hwx"/>
                                 </connections>
                             </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JBW-oF-yAJ">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="JBW-oF-yAJ" propertyAccessControl="all">
                                 <rect key="frame" x="212" y="20" width="465" height="17"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="17" id="044-yv-eK1"/>
@@ -452,7 +511,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="881" height="606"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <box fixedFrame="YES" title="Registrant" translatesAutoresizingMaskIntoConstraints="NO" id="O24-mn-jSo">
+                            <box fixedFrame="YES" title="Registrant" translatesAutoresizingMaskIntoConstraints="NO" id="O24-mn-jSo" propertyAccessControl="all">
                                 <rect key="frame" x="20" y="248" width="844" height="147"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="3Ti-g4-w1D">
@@ -577,7 +636,7 @@
                                 </view>
                                 <font key="titleFont" size="15" name="Geneva"/>
                             </box>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ijl-VF-ex3">
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ijl-VF-ex3" propertyAccessControl="all">
                                 <rect key="frame" x="503" y="552" width="83" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Search" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="baJ-4K-hBX">
@@ -588,7 +647,7 @@
                                     <action selector="onSearch:" target="YBz-jL-jZc" id="TuC-rF-R60"/>
                                 </connections>
                             </button>
-                            <box fixedFrame="YES" title="Domain" translatesAutoresizingMaskIntoConstraints="NO" id="9Zw-S0-cWi">
+                            <box fixedFrame="YES" title="Domain" translatesAutoresizingMaskIntoConstraints="NO" id="9Zw-S0-cWi" propertyAccessControl="all">
                                 <rect key="frame" x="20" y="98" width="844" height="146"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="6BD-I3-7jM">
@@ -675,7 +734,7 @@
                                 </view>
                                 <font key="titleFont" size="15" name="Geneva"/>
                             </box>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XXJ-Ib-pAX">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XXJ-Ib-pAX" propertyAccessControl="all">
                                 <rect key="frame" x="18" y="561" width="189" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Specify domain or ip address:" id="O60-Ez-UNr">
@@ -684,7 +743,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <box fixedFrame="YES" title="Registrar" translatesAutoresizingMaskIntoConstraints="NO" id="dHS-u1-pyb">
+                            <box fixedFrame="YES" title="Registrar" translatesAutoresizingMaskIntoConstraints="NO" id="dHS-u1-pyb" propertyAccessControl="all">
                                 <rect key="frame" x="20" y="399" width="844" height="146"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="E4a-me-5Fk">
@@ -809,7 +868,7 @@
                                 </view>
                                 <font key="titleFont" size="15" name="Geneva"/>
                             </box>
-                            <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="85B-2L-jSG">
+                            <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="85B-2L-jSG" propertyAccessControl="all">
                                 <rect key="frame" x="213" y="556" width="279" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="aMa-Yg-osQ">
@@ -821,7 +880,7 @@
                                     <action selector="comboOnChange:" target="YBz-jL-jZc" id="Wf5-ai-glG"/>
                                 </connections>
                             </comboBox>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e8H-E8-UGB">
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="e8H-E8-UGB" propertyAccessControl="all">
                                 <rect key="frame" x="586" y="552" width="151" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Advanced Options" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="K0p-nA-PcE">
@@ -832,11 +891,11 @@
                                     <segue destination="U8S-xO-Lpf" kind="sheet" id="OId-WT-GIk"/>
                                 </connections>
                             </button>
-                            <progressIndicator hidden="YES" wantsLayer="YES" fixedFrame="YES" maxValue="100" displayedWhenStopped="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="83G-xK-xZ8">
+                            <progressIndicator hidden="YES" wantsLayer="YES" fixedFrame="YES" maxValue="100" displayedWhenStopped="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="83G-xK-xZ8" propertyAccessControl="all">
                                 <rect key="frame" x="821" y="554" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </progressIndicator>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gOt-V1-0X2">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gOt-V1-0X2" propertyAccessControl="all">
                                 <rect key="frame" x="212" y="20" width="465" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="DomainMaster | Copyright © 2019 iTalkToComputers. All rights reserved." id="X9L-RS-G65">
@@ -980,7 +1039,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="696" height="296"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <box fixedFrame="YES" title="Resource Types" translatesAutoresizingMaskIntoConstraints="NO" id="tlL-ja-nla">
+                            <box fixedFrame="YES" title="Resource Types" translatesAutoresizingMaskIntoConstraints="NO" id="tlL-ja-nla" propertyAccessControl="all">
                                 <rect key="frame" x="17" y="201" width="662" height="75"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="PCF-IN-dN9">
@@ -1123,7 +1182,7 @@
                                 </view>
                                 <font key="titleFont" size="13" name="Geneva"/>
                             </box>
-                            <box fixedFrame="YES" title="Advanced" translatesAutoresizingMaskIntoConstraints="NO" id="6FF-N7-J5I">
+                            <box fixedFrame="YES" title="Advanced" translatesAutoresizingMaskIntoConstraints="NO" id="6FF-N7-J5I" propertyAccessControl="all">
                                 <rect key="frame" x="17" y="57" width="662" height="133"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="vYg-bs-gbq">
@@ -1237,7 +1296,7 @@
                                 </view>
                                 <font key="titleFont" size="13" name="Geneva"/>
                             </box>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oU8-n8-hBu">
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oU8-n8-hBu" propertyAccessControl="all">
                                 <rect key="frame" x="607" y="13" width="75" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="DnC-Ji-fAa">
@@ -1281,7 +1340,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="881" height="606"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C9p-qY-NQ5">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C9p-qY-NQ5" propertyAccessControl="all">
                                 <rect key="frame" x="18" y="561" width="189" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Specify domain or ip address:" id="haA-tE-Lsd">
@@ -1290,7 +1349,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HoG-tv-KJH">
+                            <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HoG-tv-KJH" propertyAccessControl="all">
                                 <rect key="frame" x="213" y="556" width="279" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="enD-Aq-DMc">
@@ -1302,11 +1361,11 @@
                                     <action selector="comboOnChange:" target="FGj-Tn-ezA" id="MhH-it-rVL"/>
                                 </connections>
                             </comboBox>
-                            <progressIndicator hidden="YES" wantsLayer="YES" fixedFrame="YES" maxValue="100" displayedWhenStopped="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="8Hq-Eh-DCG">
+                            <progressIndicator hidden="YES" wantsLayer="YES" fixedFrame="YES" maxValue="100" displayedWhenStopped="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="8Hq-Eh-DCG" propertyAccessControl="all">
                                 <rect key="frame" x="821" y="554" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </progressIndicator>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D94-Ga-GrC">
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D94-Ga-GrC" propertyAccessControl="all">
                                 <rect key="frame" x="503" y="552" width="83" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Trace" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9HT-Z5-N9m">
@@ -1317,7 +1376,7 @@
                                     <action selector="trace:" target="FGj-Tn-ezA" id="ZlN-Xa-Kf2"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tlg-4J-1hQ">
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tlg-4J-1hQ" propertyAccessControl="all">
                                 <rect key="frame" x="586" y="552" width="151" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Advanced Options" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="idM-Co-UR2">
@@ -1325,7 +1384,7 @@
                                     <font key="font" size="13" name="Geneva"/>
                                 </buttonCell>
                             </button>
-                            <box fixedFrame="YES" title="Ping statistics" translatesAutoresizingMaskIntoConstraints="NO" id="MKi-dQ-xo5">
+                            <box fixedFrame="YES" title="Ping statistics" translatesAutoresizingMaskIntoConstraints="NO" id="MKi-dQ-xo5" propertyAccessControl="all">
                                 <rect key="frame" x="24" y="56" width="840" height="104"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="zuq-uv-PxG">
@@ -1354,7 +1413,7 @@
                                 </view>
                                 <font key="titleFont" size="13" name="Geneva"/>
                             </box>
-                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MmE-kc-tYg">
+                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MmE-kc-tYg" propertyAccessControl="all">
                                 <rect key="frame" x="20" y="167" width="841" height="378"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" ambiguous="YES" id="JhL-vH-Aqq">
@@ -1551,7 +1610,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="66l-kx-XWy">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="66l-kx-XWy" propertyAccessControl="all">
                                 <rect key="frame" x="208" y="20" width="465" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="DomainMaster | Copyright © 2019 iTalkToComputers. All rights reserved." id="BLY-fJ-3at">
@@ -1581,7 +1640,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="881" height="606"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ITR-sp-Mdu">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ITR-sp-Mdu" propertyAccessControl="all">
                                 <rect key="frame" x="18" y="561" width="189" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="Specify domain or ip address:" id="Yn2-ms-bIP">
@@ -1590,7 +1649,7 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N1m-br-drB">
+                            <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="N1m-br-drB" propertyAccessControl="all">
                                 <rect key="frame" x="213" y="556" width="279" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="AT1-wd-zFX">
@@ -1602,11 +1661,11 @@
                                     <action selector="comboOnChange:" target="N5A-Nj-GHW" id="RJY-De-e1o"/>
                                 </connections>
                             </comboBox>
-                            <progressIndicator hidden="YES" wantsLayer="YES" fixedFrame="YES" maxValue="100" displayedWhenStopped="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="ItU-CS-ztR">
+                            <progressIndicator hidden="YES" wantsLayer="YES" fixedFrame="YES" maxValue="100" displayedWhenStopped="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="ItU-CS-ztR" propertyAccessControl="all">
                                 <rect key="frame" x="821" y="554" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </progressIndicator>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LdF-P1-9gf">
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LdF-P1-9gf" propertyAccessControl="all">
                                 <rect key="frame" x="503" y="552" width="83" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Ping" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jW0-dc-RCG">
@@ -1617,7 +1676,7 @@
                                     <action selector="ping:" target="N5A-Nj-GHW" id="fVA-s5-nAO"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NT3-2d-Gkp">
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NT3-2d-Gkp" propertyAccessControl="all">
                                 <rect key="frame" x="586" y="552" width="151" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Advanced Options" bezelStyle="rounded" alignment="center" borderStyle="border" inset="2" id="zku-6A-Dxp">
@@ -1628,7 +1687,7 @@
                                     <segue destination="2DM-qB-uM0" kind="sheet" id="AeX-nq-hYE"/>
                                 </connections>
                             </button>
-                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="69" horizontalPageScroll="10" verticalLineScroll="69" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgw-o2-j2P">
+                            <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="69" horizontalPageScroll="10" verticalLineScroll="69" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kgw-o2-j2P" propertyAccessControl="all">
                                 <rect key="frame" x="27" y="168" width="834" height="378"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" ambiguous="YES" id="a2g-JJ-Qzb">
@@ -1822,7 +1881,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
-                            <box fixedFrame="YES" title="Ping statistics" translatesAutoresizingMaskIntoConstraints="NO" id="x05-Mu-RIF">
+                            <box fixedFrame="YES" title="Ping statistics" translatesAutoresizingMaskIntoConstraints="NO" id="x05-Mu-RIF" propertyAccessControl="all">
                                 <rect key="frame" x="24" y="56" width="840" height="104"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="Gpm-gT-hcS">
@@ -1941,7 +2000,7 @@
                                 </view>
                                 <font key="titleFont" size="13" name="Geneva"/>
                             </box>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6bF-iX-7KG">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6bF-iX-7KG" propertyAccessControl="all">
                                 <rect key="frame" x="212" y="20" width="465" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" title="DomainMaster | Copyright © 2019 iTalkToComputers. All rights reserved." id="pwF-Rl-mLZ">
@@ -1977,7 +2036,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="696" height="511"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <box fixedFrame="YES" title="Network Information Center (NIC) Database" translatesAutoresizingMaskIntoConstraints="NO" id="hCT-6d-KrG">
+                            <box fixedFrame="YES" title="Network Information Center (NIC) Database" translatesAutoresizingMaskIntoConstraints="NO" id="hCT-6d-KrG" propertyAccessControl="all">
                                 <rect key="frame" x="17" y="126" width="662" height="365"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="tvK-eF-hZp">
@@ -2208,7 +2267,7 @@
                                 </view>
                                 <font key="titleFont" size="13" name="Geneva"/>
                             </box>
-                            <box fixedFrame="YES" title="Other" translatesAutoresizingMaskIntoConstraints="NO" id="qZu-ZU-Jz3">
+                            <box fixedFrame="YES" title="Other" translatesAutoresizingMaskIntoConstraints="NO" id="qZu-ZU-Jz3" propertyAccessControl="all">
                                 <rect key="frame" x="17" y="53" width="662" height="57"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="hzl-2I-DJs">
@@ -2241,7 +2300,7 @@
                                 </view>
                                 <font key="titleFont" size="13" name="Geneva"/>
                             </box>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IaL-Sh-zYS">
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IaL-Sh-zYS" propertyAccessControl="all">
                                 <rect key="frame" x="607" y="13" width="75" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Toe-4e-4BV">
@@ -2285,7 +2344,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="941" height="433"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <box fixedFrame="YES" title="Basic" translatesAutoresizingMaskIntoConstraints="NO" id="g97-47-NCB">
+                            <box fixedFrame="YES" title="Basic" translatesAutoresizingMaskIntoConstraints="NO" id="g97-47-NCB" propertyAccessControl="all">
                                 <rect key="frame" x="17" y="351" width="907" height="66"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="Loo-qQ-NxI">
@@ -2392,7 +2451,7 @@
                                 </view>
                                 <font key="titleFont" size="13" name="Geneva"/>
                             </box>
-                            <box fixedFrame="YES" title="Advanced" translatesAutoresizingMaskIntoConstraints="NO" id="tYa-cy-Bdc">
+                            <box fixedFrame="YES" title="Advanced" translatesAutoresizingMaskIntoConstraints="NO" id="tYa-cy-Bdc" propertyAccessControl="all">
                                 <rect key="frame" x="17" y="59" width="907" height="281"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="Fa6-aU-zvo">
@@ -2557,27 +2616,6 @@
                                             </textFieldCell>
                                             <connections>
                                                 <action selector="onInterfaceAddressChange:" target="2DM-qB-uM0" id="f1k-eJ-eNx"/>
-                                            </connections>
-                                        </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4bb-HP-DGf">
-                                            <rect key="frame" x="64" y="60" width="73" height="17"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Mask|Time:" id="8UU-8f-4xD">
-                                                <font key="font" size="13" name="Geneva"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="muI-X0-tx1">
-                                            <rect key="frame" x="151" y="58" width="174" height="22"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="Drd-bh-s0I">
-                                                <font key="font" size="13" name="Geneva"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                            <connections>
-                                                <action selector="onMaskChange:" target="2DM-qB-uM0" id="8RJ-oh-fGk"/>
                                             </connections>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="thq-ao-f6D">
@@ -2838,6 +2876,17 @@
                                                 <segue destination="Uax-WH-0qv" kind="popover" popoverAnchorView="By7-k7-lxV" popoverBehavior="t" preferredEdge="maxY" id="Hcd-06-Vke"/>
                                             </connections>
                                         </button>
+                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UMf-S1-eb6">
+                                            <rect key="frame" x="779" y="172" width="25" height="25"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                            <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="sPS-Ac-EH4">
+                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <segue destination="gpe-o4-nsm" kind="popover" popoverAnchorView="UMf-S1-eb6" popoverBehavior="t" preferredEdge="maxY" id="KW0-ze-s4O"/>
+                                            </connections>
+                                        </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="G4h-Gx-Tvu">
                                             <rect key="frame" x="581" y="122" width="86" height="18"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -2860,22 +2909,38 @@
                                                 <segue destination="gJb-a5-hfI" kind="popover" popoverAnchorView="Fei-6R-yyJ" popoverBehavior="t" preferredEdge="maxY" id="Ub4-FO-9uD"/>
                                             </connections>
                                         </button>
-                                        <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UMf-S1-eb6">
-                                            <rect key="frame" x="779" y="172" width="25" height="25"/>
+                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4bb-HP-DGf">
+                                            <rect key="frame" x="98" y="60" width="39" height="17"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Mask:" id="8UU-8f-4xD">
+                                                <font key="font" size="13" name="Geneva"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                        <popUpButton verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wEV-BR-bSs">
+                                            <rect key="frame" x="149" y="55" width="179" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="sPS-Ac-EH4">
-                                                <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="system"/>
-                                            </buttonCell>
+                                            <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="B7e-BP-Q8e" id="cwO-a6-FMk">
+                                                <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                                                <font key="font" metaFont="menu"/>
+                                                <menu key="menu" id="of6-UR-gOb">
+                                                    <items>
+                                                        <menuItem state="on" id="B7e-BP-Q8e"/>
+                                                        <menuItem title="ICMP_TSTAMP" id="gec-As-KeQ"/>
+                                                        <menuItem title="ICMP_MASKREQ" id="LfC-D9-Z1P"/>
+                                                    </items>
+                                                </menu>
+                                            </popUpButtonCell>
                                             <connections>
-                                                <segue destination="gpe-o4-nsm" kind="popover" popoverAnchorView="UMf-S1-eb6" popoverBehavior="t" preferredEdge="maxY" id="KW0-ze-s4O"/>
+                                                <action selector="onMaskChange:" target="2DM-qB-uM0" id="zns-WA-bFy"/>
                                             </connections>
-                                        </button>
+                                        </popUpButton>
                                     </subviews>
                                 </view>
                                 <font key="titleFont" size="13" name="Geneva"/>
                             </box>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lIj-8u-Xln">
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lIj-8u-Xln" propertyAccessControl="all">
                                 <rect key="frame" x="852" y="15" width="75" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="FtO-F0-zwA">
@@ -2894,7 +2959,7 @@
                         <outlet property="floodPingCheckbox" destination="G4h-Gx-Tvu" id="L8u-mq-xUx"/>
                         <outlet property="interfaceAddressTextbox" destination="qVW-1Z-kNM" id="Pp1-ab-fWQ"/>
                         <outlet property="ipsecPolicyTextbox" destination="CZT-AM-rIP" id="ytO-Kx-ibA"/>
-                        <outlet property="maskTextbox" destination="muI-X0-tx1" id="eq8-AN-mlR"/>
+                        <outlet property="maskDropdown" destination="wEV-BR-bSs" id="tCL-dE-mOO"/>
                         <outlet property="noFragmentCheckbox" destination="b4C-iR-H9b" id="cQg-Es-9fw"/>
                         <outlet property="packetSizeTextbox" destination="bNe-zV-2tb" id="hoM-f9-T5c"/>
                         <outlet property="patternTextbox" destination="d17-HU-xwD" id="bWJ-YN-epa"/>
@@ -3046,157 +3111,6 @@ TXT (Descriptive text)</string>
                 <customObject id="7Jz-QO-4bc" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-3745" y="1493"/>
-        </scene>
-        <!--CIDR Calc-->
-        <scene sceneID="FSb-0n-ObJ">
-            <objects>
-                <viewController title="CIDR Calc" id="vrT-cx-xkv" sceneMemberID="viewController">
-                    <view key="view" id="xJR-0C-eTA">
-                        <rect key="frame" x="0.0" y="0.0" width="670" height="229"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <box fixedFrame="YES" boxType="custom" cornerRadius="4" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="dMk-dw-hBZ">
-                                <rect key="frame" x="20" y="20" width="630" height="189"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <view key="contentView" ambiguous="YES" id="AoH-Ml-m3R">
-                                    <rect key="frame" x="1" y="1" width="628" height="187"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R2X-82-Qv0">
-                                            <rect key="frame" x="93" y="140" width="179" height="22"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="10.0.0.0" drawsBackground="YES" id="MVa-RS-Fjc">
-                                                <font key="font" size="13" name="Geneva"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qKu-ko-uuv">
-                                            <rect key="frame" x="18" y="140" width="69" height="17"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Ip Address" id="bfx-2u-BlT">
-                                                <font key="font" size="13" name="Geneva"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ACs-v4-QOP">
-                                            <rect key="frame" x="174" y="116" width="96" height="17"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Max addresses" id="IOO-Xh-Uwn">
-                                                <font key="font" size="13" name="Geneva"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Nh-jA-0Ts">
-                                            <rect key="frame" x="6" y="115" width="83" height="17"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Max subnets" id="GcT-9L-yOv">
-                                                <font key="font" size="13" name="Geneva"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CX2-pG-GdA">
-                                            <rect key="frame" x="278" y="140" width="92" height="17"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="CIDR Netmask" id="1eM-NC-Tc4">
-                                                <font key="font" size="13" name="Geneva"/>
-                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="abY-iI-Cg0">
-                                            <rect key="frame" x="93" y="111" width="78" height="26"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="FER-Ad-oGU">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                <objectValues>
-                                                    <string>Item 1</string>
-                                                    <string>Item 2</string>
-                                                    <string>Item 3</string>
-                                                </objectValues>
-                                            </comboBoxCell>
-                                        </comboBox>
-                                        <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lSK-VG-TAv">
-                                            <rect key="frame" x="373" y="137" width="179" height="26"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="255.0.0.0" drawsBackground="YES" completes="NO" numberOfVisibleItems="1" id="6pM-xb-hXd">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                <objectValues>
-                                                    <string>255.0.0.0</string>
-                                                </objectValues>
-                                            </comboBoxCell>
-                                        </comboBox>
-                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lms-gu-J1T">
-                                            <rect key="frame" x="375" y="20" width="91" height="22"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="border" drawsBackground="YES" id="y8e-c9-Ed4">
-                                                <font key="font" size="13" name="Geneva"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nqp-jj-dG0">
-                                            <rect key="frame" x="253" y="19" width="85" height="22"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="UxQ-jZ-Oth">
-                                                <font key="font" size="13" name="Geneva"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                        <comboBox verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nuK-wm-ud3">
-                                            <rect key="frame" x="280" y="111" width="78" height="26"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                            <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="aSR-VY-A7a">
-                                                <font key="font" metaFont="system"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                                <objectValues>
-                                                    <string>Item 1</string>
-                                                    <string>Item 2</string>
-                                                    <string>Item 3</string>
-                                                </objectValues>
-                                            </comboBoxCell>
-                                        </comboBox>
-                                        <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aYY-UH-n9g">
-                                            <rect key="frame" x="93" y="20" width="91" height="22"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="border" drawsBackground="YES" id="Vyz-uj-LBd">
-                                                <font key="font" size="13" name="Geneva"/>
-                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            </textFieldCell>
-                                        </textField>
-                                    </subviews>
-                                </view>
-                                <color key="fillColor" name="quaternaryLabelColor" catalog="System" colorSpace="catalog"/>
-                            </box>
-                        </subviews>
-                    </view>
-                </viewController>
-                <customObject id="v6R-8L-PB8" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2103" y="-1349.5"/>
-        </scene>
-        <!--Port Scan-->
-        <scene sceneID="N1Z-VD-694">
-            <objects>
-                <viewController title="Port Scan" id="9b1-U8-noe" sceneMemberID="viewController">
-                    <view key="view" id="isq-pb-2GW">
-                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </view>
-                </viewController>
-                <customObject id="UPB-DM-Vbr" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2849" y="-811"/>
         </scene>
         <!--Ping Wait Popover-->
         <scene sceneID="3gY-M7-xTr">
@@ -3407,11 +3321,11 @@ TXT (Descriptive text)</string>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tYm-ZW-DoY">
-                                <rect key="frame" x="11" y="12" width="343" height="102"/>
+                                <rect key="frame" x="18" y="20" width="343" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" id="Pcg-5b-XXc">
                                     <font key="font" size="13" name="Geneva"/>
-                                    <string key="title">Use ICMP_MASKREQ or ICMP_TSTAMP instead of ICMP_ECHO.  For mask, print the netmask of the remote machine.  Set the net.inet.icmp.maskrepl MIB variable to enable ICMP_MASKREPLY.  For time, print the origination, reception and transmission timestamps.</string>
+                                    <string key="title">Use ICMP_MASKREQ or ICMP_TSTAMP instead of ICMP_ECHO.  For mask, print the netmask of the remote machine.  For time, print the origination, reception and transmission timestamps.  NOTE: Many systems ONLY support ICMP_ECHO.</string>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -3421,12 +3335,12 @@ TXT (Descriptive text)</string>
                 </viewController>
                 <customObject id="86c-7G-OeW" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3745" y="1313"/>
+            <point key="canvasLocation" x="-3745" y="1312.5"/>
         </scene>
-        <!--Ping Mask Popover-->
+        <!--Ping Ipsec Policy Popover-->
         <scene sceneID="eiT-bP-dWK">
             <objects>
-                <viewController title="Ping Mask Popover" id="95o-9M-YzT" sceneMemberID="viewController">
+                <viewController title="Ping Ipsec Policy Popover" id="95o-9M-YzT" sceneMemberID="viewController">
                     <view key="view" id="mh8-kP-bWC">
                         <rect key="frame" x="0.0" y="0.0" width="372" height="91"/>
                         <autoresizingMask key="autoresizingMask"/>
