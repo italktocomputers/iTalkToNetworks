@@ -110,9 +110,9 @@ static char boundifname[IFNAMSIZ];
 // counters
 static long nmissedmax; // max value of ntransmitted - nreceived - 1
 static long npackets; // max packets to transmit
-static long* nreceived; // # of packets we got back
+long* nreceived; // # of packets we got back
 static long nrepeats;  // number of duplicates
-static long* ntransmitted; // sequence # for outbound packets = #sent
+long* ntransmitted; // sequence # for outbound packets = #sent
 static long snpackets; // max packets to transmit in one sweep
 static long snreceived; // # of packets we got back in this sweep
 static long sntransmitted; // # of packets we sent in this sweep
@@ -132,10 +132,6 @@ static double tsumsq = 0.0; // sum of all times squared, for std. dev.
 
 static volatile sig_atomic_t finish_up; // nonzero if we've been told to finish up
 static volatile sig_atomic_t siginfo_p;
-
-static void (^notify)(char*, char*, long*, long*);
-static char* res;
-static char* error;
 
 static int options;
 
@@ -164,7 +160,7 @@ void init() {
     options = 0;
 }
 
-int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitted, long* received, void (^call)(char*, char*, long*, long*), bool* ok_to_ping) {
+int start_ping(int argc, char** argv, long* transmitted, long* received, bool* ok_to_ping) {
     // The variable optind is the index of the next element of the argv[] vector to be processed.
     // It shall be initialized to 1 by the system, and getopt() shall update it when it finishes
     // with each element of argv[].  Because start_ping can be called many times, we must reset
@@ -177,11 +173,8 @@ int start_ping(int argc, char** argv, char* _res, char* _error, long* transmitte
     }
     */
 
-    notify = call;
     ntransmitted = transmitted;
     nreceived = received;
-    res = _res;
-    error = _error;
     init();
     struct sockaddr_in from, sock_in;
     struct in_addr ifaddr;
@@ -1753,24 +1746,4 @@ static int fill(char* bp, char* patp) {
                     to_res("\n");
                 }
     return 0;
-}
-
-static void to_res(char* format, ...) {
-    char buffer[256];
-    va_list args;
-    va_start(args, format);
-    vsprintf(buffer, format, args);
-    strcat(res, buffer);
-    va_end (args);
-    notify(res, error, ntransmitted, nreceived);
-}
-
-static void to_err(char* format, ...) {
-    char buffer[256];
-    va_list args;
-    va_start(args, format);
-    vsprintf(buffer, format, args);
-    strcat(error, buffer);
-    va_end (args);
-    notify(res, error, ntransmitted, nreceived);
 }
