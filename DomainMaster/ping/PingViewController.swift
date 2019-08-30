@@ -17,7 +17,7 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     @IBOutlet weak var startTime: NSTextField!
     @IBOutlet weak var timeElapsed: NSTextField!
     @IBOutlet weak var endTime: NSTextField!
-
+    
     var data: [PingRow] = []
     var pingStartTime = Date()
     var pingEndTime = Date()
@@ -25,13 +25,13 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     var pingPacketsTransmitted = 0
     var pingPacketsReceived = 0
     var okToPing = UnsafeMutablePointer<Bool>.allocate(capacity: 1)
-
+    
     func ping_notify(res: UnsafeMutablePointer<Int8>?, err: UnsafeMutablePointer<Int8>?, transmitted: UnsafeMutablePointer<Int>?, received: UnsafeMutablePointer<Int>?) {
         pingPacketsReceived = received!.pointee
         pingPacketsTransmitted = transmitted!.pointee
-
+        
         data = PingHelper.parseResponse(results: String(cString: res!))
-
+        
         DispatchQueue.main.async {
             self.tableView.reloadData()
             self.updateStats()
@@ -71,7 +71,7 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
             okToPing.pointee = false
         }
     }
-
+    
     func updateStats() {
         if pingPacketsTransmitted == pingPacketsReceived {
             packetsReceivedPercentage.stringValue = "100"
@@ -85,18 +85,18 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
                 packetsReceivedPercentage.stringValue = "0"
             }
         }
-
+        
         packetsTransmitted.stringValue = String(pingPacketsTransmitted)
         packetsReceived.stringValue = String(pingPacketsReceived)
-
+        
         setTimeElapsed()
     }
-
+    
     func clearTable() {
         data = []
         tableView.reloadData()
     }
-
+    
     func clearStats() {
         pingPacketsTransmitted = 0
         pingPacketsReceived = 0
@@ -107,7 +107,7 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
         endTime.stringValue = "yyyy-MM-dd HH:mm:ss"
         timeElapsed.stringValue = "0"
     }
-
+    
     func setStartTime() {
         DispatchQueue.main.async {
             self.pingStartTime = Date()
@@ -116,7 +116,7 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
             self.startTime.stringValue = formatter.string(from: self.pingStartTime)
         }
     }
-
+    
     func setEndTime() {
         DispatchQueue.main.async {
             self.pingEndTime = Date()
@@ -125,7 +125,7 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
             self.endTime.stringValue = formatter.string(from: self.pingEndTime)
         }
     }
-
+    
     func setTimeElapsed() {
         DispatchQueue.main.async {
             self.pingElapsedTime = Date().timeIntervalSince(self.pingStartTime).rounded()
@@ -145,31 +145,29 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
         let err = UnsafeMutablePointer<CChar>.allocate(capacity: 10000)
         let transmitted = UnsafeMutablePointer<Int>.allocate(capacity: 10000)
         let received = UnsafeMutablePointer<Int>.allocate(capacity: 10000)
-
+        
         clearTable()
         clearStats()
-
+        
         DispatchQueue.global(qos: .userInitiated).async {
-            init_res(0, res, err)
-            set_ping_notify(self.ping_notify)
             self.setStartTime()
             
-            let result = PingHelper.ping(domain: searchTerm, controller: self, okToPing: self.okToPing, transmitted: transmitted, received: received)
-
+            let result = PingHelper.ping(domain: searchTerm, controller: self, okToPing: self.okToPing, transmitted: transmitted, received: received, notify: self.ping_notify, res: res, err: err)
+            
             self.setEndTime()
-
+            
             DispatchQueue.main.async {
                 self.inputBox.isEnabled = true
                 self.btn.isEnabled = true
                 self.progressBar.isHidden = true
                 self.btn.title = "Ping"
                 self.okToPing.pointee = true
-
+                
                 if result != 0 {
                     // There was an error so we report it to user now.
                     Helper.showErrorBox(view: self, msg: String(cString: err))
                 }
-
+                
                 free(UnsafeMutablePointer(mutating: res))
                 free(UnsafeMutablePointer(mutating: err))
                 free(UnsafeMutablePointer(mutating: transmitted))
@@ -184,7 +182,7 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         var txtColor = NSColor.white
-
+        
         if self.data[row].seq == -1 {
             txtColor = NSColor.red
         }
@@ -194,7 +192,7 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
         else if self.data[row].time >= 600 {
             txtColor = NSColor.orange
         }
-
+        
         if (tableView.tableColumns[0] == tableColumn) {
             if let cell = tableView.makeView(
                 withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "bytes"),
@@ -254,3 +252,4 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
         }
     }
 }
+

@@ -99,4 +99,4 @@ static void pr_retip(struct ip*);
 static void status(int);
 static void stopit(int);
 static void tvsub(struct timeval*, struct timeval*);
-int start_ping(int, char**, long*, long*, bool*);
+int start_ping(int, char**, long*, long*, bool*, void (^notify)(char*,char*,long*,long*), char*, char*);

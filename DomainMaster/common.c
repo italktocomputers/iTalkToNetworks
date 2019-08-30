@@ -14,8 +14,8 @@ static char* error;
 extern long* ntransmitted;
 extern long* nreceived;
 
-void (^ping_notify)(char*, char*, long*, long*);
-void (^trace_notify)(char*, char*);
+static void (^ping_notify)(char*, char*, long*, long*);
+static void (^trace_notify)(char*, char*);
 
 void init_res(int _type, char* _res, char* _error) {
     type = _type;
@@ -24,9 +24,7 @@ void init_res(int _type, char* _res, char* _error) {
 }
 
 void set_ping_notify(void (^call)(char*, char*, long*, long*)) {
-    void (^t)(char*, char*, long*, long*) = malloc(sizeof(void (^)(char*, char*, long*, long*)));
-    t = call;
-    ping_notify = t;
+    ping_notify = call;
 }
 
 void set_trace_notify(void (^call)(char*, char*)) {
@@ -43,7 +41,7 @@ void to_res(char* format, ...) {
     if (type == 0) {
         ping_notify(res, error, ntransmitted, nreceived);
     }
-    else if (type == 0) {
+    else if (type == 1) {
         trace_notify(res, error);
     }
 }
