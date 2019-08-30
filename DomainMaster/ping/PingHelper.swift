@@ -18,7 +18,7 @@ struct swift_pak {
 */
 
 class PingHelper {
-    static func ping(domain: String, controller: PingViewController, okToPing: UnsafeMutablePointer<Bool>, transmitted: UnsafeMutablePointer<Int>, received: UnsafeMutablePointer<Int>, notify: @escaping (UnsafeMutablePointer<Int8>?, UnsafeMutablePointer<Int8>?, UnsafeMutablePointer<Int>?, UnsafeMutablePointer<Int>?) -> (), res: UnsafeMutablePointer<CChar>, err: UnsafeMutablePointer<CChar>) -> Int32 {
+    static func ping(domain: String, okToPing: UnsafeMutablePointer<Bool>, transmitted: UnsafeMutablePointer<Int>, received: UnsafeMutablePointer<Int>, notify: @escaping (UnsafeMutablePointer<Int8>?, UnsafeMutablePointer<Int8>?, UnsafeMutablePointer<Int>?, UnsafeMutablePointer<Int>?) -> (), res: UnsafeMutablePointer<CChar>, err: UnsafeMutablePointer<CChar>) -> Int32 {
         var ret: Int32 = 0
         let c: Int32
 

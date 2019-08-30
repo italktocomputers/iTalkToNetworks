@@ -7,12 +7,12 @@ import Foundation
 import CoreFoundation
 
 class TraceRouteHelper {
-    static func trace(domain: String, controller: TraceRouteViewController) {
+    static func trace(domain: String, res: UnsafeMutablePointer<CChar>, err: UnsafeMutablePointer<CChar>, notify: @escaping (UnsafeMutablePointer<CChar>?, UnsafeMutablePointer<CChar>?) -> ()) {
         let c: Int32 = 2
         let array: [String?] = ["", domain, nil]
         var cargs = array.map { $0.flatMap { UnsafeMutablePointer<Int8>(strdup($0)) } }
-        let response = UnsafeMutablePointer<Int8>.allocate(capacity: 10000)
-        start_trace_route(c, &cargs, response, controller.newTrace)
+        
+        start_trace_route(c, &cargs, res, err, notify)
         
         for ptr in cargs {
             free(UnsafeMutablePointer(mutating: ptr))

@@ -378,12 +378,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DomainMaster/ping/PingHelper.swift"
-            timestampString = "588820479.329712"
+            timestampString = "588824381.006917"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "148"
             endingLineNumber = "148"
-            landmarkName = "ping(domain:controller:okToPing:transmitted:received:notify:res:err:)"
+            landmarkName = "ping(domain:okToPing:transmitted:received:notify:res:err:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -426,12 +426,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DomainMaster/ping/PingHelper.swift"
-            timestampString = "588820479.330035"
+            timestampString = "588824381.007242"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "146"
             endingLineNumber = "146"
-            landmarkName = "ping(domain:controller:okToPing:transmitted:received:notify:res:err:)"
+            landmarkName = "ping(domain:okToPing:transmitted:received:notify:res:err:)"
             landmarkType = "7">
             <Locations>
                <Location
@@ -489,7 +489,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DomainMaster/common.c"
-            timestampString = "588820479.330124"
+            timestampString = "588824381.0073071"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "27"

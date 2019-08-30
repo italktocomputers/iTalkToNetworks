@@ -14,13 +14,12 @@ class TraceRouteViewController : ViewController, NSTableViewDataSource, NSTableV
 
     var data: [TraceRouteRow] = []
     
-    func newTrace(trace: UnsafeMutablePointer<Int8>?) {
-        data = TraceRouteHelper.parseResponse(results: String(cString: trace!))
+    func trace_notify(res: UnsafeMutablePointer<CChar>?, err: UnsafeMutablePointer<CChar>?) {
+        data = TraceRouteHelper.parseResponse(results: String(cString: res!))
         DispatchQueue.main.async {
             self.tableView.reloadData()
         }
     }
-
 
     override func viewDidLoad() {
         tableView.delegate = self
@@ -61,9 +60,11 @@ class TraceRouteViewController : ViewController, NSTableViewDataSource, NSTableV
         progressBar.startAnimation(self.view)
         UrlCache.add(url: inputBox.stringValue)
         let searchTerm = self.inputBox.stringValue
-
+        let res = UnsafeMutablePointer<CChar>.allocate(capacity: 10000)
+        let err = UnsafeMutablePointer<CChar>.allocate(capacity: 10000)
+        
         DispatchQueue.global(qos: .userInitiated).async {
-            TraceRouteHelper.trace(domain: searchTerm, controller: self)
+            TraceRouteHelper.trace(domain: searchTerm, res: res, err: err, notify: self.trace_notify)
             DispatchQueue.main.async {
                 self.btn.isEnabled = true
                 self.progressBar.isHidden = true

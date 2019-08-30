@@ -26,7 +26,7 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     var pingPacketsReceived = 0
     var okToPing = UnsafeMutablePointer<Bool>.allocate(capacity: 1)
     
-    func ping_notify(res: UnsafeMutablePointer<Int8>?, err: UnsafeMutablePointer<Int8>?, transmitted: UnsafeMutablePointer<Int>?, received: UnsafeMutablePointer<Int>?) {
+    func ping_notify(res: UnsafeMutablePointer<CChar>?, err: UnsafeMutablePointer<CChar>?, transmitted: UnsafeMutablePointer<Int>?, received: UnsafeMutablePointer<Int>?) {
         pingPacketsReceived = received!.pointee
         pingPacketsTransmitted = transmitted!.pointee
         
@@ -152,7 +152,7 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
         DispatchQueue.global(qos: .userInitiated).async {
             self.setStartTime()
             
-            let result = PingHelper.ping(domain: searchTerm, controller: self, okToPing: self.okToPing, transmitted: transmitted, received: received, notify: self.ping_notify, res: res, err: err)
+            let result = PingHelper.ping(domain: searchTerm, okToPing: self.okToPing, transmitted: transmitted, received: received, notify: self.ping_notify, res: res, err: err)
             
             self.setEndTime()
             

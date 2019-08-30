@@ -20,6 +20,8 @@
 #include <unistd.h>
 #include <stdarg.h>
 
+#include "common.h"
+
 #define MAXPACKET    65535 // max ip packet size
 #ifndef MAXHOSTNAMELEN
 #define MAXHOSTNAMELEN    64
@@ -48,12 +50,11 @@ static struct opacket* outpacket; // last output (udp) packet
 
 static char* pr_type(u_char);
 static long wait_for_reply(int, struct sockaddr_in*);
-static void send_probe(int, int, char*);
+static void send_probe(int, int);
 static double deltaT(struct timeval*, struct timeval*);
-static int packet_ok(u_char*, long, struct sockaddr_in*, int, char*);
+static int packet_ok(u_char*, long, struct sockaddr_in*, int);
 static void tvsub(register struct timeval*, register struct timeval*);
 static char * inetname(struct in_addr);
-int start_trace_route(const int, char**, char*, void (^c)(char*));
-static void print_host(u_char*, long, struct sockaddr_in*, char*);
-static void to_res2(char*, char*, ...);
+int start_trace_route(const int, char**, char*, char*, void (^call)(char*, char*));
+static void print_host(u_char*, long, struct sockaddr_in*);
 static u_short in_cksum(u_short*, int);
