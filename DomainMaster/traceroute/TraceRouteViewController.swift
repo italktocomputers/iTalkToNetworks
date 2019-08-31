@@ -11,6 +11,8 @@ class TraceRouteViewController : ViewController, NSTableViewDataSource, NSTableV
     @IBOutlet weak var btn: NSButton!
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet weak var inputBox: NSComboBox!
+    
+    var okToTrace = UnsafeMutablePointer<Bool>.allocate(capacity: 1)
 
     var data: [TraceRouteRow] = []
     
@@ -46,7 +48,13 @@ class TraceRouteViewController : ViewController, NSTableViewDataSource, NSTableV
     }
 
     @IBAction func trace(_ sender: Any) {
-        start()
+        let btn = sender as! NSButton
+        if (btn.title == "Trace") {
+            start()
+        }
+        else {
+            okToTrace.pointee = false
+        }
     }
 
     func clearTable() {
@@ -55,7 +63,8 @@ class TraceRouteViewController : ViewController, NSTableViewDataSource, NSTableV
     }
 
     func start() {
-        btn.isEnabled = false
+        okToTrace.pointee = true
+        self.btn.title = "Stop"
         progressBar.isHidden = false
         progressBar.startAnimation(self.view)
         UrlCache.add(url: inputBox.stringValue)
@@ -64,10 +73,16 @@ class TraceRouteViewController : ViewController, NSTableViewDataSource, NSTableV
         let err = UnsafeMutablePointer<CChar>.allocate(capacity: 10000)
         
         DispatchQueue.global(qos: .userInitiated).async {
-            TraceRouteHelper.trace(domain: searchTerm, res: res, err: err, notify: self.trace_notify)
+            let result = TraceRouteHelper.trace(domain: searchTerm, res: res, err: err, okToTrace: self.okToTrace, notify: self.trace_notify)
             DispatchQueue.main.async {
                 self.btn.isEnabled = true
                 self.progressBar.isHidden = true
+                self.btn.title = "Trace"
+                
+                if result != 0 {
+                    // There was an error so we report it to user now.
+                    Helper.showErrorBox(view: self, msg: String(cString: err))
+                }
             }
         }
     }

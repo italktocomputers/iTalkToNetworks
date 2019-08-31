@@ -80,13 +80,17 @@ static int verbose;
 static int waittime = 5; // time to wait for response (in seconds)
 static int nflag; // print addresses numerically
 
-int start_trace_route(int argc, char* argv[], char* res, char* err, void (^call)(char*,char*)) {
+int start_trace_route(int argc, char* argv[], char* res, char* err, bool* ok_to_trace, void (^call)(char*,char*)) {
     extern char *optarg;
     extern int optind;
     struct hostent *hp;
     struct protoent *pe;
     struct sockaddr_in from, *to;
     int ch, i, on, probe, seq, tos, hop;
+    
+    for (int i=0; i<argc; i++) {
+        printf("%s\n", argv[i]);
+    }
     
     set_trace_notify(call);
     init_res(1, res, err);
@@ -292,6 +296,11 @@ int start_trace_route(int argc, char* argv[], char* res, char* err, void (^call)
         to_res("%2d ", hop);
 
         for (probe = 0; probe < nprobes; ++probe) {
+            
+            if (*ok_to_trace == false) {
+                return 0;
+            }
+            
             long cc;
             struct timeval t1, t2;
             struct timezone tz;

@@ -55,6 +55,6 @@ static double deltaT(struct timeval*, struct timeval*);
 static int packet_ok(u_char*, long, struct sockaddr_in*, int);
 static void tvsub(register struct timeval*, register struct timeval*);
 static char * inetname(struct in_addr);
-int start_trace_route(const int, char**, char*, char*, void (^call)(char*, char*));
+int start_trace_route(const int, char**, char*, char*, bool*, void (^call)(char*, char*));
 static void print_host(u_char*, long, struct sockaddr_in*);
 static u_short in_cksum(u_short*, int);
