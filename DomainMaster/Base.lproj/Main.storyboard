@@ -1635,10 +1635,10 @@
             </objects>
             <point key="canvasLocation" x="-4483" y="-426"/>
         </scene>
-        <!--View Controller-->
+        <!--Trace Route Settings View Controller-->
         <scene sceneID="mwd-Ma-zKl">
             <objects>
-                <viewController id="cBT-Qh-Ob2" sceneMemberID="viewController">
+                <viewController id="cBT-Qh-Ob2" customClass="TraceRouteSettingsViewController" customModule="DomainMaster" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="okA-YI-FQs">
                         <rect key="frame" x="0.0" y="0.0" width="860" height="212"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1667,6 +1667,9 @@
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
+                                            <connections>
+                                                <action selector="onWaitChange:" target="cBT-Qh-Ob2" id="Agj-cP-OLO"/>
+                                            </connections>
                                         </textField>
                                         <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2PK-mg-NA8">
                                             <rect key="frame" x="289" y="110" width="138" height="22"/>
@@ -1676,6 +1679,9 @@
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
+                                            <connections>
+                                                <action selector="onSourceAddressChange:" target="cBT-Qh-Ob2" id="1bw-bR-CHz"/>
+                                            </connections>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5da-J0-fYG">
                                             <rect key="frame" x="179" y="113" width="104" height="17"/>
@@ -1694,6 +1700,9 @@
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
+                                            <connections>
+                                                <action selector="onPortChange:" target="cBT-Qh-Ob2" id="hqM-3P-DGm"/>
+                                            </connections>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yYa-Cw-Ih4">
                                             <rect key="frame" x="462" y="113" width="35" height="17"/>
@@ -1712,6 +1721,9 @@
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
+                                            <connections>
+                                                <action selector="onMaxHopsChange:" target="cBT-Qh-Ob2" id="Mkp-EF-6QZ"/>
+                                            </connections>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pjn-L5-s8F">
                                             <rect key="frame" x="583" y="113" width="67" height="17"/>
@@ -1730,6 +1742,9 @@
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
+                                            <connections>
+                                                <action selector="onNumberOfProbesChange:" target="cBT-Qh-Ob2" id="V05-pS-Ay6"/>
+                                            </connections>
                                         </textField>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2M2-0Q-xcm">
                                             <rect key="frame" x="18" y="73" width="122" height="17"/>
@@ -1757,6 +1772,9 @@
                                                 <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                             </textFieldCell>
+                                            <connections>
+                                                <action selector="onTypeOfServiceChange:" target="cBT-Qh-Ob2" id="h5i-Xh-RJq"/>
+                                            </connections>
                                         </textField>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iDG-zC-j8l">
                                             <rect key="frame" x="492" y="73" width="158" height="18"/>
@@ -1765,6 +1783,9 @@
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" size="13" name="Geneva"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="byPassRoutingTableClick:" target="cBT-Qh-Ob2" id="X7Q-Hj-jZv"/>
+                                            </connections>
                                         </button>
                                         <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rSZ-c0-Lav">
                                             <rect key="frame" x="150" y="107" width="25" height="25"/>
@@ -1839,6 +1860,9 @@
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="close:" target="cBT-Qh-Ob2" id="GSt-hc-2nH"/>
+                                            </connections>
                                         </button>
                                         <button horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LDF-9e-Q5b">
                                             <rect key="frame" x="653" y="67" width="25" height="25"/>
@@ -1857,6 +1881,15 @@
                             </box>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="bypassRouteTableCheckBox" destination="iDG-zC-j8l" id="5Gl-YH-QM4"/>
+                        <outlet property="maxHopsTextBox" destination="d3c-Rj-Px7" id="dgc-cO-V6K"/>
+                        <outlet property="numberOfProbesTextBox" destination="SVc-WM-lua" id="fGT-Eb-Oo3"/>
+                        <outlet property="portTextBox" destination="ZLn-wd-pSb" id="MhP-7O-skm"/>
+                        <outlet property="sourceAddressTextBox" destination="2PK-mg-NA8" id="z5e-3R-yh7"/>
+                        <outlet property="typeOfServiceTextBox" destination="8WV-tU-IVd" id="kuf-mY-tVF"/>
+                        <outlet property="waitTextBox" destination="voh-rv-e0h" id="xz0-lF-Bm7"/>
+                    </connections>
                 </viewController>
                 <customObject id="f39-QJ-ymc" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

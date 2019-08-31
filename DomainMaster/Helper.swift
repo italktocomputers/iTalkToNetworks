@@ -160,6 +160,10 @@ class Helper {
         }
         return false
     }
+    
+    static func isIpAddress(str: String, emptyAllowed: Bool=true) -> Bool {
+        return true
+    }
 
     static func showIntegerOnlyPopover(view: ViewController, sender: Any) {
         let sb = NSStoryboard(name: NSStoryboard.Name("Main"), bundle: nil)

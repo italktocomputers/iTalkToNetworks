@@ -20,6 +20,7 @@
 		875F4FB722E13D4D0089C1CA /* WhoIsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875F4FB622E13D4D0089C1CA /* WhoIsSettingsViewController.swift */; };
 		875F4FB922E1C4720089C1CA /* DefaultSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 875F4FB822E1C4720089C1CA /* DefaultSettings.plist */; };
 		87642DB222F32073000D96C1 /* traceroute.h in Sources */ = {isa = PBXBuildFile; fileRef = 87642DB122F32073000D96C1 /* traceroute.h */; };
+		8785F6B42319C8FD0056BFC6 /* TraceRouteSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8785F6B32319C8FD0056BFC6 /* TraceRouteSettingsViewController.swift */; };
 		87BA48E522A5E9B200E8DDB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA48E422A5E9B200E8DDB9 /* AppDelegate.swift */; };
 		87BA48E722A5E9B200E8DDB9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA48E622A5E9B200E8DDB9 /* ViewController.swift */; };
 		87BA48E922A5E9B300E8DDB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87BA48E822A5E9B300E8DDB9 /* Assets.xcassets */; };
@@ -50,6 +51,7 @@
 		875F4FB622E13D4D0089C1CA /* WhoIsSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoIsSettingsViewController.swift; sourceTree = "<group>"; };
 		875F4FB822E1C4720089C1CA /* DefaultSettings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DefaultSettings.plist; sourceTree = "<group>"; };
 		87642DB122F32073000D96C1 /* traceroute.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = traceroute.h; sourceTree = "<group>"; };
+		8785F6B32319C8FD0056BFC6 /* TraceRouteSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceRouteSettingsViewController.swift; sourceTree = "<group>"; };
 		87BA48E122A5E9B200E8DDB9 /* DomainMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DomainMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87BA48E422A5E9B200E8DDB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87BA48E622A5E9B200E8DDB9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 				87CACED222F07BEC006C1C34 /* TraceRouteRow.swift */,
 				87CACED022F07BA5006C1C34 /* TraceRouteHelper.swift */,
 				87CACECD22EFD83D006C1C34 /* TraceRouteViewController.swift */,
+				8785F6B32319C8FD0056BFC6 /* TraceRouteSettingsViewController.swift */,
 			);
 			path = traceroute;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8785F6B42319C8FD0056BFC6 /* TraceRouteSettingsViewController.swift in Sources */,
 				87CACED122F07BA5006C1C34 /* TraceRouteHelper.swift in Sources */,
 				87CACECF22F0799A006C1C34 /* TraceRouteViewController.swift in Sources */,
 				873B266722EC9B17005BAA5F /* DnsViewController.swift in Sources */,
