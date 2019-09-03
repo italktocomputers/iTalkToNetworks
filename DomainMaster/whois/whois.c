@@ -50,6 +50,7 @@
 #include <string.h>
 #include <sysexits.h>
 #include <unistd.h>
+#include "whois.h"
 
 #define    ABUSEHOST    "whois.abuse.net"
 #define    NICHOST        "whois.crsnic.net"
@@ -79,26 +80,16 @@
 static const char *ip_whois[] = { LNICHOST, RNICHOST, PNICHOST, BNICHOST, NULL };
 static const char *port = DEFAULT_PORT;
 
-static char *choose_server(char *);
-static struct addrinfo *gethostinfo(char const *host, int exit_on_error);
-#ifdef __APPLE__
-static void s_asprintf(char **ret, const char *format, ...) __attribute__((__format__(printf, 2, 3)));
-#else
-static void s_asprintf(char **ret, const char *format, ...) __printflike(2, 3);
-#endif
-static void usage(void);
-static void whois(const char *, const char *, int);
-
-static int
-start_whois(int argc, char *argv[])
-{
+int start_whois(int argc, char** argv, char* res, char* err) {
     const char *country, *host;
     char *qnichost;
     int ch, flags, use_qnichost;
+    
+     init_res(2, res, err);
 
-#ifdef    SOCKS
+    #ifdef    SOCKS
     SOCKSinit(argv[0]);
-#endif
+    #endif
 
     country = host = qnichost = NULL;
     flags = use_qnichost = 0;
@@ -155,15 +146,14 @@ start_whois(int argc, char *argv[])
                 break;
             case '?':
             default:
-                usage();
-                /* NOTREACHED */
+                to_err("Unknown option");
         }
     }
     argc -= optind;
     argv += optind;
 
     if (!argc || (country != NULL && host != NULL))
-        usage();
+        to_err("Bad request!");
 
     /*
      * If no host or country is specified determine the top level domain
@@ -174,23 +164,28 @@ start_whois(int argc, char *argv[])
     if (host == NULL && country == NULL) {
         use_qnichost = 1;
         host = NICHOST;
-        if (!(flags & WHOIS_QUICK))
+        if (!(flags & WHOIS_QUICK)) {
             flags |= WHOIS_RECURSE;
+        }
     }
     while (argc-- > 0) {
         if (country != NULL) {
             s_asprintf(&qnichost, "%s%s", country, QNICHOST_TAIL);
             whois(*argv, qnichost, flags);
-        } else if (use_qnichost)
-            if ((qnichost = choose_server(*argv)) != NULL)
+        }
+        else if (use_qnichost) {
+            if ((qnichost = choose_server(*argv)) != NULL) {
                 whois(*argv, qnichost, flags);
-        if (qnichost == NULL)
+            }
+        }
+        if (qnichost == NULL) {
             whois(*argv, host, flags);
+        }
         free(qnichost);
         qnichost = NULL;
         argv++;
     }
-    exit(0);
+    return 0;
 }
 
 /*
@@ -199,35 +194,41 @@ start_whois(int argc, char *argv[])
  * be queried, or a NULL if the correct server couldn't be determined.  The
  * caller must remember to free(3) the allocated memory.
  */
-static char *
-choose_server(char *domain)
-{
+static char* choose_server(char *domain) {
     char *pos, *retval;
 
-    for (pos = strchr(domain, '\0'); pos > domain && *--pos == '.';)
+    for (pos = strchr(domain, '\0'); pos > domain && *--pos == '.';) {
         *pos = '\0';
-    if (*domain == '\0')
-        errx(EX_USAGE, "can't search for a null string");
-    if (strlen(domain) > sizeof("-NORID")-1 &&
-        strcasecmp(domain + strlen(domain) - sizeof("-NORID") + 1,
-                   "-NORID") == 0) {
-            s_asprintf(&retval, "%s", NORIDHOST);
-            return (retval);
-        }
-    while (pos > domain && *pos != '.')
+    }
+    
+    if (*domain == '\0') {
+        to_err("can't search for a null string");
+    }
+    
+    if (strlen(domain) > sizeof("-NORID")-1 && strcasecmp(domain + strlen(domain) - sizeof("-NORID") + 1, "-NORID") == 0) {
+        s_asprintf(&retval, "%s", NORIDHOST);
+        return (retval);
+    }
+    
+    while (pos > domain && *pos != '.') {
         --pos;
-    if (pos <= domain)
+    }
+    
+    if (pos <= domain) {
         return (NULL);
-    if (isdigit((unsigned char)*++pos))
+    }
+    
+    if (isdigit((unsigned char)*++pos)) {
         s_asprintf(&retval, "%s", ANICHOST);
-    else
+    }
+    else {
         s_asprintf(&retval, "%s%s", pos, QNICHOST_TAIL);
+    }
+    
     return (retval);
 }
 
-static struct addrinfo *
-gethostinfo(char const *host, int exit_on_error)
-{
+static struct addrinfo* gethostinfo(char const *host, int exit_on_error) {
     struct addrinfo hints, *res;
     int error;
 
@@ -237,72 +238,81 @@ gethostinfo(char const *host, int exit_on_error)
     hints.ai_socktype = SOCK_STREAM;
     error = getaddrinfo(host, port, &hints, &res);
     if (error) {
-        warnx("%s: %s", host, gai_strerror(error));
-        if (exit_on_error)
-            exit(EX_NOHOST);
+        to_err("%s: %s", host, gai_strerror(error));
         return (NULL);
     }
+    
     return (res);
 }
 
 /*
  * Wrapper for asprintf(3) that exits on error.
  */
-static void
-s_asprintf(char **ret, const char *format, ...)
-{
+static void s_asprintf(char **ret, const char *format, ...) {
     va_list ap;
 
     va_start(ap, format);
+    
     if (vasprintf(ret, format, ap) == -1) {
         va_end(ap);
         err(EX_OSERR, "vasprintf()");
     }
+    
     va_end(ap);
 }
 
-static void
-whois(const char *query, const char *hostname, int flags)
-{
+static void whois(const char *query, const char *hostname, int flags) {
     FILE *sfi, *sfo;
     struct addrinfo *hostres, *res;
     char *buf, *host, *nhost, *p;
     int i, s;
     size_t c, len;
-
+    
     hostres = gethostinfo(hostname, 1);
+    
     for (res = hostres; res; res = res->ai_next) {
         s = socket(res->ai_family, res->ai_socktype, res->ai_protocol);
-        if (s < 0)
+        
+        if (s < 0) {
             continue;
-        if (connect(s, res->ai_addr, res->ai_addrlen) == 0)
+        }
+        
+        if (connect(s, res->ai_addr, res->ai_addrlen) == 0) {
             break;
+        }
+        
         close(s);
     }
+    
     freeaddrinfo(hostres);
-    if (res == NULL)
-        err(EX_OSERR, "connect()");
+    
+    if (res == NULL) {
+        to_err("connect()");
+    }
 
     sfi = fdopen(s, "r");
     sfo = fdopen(s, "w");
-    if (sfi == NULL || sfo == NULL)
-        err(EX_OSERR, "fdopen()");
+    
+    if (sfi == NULL || sfo == NULL) {
+        to_err("fdopen()");
+    }
+    
     if (strcmp(hostname, GERMNICHOST) == 0) {
-#ifdef __APPLE__
-        /* radar:18958875 radar:21503897 */
         fprintf(sfo, "-T dn -C UTF-8 %s\r\n", query);
-#else
-        fprintf(sfo, "-T dn,ace -C US-ASCII %s\r\n", query);
-#endif
-    } else {
+    }
+    else {
         fprintf(sfo, "%s\r\n", query);
     }
+    
     fflush(sfo);
     nhost = NULL;
+    
     while ((buf = fgetln(sfi, &len)) != NULL) {
-        while (len > 0 && isspace((unsigned char)buf[len - 1]))
+        while (len > 0 && isspace((unsigned char)buf[len - 1])) {
             buf[--len] = '\0';
-        printf("%.*s\n", (int)len, buf);
+        }
+        
+        to_res("%.*s\n", (int)len, buf);
 
         if ((flags & WHOIS_RECURSE) && nhost == NULL) {
             host = strnstr(buf, WHOIS_SERVER_ID, len);
@@ -314,10 +324,9 @@ whois(const char *query, const char *hostname, int flags)
                         break;
                     }
                 }
-                s_asprintf(&nhost, "%.*s",
-                           (int)(buf + len - host), host);
-            } else if ((host =
-                        strnstr(buf, WHOIS_ORG_SERVER_ID, len)) != NULL) {
+                to_res(nhost, "%.*s", (int)(buf + len - host), host);
+            }
+            else if ((host = strnstr(buf, WHOIS_ORG_SERVER_ID, len)) != NULL) {
                 host += sizeof(WHOIS_ORG_SERVER_ID) - 1;
                 for (p = host; p < buf + len; p++) {
                     if (!ishost(*p)) {
@@ -325,16 +334,15 @@ whois(const char *query, const char *hostname, int flags)
                         break;
                     }
                 }
-                s_asprintf(&nhost, "%.*s",
-                           (int)(buf + len - host), host);
-            } else if (strcmp(hostname, ANICHOST) == 0) {
-                for (c = 0; c <= len; c++)
+                to_res(nhost, "%.*s", (int)(buf + len - host), host);
+            }
+            else if (strcmp(hostname, ANICHOST) == 0) {
+                for (c = 0; c <= len; c++) {
                     buf[c] = tolower((int)buf[c]);
+                }
                 for (i = 0; ip_whois[i] != NULL; i++) {
-                    if (strnstr(buf, ip_whois[i], len) !=
-                        NULL) {
-                        s_asprintf(&nhost, "%s",
-                                   ip_whois[i]);
+                    if (strnstr(buf, ip_whois[i], len) != NULL) {
+                        to_res(nhost, "%s", ip_whois[i]);
                         break;
                     }
                 }
@@ -343,15 +351,5 @@ whois(const char *query, const char *hostname, int flags)
     }
     if (nhost != NULL) {
         whois(query, nhost, 0);
-        free(nhost);
     }
-}
-
-static void
-usage(void)
-{
-    fprintf(stderr,
-            "usage: whois [-aAbdgiIlmQrR6] [-c country-code | -h hostname] "
-            "[-p port] name ...\n");
-    exit(EX_USAGE);
 }

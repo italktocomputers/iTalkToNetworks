@@ -32,10 +32,10 @@ void set_trace_notify(void (^call)(char*, char*)) {
 }
 
 void to_res(char* format, ...) {
-    char buffer[256];
+    char* buffer;
     va_list args;
     va_start(args, format);
-    vsprintf(buffer, format, args);
+    vasprintf(&buffer, format, args);
     strcat(res, buffer);
     va_end (args);
     if (type == 0) {
@@ -47,10 +47,10 @@ void to_res(char* format, ...) {
 }
 
 void to_err(char* format, ...) {
-    char buffer[256];
+    char* buffer;
     va_list args;
     va_start(args, format);
-    vsprintf(buffer, format, args);
+    vasprintf(&buffer, format, args);
     strcat(error, buffer);
     va_end (args);
     if (type == 0) {

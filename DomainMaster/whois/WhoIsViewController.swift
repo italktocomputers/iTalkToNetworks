@@ -68,14 +68,23 @@ class WhoIsViewController : ViewController, NSTableViewDataSource, NSTableViewDe
         progressBar.startAnimation(self.view)
         UrlCache.add(url: searchBox.stringValue)
         let searchTerm = searchBox.stringValue
+        let res = UnsafeMutablePointer<CChar>.allocate(capacity: 10000)
+        let err = UnsafeMutablePointer<CChar>.allocate(capacity: 10000)
         
         DispatchQueue.global(qos: .userInitiated).async {
-            let data: [String: String] = WhoIsHelper.whoIsLookUp(domain: searchTerm)
+            let result = WhoIsHelper.whoIsLookUp(domain: searchTerm, res: res, err: err)
             DispatchQueue.main.async {
                 self.searchBtn.isEnabled = true
                 self.progressBar.isHidden = true
-                for (i,v) in data {
-                    self.map[i]!!.stringValue = v
+                if result != 0 {
+                    // There was an error so we report it to user now.
+                    Helper.showErrorBox(view: self, msg: String(cString: err))
+                }
+                else {
+                    let data = WhoIsHelper.parseWhoIsResponse(results: String(cString: res))
+                    for (i,v) in data {
+                        self.map[i]!!.stringValue = v
+                    }
                 }
             }
         }

@@ -5,3 +5,4 @@
 #include "common.h"
 #include "traceroute.h"
 #include "ping.h"
+#include "whois.h"

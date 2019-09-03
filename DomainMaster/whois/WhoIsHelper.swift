@@ -7,33 +7,47 @@ import Foundation
 import CoreFoundation
 
 class WhoIsHelper {
-    static func whoIsLookUp(domain: String) -> [String:String] {
-        var whoIsString = ""
+    static func whoIsLookUp(domain: String, res: UnsafeMutablePointer<CChar>, err: UnsafeMutablePointer<CChar>) -> Int32 {
+        var ret: Int32 = 0
+        let c: Int32
         let host = Helper.getSetting(name: "whoIsHost")
         let port = Helper.getSetting(name: "whoIsPort")
         let nic = Helper.getSetting(name: "whoIsNIC")
         let referrals = Helper.getSetting(name: "whoIsAllowReferrals")
         
-        if referrals == "on" {
-            whoIsString += "-R "
-        }
-        else {
-            whoIsString += "-Q "
-        }
+        var uargs: [String?] = []
+        
+        uargs.append("")
         
         if nic == "CustomNIC" {
-            whoIsString += "-h \(host) -p \(port) "
+            uargs.append("-p")
+            uargs.append(port)
+            uargs.append("-h")
+            uargs.append(host)
         }
         else {
             let flag = settingToFlag(setting: nic)
-            whoIsString += "-\(flag) "
+            uargs.append("-\(flag)")
         }
         
-        print("whois \(whoIsString)\(domain)")
+        if referrals == "off" {
+            uargs.append("-Q")
+        }
         
-        let results = Helper.shell("whois \(whoIsString)\(domain)")
-        print(results)
-        return parseWhoIsResponse(results: results)
+        uargs.append(domain)
+        uargs.append(nil)
+        
+        c = Int32(uargs.count - 1)
+        
+        var cargs = uargs.map { $0.flatMap { UnsafeMutablePointer<Int8>(strdup($0)) } }
+        
+        ret = start_whois(c, &cargs, res, err)
+        
+        for ptr in cargs {
+            free(UnsafeMutablePointer(mutating: ptr))
+        }
+        
+        return ret
     }
     
     static func settingToFlag(setting: String) -> String {

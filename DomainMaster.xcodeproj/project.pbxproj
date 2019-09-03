@@ -21,6 +21,7 @@
 		875F4FB922E1C4720089C1CA /* DefaultSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 875F4FB822E1C4720089C1CA /* DefaultSettings.plist */; };
 		87642DB222F32073000D96C1 /* traceroute.h in Sources */ = {isa = PBXBuildFile; fileRef = 87642DB122F32073000D96C1 /* traceroute.h */; };
 		8785F6B42319C8FD0056BFC6 /* TraceRouteSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8785F6B32319C8FD0056BFC6 /* TraceRouteSettingsViewController.swift */; };
+		8785F6B5231DD5670056BFC6 /* whois.c in Sources */ = {isa = PBXBuildFile; fileRef = A570BFE323037962006AA478 /* whois.c */; };
 		87BA48E522A5E9B200E8DDB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA48E422A5E9B200E8DDB9 /* AppDelegate.swift */; };
 		87BA48E722A5E9B200E8DDB9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA48E622A5E9B200E8DDB9 /* ViewController.swift */; };
 		87BA48E922A5E9B300E8DDB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87BA48E822A5E9B300E8DDB9 /* Assets.xcassets */; };
@@ -32,7 +33,6 @@
 		87CACED322F07BEC006C1C34 /* TraceRouteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CACED222F07BEC006C1C34 /* TraceRouteRow.swift */; };
 		87CACEDD22F1091A006C1C34 /* traceroute.c in Sources */ = {isa = PBXBuildFile; fileRef = 87CACEDC22F1091A006C1C34 /* traceroute.c */; };
 		A570BFE122FA1788006AA478 /* ping.c in Sources */ = {isa = PBXBuildFile; fileRef = A570BFE022FA1788006AA478 /* ping.c */; };
-		A570BFE423037962006AA478 /* whois.c in Sources */ = {isa = PBXBuildFile; fileRef = A570BFE323037962006AA478 /* whois.c */; };
 		A5F198C923079A1F006E1272 /* ErrorBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F198C823079A1F006E1272 /* ErrorBoxViewController.swift */; };
 		A5F198CC23084BAD006E1272 /* common.c in Sources */ = {isa = PBXBuildFile; fileRef = A5F198CB23084BAD006E1272 /* common.c */; };
 /* End PBXBuildFile section */
@@ -268,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8785F6B5231DD5670056BFC6 /* whois.c in Sources */,
 				8785F6B42319C8FD0056BFC6 /* TraceRouteSettingsViewController.swift in Sources */,
 				87CACED122F07BA5006C1C34 /* TraceRouteHelper.swift in Sources */,
 				87CACECF22F0799A006C1C34 /* TraceRouteViewController.swift in Sources */,
@@ -285,7 +286,6 @@
 				87CACECA22EE121A006C1C34 /* PingViewController.swift in Sources */,
 				875CB7F022A9D74E0059A7D6 /* Helper.swift in Sources */,
 				87642DB222F32073000D96C1 /* traceroute.h in Sources */,
-				A570BFE423037962006AA478 /* whois.c in Sources */,
 				873B266B22EE0921005BAA5F /* PingRow.swift in Sources */,
 				A5F198CC23084BAD006E1272 /* common.c in Sources */,
 				875F4FB722E13D4D0089C1CA /* WhoIsSettingsViewController.swift in Sources */,
