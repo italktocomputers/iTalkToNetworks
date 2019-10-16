@@ -6,3 +6,4 @@
 #include "traceroute.h"
 #include "ping.h"
 #include "whois.h"
+#include "nslookup.h"
