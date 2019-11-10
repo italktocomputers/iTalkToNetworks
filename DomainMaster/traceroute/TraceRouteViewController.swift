@@ -141,8 +141,9 @@ class TraceRouteViewController : ViewController, NSTableViewDataSource, NSTableV
     }
 
     @IBAction func comboOnChange(_ sender: Any) {
+        print("combo change...")
         if inputBox.stringValue != "" {
-            start()
+            //start()
         }
     }
 }
