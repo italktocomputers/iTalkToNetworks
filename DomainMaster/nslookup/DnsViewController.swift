@@ -14,6 +14,7 @@ class DnsViewController : ViewController, NSTableViewDataSource, NSTableViewDele
     
     var data: [DnsRow] = []
     var task: Process?
+    var stdIn = Pipe()
     var stdOut = Pipe()
     var stdErr = Pipe()
     
@@ -45,11 +46,11 @@ class DnsViewController : ViewController, NSTableViewDataSource, NSTableViewDele
     
     func startLookup() {
         DispatchQueue.global(qos: .userInitiated).async {
-            self.task = DnsHelper.dnsLookUp(domain: self.dnsDomain.stringValue, stdOut: &self.stdOut, stdErr: &self.stdErr)
+            self.task = DnsHelper.dnsLookUp(domain: self.dnsDomain.stringValue, stdIn: &self.stdIn, stdOut: &self.stdOut, stdErr: &self.stdErr)
             
             self.stdOut.fileHandleForReading.readabilityHandler = { fileHandle in
                 let buffer = fileHandle.availableData
-                self.data = DnsHelper.parseResponse(results: String(data: buffer, encoding: .utf8)!)
+                self.data.insert(DnsHelper.parseResponse(results: String(data: buffer, encoding: .utf8)!), at: 0)
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }

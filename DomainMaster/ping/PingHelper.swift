@@ -7,7 +7,7 @@ import Foundation
 import CoreFoundation
 
 class PingHelper {
-    static func ping(domain: String, stdOut: inout Pipe, stdErr: inout Pipe) -> Process {
+    static func ping(domain: String, stdIn: inout Pipe, stdOut: inout Pipe, stdErr: inout Pipe) -> Process {
         let pingCount = Helper.getSetting(name: "pingCount")
         let pingWait = Helper.getSetting(name: "pingWait")
         let pingTimeout = Helper.getSetting(name: "pingTimeout")
@@ -124,7 +124,7 @@ class PingHelper {
             pingFloodArg = "-f"
         }
         
-        return Helper.shell(stdOut: &stdOut, stdErr: &stdErr, "ping \(pingCountArg) \(pingWaitArg) \(pingTimeoutArg) \(pingTTLArg) \(interfaceAddressArg) \(pingSourceAddressArg) \(pingPreloadArg) \(pingPacketSizeArg) \(pingMaskArg) \(pingIpsecPolicyArg) \(pingSweepMaxSizeArg) \(pingSweepMinSizeArg) \(pingSweepIncSizeArg) \(pingPatternArg) \(pingTosArg) \(pingBypassRouteArg) \(pingSuppressLoopbackArg) \(pingNoFragmentArg) \(pingFloodArg) \(domain)")
+        return Helper.shell(stdIn: &stdIn, stdOut: &stdOut, stdErr: &stdErr, "ping \(pingCountArg) \(pingWaitArg) \(pingTimeoutArg) \(pingTTLArg) \(interfaceAddressArg) \(pingSourceAddressArg) \(pingPreloadArg) \(pingPacketSizeArg) \(pingMaskArg) \(pingIpsecPolicyArg) \(pingSweepMaxSizeArg) \(pingSweepMinSizeArg) \(pingSweepIncSizeArg) \(pingPatternArg) \(pingTosArg) \(pingBypassRouteArg) \(pingSuppressLoopbackArg) \(pingNoFragmentArg) \(pingFloodArg) \(domain)")
     }
 
     static func parseResponse(results: String) -> PingRow {
@@ -133,6 +133,7 @@ class PingHelper {
             options: NSRegularExpression.Options.caseInsensitive
         )
 
+        // Default values
         var bytes = 0
         var from = "N/A"
         var seq = 0

@@ -26,11 +26,12 @@ class Helper {
         return alert.runModal() == .alertFirstButtonReturn
     }
     
-    static func shell(stdOut: inout Pipe, stdErr: inout Pipe, _ command: String) -> Process {
+    static func shell(stdIn: inout Pipe, stdOut: inout Pipe, stdErr: inout Pipe, _ command: String) -> Process {
         let task = Process()
         task.launchPath = "/bin/bash"
         task.arguments = ["-c", command]
         
+        task.standardInput = stdIn
         task.standardOutput = stdOut
         task.standardError = stdErr
         task.launch()

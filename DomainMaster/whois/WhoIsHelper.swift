@@ -7,7 +7,7 @@ import Foundation
 import CoreFoundation
 
 class WhoIsHelper {
-    static func whoIsLookUp(domain: String, stdOut: inout Pipe, stdErr: inout Pipe) -> Process {
+    static func whoIsLookUp(domain: String, stdIn: inout Pipe, stdOut: inout Pipe, stdErr: inout Pipe) -> Process {
         let host = Helper.getSetting(name: "whoIsHost")
         let port = Helper.getSetting(name: "whoIsPort")
         let nic = Helper.getSetting(name: "whoIsNIC")
@@ -28,7 +28,7 @@ class WhoIsHelper {
             referralsArg = "-Q"
         }
         
-        return Helper.shell(stdOut: &stdOut, stdErr: &stdErr, "whois \(nicArg) \(referralsArg) \(domain)")
+        return Helper.shell(stdIn: &stdIn, stdOut: &stdOut, stdErr: &stdErr, "whois \(nicArg) \(referralsArg) \(domain)")
     }
     
     static func settingToFlag(setting: String) -> String {

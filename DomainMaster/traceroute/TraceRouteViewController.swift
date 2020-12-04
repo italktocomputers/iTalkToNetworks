@@ -14,6 +14,7 @@ class TraceRouteViewController : ViewController, NSTableViewDataSource, NSTableV
     
     var data: [TraceRouteRow] = []
     var task: Process?
+    var stdIn = Pipe()
     var stdOut = Pipe()
     var stdErr = Pipe()
 
@@ -62,10 +63,10 @@ class TraceRouteViewController : ViewController, NSTableViewDataSource, NSTableV
         let searchTerm = self.inputBox.stringValue
         
         DispatchQueue.global(qos: .userInitiated).async {
-            self.task = TraceRouteHelper.trace(domain: searchTerm, stdOut: &self.stdOut, stdErr: &self.stdErr)
+            self.task = TraceRouteHelper.trace(domain: searchTerm, stdIn: &self.stdIn, stdOut: &self.stdOut, stdErr: &self.stdErr)
             self.stdOut.fileHandleForReading.readabilityHandler = { fileHandle in
                 let buffer = fileHandle.availableData
-                self.data = TraceRouteHelper.parseResponse(results: String(data: buffer, encoding: .utf8)!)
+                self.data.insert(TraceRouteHelper.parseResponse(results: String(data: buffer, encoding: .utf8)!), at: 0)
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                     self.btn.isEnabled = true

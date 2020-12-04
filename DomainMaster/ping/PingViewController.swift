@@ -25,6 +25,7 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     var pingPacketsTransmitted = 0
     var pingPacketsReceived = 0
     var task: Process?
+    var stdIn = Pipe()
     var stdOut = Pipe()
     var stdErr = Pipe()
     
@@ -60,6 +61,7 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
         }
         else {
             self.task!.terminate()
+            self.stdIn.fileHandleForWriting.write(String(SIGTERM).data(using: .utf8)!)
             afterPing()
         }
     }
@@ -126,14 +128,15 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     }
     
     func startPing() {
+        let domain = self.inputBox.stringValue
+        
         DispatchQueue.global(qos: .userInitiated).async {
-            self.task = PingHelper.ping(domain: self.inputBox.stringValue, stdOut: &self.stdOut, stdErr: &self.stdErr)
+            self.task = PingHelper.ping(domain: domain, stdIn: &self.stdIn, stdOut: &self.stdOut, stdErr: &self.stdErr)
             
             self.stdOut.fileHandleForReading.readabilityHandler = { fileHandle in
                 let buffer = fileHandle.availableData
-                self.data.append(PingHelper.parseResponse(results: String(data: buffer, encoding: .utf8)!))
+                self.data.insert(PingHelper.parseResponse(results: String(data: buffer, encoding: .utf8)!), at: 0)
                 DispatchQueue.main.async {
-                    self.data.reverse()
                     self.tableView.reloadData()
                     self.updateStats()
                 }
@@ -151,13 +154,14 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
         clearTable()
         clearStats()
         
-        self.setStartTime()
+        setStartTime()
     }
     
     func afterPing() {
-        self.btn.isEnabled = true
-        self.progressBar.isHidden = true
-        self.setEndTime()
+        btn.title = "Ping"
+        btn.isEnabled = true
+        progressBar.isHidden = true
+        setEndTime()
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
@@ -232,6 +236,7 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     
     @IBAction func comboOnChange(_ sender: Any) {
         if inputBox.stringValue != "" {
+            beforePing()
             startPing()
         }
     }

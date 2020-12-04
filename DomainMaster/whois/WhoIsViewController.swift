@@ -32,6 +32,7 @@ class WhoIsViewController : ViewController, NSTableViewDataSource, NSTableViewDe
     
     var map = [String:NSTextField?]()
     var task: Process?
+    var stdIn = Pipe()
     var stdOut = Pipe()
     var stdErr = Pipe()
     
@@ -66,7 +67,7 @@ class WhoIsViewController : ViewController, NSTableViewDataSource, NSTableViewDe
     
     func startSearch() {
         DispatchQueue.global(qos: .userInitiated).async {
-            self.task = WhoIsHelper.whoIsLookUp(domain: self.searchBox.stringValue, stdOut: &self.stdOut, stdErr: &self.stdErr)
+            self.task = WhoIsHelper.whoIsLookUp(domain: self.searchBox.stringValue, stdIn: &self.stdIn, stdOut: &self.stdOut, stdErr: &self.stdErr)
             self.stdOut.fileHandleForReading.readabilityHandler = { fileHandle in
                 let buffer = fileHandle.availableData
                 let data = WhoIsHelper.parseResponse(results: String(data: buffer, encoding: .utf8)!)
