@@ -7,47 +7,28 @@ import Foundation
 import CoreFoundation
 
 class WhoIsHelper {
-    static func whoIsLookUp(domain: String, res: UnsafeMutablePointer<CChar>, err: UnsafeMutablePointer<CChar>) -> Int32 {
-        var ret: Int32 = 0
-        let c: Int32
+    static func whoIsLookUp(domain: String, stdOut: inout Pipe, stdErr: inout Pipe) -> Process {
         let host = Helper.getSetting(name: "whoIsHost")
         let port = Helper.getSetting(name: "whoIsPort")
         let nic = Helper.getSetting(name: "whoIsNIC")
         let referrals = Helper.getSetting(name: "whoIsAllowReferrals")
         
-        var uargs: [String?] = []
-        
-        uargs.append("")
+        var nicArg = ""
+        var referralsArg = ""
         
         if nic == "CustomNIC" {
-            uargs.append("-p")
-            uargs.append(port)
-            uargs.append("-h")
-            uargs.append(host)
+            nicArg = "-p \(port) -h \(host)"
         }
         else {
             let flag = settingToFlag(setting: nic)
-            uargs.append("-\(flag)")
+            nicArg = "-\(flag)"
         }
         
         if referrals == "off" {
-            uargs.append("-Q")
+            referralsArg = "-Q"
         }
         
-        uargs.append(domain)
-        uargs.append(nil)
-        
-        c = Int32(uargs.count - 1)
-        
-        var cargs = uargs.map { $0.flatMap { UnsafeMutablePointer<Int8>(strdup($0)) } }
-        
-        ret = start_whois(c, &cargs, res, err)
-        
-        for ptr in cargs {
-            free(UnsafeMutablePointer(mutating: ptr))
-        }
-        
-        return ret
+        return Helper.shell(stdOut: &stdOut, stdErr: &stdErr, "whois \(nicArg) \(referralsArg) \(domain)")
     }
     
     static func settingToFlag(setting: String) -> String {
@@ -102,7 +83,7 @@ class WhoIsHelper {
         return nil
     }
     
-    static func parseWhoIsResponse(results: String) -> [String: String] {
+    static func parseResponse(results: String) -> [String: String] {
         var data: [String: String] = [:]
         
         let fields = [

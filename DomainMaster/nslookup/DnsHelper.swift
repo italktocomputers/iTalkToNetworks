@@ -59,7 +59,7 @@ class DnsHelper {
         return false;
     }
     
-    static func dnsLookUp(domain: String) -> [DnsRow] {
+    static func dnsLookUp(domain: String, stdOut: inout Pipe, stdErr: inout Pipe) -> Process {
         var rLookUp = ""
         let defaults = UserDefaults.standard
         let dnsPort = defaults.string(forKey: "dnsPort")
@@ -71,11 +71,10 @@ class DnsHelper {
             resourceType = "PTR"
         }
         
-        let results = Helper.shell("dig -p \(dnsPort!) @\(dnsSource!) +noall +answer \(rLookUp) \(domain) \(resourceType!)")
-        return parseDnsResponse(results: results)
+        return Helper.shell(stdOut: &stdOut, stdErr: &stdErr, "dig -p \(dnsPort!) @\(dnsSource!) +noall +answer \(rLookUp) \(domain) \(resourceType!)")
     }
     
-    static func parseDnsResponse(results: String) -> [DnsRow] {
+    static func parseResponse(results: String) -> [DnsRow] {
         var tblData: [DnsRow] = []
         let rows = results.split(separator: "\n")
         let regex = try? NSRegularExpression(

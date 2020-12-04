@@ -24,19 +24,9 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     var pingElapsedTime: TimeInterval = Date().timeIntervalSinceNow
     var pingPacketsTransmitted = 0
     var pingPacketsReceived = 0
-    var okToPing = UnsafeMutablePointer<Bool>.allocate(capacity: 1)
-    
-    func ping_notify(res: UnsafeMutablePointer<CChar>?, err: UnsafeMutablePointer<CChar>?, transmitted: UnsafeMutablePointer<Int>?, received: UnsafeMutablePointer<Int>?) {
-        pingPacketsReceived = received!.pointee
-        pingPacketsTransmitted = transmitted!.pointee
-        
-        data = PingHelper.parseResponse(results: String(cString: res!))
-        
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-            self.updateStats()
-        }
-    }
+    var task: Process?
+    var stdOut = Pipe()
+    var stdErr = Pipe()
     
     override func viewDidLoad() {
         tableView.delegate = self
@@ -65,10 +55,12 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     @IBAction func ping(_ sender: Any) {
         let btn = sender as! NSButton
         if (btn.title == "Ping") {
+            beforePing()
             startPing()
         }
         else {
-            okToPing.pointee = false
+            self.task!.terminate()
+            afterPing()
         }
     }
     
@@ -134,46 +126,38 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     }
     
     func startPing() {
-        okToPing.pointee = true
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.task = PingHelper.ping(domain: self.inputBox.stringValue, stdOut: &self.stdOut, stdErr: &self.stdErr)
+            
+            self.stdOut.fileHandleForReading.readabilityHandler = { fileHandle in
+                let buffer = fileHandle.availableData
+                self.data.append(PingHelper.parseResponse(results: String(data: buffer, encoding: .utf8)!))
+                DispatchQueue.main.async {
+                    self.data.reverse()
+                    self.tableView.reloadData()
+                    self.updateStats()
+                }
+            }
+        }
+    }
+    
+    func beforePing() {
         btn.title = "Stop"
         progressBar.isHidden = false
         inputBox.isEnabled = false
         progressBar.startAnimation(self.view)
         UrlCache.add(url: inputBox.stringValue)
-        let searchTerm = self.inputBox.stringValue
-        let res = UnsafeMutablePointer<CChar>.allocate(capacity: 10000)
-        let err = UnsafeMutablePointer<CChar>.allocate(capacity: 10000)
-        let transmitted = UnsafeMutablePointer<Int>.allocate(capacity: 10000)
-        let received = UnsafeMutablePointer<Int>.allocate(capacity: 10000)
         
         clearTable()
         clearStats()
         
-        DispatchQueue.global(qos: .userInitiated).async {
-            self.setStartTime()
-            
-            let result = PingHelper.ping(domain: searchTerm, okToPing: self.okToPing, transmitted: transmitted, received: received, notify: self.ping_notify, res: res, err: err)
-            
-            self.setEndTime()
-            
-            DispatchQueue.main.async {
-                self.inputBox.isEnabled = true
-                self.btn.isEnabled = true
-                self.progressBar.isHidden = true
-                self.btn.title = "Ping"
-                self.okToPing.pointee = true
-                
-                if result != 0 {
-                    // There was an error so we report it to user now.
-                    Helper.showErrorBox(view: self, msg: String(cString: err))
-                }
-                
-                free(UnsafeMutablePointer(mutating: res))
-                free(UnsafeMutablePointer(mutating: err))
-                free(UnsafeMutablePointer(mutating: transmitted))
-                free(UnsafeMutablePointer(mutating: received))
-            }
-        }
+        self.setStartTime()
+    }
+    
+    func afterPing() {
+        self.btn.isEnabled = true
+        self.progressBar.isHidden = true
+        self.setEndTime()
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {

@@ -7,10 +7,7 @@ import Foundation
 import CoreFoundation
 
 class TraceRouteHelper {
-    static func trace(domain: String, res: UnsafeMutablePointer<CChar>, err: UnsafeMutablePointer<CChar>, okToTrace: UnsafeMutablePointer<Bool>, notify: @escaping (UnsafeMutablePointer<CChar>?, UnsafeMutablePointer<CChar>?) -> ()) -> Int32 {
-        var ret: Int32 = 0
-        let c: Int32
-        
+    static func trace(domain: String, stdOut: inout Pipe, stdErr: inout Pipe) -> Process {
         let wait = Helper.getSetting(name: "traceWait")
         let sourceAddress = Helper.getSetting(name: "traceSourceAddress")
         let port = Helper.getSetting(name: "tracePort")
@@ -19,58 +16,43 @@ class TraceRouteHelper {
         let typeOfService = Helper.getSetting(name: "traceTypeOfService")
         let bypassRouteTable = Helper.getSetting(name: "traceBypassRouteTable")
         
-        var uargs: [String?] = []
-        
-        uargs.append("")
+        var waitArg = ""
+        var sourceAddressArg = ""
+        var portArg = ""
+        var maxHopsArg = ""
+        var numberOfProbesArg = ""
+        var typeOfServiceArg = ""
+        var bypassRouteTableArg = ""
         
         if wait != "" {
-            uargs.append("-w")
-            uargs.append(wait)
+            waitArg = "-w \(wait)"
         }
         
         if sourceAddress != "" {
-            uargs.append("-s")
-            uargs.append(sourceAddress)
+            sourceAddressArg = "-s \(sourceAddress)"
         }
         
         if port != "" {
-            uargs.append("-p")
-            uargs.append(port)
+            portArg = "-p \(port)"
         }
         
         if maxHops != "" {
-            uargs.append("-m")
-            uargs.append(maxHops)
+            maxHopsArg = "-m \(maxHops)"
         }
         
         if numberOfProbes != "" {
-            uargs.append("-q")
-            uargs.append(numberOfProbes)
+            numberOfProbesArg = "-q \(numberOfProbes)"
         }
         
         if typeOfService != "" {
-            uargs.append("-t")
-            uargs.append(typeOfService)
+            typeOfServiceArg = "-t \(typeOfService)"
         }
         
         if bypassRouteTable == "on" {
-            uargs.append("-r")
+            bypassRouteTableArg = "-r"
         }
         
-        uargs.append(domain)
-        uargs.append(nil)
-        
-        c = Int32(uargs.count - 1)
-        
-        var cargs = uargs.map { $0.flatMap { UnsafeMutablePointer<Int8>(strdup($0)) } }
-        
-        ret = start_trace_route(c, &cargs, res, err, okToTrace, notify)
-        
-        for ptr in cargs {
-            free(UnsafeMutablePointer(mutating: ptr))
-        }
-        
-        return ret
+        return Helper.shell(stdOut: &stdOut, stdErr: &stdErr, "traceroute \(waitArg) \(sourceAddressArg) \(portArg) \(maxHopsArg) \(numberOfProbesArg) \(typeOfServiceArg) \(bypassRouteTableArg) \(domain)")
     }
     
     static func parseResponse(results: String) -> [TraceRouteRow] {

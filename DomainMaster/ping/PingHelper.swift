@@ -6,22 +6,8 @@
 import Foundation
 import CoreFoundation
 
-/*
-struct swift_pak {
-    var res: UnsafeMutablePointer<Int8>
-    var error: UnsafeMutablePointer<Int8>
-    var transmitted: UnsafeMutablePointer<Int>
-    var received: UnsafeMutablePointer<Int>
-    let call: (UnsafeMutablePointer<Int8>, UnsafeMutablePointer<Int8>, UnsafeMutablePointer<Int>, UnsafeMutablePointer<Int>) -> Void
-    var ok_to_ping: UnsafeMutablePointer<Bool>
-}
-*/
-
 class PingHelper {
-    static func ping(domain: String, okToPing: UnsafeMutablePointer<Bool>, transmitted: UnsafeMutablePointer<Int>, received: UnsafeMutablePointer<Int>, notify: @escaping (UnsafeMutablePointer<Int8>?, UnsafeMutablePointer<Int8>?, UnsafeMutablePointer<Int>?, UnsafeMutablePointer<Int>?) -> (), res: UnsafeMutablePointer<CChar>, err: UnsafeMutablePointer<CChar>) -> Int32 {
-        var ret: Int32 = 0
-        let c: Int32
-
+    static func ping(domain: String, stdOut: inout Pipe, stdErr: inout Pipe) -> Process {
         let pingCount = Helper.getSetting(name: "pingCount")
         let pingWait = Helper.getSetting(name: "pingWait")
         let pingTimeout = Helper.getSetting(name: "pingTimeout")
@@ -37,126 +23,111 @@ class PingHelper {
         let pingSweepIncSize = Helper.getSetting(name: "pingSweepIncSize")
         let pingPattern = Helper.getSetting(name: "pingPattern")
         let pingTos = Helper.getSetting(name: "pingTos")
-
         let pingBypassRoute = Helper.getSetting(name: "pingBypassRoute")
         let pingSuppressLoopback = Helper.getSetting(name: "pingSuppressLoopback")
         let pingNoFragment = Helper.getSetting(name: "pingNoFragment")
         let pingFlood = Helper.getSetting(name: "pingFlood")
         
-        var uargs: [String?] = []
-
-        uargs.append("")
+        var pingCountArg = ""
+        var pingWaitArg = ""
+        var pingTimeoutArg = ""
+        var pingTTLArg = ""
+        var interfaceAddressArg = ""
+        var pingSourceAddressArg = ""
+        var pingPreloadArg = ""
+        var pingPacketSizeArg = ""
+        var pingMaskArg = ""
+        var pingIpsecPolicyArg = ""
+        var pingSweepMaxSizeArg = ""
+        var pingSweepMinSizeArg = ""
+        var pingSweepIncSizeArg = ""
+        var pingPatternArg = ""
+        var pingTosArg = ""
+        var pingBypassRouteArg = ""
+        var pingSuppressLoopbackArg = ""
+        var pingNoFragmentArg = ""
+        var pingFloodArg = ""
 
         if pingCount != "" {
-            uargs.append("-c")
-            uargs.append(pingCount)
+            pingCountArg = "-c \(pingCount)"
         }
 
         if pingWait != "" {
-            uargs.append("-W")
-            uargs.append(pingWait)
+            pingWaitArg = "-W \(pingWait)"
         }
 
         if pingTimeout != "" {
-            uargs.append("-t")
-            uargs.append(pingTimeout)
+            pingTimeoutArg = "-t \(pingTimeout)"
         }
 
         if pingTTL != "" {
-            uargs.append("-T")
-            uargs.append(pingTTL)
+            pingTTLArg = "-T \(pingTTL)"
         }
 
         if interfaceAddress != "" {
-            uargs.append("-I")
-            uargs.append(interfaceAddress)
+            interfaceAddressArg = "-I \(interfaceAddress)"
         }
 
         if pingSourceAddress != "" {
-            uargs.append("-S")
-            uargs.append(pingSourceAddress)
+            pingSourceAddressArg = "-S \(pingSourceAddress)"
         }
 
         if pingPreload != "" {
-            uargs.append("-l")
-            uargs.append(pingPreload)
+            pingPreloadArg = "-l \(pingPreload)"
         }
 
         if pingPacketSize != "" {
-            uargs.append("-s")
-            uargs.append(pingPacketSize)
+            pingPacketSizeArg = "-s \(pingPacketSize)"
         }
 
         if pingMask != "" {
-            uargs.append("-M")
-            uargs.append(pingMask)
+            pingMaskArg = "-M \(pingMask)"
         }
 
         if pingIpsecPolicy != "" {
-            uargs.append("-P")
-            uargs.append(pingIpsecPolicy)
+            pingIpsecPolicyArg = "-P \(pingIpsecPolicy)"
         }
 
         if pingSweepMaxSize != "" {
-            uargs.append("-G")
-            uargs.append(pingSweepMaxSize)
+            pingSweepMaxSizeArg = "-G \(pingSweepMaxSize)"
         }
 
         if pingSweepMinSize != "" {
-            uargs.append("-g")
-            uargs.append(pingSweepMinSize)
+            pingSweepMinSizeArg = "-g \(pingSweepMinSize)"
         }
 
         if pingSweepIncSize != "" {
-            uargs.append("-h")
-            uargs.append(pingSweepIncSize)
+            pingSweepIncSizeArg = "-h \(pingSweepIncSize)"
         }
 
         if pingPattern != "" {
-            uargs.append("-p")
-            uargs.append(pingPattern)
+            pingPatternArg = "-p \(pingPattern)"
         }
 
         if pingTos != "" {
-            uargs.append("-z")
-            uargs.append(pingTos)
+            pingTosArg = "-z \(pingTos)"
         }
 
         if pingBypassRoute != "off" {
-            uargs.append("-r")
+            pingBypassRouteArg = "-r"
         }
 
         if pingNoFragment != "off" {
-            uargs.append("-D")
+            pingSuppressLoopbackArg = "-D"
         }
 
         if pingSuppressLoopback != "off" {
-            uargs.append("-L")
+            pingNoFragmentArg = "-L"
         }
 
         if pingFlood != "off" {
-            uargs.append("-f")
+            pingFloodArg = "-f"
         }
-
-        uargs.append(domain)
-        uargs.append(nil)
-
-        c = Int32(uargs.count - 1)
-
-        var cargs = uargs.map { $0.flatMap { UnsafeMutablePointer<Int8>(strdup($0)) } }
         
-        ret = start_ping(c, &cargs, transmitted, received, okToPing, notify, res, err);
-
-        for ptr in cargs {
-            free(UnsafeMutablePointer(mutating: ptr))
-        }
-
-        return ret
+        return Helper.shell(stdOut: &stdOut, stdErr: &stdErr, "ping \(pingCountArg) \(pingWaitArg) \(pingTimeoutArg) \(pingTTLArg) \(interfaceAddressArg) \(pingSourceAddressArg) \(pingPreloadArg) \(pingPacketSizeArg) \(pingMaskArg) \(pingIpsecPolicyArg) \(pingSweepMaxSizeArg) \(pingSweepMinSizeArg) \(pingSweepIncSizeArg) \(pingPatternArg) \(pingTosArg) \(pingBypassRouteArg) \(pingSuppressLoopbackArg) \(pingNoFragmentArg) \(pingFloodArg) \(domain)")
     }
 
-    static func parseResponse(results: String) -> [PingRow] {
-        var tblData: [PingRow] = []
-        let rows = results.split(separator: "\n")
+    static func parseResponse(results: String) -> PingRow {
         let regex = try? NSRegularExpression(
             pattern: "^([0-9]{1,}) bytes from ([0-9.]{1,}): icmp_seq=([0-9]{1,}) ttl=([0-9]{1,}) time=([0-9.]{1,}) ms$",
             options: NSRegularExpression.Options.caseInsensitive
@@ -167,65 +138,52 @@ class PingHelper {
         var seq = 0
         var ttl = 0
         var time = 0.0
-        var i=0
+    
+        let matches = regex!.matches(
+            in: String(results),
+            options: [],
+            range: NSRange(location: 0, length: results.count)
+        )
 
-        for row in rows {
-            let myrow = String(row) // deep copy
-            let matches = regex!.matches(
-                in: String(myrow),
-                options: [],
-                range: NSRange(location: 0, length: myrow.count)
+        if let match = matches.first {
+            if let range = Range(match.range(at:1), in: String(results)) {
+                bytes = Int(results[range]) ?? 0
+            }
+
+            if let range = Range(match.range(at:2), in: String(results)) {
+                from = String(results[range])
+            }
+
+            if let range = Range(match.range(at:3), in: String(results)) {
+                seq = Int(results[range]) ?? 0
+            }
+
+            if let range = Range(match.range(at:4), in: String(results)) {
+                ttl = Int(results[range]) ?? 0
+            }
+
+            if let range = Range(match.range(at:5), in: String(results)) {
+                time = Double(results[range]) ?? 0.0
+            }
+
+            // No issue with probe
+            return PingRow(
+                bytes: bytes,
+                from: from,
+                seq: seq,
+                ttl: ttl,
+                time: time
             )
-
-            if let match = matches.first {
-                if let range = Range(match.range(at:1), in: String(myrow)) {
-                    bytes = Int(myrow[range]) ?? 0
-                }
-
-                if let range = Range(match.range(at:2), in: String(myrow)) {
-                    from = String(myrow[range])
-                }
-
-                if let range = Range(match.range(at:3), in: String(myrow)) {
-                    seq = Int(myrow[range]) ?? 0
-                }
-
-                if let range = Range(match.range(at:4), in: String(myrow)) {
-                    ttl = Int(myrow[range]) ?? 0
-                }
-
-                if let range = Range(match.range(at:5), in: String(myrow)) {
-                    time = Double(myrow[range]) ?? 0.0
-                }
-
-                // No issue with probe
-                tblData.append(
-                    PingRow(
-                        bytes: bytes,
-                        from: from,
-                        seq: seq,
-                        ttl: ttl,
-                        time: time
-                    )
-                )
-            }
-            else {
-                // Issue with probe
-                tblData.append(
-                    PingRow(
-                        bytes: -1,
-                        from: String(row),
-                        seq: i,
-                        ttl: -1,
-                        time: -1
-                    )
-                )
-            }
-
-            i=i+1
         }
-
-        tblData.reverse()
-        return tblData
+        else {
+            // Issue with probe
+            return PingRow(
+                bytes: -1,
+                from: "N/A",
+                seq: -1,
+                ttl: -1,
+                time: -1
+            )
+        }
     }
 }

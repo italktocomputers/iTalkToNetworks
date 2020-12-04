@@ -12,16 +12,10 @@ class TraceRouteViewController : ViewController, NSTableViewDataSource, NSTableV
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet weak var inputBox: NSComboBox!
     
-    var okToTrace = UnsafeMutablePointer<Bool>.allocate(capacity: 1)
-
     var data: [TraceRouteRow] = []
-    
-    func trace_notify(res: UnsafeMutablePointer<CChar>?, err: UnsafeMutablePointer<CChar>?) {
-        data = TraceRouteHelper.parseResponse(results: String(cString: res!))
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
-    }
+    var task: Process?
+    var stdOut = Pipe()
+    var stdErr = Pipe()
 
     override func viewDidLoad() {
         tableView.delegate = self
@@ -50,10 +44,12 @@ class TraceRouteViewController : ViewController, NSTableViewDataSource, NSTableV
     @IBAction func trace(_ sender: Any) {
         let btn = sender as! NSButton
         if (btn.title == "Trace") {
+            beforeTrace()
             start()
         }
         else {
-            okToTrace.pointee = false
+            task!.terminate()
+            afterTrace()
         }
     }
 
@@ -63,28 +59,41 @@ class TraceRouteViewController : ViewController, NSTableViewDataSource, NSTableV
     }
 
     func start() {
-        okToTrace.pointee = true
+        let searchTerm = self.inputBox.stringValue
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.task = TraceRouteHelper.trace(domain: searchTerm, stdOut: &self.stdOut, stdErr: &self.stdErr)
+            self.stdOut.fileHandleForReading.readabilityHandler = { fileHandle in
+                let buffer = fileHandle.availableData
+                self.data = TraceRouteHelper.parseResponse(results: String(data: buffer, encoding: .utf8)!)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.btn.isEnabled = true
+                    self.progressBar.isHidden = true
+                }
+            }
+            
+            self.stdErr.fileHandleForReading.readabilityHandler = { fileHandle in
+                let buffer = fileHandle.availableData
+                DispatchQueue.main.async {
+                    Helper.showErrorBox(view: self, msg: String(data: buffer, encoding: .utf8)!)
+                    self.afterTrace()
+                }
+            }
+        }
+    }
+    
+    func beforeTrace() {
         self.btn.title = "Stop"
         progressBar.isHidden = false
         progressBar.startAnimation(self.view)
         UrlCache.add(url: inputBox.stringValue)
-        let searchTerm = self.inputBox.stringValue
-        let res = UnsafeMutablePointer<CChar>.allocate(capacity: 10000)
-        let err = UnsafeMutablePointer<CChar>.allocate(capacity: 10000)
-        
-        DispatchQueue.global(qos: .userInitiated).async {
-            let result = TraceRouteHelper.trace(domain: searchTerm, res: res, err: err, okToTrace: self.okToTrace, notify: self.trace_notify)
-            DispatchQueue.main.async {
-                self.btn.isEnabled = true
-                self.progressBar.isHidden = true
-                self.btn.title = "Trace"
-                
-                if result != 0 {
-                    // There was an error so we report it to user now.
-                    Helper.showErrorBox(view: self, msg: String(cString: err))
-                }
-            }
-        }
+    }
+    
+    func afterTrace() {
+        self.btn.isEnabled = true
+        self.progressBar.isHidden = true
+        self.btn.title = "Trace"
     }
 
     func numberOfRows(in tableView: NSTableView) -> Int {

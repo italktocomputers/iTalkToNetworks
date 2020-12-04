@@ -13,6 +13,9 @@ class DnsViewController : ViewController, NSTableViewDataSource, NSTableViewDele
     @IBOutlet weak var dnsDomain: NSComboBox!
     
     var data: [DnsRow] = []
+    var task: Process?
+    var stdOut = Pipe()
+    var stdErr = Pipe()
     
     override func viewDidLoad() {
         tableView.delegate = self
@@ -41,20 +44,37 @@ class DnsViewController : ViewController, NSTableViewDataSource, NSTableViewDele
     }
     
     func startLookup() {
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.task = DnsHelper.dnsLookUp(domain: self.dnsDomain.stringValue, stdOut: &self.stdOut, stdErr: &self.stdErr)
+            
+            self.stdOut.fileHandleForReading.readabilityHandler = { fileHandle in
+                let buffer = fileHandle.availableData
+                self.data = DnsHelper.parseResponse(results: String(data: buffer, encoding: .utf8)!)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+            
+            self.stdErr.fileHandleForReading.readabilityHandler = { fileHandle in
+                let buffer = fileHandle.availableData
+                DispatchQueue.main.async {
+                    Helper.showErrorBox(view: self, msg: String(data: buffer, encoding: .utf8)!)
+                    self.afterLookup()
+                }
+            }
+        }
+    }
+    
+    func beforeLookup() {
         lookupBtn.isEnabled = false
         dnsProgressBar.isHidden = false
         dnsProgressBar.startAnimation(self.view)
         UrlCache.add(url: dnsDomain.stringValue)
-        let searchTerm = self.dnsDomain.stringValue
-        
-        DispatchQueue.global(qos: .userInitiated).async {
-            self.data = DnsHelper.dnsLookUp(domain: searchTerm)
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-                self.lookupBtn.isEnabled = true
-                self.dnsProgressBar.isHidden = true
-            }
-        }
+    }
+    
+    func afterLookup() {
+        self.lookupBtn.isEnabled = true
+        self.dnsProgressBar.isHidden = true
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {

@@ -31,6 +31,9 @@ class WhoIsViewController : ViewController, NSTableViewDataSource, NSTableViewDe
     @IBOutlet weak var expires: NSTextField!
     
     var map = [String:NSTextField?]()
+    var task: Process?
+    var stdOut = Pipe()
+    var stdErr = Pipe()
     
     override func viewDidLoad() {
         searchBox.delegate = self
@@ -62,32 +65,39 @@ class WhoIsViewController : ViewController, NSTableViewDataSource, NSTableViewDe
     }
     
     func startSearch() {
-        clearForm()
-        searchBtn.isEnabled = false
-        progressBar.isHidden = false
-        progressBar.startAnimation(self.view)
-        UrlCache.add(url: searchBox.stringValue)
-        let searchTerm = searchBox.stringValue
-        let res = UnsafeMutablePointer<CChar>.allocate(capacity: 10000)
-        let err = UnsafeMutablePointer<CChar>.allocate(capacity: 10000)
-        
         DispatchQueue.global(qos: .userInitiated).async {
-            let result = WhoIsHelper.whoIsLookUp(domain: searchTerm, res: res, err: err)
-            DispatchQueue.main.async {
-                self.searchBtn.isEnabled = true
-                self.progressBar.isHidden = true
-                if result != 0 {
-                    // There was an error so we report it to user now.
-                    Helper.showErrorBox(view: self, msg: String(cString: err))
-                }
-                else {
-                    let data = WhoIsHelper.parseWhoIsResponse(results: String(cString: res))
+            self.task = WhoIsHelper.whoIsLookUp(domain: self.searchBox.stringValue, stdOut: &self.stdOut, stdErr: &self.stdErr)
+            self.stdOut.fileHandleForReading.readabilityHandler = { fileHandle in
+                let buffer = fileHandle.availableData
+                let data = WhoIsHelper.parseResponse(results: String(data: buffer, encoding: .utf8)!)
+                DispatchQueue.main.async {
                     for (i,v) in data {
                         self.map[i]!!.stringValue = v
                     }
                 }
             }
+            
+            self.stdErr.fileHandleForReading.readabilityHandler = { fileHandle in
+                let buffer = fileHandle.availableData
+                DispatchQueue.main.async {
+                    Helper.showErrorBox(view: self, msg: String(data: buffer, encoding: .utf8)!)
+                    self.afterWhoIs()
+                }
+            }
         }
+    }
+    
+    func beforeWhoIs() {
+        clearForm()
+        searchBtn.isEnabled = false
+        progressBar.isHidden = false
+        progressBar.startAnimation(self.view)
+        UrlCache.add(url: searchBox.stringValue)
+    }
+    
+    func afterWhoIs() {
+        self.searchBtn.isEnabled = true
+        self.progressBar.isHidden = true
     }
     
     func clearForm() {

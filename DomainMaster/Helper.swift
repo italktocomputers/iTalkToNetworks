@@ -26,20 +26,16 @@ class Helper {
         return alert.runModal() == .alertFirstButtonReturn
     }
     
-    static func shell(_ command: String) -> String {
+    static func shell(stdOut: inout Pipe, stdErr: inout Pipe, _ command: String) -> Process {
         let task = Process()
         task.launchPath = "/bin/bash"
         task.arguments = ["-c", command]
         
-        let pipe = Pipe()
-        task.standardOutput = pipe
-        task.standardError = pipe
+        task.standardOutput = stdOut
+        task.standardError = stdErr
         task.launch()
         
-        let data = pipe.fileHandleForReading.readDataToEndOfFile()
-        let output: String = NSString(data: data, encoding: String.Encoding.utf8.rawValue)! as String
-        
-        return output
+        return task
     }
     
     static func initTextBox(val: String?, box: NSTextField) {
