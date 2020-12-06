@@ -64,10 +64,11 @@ class HttpViewController : ViewController, NSWindowDelegate, NSTableViewDataSour
             if (responseString != nil) {
                 DispatchQueue.global(qos: .userInitiated).async {
                     DispatchQueue.main.async {
+                        // Load raw view
                         if let rawData = rawResponse.documentView as? NSTextView {
-                            // Load raw view
                             rawData.string = responseString!
                         }
+                        
                         // Load rendered view
                         self.webView.loadHTMLString(responseString!, baseURL: url)
                         
@@ -87,7 +88,6 @@ class HttpViewController : ViewController, NSWindowDelegate, NSTableViewDataSour
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        
         if (tableView.tableColumns[0] == tableColumn) {
             if let cell = tableView.makeView(
                 withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "Header"),
