@@ -5,17 +5,23 @@
 
 import Foundation
 import AppKit
+import WebKit
 
-class HttpViewController : ViewController, NSWindowDelegate {
+class HttpViewController : ViewController, NSWindowDelegate, NSTableViewDataSource, NSTableViewDelegate {
     @IBOutlet weak var method: NSComboBox!
     @IBOutlet weak var Url: NSTextField!
     @IBOutlet weak var payload: NSScrollView!
     @IBOutlet weak var rawResponse: NSScrollView!
     @IBOutlet weak var headerTableView: NSTableView!
+    @IBOutlet weak var webView: WKWebView!
+    
     
     var headers: [HeaderRow] = []
     
     override func viewDidLoad() {
+        headerTableView.delegate = self
+        headerTableView.dataSource = self
+        
         // Set font for table header
         headerTableView.tableColumns.forEach { (column) in
             column.headerCell.attributedStringValue = NSAttributedString(
@@ -33,6 +39,7 @@ class HttpViewController : ViewController, NSWindowDelegate {
         var request = URLRequest(url: url)
         //request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "GET"
+        //request.allHTTPHeaderFields = headers
         
         if let data = payload.documentView as? NSTextView {
             request.httpBody = data.string.data(using: .utf8)
@@ -41,12 +48,12 @@ class HttpViewController : ViewController, NSWindowDelegate {
         let task = URLSession.shared.dataTask(with: request) { [self] data, response, error in
             guard let data = data,
                 let response = response as? HTTPURLResponse,
-                error == nil else {                                              // check for fundamental networking error
+                error == nil else {
                 print("error", error ?? "Unknown error")
                 return
             }
 
-            guard (200 ... 299) ~= response.statusCode else {                    // check for http errors
+            guard (200 ... 299) ~= response.statusCode else {
                 print("statusCode should be 2xx, but is \(response.statusCode)")
                 print("response = \(response)")
                 return
@@ -58,14 +65,25 @@ class HttpViewController : ViewController, NSWindowDelegate {
                 DispatchQueue.global(qos: .userInitiated).async {
                     DispatchQueue.main.async {
                         if let rawData = rawResponse.documentView as? NSTextView {
+                            // Load raw view
                             rawData.string = responseString!
                         }
+                        // Load rendered view
+                        self.webView.loadHTMLString(responseString!, baseURL: url)
+                        
+                        // Load header view
+                        self.headers = HttpHelper.parseResponse(results: response.allHeaderFields)
+                        self.headerTableView.reloadData()
                     }
                 }
             }
         }
 
         task.resume()
+    }
+    
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        return headers.count
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {

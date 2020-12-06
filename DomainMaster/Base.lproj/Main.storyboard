@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17506"/>
+        <plugIn identifier="com.apple.WebKit2IBPlugin" version="17506"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -4168,8 +4169,8 @@ TXT (Descriptive text)</string>
                                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                                                 <tableColumns>
-                                                                    <tableColumn width="116" minWidth="40" maxWidth="1000" id="xvd-Du-MO0">
-                                                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
+                                                                    <tableColumn identifier="Header" width="116" minWidth="40" maxWidth="1000" id="xvd-Du-MO0">
+                                                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Header">
                                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                             <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                                         </tableHeaderCell>
@@ -4200,8 +4201,8 @@ TXT (Descriptive text)</string>
                                                                             </tableCellView>
                                                                         </prototypeCellViews>
                                                                     </tableColumn>
-                                                                    <tableColumn width="588" minWidth="40" maxWidth="1000" id="FG8-d5-C6Y">
-                                                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
+                                                                    <tableColumn identifier="Value" width="588" minWidth="40" maxWidth="1000" id="FG8-d5-C6Y">
+                                                                        <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" title="Value">
                                                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                                                             <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                                                         </tableHeaderCell>
@@ -4297,6 +4298,16 @@ TXT (Descriptive text)</string>
                                         <view key="view" id="WEM-sF-5M4">
                                             <rect key="frame" x="10" y="33" width="769" height="205"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            <subviews>
+                                                <wkWebView wantsLayer="YES" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZWB-6K-7hh">
+                                                    <rect key="frame" x="-3" y="-3" width="775" height="205"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <wkWebViewConfiguration key="configuration">
+                                                        <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                                        <wkPreferences key="preferences"/>
+                                                    </wkWebViewConfiguration>
+                                                </wkWebView>
+                                            </subviews>
                                         </view>
                                     </tabViewItem>
                                 </tabViewItems>
@@ -4442,6 +4453,7 @@ TXT (Descriptive text)</string>
                         <outlet property="method" destination="Kn2-IQ-mJw" id="hHg-ml-a2F"/>
                         <outlet property="payload" destination="pYb-l1-vfy" id="Q7d-TE-raw"/>
                         <outlet property="rawResponse" destination="nqX-t9-UCk" id="988-f7-W2u"/>
+                        <outlet property="webView" destination="ZWB-6K-7hh" id="5rc-4L-Ulr"/>
                     </connections>
                 </viewController>
                 <customObject id="179-c2-8Kc" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

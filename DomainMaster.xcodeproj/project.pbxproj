@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8701D6A5257C765D009CF530 /* HeaderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8701D6A4257C765D009CF530 /* HeaderRow.swift */; };
+		8701D6A8257C853F009CF530 /* HttpHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8701D6A7257C853F009CF530 /* HttpHelper.swift */; };
 		870C3F1B22AC102100B4EF32 /* UrlCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870C3F1A22AC102100B4EF32 /* UrlCache.swift */; };
 		87345DB722DBD02B0035349D /* DnsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87345DB622DBD02B0035349D /* DnsSettingsViewController.swift */; };
 		873B266722EC9B17005BAA5F /* DnsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B266622EC9B16005BAA5F /* DnsViewController.swift */; };
@@ -36,6 +37,7 @@
 
 /* Begin PBXFileReference section */
 		8701D6A4257C765D009CF530 /* HeaderRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderRow.swift; sourceTree = "<group>"; };
+		8701D6A7257C853F009CF530 /* HttpHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpHelper.swift; sourceTree = "<group>"; };
 		870C3F1A22AC102100B4EF32 /* UrlCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlCache.swift; sourceTree = "<group>"; };
 		87345DB622DBD02B0035349D /* DnsSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnsSettingsViewController.swift; sourceTree = "<group>"; };
 		873B266622EC9B16005BAA5F /* DnsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnsViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			children = (
 				8777AF89257C5DF60008F4FD /* HttpViewController.swift */,
 				8701D6A4257C765D009CF530 /* HeaderRow.swift */,
+				8701D6A7257C853F009CF530 /* HttpHelper.swift */,
 			);
 			path = http;
 			sourceTree = "<group>";
@@ -272,6 +275,7 @@
 				87CACECC22EF906F006C1C34 /* PingSettingsViewController.swift in Sources */,
 				875CB7EC22A9C92D0059A7D6 /* DnsHelper.swift in Sources */,
 				875F4FB322E002320089C1CA /* WhoIsViewController.swift in Sources */,
+				8701D6A8257C853F009CF530 /* HttpHelper.swift in Sources */,
 				8701D6A5257C765D009CF530 /* HeaderRow.swift in Sources */,
 				87BA48E522A5E9B200E8DDB9 /* AppDelegate.swift in Sources */,
 				87345DB722DBD02B0035349D /* DnsSettingsViewController.swift in Sources */,
