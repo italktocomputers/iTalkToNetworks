@@ -128,7 +128,7 @@
         <!--Tab View Controller-->
         <scene sceneID="wTo-HP-hlH">
             <objects>
-                <tabViewController selectedTabViewItemIndex="6" tabStyle="unspecified" id="BCM-Uk-Eyc" sceneMemberID="viewController">
+                <tabViewController selectedTabViewItemIndex="5" tabStyle="unspecified" id="BCM-Uk-Eyc" sceneMemberID="viewController">
                     <tabViewItems>
                         <tabViewItem identifier="" id="Mul-wl-nUr"/>
                         <tabViewItem identifier="" id="i1p-Oo-nQT"/>
@@ -4182,7 +4182,7 @@ TXT (Descriptive text)</string>
                                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                         <prototypeCellViews>
                                                                             <tableCellView id="QUr-u6-q2b">
-                                                                                <rect key="frame" x="8" y="0.0" width="114" height="24"/>
+                                                                                <rect key="frame" x="18" y="0.0" width="114" height="24"/>
                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                 <subviews>
                                                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fEw-xk-JeT">
@@ -4214,7 +4214,7 @@ TXT (Descriptive text)</string>
                                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                         <prototypeCellViews>
                                                                             <tableCellView id="435-c1-2v5">
-                                                                                <rect key="frame" x="139" y="0.0" width="585" height="24"/>
+                                                                                <rect key="frame" x="149" y="0.0" width="585" height="24"/>
                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                 <subviews>
                                                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QMK-c7-akC">
@@ -4238,7 +4238,7 @@ TXT (Descriptive text)</string>
                                                         </subviews>
                                                     </clipView>
                                                     <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="z7k-zZ-le3">
-                                                        <rect key="frame" x="1" y="118" width="733" height="16"/>
+                                                        <rect key="frame" x="1" y="180" width="733" height="16"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                     <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="OUf-N8-n58">
@@ -4263,7 +4263,7 @@ TXT (Descriptive text)</string>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <clipView key="contentView" drawsBackground="NO" id="D9D-J8-Chd">
                                                         <rect key="frame" x="0.0" y="0.0" width="735" height="185"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
                                                             <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="DIJ-HV-k5h">
                                                                 <rect key="frame" x="0.0" y="0.0" width="735" height="185"/>
@@ -4527,7 +4527,7 @@ TXT (Descriptive text)</string>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="zD3-t8-Qbz">
-                                                            <rect key="frame" x="8" y="0.0" width="114" height="24"/>
+                                                            <rect key="frame" x="18" y="0.0" width="114" height="24"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cMn-JD-JX4">
@@ -4538,6 +4538,9 @@ TXT (Descriptive text)</string>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
+                                                                    <connections>
+                                                                        <binding destination="zD3-t8-Qbz" name="value" keyPath="objectValue.name" id="Y0B-Js-iKN"/>
+                                                                    </connections>
                                                                 </textField>
                                                             </subviews>
                                                             <connections>
@@ -4562,7 +4565,7 @@ TXT (Descriptive text)</string>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="Neq-O8-Qf7">
-                                                            <rect key="frame" x="139" y="0.0" width="424" height="24"/>
+                                                            <rect key="frame" x="149" y="0.0" width="424" height="24"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mcS-6H-GVx">
@@ -4573,6 +4576,9 @@ TXT (Descriptive text)</string>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
+                                                                    <connections>
+                                                                        <binding destination="Neq-O8-Qf7" name="value" keyPath="objectValue.value" id="6zw-sD-G1k"/>
+                                                                    </connections>
                                                                 </textField>
                                                             </subviews>
                                                             <connections>
@@ -4582,11 +4588,14 @@ TXT (Descriptive text)</string>
                                                     </prototypeCellViews>
                                                 </tableColumn>
                                             </tableColumns>
+                                            <connections>
+                                                <binding destination="N5J-5j-Xai" name="content" keyPath="arrangedObjects" id="cCm-vL-wFm"/>
+                                            </connections>
                                         </tableView>
                                     </subviews>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="ZgC-yx-viW">
-                                    <rect key="frame" x="1" y="118" width="238" height="16"/>
+                                    <rect key="frame" x="1" y="228" width="572" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="H06-D0-MGI">
@@ -4638,6 +4647,12 @@ TXT (Descriptive text)</string>
                     </connections>
                 </viewController>
                 <customObject id="awA-Be-dQb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <arrayController id="N5J-5j-Xai" userLabel="RequestHeaderArray">
+                    <connections>
+                        <binding destination="0O2-1c-N1J" name="contentArray" keyPath="headers" id="kRT-aI-cTY"/>
+                    </connections>
+                </arrayController>
+                <userDefaultsController representsSharedInstance="YES" id="JHY-bg-2zs"/>
             </objects>
             <point key="canvasLocation" x="-1908" y="-1401"/>
         </scene>

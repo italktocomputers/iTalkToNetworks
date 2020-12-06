@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8701D6A5257C765D009CF530 /* HeaderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8701D6A4257C765D009CF530 /* HeaderRow.swift */; };
 		8701D6A8257C853F009CF530 /* HttpHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8701D6A7257C853F009CF530 /* HttpHelper.swift */; };
 		8701D6AB257C8D0B009CF530 /* RequestHeaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8701D6AA257C8D0B009CF530 /* RequestHeaderViewController.swift */; };
+		8701D6AE257CA8E5009CF530 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8701D6AD257CA8E5009CF530 /* Header.swift */; };
+		8701D6B2257CAE9A009CF530 /* HeaderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8701D6B1257CAE9A009CF530 /* HeaderRow.swift */; };
 		870C3F1B22AC102100B4EF32 /* UrlCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870C3F1A22AC102100B4EF32 /* UrlCache.swift */; };
 		87345DB722DBD02B0035349D /* DnsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87345DB622DBD02B0035349D /* DnsSettingsViewController.swift */; };
 		873B266722EC9B17005BAA5F /* DnsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B266622EC9B16005BAA5F /* DnsViewController.swift */; };
@@ -37,9 +38,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		8701D6A4257C765D009CF530 /* HeaderRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderRow.swift; sourceTree = "<group>"; };
 		8701D6A7257C853F009CF530 /* HttpHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpHelper.swift; sourceTree = "<group>"; };
 		8701D6AA257C8D0B009CF530 /* RequestHeaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestHeaderViewController.swift; sourceTree = "<group>"; };
+		8701D6AD257CA8E5009CF530 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
+		8701D6B1257CAE9A009CF530 /* HeaderRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderRow.swift; sourceTree = "<group>"; };
 		870C3F1A22AC102100B4EF32 /* UrlCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlCache.swift; sourceTree = "<group>"; };
 		87345DB622DBD02B0035349D /* DnsSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnsSettingsViewController.swift; sourceTree = "<group>"; };
 		873B266622EC9B16005BAA5F /* DnsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnsViewController.swift; sourceTree = "<group>"; };
@@ -92,9 +94,10 @@
 			isa = PBXGroup;
 			children = (
 				8777AF89257C5DF60008F4FD /* HttpViewController.swift */,
-				8701D6A4257C765D009CF530 /* HeaderRow.swift */,
+				8701D6B1257CAE9A009CF530 /* HeaderRow.swift */,
 				8701D6A7257C853F009CF530 /* HttpHelper.swift */,
 				8701D6AA257C8D0B009CF530 /* RequestHeaderViewController.swift */,
+				8701D6AD257CA8E5009CF530 /* Header.swift */,
 			);
 			path = http;
 			sourceTree = "<group>";
@@ -278,8 +281,8 @@
 				87CACECC22EF906F006C1C34 /* PingSettingsViewController.swift in Sources */,
 				875CB7EC22A9C92D0059A7D6 /* DnsHelper.swift in Sources */,
 				875F4FB322E002320089C1CA /* WhoIsViewController.swift in Sources */,
+				8701D6B2257CAE9A009CF530 /* HeaderRow.swift in Sources */,
 				8701D6A8257C853F009CF530 /* HttpHelper.swift in Sources */,
-				8701D6A5257C765D009CF530 /* HeaderRow.swift in Sources */,
 				87BA48E522A5E9B200E8DDB9 /* AppDelegate.swift in Sources */,
 				87345DB722DBD02B0035349D /* DnsSettingsViewController.swift in Sources */,
 				8701D6AB257C8D0B009CF530 /* RequestHeaderViewController.swift in Sources */,
@@ -289,6 +292,7 @@
 				873B266B22EE0921005BAA5F /* PingRow.swift in Sources */,
 				875F4FB722E13D4D0089C1CA /* WhoIsSettingsViewController.swift in Sources */,
 				875CB7F222A9D9A40059A7D6 /* DnsRow.swift in Sources */,
+				8701D6AE257CA8E5009CF530 /* Header.swift in Sources */,
 				A5F198C923079A1F006E1272 /* ErrorBoxViewController.swift in Sources */,
 				870C3F1B22AC102100B4EF32 /* UrlCache.swift in Sources */,
 			);
