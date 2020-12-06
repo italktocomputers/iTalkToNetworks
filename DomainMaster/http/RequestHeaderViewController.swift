@@ -24,7 +24,7 @@ class RequestHeaderViewController : ViewController, NSWindowDelegate {
     }
     
     @IBAction func close(_ sender: NSButton) {
-        self.view.window?.makeFirstResponder(sender)
+        self.view.window?.close()
     }
     
     @IBAction func addHeader(_ sender: Any) {
