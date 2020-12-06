@@ -129,7 +129,7 @@ class PingHelper {
 
     static func parseResponse(results: String) -> PingRow {
         let regex = try? NSRegularExpression(
-            pattern: "^([0-9]{1,}) bytes from ([0-9.]{1,}): icmp_seq=([0-9]{1,}) ttl=([0-9]{1,}) time=([0-9.]{1,}) ms$",
+            pattern: "^([0-9]{1,}) bytes from ([0-9.]{1,}):     =([0-9]{1,}) ttl=([0-9]{1,}) time=([0-9.]{1,}) ms$",
             options: NSRegularExpression.Options.caseInsensitive
         )
 

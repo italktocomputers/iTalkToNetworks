@@ -26,6 +26,13 @@ class Helper {
         return alert.runModal() == .alertFirstButtonReturn
     }
     
+    static func kill(pId: Int32) {
+        let task = Process()
+        task.launchPath = "/bin/bash"
+        task.arguments = ["kill -9 \(pId)"]
+        task.launch()
+    }
+    
     static func shell(stdIn: inout Pipe, stdOut: inout Pipe, stdErr: inout Pipe, _ command: String) -> Process {
         let task = Process()
         task.launchPath = "/bin/bash"

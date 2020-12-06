@@ -19,6 +19,7 @@
 		875F4FB522E007EE0089C1CA /* WhoIsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875F4FB422E007EE0089C1CA /* WhoIsHelper.swift */; };
 		875F4FB722E13D4D0089C1CA /* WhoIsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875F4FB622E13D4D0089C1CA /* WhoIsSettingsViewController.swift */; };
 		875F4FB922E1C4720089C1CA /* DefaultSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 875F4FB822E1C4720089C1CA /* DefaultSettings.plist */; };
+		8777AF8A257C5DF60008F4FD /* HttpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8777AF89257C5DF60008F4FD /* HttpViewController.swift */; };
 		8785F6B42319C8FD0056BFC6 /* TraceRouteSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8785F6B32319C8FD0056BFC6 /* TraceRouteSettingsViewController.swift */; };
 		87BA48E522A5E9B200E8DDB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA48E422A5E9B200E8DDB9 /* AppDelegate.swift */; };
 		87BA48E722A5E9B200E8DDB9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA48E622A5E9B200E8DDB9 /* ViewController.swift */; };
@@ -45,6 +46,7 @@
 		875F4FB422E007EE0089C1CA /* WhoIsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoIsHelper.swift; sourceTree = "<group>"; };
 		875F4FB622E13D4D0089C1CA /* WhoIsSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhoIsSettingsViewController.swift; sourceTree = "<group>"; };
 		875F4FB822E1C4720089C1CA /* DefaultSettings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DefaultSettings.plist; sourceTree = "<group>"; };
+		8777AF89257C5DF60008F4FD /* HttpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpViewController.swift; sourceTree = "<group>"; };
 		8785F6B32319C8FD0056BFC6 /* TraceRouteSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceRouteSettingsViewController.swift; sourceTree = "<group>"; };
 		87BA48E122A5E9B200E8DDB9 /* DomainMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DomainMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87BA48E422A5E9B200E8DDB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,9 +82,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		8777AF8C257C5DFE0008F4FD /* http */ = {
+			isa = PBXGroup;
+			children = (
+				8777AF89257C5DF60008F4FD /* HttpViewController.swift */,
+			);
+			path = http;
+			sourceTree = "<group>";
+		};
 		87BA48D822A5E9B200E8DDB9 = {
 			isa = PBXGroup;
 			children = (
+				8777AF8C257C5DFE0008F4FD /* http */,
 				87BA48E322A5E9B200E8DDB9 /* DomainMaster */,
 				87BA48E222A5E9B200E8DDB9 /* Products */,
 				5356CDF428AF56BF490730D5 /* Frameworks */,
@@ -261,6 +272,7 @@
 				87BA48E522A5E9B200E8DDB9 /* AppDelegate.swift in Sources */,
 				87345DB722DBD02B0035349D /* DnsSettingsViewController.swift in Sources */,
 				87CACECA22EE121A006C1C34 /* PingViewController.swift in Sources */,
+				8777AF8A257C5DF60008F4FD /* HttpViewController.swift in Sources */,
 				875CB7F022A9D74E0059A7D6 /* Helper.swift in Sources */,
 				873B266B22EE0921005BAA5F /* PingRow.swift in Sources */,
 				875F4FB722E13D4D0089C1CA /* WhoIsSettingsViewController.swift in Sources */,

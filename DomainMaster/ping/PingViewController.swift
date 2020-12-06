@@ -61,8 +61,6 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
         }
         else {
             self.task!.terminate()
-            self.stdIn.fileHandleForWriting.write(String(SIGTERM).data(using: .utf8)!)
-            afterPing()
         }
     }
     
@@ -139,6 +137,12 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                     self.updateStats()
+                }
+            }
+            
+            self.task?.terminationHandler = { task in
+                DispatchQueue.main.async {
+                    self.afterPing()
                 }
             }
         }
