@@ -13,14 +13,17 @@ class HttpViewController : ViewController, NSWindowDelegate, NSTableViewDataSour
     @IBOutlet weak var payload: NSScrollView!
     @IBOutlet weak var rawResponse: NSScrollView!
     @IBOutlet weak var headerTableView: NSTableView!
+    @IBOutlet weak var prettyView: NSScrollView!
     @IBOutlet weak var webView: WKWebView!
     
     
     var headers: [HeaderRow] = []
+    var requestHeaders: [Header] = []
     
     override func viewDidLoad() {
         headerTableView.delegate = self
         headerTableView.dataSource = self
+        webView.configuration.preferences.setValue(true, forKey: "developerExtrasEnabled")
         
         // Set font for table header
         headerTableView.tableColumns.forEach { (column) in
@@ -37,9 +40,8 @@ class HttpViewController : ViewController, NSWindowDelegate, NSTableViewDataSour
         print("here")
         let url = URL(string: Url.stringValue)!
         var request = URLRequest(url: url)
-        //request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
         request.httpMethod = "GET"
-        //request.allHTTPHeaderFields = headers
+        request.allHTTPHeaderFields = HttpHelper.toMap(headers: requestHeaders)
         
         if let data = payload.documentView as? NSTextView {
             request.httpBody = data.string.data(using: .utf8)
@@ -67,6 +69,7 @@ class HttpViewController : ViewController, NSWindowDelegate, NSTableViewDataSour
                         // Load raw view
                         if let rawData = rawResponse.documentView as? NSTextView {
                             rawData.string = responseString!
+                            
                         }
                         
                         // Load rendered view
@@ -75,6 +78,11 @@ class HttpViewController : ViewController, NSWindowDelegate, NSTableViewDataSour
                         // Load header view
                         self.headers = HttpHelper.parseResponse(results: response.allHeaderFields)
                         self.headerTableView.reloadData()
+                        
+                        // Load pretty view
+                        if let prettyData = prettyView.documentView as? NSTextView {
+                            prettyData.string = responseString!
+                        }
                     }
                 }
             }

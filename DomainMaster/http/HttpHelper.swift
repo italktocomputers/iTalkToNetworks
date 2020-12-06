@@ -16,4 +16,13 @@ class HttpHelper {
         
         return headerRows
     }
+    
+    static func toMap(headers: [Header]) -> [String:String] {
+        var map: [String:String] = [:]
+        for i in headers {
+            map[i.name] = i.value
+        }
+        
+        return map
+    }
 }
