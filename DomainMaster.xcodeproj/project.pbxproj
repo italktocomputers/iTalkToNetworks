@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8701D6A5257C765D009CF530 /* HeaderRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8701D6A4257C765D009CF530 /* HeaderRow.swift */; };
 		870C3F1B22AC102100B4EF32 /* UrlCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 870C3F1A22AC102100B4EF32 /* UrlCache.swift */; };
 		87345DB722DBD02B0035349D /* DnsSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87345DB622DBD02B0035349D /* DnsSettingsViewController.swift */; };
 		873B266722EC9B17005BAA5F /* DnsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 873B266622EC9B16005BAA5F /* DnsViewController.swift */; };
@@ -34,6 +35,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8701D6A4257C765D009CF530 /* HeaderRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderRow.swift; sourceTree = "<group>"; };
 		870C3F1A22AC102100B4EF32 /* UrlCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UrlCache.swift; sourceTree = "<group>"; };
 		87345DB622DBD02B0035349D /* DnsSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnsSettingsViewController.swift; sourceTree = "<group>"; };
 		873B266622EC9B16005BAA5F /* DnsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnsViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			isa = PBXGroup;
 			children = (
 				8777AF89257C5DF60008F4FD /* HttpViewController.swift */,
+				8701D6A4257C765D009CF530 /* HeaderRow.swift */,
 			);
 			path = http;
 			sourceTree = "<group>";
@@ -93,7 +96,6 @@
 		87BA48D822A5E9B200E8DDB9 = {
 			isa = PBXGroup;
 			children = (
-				8777AF8C257C5DFE0008F4FD /* http */,
 				87BA48E322A5E9B200E8DDB9 /* DomainMaster */,
 				87BA48E222A5E9B200E8DDB9 /* Products */,
 				5356CDF428AF56BF490730D5 /* Frameworks */,
@@ -111,6 +113,7 @@
 		87BA48E322A5E9B200E8DDB9 /* DomainMaster */ = {
 			isa = PBXGroup;
 			children = (
+				8777AF8C257C5DFE0008F4FD /* http */,
 				87BA48ED22A5E9B300E8DDB9 /* Info.plist */,
 				A570BFE923037C1D006AA478 /* plists */,
 				A570BFE823037BE8006AA478 /* nslookup */,
@@ -269,6 +272,7 @@
 				87CACECC22EF906F006C1C34 /* PingSettingsViewController.swift in Sources */,
 				875CB7EC22A9C92D0059A7D6 /* DnsHelper.swift in Sources */,
 				875F4FB322E002320089C1CA /* WhoIsViewController.swift in Sources */,
+				8701D6A5257C765D009CF530 /* HeaderRow.swift in Sources */,
 				87BA48E522A5E9B200E8DDB9 /* AppDelegate.swift in Sources */,
 				87345DB722DBD02B0035349D /* DnsSettingsViewController.swift in Sources */,
 				87CACECA22EE121A006C1C34 /* PingViewController.swift in Sources */,
