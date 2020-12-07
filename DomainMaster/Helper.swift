@@ -192,4 +192,10 @@ class Helper {
             vc.msg.stringValue = msg
         }
     }
+    
+    static func savePreset(name: String, value: NSData) {
+        let defaults = UserDefaults.standard
+        defaults.set(value, forKey: name)
+        defaults.synchronize()
+    }
 }
