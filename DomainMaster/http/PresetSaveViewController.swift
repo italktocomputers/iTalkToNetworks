@@ -8,6 +8,11 @@ import AppKit
 import WebKit
 
 class PresetSaveViewController : ViewController, NSWindowDelegate {
+    var method: String = ""
+    var url: String = ""
+    var payload: String = ""
+    var headers: [Header] = []
+    
     override func viewDidLoad() {
         
     }

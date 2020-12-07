@@ -11,9 +11,9 @@ class Preset: Codable {
     var port: Int
     var method: String
     var payload: String
-    var headers: [String:String]
+    var headers: [Header]
     
-    init(name: String, url: URL, port: Int, method: String, payload: String, headers: [String:String]) {
+    init(name: String, url: URL, port: Int, method: String, payload: String, headers: [Header]) {
         self.name = name
         self.url = url
         self.port = port

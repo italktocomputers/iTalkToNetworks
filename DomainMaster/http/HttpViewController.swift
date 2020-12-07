@@ -6,6 +6,7 @@
 import Foundation
 import AppKit
 import WebKit
+import SwiftUI
 
 class HttpViewController : ViewController, NSWindowDelegate, NSTableViewDataSource, NSTableViewDelegate {
     @IBOutlet weak var method: NSComboBox!
@@ -134,6 +135,20 @@ class HttpViewController : ViewController, NSWindowDelegate, NSTableViewDataSour
     
     @IBAction func deleteHeader(_ sender: Any) {
         requestHeaders.remove(at: requestHeadersTableView.selectedRow)
+    }
+    
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        if segue.destinationController is PresetSaveViewController {
+            let vc = segue.destinationController as? PresetSaveViewController
+            vc?.method = self.method.stringValue
+            vc?.url = self.Url.stringValue
+            
+            if let payloadData = payload.documentView as? NSTextView {
+                vc?.payload = payloadData.string
+            }
+            
+            vc?.headers = self.requestHeaders
+        }
     }
     
 }
