@@ -15,10 +15,10 @@ class HttpViewController : ViewController, NSWindowDelegate, NSTableViewDataSour
     @IBOutlet weak var headerTableView: NSTableView!
     @IBOutlet weak var prettyView: NSScrollView!
     @IBOutlet weak var webView: WKWebView!
+    @IBOutlet weak var requestHeadersTableView: NSTableView!
     
-    
+    @objc dynamic var requestHeaders: [Header] = [Header(name: "Content-Type", value: "application/x-www-form-urlencoded")]
     var headers: [HeaderRow] = []
-    var requestHeaders: [Header] = []
     
     override func viewDidLoad() {
         headerTableView.delegate = self
@@ -27,6 +27,16 @@ class HttpViewController : ViewController, NSWindowDelegate, NSTableViewDataSour
         
         // Set font for table header
         headerTableView.tableColumns.forEach { (column) in
+            column.headerCell.attributedStringValue = NSAttributedString(
+                string: column.title,
+                attributes: [
+                    NSAttributedString.Key.font: NSFont(name: "Geneva", size: 13.0) ?? "Arial"
+                ]
+            )
+        }
+        
+        // Set font for table header
+        requestHeadersTableView.tableColumns.forEach { (column) in
             column.headerCell.attributedStringValue = NSAttributedString(
                 string: column.title,
                 attributes: [
@@ -115,6 +125,15 @@ class HttpViewController : ViewController, NSWindowDelegate, NSTableViewDataSour
             }
         }
         return nil
+    }
+    
+    @IBAction func addHeader(_ sender: Any) {
+        requestHeaders.append(Header(name: "Name", value: "Value"))
+    }
+    
+    
+    @IBAction func deleteHeader(_ sender: Any) {
+        requestHeaders.remove(at: requestHeadersTableView.selectedRow)
     }
     
 }
