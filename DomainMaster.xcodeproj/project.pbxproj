@@ -19,6 +19,7 @@
 		874546E6257D56F400E0BE6B /* HttpSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874546E5257D56F300E0BE6B /* HttpSettingsViewController.swift */; };
 		874546E9257DC20900E0BE6B /* PresetSaveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874546E8257DC20900E0BE6B /* PresetSaveViewController.swift */; };
 		874546EC257DDAEB00E0BE6B /* PresetManagerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874546EB257DDAEB00E0BE6B /* PresetManagerViewController.swift */; };
+		874546F0257DDD7100E0BE6B /* Preset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874546EF257DDD7100E0BE6B /* Preset.swift */; };
 		875CB7EC22A9C92D0059A7D6 /* DnsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875CB7EB22A9C92D0059A7D6 /* DnsHelper.swift */; };
 		875CB7F022A9D74E0059A7D6 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875CB7EF22A9D74E0059A7D6 /* Helper.swift */; };
 		875CB7F222A9D9A40059A7D6 /* DnsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875CB7F122A9D9A40059A7D6 /* DnsRow.swift */; };
@@ -53,6 +54,7 @@
 		874546E5257D56F300E0BE6B /* HttpSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpSettingsViewController.swift; sourceTree = "<group>"; };
 		874546E8257DC20900E0BE6B /* PresetSaveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetSaveViewController.swift; sourceTree = "<group>"; };
 		874546EB257DDAEB00E0BE6B /* PresetManagerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresetManagerViewController.swift; sourceTree = "<group>"; };
+		874546EF257DDD7100E0BE6B /* Preset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preset.swift; sourceTree = "<group>"; };
 		875CB7EB22A9C92D0059A7D6 /* DnsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnsHelper.swift; sourceTree = "<group>"; };
 		875CB7EF22A9D74E0059A7D6 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		875CB7F122A9D9A40059A7D6 /* DnsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnsRow.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				874546E5257D56F300E0BE6B /* HttpSettingsViewController.swift */,
 				874546E8257DC20900E0BE6B /* PresetSaveViewController.swift */,
 				874546EB257DDAEB00E0BE6B /* PresetManagerViewController.swift */,
+				874546EF257DDD7100E0BE6B /* Preset.swift */,
 			);
 			path = http;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				87CACECC22EF906F006C1C34 /* PingSettingsViewController.swift in Sources */,
 				875CB7EC22A9C92D0059A7D6 /* DnsHelper.swift in Sources */,
 				875F4FB322E002320089C1CA /* WhoIsViewController.swift in Sources */,
+				874546F0257DDD7100E0BE6B /* Preset.swift in Sources */,
 				8701D6B2257CAE9A009CF530 /* HeaderRow.swift in Sources */,
 				8701D6A8257C853F009CF530 /* HttpHelper.swift in Sources */,
 				87BA48E522A5E9B200E8DDB9 /* AppDelegate.swift in Sources */,
