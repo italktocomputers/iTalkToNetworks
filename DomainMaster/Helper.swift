@@ -199,7 +199,7 @@ class Helper {
             if key.hasPrefix("PRESET-") {
                 do {
                     let preset = try JSONDecoder().decode(Preset.self, from: value as! Data)
-                    presets.append((name: String(key.dropFirst(6)), preset: preset))
+                    presets.append((name: String(key.dropFirst(7)), preset: preset))
                 }
                 catch {
                     print(error) // Fix this (should show error dialog)

@@ -173,25 +173,12 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        var txtColor = NSColor.white
-        
-        if self.data[row].seq == -1 {
-            txtColor = NSColor.red
-        }
-        else if self.data[row].time >= 1000 {
-            txtColor = NSColor.red
-        }
-        else if self.data[row].time >= 600 {
-            txtColor = NSColor.orange
-        }
-        
         if (tableView.tableColumns[0] == tableColumn) {
             if let cell = tableView.makeView(
                 withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "bytes"),
                 owner: nil
                 ) as? NSTableCellView {
                 cell.textField?.stringValue = String(self.data[row].bytes)
-                //cell.textField?.textColor = txtColor
                 return cell
             }
         }
@@ -201,7 +188,6 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
                 owner: nil
                 ) as? NSTableCellView {
                 cell.textField?.stringValue = String(self.data[row].from)
-                //cell.textField?.textColor = txtColor
                 return cell
             }
         }
@@ -211,7 +197,6 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
                 owner: nil
                 ) as? NSTableCellView {
                 cell.textField?.stringValue = String(self.data[row].seq)
-                //cell.textField?.textColor = txtColor
                 return cell
             }
         }
@@ -221,7 +206,6 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
                 owner: nil
                 ) as? NSTableCellView {
                 cell.textField?.stringValue = String(self.data[row].ttl)
-                //cell.textField?.textColor = txtColor
                 return cell
             }
         }
@@ -231,7 +215,6 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
                 owner: nil
                 ) as? NSTableCellView {
                 cell.textField?.stringValue = String(self.data[row].time)
-                //cell.textField?.textColor = txtColor
                 return cell
             }
         }

@@ -10,9 +10,13 @@ import WebKit
 class PresetManagerViewController : ViewController, NSTableViewDataSource, NSTableViewDelegate, NSWindowDelegate {
     @IBOutlet weak var tableView: NSTableView!
     var data: [(name: String, preset: Preset)] = []
+    var selectedRow: IndexPath?
     
     
     override func viewDidLoad() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        
         // Set font for table header
         tableView.tableColumns.forEach { (column) in
             column.headerCell.attributedStringValue = NSAttributedString(
@@ -24,6 +28,7 @@ class PresetManagerViewController : ViewController, NSTableViewDataSource, NSTab
         }
         
         data = Helper.getPresets()
+        tableView.reloadData()
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
@@ -56,8 +61,12 @@ class PresetManagerViewController : ViewController, NSTableViewDataSource, NSTab
         return nil
     }
     
-    @IBAction func delete(_ sender: NSButton) {
+    func tableView(_ tableView: NSTableView, didSelectRowAt indexPath: IndexPath) {
         
+    }
+    
+    @IBAction func delete(_ sender: NSButton) {
+        //Helper.deletePreset(name: name as! String)
     }
     
     @IBAction func open(_ sender: NSButton) {

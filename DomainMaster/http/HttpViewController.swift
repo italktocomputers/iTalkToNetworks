@@ -36,16 +36,6 @@ class HttpViewController : ViewController, NSWindowDelegate, NSTableViewDataSour
                 ]
             )
         }
-        
-        // Set font for table header
-        requestHeadersTableView.tableColumns.forEach { (column) in
-            column.headerCell.attributedStringValue = NSAttributedString(
-                string: column.title,
-                attributes: [
-                    NSAttributedString.Key.font: NSFont(name: "Geneva", size: 13.0) ?? "Arial"
-                ]
-            )
-        }
     }
     
     @IBAction func startHttpRequest(_ sender: Any) {

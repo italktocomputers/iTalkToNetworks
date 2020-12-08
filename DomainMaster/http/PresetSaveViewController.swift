@@ -22,7 +22,7 @@ class PresetSaveViewController : ViewController, NSWindowDelegate {
     
     @IBAction func save(_ sender: NSButton) {
         Helper.savePreset(
-            name: "",
+            name: name.stringValue,
             value: Preset(
                 name: name.stringValue,
                 url: URL(string: url)!,
@@ -32,6 +32,7 @@ class PresetSaveViewController : ViewController, NSWindowDelegate {
                 headers: headers
             )
         )
+        self.view.window?.close()
     }
     
     @IBAction func close(_ sender: NSButton) {
