@@ -17,6 +17,7 @@ class HttpViewController : ViewController, NSWindowDelegate, NSTableViewDataSour
     @IBOutlet weak var prettyView: NSScrollView!
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var requestHeadersTableView: NSTableView!
+    @IBOutlet weak var port: NSTextField!
     
     @objc dynamic var requestHeaders: [Header] = [Header(name: "Content-Type", value: "application/x-www-form-urlencoded")]
     var headers: [HeaderRow] = []
@@ -142,6 +143,7 @@ class HttpViewController : ViewController, NSWindowDelegate, NSTableViewDataSour
             let vc = segue.destinationController as? PresetSaveViewController
             vc?.method = self.method.stringValue
             vc?.url = self.Url.stringValue
+            vc?.port = Int(self.port.stringValue)! // Fix later`
             
             if let payloadData = payload.documentView as? NSTextView {
                 vc?.payload = payloadData.string

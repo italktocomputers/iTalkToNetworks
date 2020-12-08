@@ -21,18 +21,4 @@ class Preset: Codable {
         self.payload = payload
         self.headers = headers
     }
-    
-    func serialize() -> Data? {
-        let encoder = JSONEncoder()
-        
-        do {
-            let data = try encoder.encode(self)
-            return data
-        }
-        catch {
-           print("Cannot serialize data!")
-        }
-        
-        return nil
-    }
 }

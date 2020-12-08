@@ -1,6 +1,6 @@
 import Foundation
 
-class Header: NSObject {
+class Header: NSObject, Codable {
     @objc dynamic var name: String
     @objc dynamic var value: String
     init(name: String, value: String) {

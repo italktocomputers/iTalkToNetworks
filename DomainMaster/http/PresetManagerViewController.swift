@@ -7,9 +7,53 @@ import Foundation
 import AppKit
 import WebKit
 
-class PresetManagerViewController : ViewController, NSWindowDelegate {
+class PresetManagerViewController : ViewController, NSTableViewDataSource, NSTableViewDelegate, NSWindowDelegate {
+    @IBOutlet weak var tableView: NSTableView!
+    var data: [(name: String, preset: Preset)] = []
+    
+    
     override func viewDidLoad() {
+        // Set font for table header
+        tableView.tableColumns.forEach { (column) in
+            column.headerCell.attributedStringValue = NSAttributedString(
+                string: column.title,
+                attributes: [
+                    NSAttributedString.Key.font: NSFont(name: "Geneva", size: 13.0) ?? "Arial"
+                ]
+            )
+        }
         
+        data = Helper.getPresets()
+    }
+    
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        return data.count
+    }
+    
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        if (tableView.tableColumns[0] == tableColumn) {
+            if let cell = tableView.makeView(
+                withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "Name"),
+                owner: nil
+                ) as? NSTableCellView {
+                cell.textField?.stringValue = String(self.data[row].name)
+                return cell
+            }
+        }
+        else if (tableView.tableColumns[1] == tableColumn) {
+            if let cell = tableView.makeView(
+                withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "Preset"),
+                owner: nil
+                ) as? NSTableCellView {
+                let method = String(self.data[row].preset.method)
+                let url = String(self.data[row].preset.url.absoluteString)
+                let port = String(self.data[row].preset.port)
+                cell.textField?.stringValue = "\(method.uppercased()) \(url):\(port)"
+                return cell
+            }
+        }
+        
+        return nil
     }
     
     @IBAction func delete(_ sender: NSButton) {

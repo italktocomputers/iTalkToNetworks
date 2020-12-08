@@ -193,9 +193,38 @@ class Helper {
         }
     }
     
-    static func savePreset(name: String, value: NSData) {
+    static func getPresets() -> [(name: String, preset: Preset)] {
+        var presets: [(name: String, preset: Preset)] = []
+        for (key, value) in UserDefaults.standard.dictionaryRepresentation() {
+            if key.hasPrefix("PRESET-") {
+                do {
+                    let preset = try JSONDecoder().decode(Preset.self, from: value as! Data)
+                    presets.append((name: String(key.dropFirst(6)), preset: preset))
+                }
+                catch {
+                    print(error) // Fix this (should show error dialog)
+                }
+            }
+        }
+        
+        return presets
+    }
+    
+    static func savePreset(name: String, value: Preset) {
         let defaults = UserDefaults.standard
-        defaults.set(value, forKey: name)
+        do {
+            let data = try JSONEncoder().encode(value)
+            defaults.set(data, forKey: "PRESET-\(name)")
+            defaults.synchronize()
+        }
+        catch {
+            print(error) // Fix this (should show error dialog)
+        }
+    }
+    
+    static func deletePreset(name: String) {
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: "PRESET-\(name)")
         defaults.synchronize()
     }
 }
