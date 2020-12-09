@@ -4,6 +4,7 @@
 //
 
 import Foundation
+import AppKit
 
 class File {
     var fileName: String
@@ -18,13 +19,34 @@ class File {
         self.fileAdded = fileAdded
     }
     
-    static func initFromArray(arr: Array<String>) -> [File] {
+    static func initFromArray(fileManager: FileManager, arr: Array<String>, path: String) -> [File] {
         var newArr: [File] = []
         
         for i in arr {
-            newArr.append(File(fileName: i, fileSize: "0", fileKind: "0", fileAdded: "0"))
+            let attributes = getFileattributes(fileManager: fileManager, fileName: i, path: path)
+            let size = attributes[FileAttributeKey.size] as! NSNumber
+            let type = attributes[FileAttributeKey.type] as! String
+            let date = attributes[FileAttributeKey.creationDate] as! Date
+            let formatter1 = DateFormatter()
+            formatter1.dateStyle = .short
+            newArr.append(
+                File(fileName: i, fileSize: size.stringValue, fileKind: type, fileAdded: formatter1.string(from: date))
+            )
         }
         
         return newArr
+    }
+    
+    static func getFileattributes(fileManager: FileManager, fileName: String, path: String) -> [FileAttributeKey: Any] {
+        var attributes: [FileAttributeKey: Any] = [:]
+        
+        do {
+            attributes = try fileManager.attributesOfItem(atPath: "\(path)/\(fileName)")
+        }
+        catch {
+            print(error)
+        }
+        
+        return attributes
     }
 }

@@ -5,10 +5,12 @@
 
 import Foundation
 import AppKit
+import SwiftUI
 
 class FileExplorerViewController : ViewController, NSTableViewDataSource, NSTableViewDelegate {
     @IBOutlet weak var tableView: NSTableView!
     var data: [File] = []
+    let fileManager = FileManager.default
     
     override func viewDidLoad() {
         tableView.delegate = self
@@ -24,8 +26,8 @@ class FileExplorerViewController : ViewController, NSTableViewDataSource, NSTabl
             )
         }
         
-        let filenames = getListOfFileNames()
-        data = File.initFromArray(arr: filenames)
+        let filenames = getListOfFileNames(path: NSHomeDirectory())
+        data = File.initFromArray(fileManager: fileManager, arr: filenames, path:  NSHomeDirectory())
         tableView.reloadData()
     }
     
@@ -35,6 +37,25 @@ class FileExplorerViewController : ViewController, NSTableViewDataSource, NSTabl
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         if (tableView.tableColumns[0] == tableColumn) {
+            if self.data[row].fileKind == "NSFileTypeDirectory" {
+                
+            }
+            else if self.data[row].fileKind == "NSFileTypeRegular" {
+                
+            }
+            if let cell = tableView.makeView(
+                withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "fileicon"),
+                owner: nil
+                ) as? NSTableCellView {
+                if #available(OSX 10.15, *) {
+                    cell.imageView = NSImageView(image: NSImage(named: NSImage.folderName)!)
+                } else {
+                    // Fallback on earlier versions
+                }
+                return cell
+            }
+        }
+        else if (tableView.tableColumns[1] == tableColumn) {
             if let cell = tableView.makeView(
                 withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "filename"),
                 owner: nil
@@ -43,7 +64,7 @@ class FileExplorerViewController : ViewController, NSTableViewDataSource, NSTabl
                 return cell
             }
         }
-        else if (tableView.tableColumns[1] == tableColumn) {
+        else if (tableView.tableColumns[2] == tableColumn) {
             if let cell = tableView.makeView(
                 withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "filesize"),
                 owner: nil
@@ -52,16 +73,7 @@ class FileExplorerViewController : ViewController, NSTableViewDataSource, NSTabl
                 return cell
             }
         }
-        else if (tableView.tableColumns[1] == tableColumn) {
-            if let cell = tableView.makeView(
-                withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "filekind"),
-                owner: nil
-                ) as? NSTableCellView {
-                cell.textField?.stringValue = String(self.data[row].fileKind)
-                return cell
-            }
-        }
-        else if (tableView.tableColumns[2] == tableColumn) {
+        else if (tableView.tableColumns[3] == tableColumn) {
             if let cell = tableView.makeView(
                 withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "fileadded"),
                 owner: nil
@@ -78,31 +90,16 @@ class FileExplorerViewController : ViewController, NSTableViewDataSource, NSTabl
         self.view.window?.close()
     }
     
-    func getListOfFileNames() -> Array<String> {
-        let docsPath = NSHomeDirectory()
-        let fileManager = FileManager.default
+    func getListOfFileNames(path: String) -> Array<String> {
         var docsArray: Array<String> = []
 
         do {
-            docsArray = try fileManager.contentsOfDirectory(atPath: docsPath)
+            docsArray = try fileManager.contentsOfDirectory(atPath: path)
         }
         catch {
             print(error)
         }
         
         return docsArray
-    }
-    
-    func getFileattributes(fileManager: FileManager, fileName: String, path: String) -> [FileAttributeKey: Any] {
-        var attributes: [FileAttributeKey: Any] = [:]
-        
-        do {
-            attributes = try fileManager.attributesOfItem(atPath: "\(path)/\(fileName)")
-        }
-        catch {
-            print(error)
-        }
-        
-        return attributes
     }
 }
