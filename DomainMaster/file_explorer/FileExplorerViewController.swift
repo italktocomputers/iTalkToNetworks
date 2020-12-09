@@ -40,23 +40,22 @@ class FileExplorerViewController : ViewController, NSTableViewDataSource, NSTabl
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         if (tableView.tableColumns[0] == tableColumn) {
-            let icon: NSImage
+            var icon: NSImage? = nil
             
             if self.data[row].fileKind == "NSFileTypeDirectory" {
                 icon = NSImage(named: NSImage.folderName)!
             }
             else if self.data[row].fileKind == "NSFileTypeRegular" {
-                icon = NSImage(named: NSImage.iconViewTemplateName)!
-            }
-            else {
-                icon = NSImage(named: NSImage.infoName)!
+                //icon = NSImage(named: NSImage.iconViewTemplateName)!
             }
             
             if let cell = tableView.makeView(
                 withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "fileicon"),
                 owner: nil
                 ) as? NSTableCellView {
-                cell.imageView!.image = icon
+                if icon != nil {
+                    cell.imageView!.image = icon!
+                }
                 return cell
             }
         }
