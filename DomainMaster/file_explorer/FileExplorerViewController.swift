@@ -9,6 +9,8 @@ import SwiftUI
 
 class FileExplorerViewController : ViewController, NSTableViewDataSource, NSTableViewDelegate {
     @IBOutlet weak var tableView: NSTableView!
+    @IBOutlet weak var pathLabel: NSTextField!
+    
     var data: [File] = []
     let fileManager = FileManager.default
     
@@ -27,6 +29,7 @@ class FileExplorerViewController : ViewController, NSTableViewDataSource, NSTabl
         }
         
         let filenames = getListOfFileNames(path: NSHomeDirectory())
+        pathLabel.stringValue = NSHomeDirectory()
         data = File.initFromArray(fileManager: fileManager, arr: filenames, path:  NSHomeDirectory())
         tableView.reloadData()
     }
@@ -37,21 +40,23 @@ class FileExplorerViewController : ViewController, NSTableViewDataSource, NSTabl
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         if (tableView.tableColumns[0] == tableColumn) {
+            let icon: NSImage
+            
             if self.data[row].fileKind == "NSFileTypeDirectory" {
-                
+                icon = NSImage(named: NSImage.folderName)!
             }
             else if self.data[row].fileKind == "NSFileTypeRegular" {
-                
+                icon = NSImage(named: NSImage.iconViewTemplateName)!
             }
+            else {
+                icon = NSImage(named: NSImage.infoName)!
+            }
+            
             if let cell = tableView.makeView(
                 withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "fileicon"),
                 owner: nil
                 ) as? NSTableCellView {
-                if #available(OSX 10.15, *) {
-                    cell.imageView = NSImageView(image: NSImage(named: NSImage.folderName)!)
-                } else {
-                    // Fallback on earlier versions
-                }
+                cell.imageView!.image = icon
                 return cell
             }
         }
