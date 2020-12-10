@@ -13,10 +13,12 @@ class FileExplorerViewController : ViewController, NSTableViewDataSource, NSTabl
     
     var data: [File] = []
     let fileManager = FileManager.default
+    var path = NSHomeDirectory()
     
     override func viewDidLoad() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.action = #selector(fileNameClick)
         
         // Set font for table header
         tableView.tableColumns.forEach { (column) in
@@ -28,25 +30,31 @@ class FileExplorerViewController : ViewController, NSTableViewDataSource, NSTabl
             )
         }
         
-        let filenames = getListOfFileNames(path: NSHomeDirectory())
-        pathLabel.stringValue = NSHomeDirectory()
-        data = File.initFromArray(fileManager: fileManager, arr: filenames, path:  NSHomeDirectory())
-        tableView.reloadData()
+        loadDir()
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
         return data.count
     }
     
+    func loadDir() {
+        let filenames = getListOfFileNames(path: path)
+        pathLabel.stringValue = path
+        data = File.initFromArray(fileManager: fileManager, arr: filenames, path:  path)
+        tableView.reloadData()
+    }
+    
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         if (tableView.tableColumns[0] == tableColumn) {
             var icon: NSImage? = nil
             
+            print(self.data[row].fileKind)
+            
             if self.data[row].fileKind == "NSFileTypeDirectory" {
                 icon = NSImage(named: NSImage.folderName)!
             }
-            else if self.data[row].fileKind == "NSFileTypeRegular" {
-                //icon = NSImage(named: NSImage.iconViewTemplateName)!
+            else {
+                icon = NSImage(named: NSImage.iconViewTemplateName)!
             }
             
             if let cell = tableView.makeView(
@@ -92,6 +100,35 @@ class FileExplorerViewController : ViewController, NSTableViewDataSource, NSTabl
     
     @IBAction func close(_ sender: NSButton) {
         self.view.window?.close()
+    }
+    
+    @IBAction func upDir(_ sender: Any) {
+        var pathArray = path.split(separator: "/")
+        pathArray.removeLast()
+        let newPath = pathArray.joined(separator: "/")
+        path = newPath
+        print(newPath)
+        loadDir()
+    }
+    
+    @IBAction func homeDir(_ sender: Any) {
+        path = NSHomeDirectory()
+        loadDir()
+    }
+    
+    @IBAction func rootDir(_ sender: Any) {
+        path = "/"
+        loadDir()
+    }
+    
+    @objc func fileNameClick() {
+        let file = data[tableView.selectedRow]
+        
+        if file.fileKind == "NSFileTypeDirectory" {
+            path = "\(path)/\(data[tableView.selectedRow].fileName)"
+        }
+        
+        loadDir()
     }
     
     func getListOfFileNames(path: String) -> Array<String> {

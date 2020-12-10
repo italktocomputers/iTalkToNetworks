@@ -4109,11 +4109,14 @@ TXT (Descriptive text)</string>
                                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vYe-XN-OKY">
                                                                                 <rect key="frame" x="0.0" y="4" width="285" height="16"/>
                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="ofB-Xp-RhU">
-                                                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                                                <textFieldCell key="cell" lineBreakMode="truncatingTail" selectable="YES" title="Table View Cell" id="ofB-Xp-RhU">
+                                                                                    <font key="font" size="13" name="Geneva"/>
                                                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                                                 </textFieldCell>
+                                                                                <connections>
+                                                                                    <action selector="fileNameClick:" target="5wE-kt-YpE" id="BPp-cy-q74"/>
+                                                                                </connections>
                                                                             </textField>
                                                                         </subviews>
                                                                         <connections>
@@ -4210,6 +4213,9 @@ TXT (Descriptive text)</string>
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="upDir:" target="5wE-kt-YpE" id="1eu-OJ-3Sp"/>
+                                            </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9kG-ZS-DzY">
                                             <rect key="frame" x="529" y="338" width="45" height="32"/>
@@ -4218,6 +4224,9 @@ TXT (Descriptive text)</string>
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="rootDir:" target="5wE-kt-YpE" id="GXe-gO-EUK"/>
+                                            </connections>
                                         </button>
                                         <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7AW-a0-Hhh">
                                             <rect key="frame" x="563" y="338" width="45" height="32"/>
@@ -4226,6 +4235,9 @@ TXT (Descriptive text)</string>
                                                 <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                 <font key="font" metaFont="system"/>
                                             </buttonCell>
+                                            <connections>
+                                                <action selector="homeDir:" target="5wE-kt-YpE" id="U6v-3h-0cD"/>
+                                            </connections>
                                         </button>
                                         <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7ky-a6-imc">
                                             <rect key="frame" x="20" y="344" width="508" height="21"/>
@@ -4247,6 +4259,9 @@ TXT (Descriptive text)</string>
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" size="13" name="Geneva"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="close:" target="5wE-kt-YpE" id="XO1-WZ-jNm"/>
+                                </connections>
                             </button>
                         </subviews>
                     </view>
@@ -6180,7 +6195,7 @@ Gw
                                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                             <subviews>
                                                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jh0-be-7yH">
-                                                                                                    <rect key="frame" x="0.0" y="16" width="114" height="16"/>
+                                                                                                    <rect key="frame" x="0.0" y="15" width="114" height="16"/>
                                                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="zlp-VK-8VS">
                                                                                                         <font key="font" size="13" name="Geneva"/>
@@ -6212,7 +6227,7 @@ Gw
                                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                             <subviews>
                                                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p4i-ha-oNV">
-                                                                                                    <rect key="frame" x="0.0" y="16" width="609" height="16"/>
+                                                                                                    <rect key="frame" x="0.0" y="15" width="609" height="16"/>
                                                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="nBg-a8-sjW">
                                                                                                         <font key="font" size="13" name="Geneva"/>
