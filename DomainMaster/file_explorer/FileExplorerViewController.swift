@@ -14,6 +14,7 @@ class FileExplorerViewController : ViewController, NSTableViewDataSource, NSTabl
     var data: [File] = []
     let fileManager = FileManager.default
     var path = NSHomeDirectory()
+    var callingViewController: FileExplorerProtocol? = nil
     
     override func viewDidLoad() {
         tableView.delegate = self
@@ -47,8 +48,6 @@ class FileExplorerViewController : ViewController, NSTableViewDataSource, NSTabl
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         if (tableView.tableColumns[0] == tableColumn) {
             var icon: NSImage? = nil
-            
-            print(self.data[row].fileKind)
             
             if self.data[row].fileKind == "NSFileTypeDirectory" {
                 icon = NSImage(named: NSImage.folderName)!
@@ -125,10 +124,15 @@ class FileExplorerViewController : ViewController, NSTableViewDataSource, NSTabl
         let file = data[tableView.selectedRow]
         
         if file.fileKind == "NSFileTypeDirectory" {
+            // Directory was clicked
             path = "\(path)/\(data[tableView.selectedRow].fileName)"
+            loadDir()
+        }
+        else {
+            // File was clicked, so send the name back to parent controller
+            callingViewController?.fileSelected(path: path, file: file)
         }
         
-        loadDir()
     }
     
     func getListOfFileNames(path: String) -> Array<String> {

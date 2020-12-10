@@ -4037,14 +4037,6 @@ TXT (Descriptive text)</string>
                         <rect key="frame" x="0.0" y="0.0" width="694" height="480"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VW5-1y-PxX">
-                                <rect key="frame" x="608" y="13" width="73" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Select" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="663-zw-CHN">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" size="13" name="Geneva"/>
-                                </buttonCell>
-                            </button>
                             <box fixedFrame="YES" title="File Explorer" translatesAutoresizingMaskIntoConstraints="NO" id="fwl-R8-LMJ">
                                 <rect key="frame" x="17" y="56" width="660" height="404"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -4252,15 +4244,15 @@ TXT (Descriptive text)</string>
                                 </view>
                                 <font key="titleFont" size="13" name="Geneva"/>
                             </box>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uEY-Nh-J8b">
-                                <rect key="frame" x="542" y="13" width="68" height="32"/>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5lG-I3-Gpc">
+                                <rect key="frame" x="613" y="13" width="68" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="v8h-Dm-OwI">
+                                <buttonCell key="cell" type="push" title="Close" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="qFu-7B-fnK">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" size="13" name="Geneva"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="close:" target="5wE-kt-YpE" id="XO1-WZ-jNm"/>
+                                    <action selector="close:" target="5wE-kt-YpE" id="cN2-6Z-IsP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -6095,7 +6087,7 @@ Gw
         <!--Server-->
         <scene sceneID="iGf-A3-cGJ">
             <objects>
-                <viewController title="Server" id="PrP-Ma-K6P" sceneMemberID="viewController">
+                <viewController title="Server" id="PrP-Ma-K6P" customClass="ServerViewController" customModule="DomainMaster" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="c0z-OC-KA1">
                         <rect key="frame" x="0.0" y="0.0" width="881" height="606"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -6195,7 +6187,7 @@ Gw
                                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                             <subviews>
                                                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jh0-be-7yH">
-                                                                                                    <rect key="frame" x="0.0" y="15" width="114" height="16"/>
+                                                                                                    <rect key="frame" x="0.0" y="16" width="114" height="16"/>
                                                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="zlp-VK-8VS">
                                                                                                         <font key="font" size="13" name="Geneva"/>
@@ -6227,7 +6219,7 @@ Gw
                                                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                             <subviews>
                                                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="p4i-ha-oNV">
-                                                                                                    <rect key="frame" x="0.0" y="15" width="609" height="16"/>
+                                                                                                    <rect key="frame" x="0.0" y="16" width="609" height="16"/>
                                                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="nBg-a8-sjW">
                                                                                                         <font key="font" size="13" name="Geneva"/>
