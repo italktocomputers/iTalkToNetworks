@@ -6258,6 +6258,9 @@ Gw
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                     <font key="font" metaFont="system"/>
                                                                 </buttonCell>
+                                                                <connections>
+                                                                    <action selector="saveControlFiles:" target="PrP-Ma-K6P" id="Fsf-qu-gZT"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </view>
@@ -6372,6 +6375,9 @@ Gw
                                                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                                                     <font key="font" metaFont="system"/>
                                                                 </buttonCell>
+                                                                <connections>
+                                                                    <action selector="saveFiles:" target="PrP-Ma-K6P" id="LWZ-ep-PdJ"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </view>
@@ -6396,6 +6402,10 @@ Gw
                             </tabView>
                         </subviews>
                     </view>
+                    <connections>
+                        <outlet property="controlTableView" destination="V6h-Q8-iWO" id="7yy-yN-BIm"/>
+                        <outlet property="filesTableView" destination="fBB-e7-XqC" id="fs4-dS-nKe"/>
+                    </connections>
                 </viewController>
                 <customObject id="E6t-xg-hYj" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>

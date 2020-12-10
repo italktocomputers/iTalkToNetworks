@@ -9,6 +9,9 @@ import WebKit
 import SwiftUI
 
 class ServerViewController : ViewController, FileExplorerProtocol {
+    @IBOutlet weak var controlTableView: NSTableView!
+    @IBOutlet weak var filesTableView: NSTableView!
+    
     override func viewDidLoad() {
         
     }
@@ -23,4 +26,14 @@ class ServerViewController : ViewController, FileExplorerProtocol {
     func fileSelected(path: String, file: File) {
         print("This is the file selected: \(path)/\(file.fileName)")
     }
+    
+    @IBAction func saveControlFiles(_ sender: Any) {
+        
+    }
+    
+    
+    @IBAction func saveFiles(_ sender: Any) {
+        
+    }
+    
 }
