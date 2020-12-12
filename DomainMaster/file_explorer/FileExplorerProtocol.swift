@@ -6,5 +6,7 @@
 import Foundation
 
 protocol FileExplorerProtocol {
+    func allowSelectDirectory() -> Bool
+    func allowSelectFile() -> Bool
     func fileSelected(path: String, file: File)
 }

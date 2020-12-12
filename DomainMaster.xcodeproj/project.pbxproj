@@ -24,6 +24,7 @@
 		874546F0257DDD7100E0BE6B /* Preset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874546EF257DDD7100E0BE6B /* Preset.swift */; };
 		8749699F2581E17100B2677D /* ServerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8749699E2581E17100B2677D /* ServerViewController.swift */; };
 		874969A22581E35300B2677D /* FileExplorerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874969A12581E35300B2677D /* FileExplorerProtocol.swift */; };
+		874969A6258481F300B2677D /* ScpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 874969A5258481F300B2677D /* ScpViewController.swift */; };
 		875CB7EC22A9C92D0059A7D6 /* DnsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875CB7EB22A9C92D0059A7D6 /* DnsHelper.swift */; };
 		875CB7F022A9D74E0059A7D6 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875CB7EF22A9D74E0059A7D6 /* Helper.swift */; };
 		875CB7F222A9D9A40059A7D6 /* DnsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 875CB7F122A9D9A40059A7D6 /* DnsRow.swift */; };
@@ -63,6 +64,7 @@
 		874546EF257DDD7100E0BE6B /* Preset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preset.swift; sourceTree = "<group>"; };
 		8749699E2581E17100B2677D /* ServerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerViewController.swift; sourceTree = "<group>"; };
 		874969A12581E35300B2677D /* FileExplorerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileExplorerProtocol.swift; sourceTree = "<group>"; };
+		874969A5258481F300B2677D /* ScpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScpViewController.swift; sourceTree = "<group>"; };
 		875CB7EB22A9C92D0059A7D6 /* DnsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnsHelper.swift; sourceTree = "<group>"; };
 		875CB7EF22A9D74E0059A7D6 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		875CB7F122A9D9A40059A7D6 /* DnsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DnsRow.swift; sourceTree = "<group>"; };
@@ -132,6 +134,14 @@
 			path = file_explorer;
 			sourceTree = "<group>";
 		};
+		874969A4258481DA00B2677D /* scp */ = {
+			isa = PBXGroup;
+			children = (
+				874969A5258481F300B2677D /* ScpViewController.swift */,
+			);
+			path = scp;
+			sourceTree = "<group>";
+		};
 		8777AF8C257C5DFE0008F4FD /* http */ = {
 			isa = PBXGroup;
 			children = (
@@ -168,6 +178,7 @@
 		87BA48E322A5E9B200E8DDB9 /* DomainMaster */ = {
 			isa = PBXGroup;
 			children = (
+				874969A4258481DA00B2677D /* scp */,
 				8729B22925804EE200216315 /* file_explorer */,
 				8729B22725804EB300216315 /* server */,
 				8777AF8C257C5DFE0008F4FD /* http */,
@@ -345,6 +356,7 @@
 				875CB7F022A9D74E0059A7D6 /* Helper.swift in Sources */,
 				873B266B22EE0921005BAA5F /* PingRow.swift in Sources */,
 				875F4FB722E13D4D0089C1CA /* WhoIsSettingsViewController.swift in Sources */,
+				874969A6258481F300B2677D /* ScpViewController.swift in Sources */,
 				875CB7F222A9D9A40059A7D6 /* DnsRow.swift in Sources */,
 				8701D6AE257CA8E5009CF530 /* Header.swift in Sources */,
 				A5F198C923079A1F006E1272 /* ErrorBoxViewController.swift in Sources */,

@@ -10,6 +10,7 @@ import SwiftUI
 class FileExplorerViewController : ViewController, NSTableViewDataSource, NSTableViewDelegate {
     @IBOutlet weak var tableView: NSTableView!
     @IBOutlet weak var pathLabel: NSTextField!
+    @IBOutlet weak var chooseBtn: NSButton!
     
     var data: [File] = []
     let fileManager = FileManager.default
@@ -19,7 +20,8 @@ class FileExplorerViewController : ViewController, NSTableViewDataSource, NSTabl
     override func viewDidLoad() {
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.action = #selector(fileNameClick)
+        //tableView.action = #selector(fileNameClick)
+        tableView.doubleAction = #selector(fileNameClick)
         
         // Set font for table header
         tableView.tableColumns.forEach { (column) in
@@ -129,10 +131,11 @@ class FileExplorerViewController : ViewController, NSTableViewDataSource, NSTabl
             loadDir()
         }
         else {
-            // File was clicked, so send the name back to parent controller
-            callingViewController?.fileSelected(path: path, file: file)
+            if (callingViewController!.allowSelectFile()) {
+                // File was clicked, so send the name back to parent controller
+                callingViewController?.fileSelected(path: path, file: file)
+            }
         }
-        
     }
     
     func getListOfFileNames(path: String) -> Array<String> {
@@ -146,5 +149,23 @@ class FileExplorerViewController : ViewController, NSTableViewDataSource, NSTabl
         }
         
         return docsArray
+    }
+    
+    @IBAction func choose(_ sender: Any) {
+        let file = data[tableView.selectedRow]
+        if file.fileKind == "NSFileTypeDirectory" {
+            if (callingViewController!.allowSelectDirectory()) {
+                // Directory was clicked
+                callingViewController?.fileSelected(path: path, file: file)
+                self.view.window?.close()
+            }
+        }
+        else {
+            if (callingViewController!.allowSelectFile()) {
+                // File was clicked
+                callingViewController?.fileSelected(path: path, file: file)
+                self.view.window?.close()
+            }
+        }
     }
 }

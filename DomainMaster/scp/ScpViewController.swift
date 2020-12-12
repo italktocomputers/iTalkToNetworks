@@ -8,17 +8,18 @@ import AppKit
 import WebKit
 import SwiftUI
 
-class ServerViewController : ViewController, FileExplorerProtocol {
+class ScpViewController : ViewController, NSWindowDelegate, NSTableViewDataSource, NSTableViewDelegate, FileExplorerProtocol {
     func allowSelectDirectory() -> Bool {
-         return false
+        return true
     }
     
     func allowSelectFile() -> Bool {
         return true
     }
     
-    @IBOutlet weak var controlTableView: NSTableView!
-    @IBOutlet weak var filesTableView: NSTableView!
+    func fileSelected(path: String, file: File) {
+        print("Choose \(path)/\(file.fileName)")
+    }
     
     override func viewDidLoad() {
         
@@ -30,18 +31,4 @@ class ServerViewController : ViewController, FileExplorerProtocol {
             vc?.callingViewController = self
         }
     }
-    
-    func fileSelected(path: String, file: File) {
-        print("This is the file selected: \(path)/\(file.fileName)")
-    }
-    
-    @IBAction func saveControlFiles(_ sender: Any) {
-        
-    }
-    
-    
-    @IBAction func saveFiles(_ sender: Any) {
-        
-    }
-    
 }
