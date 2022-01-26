@@ -59,7 +59,7 @@ class DnsHelper {
         return false;
     }
     
-    static func dnsLookUp(domain: String) -> [DnsRow] {
+    static func dnsLookUp(domain: String, stdIn: inout Pipe, stdOut: inout Pipe, stdErr: inout Pipe) -> Process {
         var rLookUp = ""
         let defaults = UserDefaults.standard
         let dnsPort = defaults.string(forKey: "dnsPort")
@@ -71,65 +71,56 @@ class DnsHelper {
             resourceType = "PTR"
         }
         
-        let results = Helper.shell("dig -p \(dnsPort!) @\(dnsSource!) +noall +answer \(rLookUp) \(domain) \(resourceType!)")
-        return parseDnsResponse(results: results)
+        return Helper.shell(stdIn: &stdIn, stdOut: &stdOut, stdErr: &stdErr, "dig -p \(dnsPort!) @\(dnsSource!) +noall +answer \(rLookUp) \(domain) \(resourceType!)")
     }
     
-    static func parseDnsResponse(results: String) -> [DnsRow] {
-        var tblData: [DnsRow] = []
-        let rows = results.split(separator: "\n")
+    static func parseResponse(results: String) -> DnsRow {
         let regex = try? NSRegularExpression(
             pattern: "^([a-zA-Z0-9\\-.]{1,})[\\t\\s]{1,}([0-9]{1,})[\\t\\s]{1,}([a-zA-Z]{1,})[\\t\\s]{1,}([a-zA-Z]{1,})[\\t\\s]{1,}(.+)$",
             options: NSRegularExpression.Options.caseInsensitive
         )
         
-        for row in rows {
-            var domain = ""
-            var ttl = ""
-            var tclass = ""
-            var type = ""
-            var ip = ""
-            let myrow = String(row) // deep copy
+        // Default values
+        var domain = ""
+        var ttl = ""
+        var tclass = ""
+        var type = ""
+        var ip = ""
+        
+        let matches = regex!.matches(
+            in: results,
+            options: [],
+            range: NSRange(location: 0, length: results.count)
+        )
+        
+        if let match = matches.first {
+            if let domainRange = Range(match.range(at:1), in: String(results)) {
+                domain = String(results[domainRange])
+            }
             
-            let matches = regex!.matches(
-                in: String(myrow),
-                options: [],
-                range: NSRange(location: 0, length: myrow.count)
-            )
+            if let ttlRange = Range(match.range(at:2), in: String(results)) {
+                ttl = String(results[ttlRange])
+            }
             
-            if let match = matches.first {
-                if let domainRange = Range(match.range(at:1), in: String(myrow)) {
-                    domain = String(myrow[domainRange])
-                }
-                
-                if let ttlRange = Range(match.range(at:2), in: String(myrow)) {
-                    ttl = String(myrow[ttlRange])
-                }
-                
-                if let classRange = Range(match.range(at:3), in: String(myrow)) {
-                    tclass = String(myrow[classRange])
-                }
-                
-                if let typeRange = Range(match.range(at:4), in: String(myrow)) {
-                    type = String(myrow[typeRange])
-                }
-                
-                if let ipRange = Range(match.range(at:5), in: String(myrow)) {
-                    ip = String(myrow[ipRange])
-                }
-                
-                tblData.append(
-                    DnsRow(
-                        domain: domain,
-                        ttl: ttl,
-                        type: type,
-                        tclass: tclass,
-                        ip: ip
-                    )
-                )
+            if let classRange = Range(match.range(at:3), in: String(results)) {
+                tclass = String(results[classRange])
+            }
+            
+            if let typeRange = Range(match.range(at:4), in: String(results)) {
+                type = String(results[typeRange])
+            }
+            
+            if let ipRange = Range(match.range(at:5), in: String(results)) {
+                ip = String(results[ipRange])
             }
         }
         
-        return tblData
+        return DnsRow(
+            domain: domain,
+            ttl: ttl,
+            type: type,
+            tclass: tclass,
+            ip: ip
+        )
     }
 }

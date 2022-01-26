@@ -24,19 +24,10 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     var pingElapsedTime: TimeInterval = Date().timeIntervalSinceNow
     var pingPacketsTransmitted = 0
     var pingPacketsReceived = 0
-    var okToPing = UnsafeMutablePointer<Bool>.allocate(capacity: 1)
-    
-    func ping_notify(res: UnsafeMutablePointer<CChar>?, err: UnsafeMutablePointer<CChar>?, transmitted: UnsafeMutablePointer<Int>?, received: UnsafeMutablePointer<Int>?) {
-        pingPacketsReceived = received!.pointee
-        pingPacketsTransmitted = transmitted!.pointee
-        
-        data = PingHelper.parseResponse(results: String(cString: res!))
-        
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-            self.updateStats()
-        }
-    }
+    var task: Process?
+    var stdIn = Pipe()
+    var stdOut = Pipe()
+    var stdErr = Pipe()
     
     override func viewDidLoad() {
         tableView.delegate = self
@@ -65,10 +56,11 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     @IBAction func ping(_ sender: Any) {
         let btn = sender as! NSButton
         if (btn.title == "Ping") {
+            beforePing()
             startPing()
         }
         else {
-            okToPing.pointee = false
+            self.task!.terminate()
         }
     }
     
@@ -134,46 +126,46 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     }
     
     func startPing() {
-        okToPing.pointee = true
+        let domain = self.inputBox.stringValue
+        
+        DispatchQueue.global(qos: .userInitiated).async {
+            self.task = PingHelper.ping(domain: domain, stdIn: &self.stdIn, stdOut: &self.stdOut, stdErr: &self.stdErr)
+            
+            self.stdOut.fileHandleForReading.readabilityHandler = { fileHandle in
+                let buffer = fileHandle.availableData
+                self.data.insert(PingHelper.parseResponse(results: String(data: buffer, encoding: .utf8)!), at: 0)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                    self.updateStats()
+                }
+            }
+            
+            self.task?.terminationHandler = { task in
+                DispatchQueue.main.async {
+                    self.afterPing()
+                }
+            }
+        }
+    }
+    
+    func beforePing() {
         btn.title = "Stop"
         progressBar.isHidden = false
         inputBox.isEnabled = false
         progressBar.startAnimation(self.view)
         UrlCache.add(url: inputBox.stringValue)
-        let searchTerm = self.inputBox.stringValue
-        let res = UnsafeMutablePointer<CChar>.allocate(capacity: 10000)
-        let err = UnsafeMutablePointer<CChar>.allocate(capacity: 10000)
-        let transmitted = UnsafeMutablePointer<Int>.allocate(capacity: 10000)
-        let received = UnsafeMutablePointer<Int>.allocate(capacity: 10000)
         
         clearTable()
         clearStats()
         
-        DispatchQueue.global(qos: .userInitiated).async {
-            self.setStartTime()
-            
-            let result = PingHelper.ping(domain: searchTerm, okToPing: self.okToPing, transmitted: transmitted, received: received, notify: self.ping_notify, res: res, err: err)
-            
-            self.setEndTime()
-            
-            DispatchQueue.main.async {
-                self.inputBox.isEnabled = true
-                self.btn.isEnabled = true
-                self.progressBar.isHidden = true
-                self.btn.title = "Ping"
-                self.okToPing.pointee = true
-                
-                if result != 0 {
-                    // There was an error so we report it to user now.
-                    Helper.showErrorBox(view: self, msg: String(cString: err))
-                }
-                
-                free(UnsafeMutablePointer(mutating: res))
-                free(UnsafeMutablePointer(mutating: err))
-                free(UnsafeMutablePointer(mutating: transmitted))
-                free(UnsafeMutablePointer(mutating: received))
-            }
-        }
+        setStartTime()
+    }
+    
+    func afterPing() {
+        btn.title = "Ping"
+        btn.isEnabled = true
+        progressBar.isHidden = true
+        setEndTime()
     }
     
     func numberOfRows(in tableView: NSTableView) -> Int {
@@ -181,25 +173,12 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        var txtColor = NSColor.white
-        
-        if self.data[row].seq == -1 {
-            txtColor = NSColor.red
-        }
-        else if self.data[row].time >= 1000 {
-            txtColor = NSColor.red
-        }
-        else if self.data[row].time >= 600 {
-            txtColor = NSColor.orange
-        }
-        
         if (tableView.tableColumns[0] == tableColumn) {
             if let cell = tableView.makeView(
                 withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "bytes"),
                 owner: nil
                 ) as? NSTableCellView {
                 cell.textField?.stringValue = String(self.data[row].bytes)
-                //cell.textField?.textColor = txtColor
                 return cell
             }
         }
@@ -209,7 +188,6 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
                 owner: nil
                 ) as? NSTableCellView {
                 cell.textField?.stringValue = String(self.data[row].from)
-                //cell.textField?.textColor = txtColor
                 return cell
             }
         }
@@ -219,7 +197,6 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
                 owner: nil
                 ) as? NSTableCellView {
                 cell.textField?.stringValue = String(self.data[row].seq)
-                //cell.textField?.textColor = txtColor
                 return cell
             }
         }
@@ -229,7 +206,6 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
                 owner: nil
                 ) as? NSTableCellView {
                 cell.textField?.stringValue = String(self.data[row].ttl)
-                //cell.textField?.textColor = txtColor
                 return cell
             }
         }
@@ -239,7 +215,6 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
                 owner: nil
                 ) as? NSTableCellView {
                 cell.textField?.stringValue = String(self.data[row].time)
-                //cell.textField?.textColor = txtColor
                 return cell
             }
         }
@@ -248,6 +223,7 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     
     @IBAction func comboOnChange(_ sender: Any) {
         if inputBox.stringValue != "" {
+            beforePing()
             startPing()
         }
     }
