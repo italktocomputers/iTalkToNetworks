@@ -8,7 +8,7 @@ import CoreFoundation
 
 class DnsHelper {
     static func getResourceType(by Id:Int) -> String {
-        var map: [Int:String] = [
+        let map: [Int:String] = [
             1:"A",
             28:"AAAA",
             38:"A6",

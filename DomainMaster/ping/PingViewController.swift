@@ -129,17 +129,20 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
         let domain = self.inputBox.stringValue
         
         DispatchQueue.global(qos: .userInitiated).async {
-            self.task = PingHelper.ping(domain: domain, stdIn: &self.stdIn, stdOut: &self.stdOut, stdErr: &self.stdErr)
-            
-            self.stdOut.fileHandleForReading.readabilityHandler = { fileHandle in
-                let buffer = fileHandle.availableData
-                self.data.insert(PingHelper.parseResponse(results: String(data: buffer, encoding: .utf8)!), at: 0)
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                    self.updateStats()
+            let pingCount = Helper.getSetting(name: "pingCount")
+            for i in pingCount {
+                self.task = PingHelper.ping(domain: domain, stdIn: &self.stdIn, stdOut: &self.stdOut, stdErr: &self.stdErr)
+                
+                self.stdOut.fileHandleForReading.readabilityHandler = { fileHandle in
+                    let buffer = fileHandle.availableData
+                    self.data.insert(PingHelper.parseResponse(results: String(data: buffer, encoding: .utf8)!), at: 0)
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                        self.updateStats()
+                    }
                 }
+                sleep(1)
             }
-            
             self.task?.terminationHandler = { task in
                 DispatchQueue.main.async {
                     self.afterPing()
