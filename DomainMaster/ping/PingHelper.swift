@@ -124,12 +124,76 @@ class PingHelper {
             pingFloodArg = "-f"
         }
         
-        return Helper.shell(stdIn: &stdIn, stdOut: &stdOut, stdErr: &stdErr, "ping -c 1 \(pingWaitArg) \(pingTimeoutArg) \(pingTTLArg) \(interfaceAddressArg) \(pingSourceAddressArg) \(pingPreloadArg) \(pingPacketSizeArg) \(pingMaskArg) \(pingIpsecPolicyArg) \(pingSweepMaxSizeArg) \(pingSweepMinSizeArg) \(pingSweepIncSizeArg) \(pingPatternArg) \(pingTosArg) \(pingBypassRouteArg) \(pingSuppressLoopbackArg) \(pingNoFragmentArg) \(pingFloodArg) \(domain)")
+        return Helper.shell(stdIn: &stdIn, stdOut: &stdOut, stdErr: &stdErr, "ping \(pingCountArg) \(pingWaitArg) \(pingTimeoutArg) \(pingTTLArg) \(interfaceAddressArg) \(pingSourceAddressArg) \(pingPreloadArg) \(pingPacketSizeArg) \(pingMaskArg) \(pingIpsecPolicyArg) \(pingSweepMaxSizeArg) \(pingSweepMinSizeArg) \(pingSweepIncSizeArg) \(pingPatternArg) \(pingTosArg) \(pingBypassRouteArg) \(pingSuppressLoopbackArg) \(pingNoFragmentArg) \(pingFloodArg) \(domain)")
+    }
+    
+    static func parseFinalResponse(results: String) -> PingStatistics {
+        var transmitted = 0
+        var received = 0
+        var lossed = 0.0
+        var min = 0.0
+        var max = 0.0
+        var avg = 0.0
+        var stddev = 0.0
+        
+        // --- www.google.com ping statistics ---
+        // 10 packets transmitted, 10 packets received, 0.0% packet loss
+        // round-trip min/avg/max/stddev = 28.650/31.573/35.965/2.064 ms
+        let regex = try? NSRegularExpression(
+            pattern: "^\n.*\n([0-9]{1,}) packets transmitted, ([0-9]{1,}) packets received, ([0-9.]{1,})% packet loss\nround-trip min/avg/max/stddev = ([0-9.]{1,})/([0-9.]{1,})/([0-9.]{1,})/([0-9.]{1,}) ms$",
+            options: NSRegularExpression.Options.caseInsensitive
+        )
+        
+        let matches = regex!.matches(
+            in: String(results),
+            options: [],
+            range: NSRange(location: 0, length: results.count)
+        )
+
+        if let match = matches.first {
+            if let range = Range(match.range(at:1), in: String(results)) {
+                transmitted = Int(results[range]) ?? 0
+            }
+
+            if let range = Range(match.range(at:2), in: String(results)) {
+                received = Int(results[range]) ?? 0
+            }
+
+            if let range = Range(match.range(at:3), in: String(results)) {
+                lossed = Double(results[range]) ?? 0
+            }
+            
+            if let range = Range(match.range(at:4), in: String(results)) {
+                avg = Double(results[range]) ?? 0
+            }
+            
+            if let range = Range(match.range(at:5), in: String(results)) {
+                min = Double(results[range]) ?? 0
+            }
+            
+            if let range = Range(match.range(at:6), in: String(results)) {
+                max = Double(results[range]) ?? 0
+            }
+            
+            if let range = Range(match.range(at:7), in: String(results)) {
+                stddev = Double(results[range]) ?? 0
+            }
+        }
+        
+        return PingStatistics(
+            transmitted: transmitted,
+            received: received,
+            lossed: lossed,
+            min: min,
+            max: max,
+            average: avg,
+            stddev: stddev
+        )
     }
 
-    static func parseResponse(results: String) -> PingRow {
+    static func parseResponse(results: String) -> PingRow? {
         let regex = try? NSRegularExpression(
-            pattern: "^([0-9]{1,}) bytes from ([0-9.]{1,}):     =([0-9]{1,}) ttl=([0-9]{1,}) time=([0-9.]{1,}) ms$",
+            pattern: "^([0-9]{1,}) bytes from ([0-9.]{1,}): icmp_seq=([0-9]{1,}) ttl=([0-9]{1,}) time=([0-9.]{1,}) ms$",
             options: NSRegularExpression.Options.caseInsensitive
         )
 
@@ -177,14 +241,7 @@ class PingHelper {
             )
         }
         else {
-            // Issue with probe
-            return PingRow(
-                bytes: -1,
-                from: "N/A",
-                seq: -1,
-                ttl: -1,
-                time: -1
-            )
+            return nil
         }
     }
 }

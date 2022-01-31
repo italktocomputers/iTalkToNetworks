@@ -13,10 +13,14 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     @IBOutlet weak var inputBox: NSComboBox!
     @IBOutlet weak var packetsTransmitted: NSTextField!
     @IBOutlet weak var packetsReceived: NSTextField!
-    @IBOutlet weak var packetsReceivedPercentage: NSTextField!
+    @IBOutlet weak var packetsLossed: NSTextField!
     @IBOutlet weak var startTime: NSTextField!
     @IBOutlet weak var timeElapsed: NSTextField!
     @IBOutlet weak var endTime: NSTextField!
+    @IBOutlet weak var min: NSTextField!
+    @IBOutlet weak var max: NSTextField!
+    @IBOutlet weak var average: NSTextField!
+    @IBOutlet weak var stddev: NSTextField!
     
     var data: [PingRow] = []
     var pingStartTime = Date()
@@ -60,26 +64,18 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
             startPing()
         }
         else {
-            self.task!.terminate()
+            self.task!.interrupt()
         }
     }
     
-    func updateStats() {
-        if pingPacketsTransmitted == pingPacketsReceived {
-            packetsReceivedPercentage.stringValue = "100"
-        }
-        else {
-            if pingPacketsTransmitted != 0 && pingPacketsReceived != 0 {
-                let percentage = Int(round(Double(pingPacketsReceived)/Double(pingPacketsTransmitted)*100.0))
-                packetsReceivedPercentage.stringValue = String(percentage)
-            }
-            else {
-                packetsReceivedPercentage.stringValue = "0"
-            }
-        }
-        
-        packetsTransmitted.stringValue = String(pingPacketsTransmitted)
-        packetsReceived.stringValue = String(pingPacketsReceived)
+    func updateStats(stats: PingStatistics) {
+        packetsTransmitted.stringValue = String(stats.transmitted)
+        packetsReceived.stringValue = String(stats.received)
+        packetsLossed.stringValue = String(stats.lossed)
+        min.stringValue = String(stats.min)
+        max.stringValue = String(stats.max)
+        average.stringValue = String(stats.average)
+        stddev.stringValue = String(stats.stddev)
         
         setTimeElapsed()
     }
@@ -94,7 +90,7 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
         pingPacketsReceived = 0
         packetsTransmitted.stringValue = "0"
         packetsReceived.stringValue = "0"
-        packetsReceivedPercentage.stringValue = "0%"
+        packetsLossed.stringValue = "0%"
         startTime.stringValue = "yyyy-MM-dd HH:mm:ss"
         endTime.stringValue = "yyyy-MM-dd HH:mm:ss"
         timeElapsed.stringValue = "0"
@@ -129,19 +125,22 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
         let domain = self.inputBox.stringValue
         
         DispatchQueue.global(qos: .userInitiated).async {
-            let pingCount = Helper.getSetting(name: "pingCount")
-            for i in pingCount {
-                self.task = PingHelper.ping(domain: domain, stdIn: &self.stdIn, stdOut: &self.stdOut, stdErr: &self.stdErr)
-                
-                self.stdOut.fileHandleForReading.readabilityHandler = { fileHandle in
-                    let buffer = fileHandle.availableData
-                    self.data.insert(PingHelper.parseResponse(results: String(data: buffer, encoding: .utf8)!), at: 0)
+            self.task = PingHelper.ping(domain: domain, stdIn: &self.stdIn, stdOut: &self.stdOut, stdErr: &self.stdErr)
+            
+            self.stdOut.fileHandleForReading.readabilityHandler = { fileHandle in
+                let buffer = fileHandle.availableData
+                if buffer.count > 0 {
+                    if let x = PingHelper.parseResponse(results: String(data: buffer, encoding: .utf8)!) {
+                        self.data.insert(x, at: 0)
+                        DispatchQueue.main.async {
+                            self.tableView.reloadData()
+                        }
+                    }
+                    let stats = PingHelper.parseFinalResponse(results: String(data: buffer, encoding: .utf8)!)
                     DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                        self.updateStats()
+                        self.updateStats(stats: stats)
                     }
                 }
-                sleep(1)
             }
             self.task?.terminationHandler = { task in
                 DispatchQueue.main.async {

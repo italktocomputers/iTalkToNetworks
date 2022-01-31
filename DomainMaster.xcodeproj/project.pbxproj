@@ -41,6 +41,7 @@
 		87CACECF22F0799A006C1C34 /* TraceRouteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CACECD22EFD83D006C1C34 /* TraceRouteViewController.swift */; };
 		87CACED122F07BA5006C1C34 /* TraceRouteHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CACED022F07BA5006C1C34 /* TraceRouteHelper.swift */; };
 		87CACED322F07BEC006C1C34 /* TraceRouteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87CACED222F07BEC006C1C34 /* TraceRouteRow.swift */; };
+		87D188EA27A7592B00C5088E /* PingStatistics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87D188E927A7592B00C5088E /* PingStatistics.swift */; };
 		A5F198C923079A1F006E1272 /* ErrorBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F198C823079A1F006E1272 /* ErrorBoxViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -83,6 +84,7 @@
 		87CACED022F07BA5006C1C34 /* TraceRouteHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceRouteHelper.swift; sourceTree = "<group>"; };
 		87CACED222F07BEC006C1C34 /* TraceRouteRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceRouteRow.swift; sourceTree = "<group>"; };
 		87CACEDA22F1091A006C1C34 /* DomainMaster-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DomainMaster-Bridging-Header.h"; sourceTree = "<group>"; };
+		87D188E927A7592B00C5088E /* PingStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingStatistics.swift; sourceTree = "<group>"; };
 		A5F198C823079A1F006E1272 /* ErrorBoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorBoxViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -178,6 +180,7 @@
 				873B266A22EE0921005BAA5F /* PingRow.swift */,
 				873B266C22EE0A34005BAA5F /* PingHelper.swift */,
 				87CACEC922EE121A006C1C34 /* PingViewController.swift */,
+				87D188E927A7592B00C5088E /* PingStatistics.swift */,
 			);
 			path = ping;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				87BA48E522A5E9B200E8DDB9 /* AppDelegate.swift in Sources */,
 				874546E6257D56F400E0BE6B /* HttpSettingsViewController.swift in Sources */,
 				87345DB722DBD02B0035349D /* DnsSettingsViewController.swift in Sources */,
+				87D188EA27A7592B00C5088E /* PingStatistics.swift in Sources */,
 				8701D6AB257C8D0B009CF530 /* RequestHeaderViewController.swift in Sources */,
 				87CACECA22EE121A006C1C34 /* PingViewController.swift in Sources */,
 				8777AF8A257C5DF60008F4FD /* HttpViewController.swift in Sources */,

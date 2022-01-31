@@ -38,6 +38,8 @@ class Helper {
         task.launchPath = "/bin/bash"
         task.arguments = ["-c", command]
         
+        print(command)
+        
         task.standardInput = stdIn
         task.standardOutput = stdOut
         task.standardError = stdErr
