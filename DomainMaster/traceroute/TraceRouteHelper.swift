@@ -55,18 +55,18 @@ class TraceRouteHelper {
         return Helper.shell(stdIn: &stdIn, stdOut: &stdOut, stdErr: &stdErr, "traceroute \(waitArg) \(sourceAddressArg) \(portArg) \(maxHopsArg) \(numberOfProbesArg) \(typeOfServiceArg) \(bypassRouteTableArg) \(domain)")
     }
     
-    static func parseResponse(results: String) -> TraceRouteRow {
+    static func parseResponse(results: String) throws -> TraceRouteRow {
         let regex = try? NSRegularExpression(
             pattern: "^\\s?([0-9]{1,})\\s+([a-zA-Z0-9-.()\\s]{1,})\\s+([0-9.]{1,}) ms\\s+([0-9.]{1,}) ms\\s+([0-9.]{1,}) ms$",
             options: NSRegularExpression.Options.caseInsensitive
         )
 
         if results.contains("cannot resolve") {
-            return TraceRouteRow(hop: 0, host: results, rtt1: -1, rtt2: -1, rtt3: -1)
+            throw "cannot resolve"
         }
 
         if results.contains("Request timeout") {
-            return TraceRouteRow(hop: 0, host: results, rtt1: -1, rtt2: -1, rtt3: -1)
+            throw "Request timeout"
         }
 
         // Default values

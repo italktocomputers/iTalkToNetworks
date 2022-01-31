@@ -6,6 +6,8 @@
 import Foundation
 import AppKit
 
+extension String: Error {}
+
 class Helper {
     static func dialogOK(title: String, text: String) {
         let alert = NSAlert()

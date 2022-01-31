@@ -49,7 +49,7 @@ class TraceRouteViewController : ViewController, NSTableViewDataSource, NSTableV
             start()
         }
         else {
-            task!.terminate()
+            task!.suspend()
             afterTrace()
         }
     }
@@ -64,16 +64,32 @@ class TraceRouteViewController : ViewController, NSTableViewDataSource, NSTableV
         
         DispatchQueue.global(qos: .userInitiated).async {
             self.task = TraceRouteHelper.trace(domain: searchTerm, stdIn: &self.stdIn, stdOut: &self.stdOut, stdErr: &self.stdErr)
+            var savedBuffer = ""
             self.stdOut.fileHandleForReading.readabilityHandler = { fileHandle in
-                let buffer = fileHandle.availableData
-                self.data.insert(TraceRouteHelper.parseResponse(results: String(data: buffer, encoding: .utf8)!), at: 0)
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                    self.btn.isEnabled = true
-                    self.progressBar.isHidden = true
+                if let buffer = String(data: fileHandle.availableData, encoding: .utf8), buffer.count > 0 {
+                    if buffer.last?.isNewline == true {
+                        do {
+                            let results = try TraceRouteHelper.parseResponse(results: savedBuffer + buffer)
+                            savedBuffer = ""
+                            self.data.insert(results, at: 0)
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
+                                self.btn.isEnabled = true
+                                self.progressBar.isHidden = true
+                            }
+                        }
+                        catch {
+                            Helper.showErrorBox(view: self, msg: buffer)
+                            self.afterTrace()
+                        }
+                    }
+                    else {
+                        savedBuffer += buffer
+                    }
                 }
             }
             
+            /*
             self.stdErr.fileHandleForReading.readabilityHandler = { fileHandle in
                 let buffer = fileHandle.availableData
                 DispatchQueue.main.async {
@@ -81,6 +97,7 @@ class TraceRouteViewController : ViewController, NSTableViewDataSource, NSTableV
                     self.afterTrace()
                 }
             }
+            */
         }
     }
     
@@ -155,9 +172,8 @@ class TraceRouteViewController : ViewController, NSTableViewDataSource, NSTableV
     }
 
     @IBAction func comboOnChange(_ sender: Any) {
-        print("combo change...")
         if inputBox.stringValue != "" {
-            //start()
+            start()
         }
     }
 }
