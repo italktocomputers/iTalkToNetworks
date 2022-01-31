@@ -37,9 +37,6 @@ class Helper {
         let task = Process()
         task.launchPath = "/bin/bash"
         task.arguments = ["-c", command]
-        
-        print(command)
-        
         task.standardInput = stdIn
         task.standardOutput = stdOut
         task.standardError = stdErr

@@ -164,6 +164,10 @@ class PingViewController : ViewController, NSTableViewDataSource, NSTableViewDel
     }
     
     func afterPing() {
+        self.task = nil
+        self.stdIn = Pipe()
+        self.stdOut = Pipe()
+        self.stdErr = Pipe()
         btn.title = "Ping"
         btn.isEnabled = true
         progressBar.isHidden = true

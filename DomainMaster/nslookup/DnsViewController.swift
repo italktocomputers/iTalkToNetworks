@@ -74,6 +74,10 @@ class DnsViewController : ViewController, NSTableViewDataSource, NSTableViewDele
     }
     
     func afterLookup() {
+        self.task = nil
+        self.stdIn = Pipe()
+        self.stdOut = Pipe()
+        self.stdErr = Pipe()
         self.lookupBtn.isEnabled = true
         self.dnsProgressBar.isHidden = true
     }

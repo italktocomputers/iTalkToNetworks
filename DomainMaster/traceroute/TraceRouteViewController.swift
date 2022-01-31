@@ -92,6 +92,10 @@ class TraceRouteViewController : ViewController, NSTableViewDataSource, NSTableV
     }
     
     func afterTrace() {
+        self.task = nil
+        self.stdIn = Pipe()
+        self.stdOut = Pipe()
+        self.stdErr = Pipe()
         self.btn.isEnabled = true
         self.progressBar.isHidden = true
         self.btn.title = "Trace"

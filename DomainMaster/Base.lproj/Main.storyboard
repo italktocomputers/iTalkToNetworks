@@ -1392,7 +1392,7 @@
                                     <segue destination="cBT-Qh-Ob2" kind="sheet" id="QH3-gj-95Y"/>
                                 </connections>
                             </button>
-                            <box fixedFrame="YES" title="Ping statistics" translatesAutoresizingMaskIntoConstraints="NO" id="MKi-dQ-xo5">
+                            <box fixedFrame="YES" title="Traceroute statistics" translatesAutoresizingMaskIntoConstraints="NO" id="MKi-dQ-xo5">
                                 <rect key="frame" x="24" y="56" width="840" height="104"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <view key="contentView" id="zuq-uv-PxG">
