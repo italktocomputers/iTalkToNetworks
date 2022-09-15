@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="BCM-Uk-Eyc">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="BCM-Uk-Eyc">
     <dependencies>
-        <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
-        <plugIn identifier="com.apple.WebKit2IBPlugin" version="19529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
+        <plugIn identifier="com.apple.WebKit2IBPlugin" version="20037"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -40,6 +39,395 @@
                                         </menuItem>
                                     </items>
                                 </menu>
+                            </menuItem>
+                            <menuItem title="Edit" id="Wu4-BW-im1">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Edit" id="TFq-Ii-eHN">
+                                    <items>
+                                        <menuItem title="Undo" keyEquivalent="z" id="3vT-4Z-lON">
+                                            <connections>
+                                                <action selector="undo:" target="Ady-hI-5gd" id="y9U-ko-OeM"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Redo" keyEquivalent="Z" id="9Uo-rS-OCj">
+                                            <connections>
+                                                <action selector="redo:" target="Ady-hI-5gd" id="BM9-Rz-bIF"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="wCX-pt-SES"/>
+                                        <menuItem title="Cut" keyEquivalent="x" id="hgh-Ta-mXS">
+                                            <connections>
+                                                <action selector="cut:" target="Ady-hI-5gd" id="p2A-9A-4Sk"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Copy" keyEquivalent="c" id="Ipt-rf-fdn">
+                                            <connections>
+                                                <action selector="copy:" target="Ady-hI-5gd" id="f9y-z3-Dvq"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Paste" keyEquivalent="v" id="Wmu-40-VfY">
+                                            <connections>
+                                                <action selector="paste:" target="Ady-hI-5gd" id="an1-dq-jVh"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Paste and Match Style" keyEquivalent="V" id="Rsc-x1-lfS">
+                                            <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                            <connections>
+                                                <action selector="pasteAsPlainText:" target="Ady-hI-5gd" id="Bbq-yq-Qyt"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Delete" id="j3S-2C-WYo">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="delete:" target="Ady-hI-5gd" id="Xhc-L3-veo"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Select All" keyEquivalent="a" id="NUH-EO-RRI">
+                                            <connections>
+                                                <action selector="selectAll:" target="Ady-hI-5gd" id="YyS-Co-NrN"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="OsQ-IB-UtU"/>
+                                        <menuItem title="Find" id="iYg-DA-BTX">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Find" id="XEd-tf-Yh8">
+                                                <items>
+                                                    <menuItem title="Find…" tag="1" keyEquivalent="f" id="vbL-kZ-JDe">
+                                                        <connections>
+                                                            <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="7JB-zk-zrY"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Find and Replace…" tag="12" keyEquivalent="f" id="X0w-3M-B77">
+                                                        <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                                        <connections>
+                                                            <action selector="performTextFinderAction:" target="Ady-hI-5gd" id="Ufa-x5-oJh"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Find Next" tag="2" keyEquivalent="g" id="IT4-bo-V64">
+                                                        <connections>
+                                                            <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="SM1-Zw-0Pq"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Find Previous" tag="3" keyEquivalent="G" id="bKj-Bc-E8W">
+                                                        <connections>
+                                                            <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="Xw8-FW-kjG"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Use Selection for Find" tag="7" keyEquivalent="e" id="iur-4f-C7r">
+                                                        <connections>
+                                                            <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="JVJ-lv-sV8"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Jump to Selection" keyEquivalent="j" id="JkX-Gx-ha3">
+                                                        <connections>
+                                                            <action selector="centerSelectionInVisibleArea:" target="Ady-hI-5gd" id="KPS-C5-VNb"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem title="Spelling and Grammar" id="QyY-id-QB2">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Spelling" id="xEb-wA-PRm">
+                                                <items>
+                                                    <menuItem title="Show Spelling and Grammar" keyEquivalent=":" id="Ojg-Xp-UQW">
+                                                        <connections>
+                                                            <action selector="showGuessPanel:" target="Ady-hI-5gd" id="9Da-RT-HIc"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Check Document Now" keyEquivalent=";" id="U78-Lt-M7Q">
+                                                        <connections>
+                                                            <action selector="checkSpelling:" target="Ady-hI-5gd" id="Suy-bd-tDX"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="Ute-tx-eNi"/>
+                                                    <menuItem title="Check Spelling While Typing" id="ec7-Iq-nZM">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="toggleContinuousSpellChecking:" target="Ady-hI-5gd" id="Loq-39-NR3"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Check Grammar With Spelling" id="Jx4-jn-LIU">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="toggleGrammarChecking:" target="Ady-hI-5gd" id="AlC-Qj-glX"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Correct Spelling Automatically" id="Ycr-cP-mI3">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="toggleAutomaticSpellingCorrection:" target="Ady-hI-5gd" id="ZGp-WQ-33O"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem title="Substitutions" id="nAz-t9-gml">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Substitutions" id="cUh-wC-hnC">
+                                                <items>
+                                                    <menuItem title="Show Substitutions" id="OJu-RV-DDh">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="orderFrontSubstitutionsPanel:" target="Ady-hI-5gd" id="OGD-18-2T9"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="1vP-8x-UfW"/>
+                                                    <menuItem title="Smart Copy/Paste" id="OIy-st-of2">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="toggleSmartInsertDelete:" target="Ady-hI-5gd" id="ewk-Qa-5N6"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Smart Quotes" id="xvi-gO-b22">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="toggleAutomaticQuoteSubstitution:" target="Ady-hI-5gd" id="UO9-Vi-t9x"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Smart Dashes" id="s1e-fz-GPH">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="toggleAutomaticDashSubstitution:" target="Ady-hI-5gd" id="2eu-sa-gZy"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Smart Links" id="odw-Gv-cAz">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="toggleAutomaticLinkDetection:" target="Ady-hI-5gd" id="aB1-1g-5id"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Data Detectors" id="g1t-B2-zh1">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="toggleAutomaticDataDetection:" target="Ady-hI-5gd" id="Sfn-tJ-edd"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Text Replacement" id="iI7-rb-TPg">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="toggleAutomaticTextReplacement:" target="Ady-hI-5gd" id="OMX-OB-bie"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem title="Transformations" id="380-Kl-nfO">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Transformations" id="jpn-J4-ZLI">
+                                                <items>
+                                                    <menuItem title="Make Upper Case" id="CvH-tP-TDU">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="uppercaseWord:" target="Ady-hI-5gd" id="ETL-hE-da6"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Make Lower Case" id="i66-eH-dwn">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="lowercaseWord:" target="Ady-hI-5gd" id="46f-8X-OfK"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Capitalize" id="OLf-UL-qGD">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="capitalizeWord:" target="Ady-hI-5gd" id="txr-39-VaM"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem title="Speech" id="va1-ZO-tc9">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Speech" id="vQx-EF-gfp">
+                                                <items>
+                                                    <menuItem title="Start Speaking" id="bHL-7W-9qk">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="startSpeaking:" target="Ady-hI-5gd" id="kkb-m8-5Mn"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Stop Speaking" id="ZwA-kp-zlj">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="stopSpeaking:" target="Ady-hI-5gd" id="YPU-4A-AlA"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Text" id="lab-xV-Fn0">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Text" id="ric-an-458">
+                                    <items>
+                                        <menuItem title="Align Left" keyEquivalent="{" id="FDD-UP-4Yc">
+                                            <connections>
+                                                <action selector="alignLeft:" target="Ady-hI-5gd" id="Nju-BU-i8K"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Center" keyEquivalent="|" id="VAX-E3-GGG">
+                                            <connections>
+                                                <action selector="alignCenter:" target="Ady-hI-5gd" id="1Xn-cD-mcR"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Justify" id="Ooz-rQ-WiR">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="alignJustified:" target="Ady-hI-5gd" id="4Ps-45-HB1"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Align Right" keyEquivalent="}" id="Em1-Dp-vny">
+                                            <connections>
+                                                <action selector="alignRight:" target="Ady-hI-5gd" id="S7x-Bh-wdO"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="3w8-b6-Lfl"/>
+                                        <menuItem title="Writing Direction" id="4b4-3k-55F">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Writing Direction" id="CtG-Eq-Gik">
+                                                <items>
+                                                    <menuItem title="Paragraph" enabled="NO" id="iGX-Uh-2o7">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
+                                                    <menuItem id="evz-rH-aTg">
+                                                        <string key="title">	Default</string>
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="makeBaseWritingDirectionNatural:" target="Ady-hI-5gd" id="MPg-nv-ptr"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem id="tca-zO-kvv">
+                                                        <string key="title">	Left to Right</string>
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="makeBaseWritingDirectionLeftToRight:" target="Ady-hI-5gd" id="5y1-w2-Hsv"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem id="ukr-rJ-0as">
+                                                        <string key="title">	Right to Left</string>
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="makeBaseWritingDirectionRightToLeft:" target="Ady-hI-5gd" id="oEE-qe-ida"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem isSeparatorItem="YES" id="Wgu-gN-Crv"/>
+                                                    <menuItem title="Selection" enabled="NO" id="zLg-4v-r6B">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    </menuItem>
+                                                    <menuItem id="59C-8q-hLG">
+                                                        <string key="title">	Default</string>
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="makeTextWritingDirectionNatural:" target="Ady-hI-5gd" id="umg-ey-hWG"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem id="YwU-sk-5h0">
+                                                        <string key="title">	Left to Right</string>
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="makeTextWritingDirectionLeftToRight:" target="Ady-hI-5gd" id="J2Y-1q-VjB"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem id="MCr-aF-VAi">
+                                                        <string key="title">	Right to Left</string>
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="makeTextWritingDirectionRightToLeft:" target="Ady-hI-5gd" id="l3x-XF-wIF"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="tDF-vc-W4N"/>
+                                        <menuItem title="Show Ruler" id="jdn-HC-n34">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="toggleRuler:" target="Ady-hI-5gd" id="kG0-td-VUX"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Copy Ruler" keyEquivalent="c" id="HSv-54-lfL">
+                                            <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
+                                            <connections>
+                                                <action selector="copyRuler:" target="Ady-hI-5gd" id="lVw-yK-57x"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Paste Ruler" keyEquivalent="v" id="Naf-xr-VTe">
+                                            <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
+                                            <connections>
+                                                <action selector="pasteRuler:" target="Ady-hI-5gd" id="jZE-rz-T1z"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Find" id="PTQ-wP-oFu">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Find" id="m3G-gb-sly">
+                                    <items>
+                                        <menuItem title="Find…" tag="1" keyEquivalent="f" id="fVs-vX-GmR">
+                                            <connections>
+                                                <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="lqc-Pk-m4T"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Find and Replace…" tag="12" keyEquivalent="f" id="fs0-DX-xFo">
+                                            <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                            <connections>
+                                                <action selector="performTextFinderAction:" target="Ady-hI-5gd" id="OcE-Ow-9LU"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Find Next" tag="2" keyEquivalent="g" id="Odv-kf-cT1">
+                                            <connections>
+                                                <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="NBp-xl-Yea"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Find Previous" tag="3" keyEquivalent="G" id="dpo-Zz-nXx">
+                                            <connections>
+                                                <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="STf-iG-ZN7"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Use Selection for Find" tag="7" keyEquivalent="e" id="Xdl-4w-xOd">
+                                            <connections>
+                                                <action selector="performFindPanelAction:" target="Ady-hI-5gd" id="fY6-XQ-1wJ"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Jump to Selection" keyEquivalent="j" id="wQI-1w-Oof">
+                                            <connections>
+                                                <action selector="centerSelectionInVisibleArea:" target="Ady-hI-5gd" id="8YM-an-eJ4"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Window" id="m6E-jO-vDR">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Window" systemMenu="window" id="QEZ-0r-F0O">
+                                    <items>
+                                        <menuItem title="Minimize" keyEquivalent="m" id="1cx-eP-Uk8">
+                                            <connections>
+                                                <action selector="performMiniaturize:" target="Ady-hI-5gd" id="wR4-Hk-2rd"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Zoom" id="bKr-7C-9sZ">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="performZoom:" target="Ady-hI-5gd" id="jT3-Xf-Xpt"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="XgT-jB-bHs"/>
+                                        <menuItem title="Bring All to Front" id="7aq-Vo-Bqu">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="arrangeInFront:" target="Ady-hI-5gd" id="1jI-7r-q7a"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Application" id="ur7-E3-onx">
+                                <modifierMask key="keyEquivalentModifierMask"/>
                             </menuItem>
                             <menuItem title="File" id="dMs-cI-mzQ">
                                 <modifierMask key="keyEquivalentModifierMask"/>
@@ -249,7 +637,7 @@
                                 <rect key="frame" x="27" y="52" width="834" height="494"/>
                                 <clipView key="contentView" id="UiS-or-Tsb">
                                     <rect key="frame" x="1" y="1" width="832" height="492"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="Bvw-60-nwk" viewBased="YES" id="g4F-ig-N45">
                                             <rect key="frame" x="0.0" y="0.0" width="832" height="467"/>
@@ -272,7 +660,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="tnw-3d-FlQ">
-                                                            <rect key="frame" x="1" y="1" width="268" height="17"/>
+                                                            <rect key="frame" x="11" y="1" width="268" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KxZ-iV-4PF">
@@ -304,7 +692,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="TjA-Nj-Wpp">
-                                                            <rect key="frame" x="272" y="1" width="41" height="17"/>
+                                                            <rect key="frame" x="282" y="1" width="41" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0Va-yx-Jri">
@@ -336,7 +724,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="iJ4-DF-bDt">
-                                                            <rect key="frame" x="316" y="1" width="66" height="17"/>
+                                                            <rect key="frame" x="326" y="1" width="66" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ffM-Fg-kYk">
@@ -368,7 +756,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="xyi-Zp-L7U">
-                                                            <rect key="frame" x="385" y="1" width="344" height="17"/>
+                                                            <rect key="frame" x="395" y="1" width="344" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zqT-Ho-0wT">
@@ -1426,7 +1814,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" id="JhL-vH-Aqq">
                                     <rect key="frame" x="1" y="1" width="839" height="376"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="dSu-YK-NBv" viewBased="YES" id="oQg-4K-lvq">
                                             <rect key="frame" x="0.0" y="0.0" width="839" height="351"/>
@@ -1449,7 +1837,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="AuX-dO-QGW">
-                                                            <rect key="frame" x="1" y="1" width="123" height="17"/>
+                                                            <rect key="frame" x="11" y="1" width="123" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ucf-bJ-5Ke">
@@ -1481,7 +1869,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="Sb6-sJ-S89">
-                                                            <rect key="frame" x="127" y="1" width="66" height="17"/>
+                                                            <rect key="frame" x="137" y="1" width="66" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9DR-Ji-sWn">
@@ -1513,7 +1901,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="2SN-dx-m1C">
-                                                            <rect key="frame" x="196" y="1" width="68" height="17"/>
+                                                            <rect key="frame" x="206" y="1" width="68" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VZO-B4-7Nt">
@@ -1545,7 +1933,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="RKv-ry-OgP">
-                                                            <rect key="frame" x="267" y="1" width="66" height="17"/>
+                                                            <rect key="frame" x="277" y="1" width="66" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KTn-1r-biL">
@@ -1577,7 +1965,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="Aty-Dk-fsr">
-                                                            <rect key="frame" x="336" y="1" width="472" height="17"/>
+                                                            <rect key="frame" x="346" y="1" width="472" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sM8-rl-qAN">
@@ -1955,10 +2343,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <clipView key="contentView" id="a2g-JJ-Qzb">
                                     <rect key="frame" x="1" y="1" width="832" height="376"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="Q3p-ke-qPD" viewBased="YES" id="gwH-DI-htm">
-                                            <rect key="frame" x="0.0" y="0.0" width="883" height="351"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="903" height="351"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1978,7 +2366,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="oWa-dF-g0e">
-                                                            <rect key="frame" x="1" y="1" width="64" height="67"/>
+                                                            <rect key="frame" x="11" y="1" width="64" height="67"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mCv-VR-l7S">
@@ -2010,7 +2398,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="aUM-sw-Wfp">
-                                                            <rect key="frame" x="68" y="1" width="432" height="17"/>
+                                                            <rect key="frame" x="78" y="1" width="432" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D5L-fh-ygk">
@@ -2042,7 +2430,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="sRx-6y-DgT">
-                                                            <rect key="frame" x="503" y="1" width="44" height="17"/>
+                                                            <rect key="frame" x="513" y="1" width="44" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xn7-hI-ZkO">
@@ -2074,7 +2462,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="ke3-lx-cfU">
-                                                            <rect key="frame" x="550" y="1" width="47" height="67"/>
+                                                            <rect key="frame" x="560" y="1" width="47" height="67"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wnQ-Bh-EJl">
@@ -2103,7 +2491,7 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView id="BtF-di-bNI">
-                                                            <rect key="frame" x="600" y="1" width="281" height="17"/>
+                                                            <rect key="frame" x="610" y="1" width="281" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bla-uP-7Bw">
@@ -2135,7 +2523,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <tableHeaderView key="headerView" wantsLayer="YES" id="Q3p-ke-qPD">
-                                    <rect key="frame" x="0.0" y="0.0" width="883" height="25"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="903" height="25"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
@@ -3283,7 +3671,7 @@
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="B7e-BP-Q8e" id="cwO-a6-FMk">
                                                 <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
-                                                <font key="font" metaFont="menu"/>
+                                                <font key="font" metaFont="system"/>
                                                 <menu key="menu" id="of6-UR-gOb">
                                                     <items>
                                                         <menuItem state="on" id="B7e-BP-Q8e"/>
@@ -4149,7 +4537,7 @@ TXT (Descriptive text)</string>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <clipView key="contentView" id="Yzi-fx-qr7">
                                                 <rect key="frame" x="1" y="1" width="612" height="320"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <autoresizingMask key="autoresizingMask"/>
                                                 <subviews>
                                                     <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" rowSizeStyle="automatic" headerView="kew-4f-69K" viewBased="YES" id="7e7-ro-VLT">
                                                         <rect key="frame" x="0.0" y="0.0" width="612" height="292"/>
@@ -4167,7 +4555,7 @@ TXT (Descriptive text)</string>
                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                 <prototypeCellViews>
                                                                     <tableCellView identifier="fileicon" id="TNv-et-Fo4">
-                                                                        <rect key="frame" x="8" y="0.0" width="23" height="17"/>
+                                                                        <rect key="frame" x="18" y="0.0" width="23" height="17"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <subviews>
                                                                             <imageView identifier="fileicon" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="igv-t9-89l">
@@ -4195,7 +4583,7 @@ TXT (Descriptive text)</string>
                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                 <prototypeCellViews>
                                                                     <tableCellView id="8qL-OL-wow">
-                                                                        <rect key="frame" x="48" y="0.0" width="285" height="24"/>
+                                                                        <rect key="frame" x="58" y="0.0" width="285" height="24"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <subviews>
                                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vYe-XN-OKY">
@@ -4230,7 +4618,7 @@ TXT (Descriptive text)</string>
                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                 <prototypeCellViews>
                                                                     <tableCellView id="lmp-lp-Xic">
-                                                                        <rect key="frame" x="350" y="0.0" width="75" height="24"/>
+                                                                        <rect key="frame" x="360" y="0.0" width="75" height="24"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <subviews>
                                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nHm-s7-V9V">
@@ -4262,7 +4650,7 @@ TXT (Descriptive text)</string>
                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                 <prototypeCellViews>
                                                                     <tableCellView id="as7-mb-hN0">
-                                                                        <rect key="frame" x="442" y="0.0" width="84" height="24"/>
+                                                                        <rect key="frame" x="452" y="0.0" width="84" height="24"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <subviews>
                                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xu9-TK-hl5">
@@ -4423,10 +4811,10 @@ TXT (Descriptive text)</string>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <clipView key="contentView" id="MpN-UE-aUq">
                                                 <rect key="frame" x="1" y="1" width="535" height="281"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <autoresizingMask key="autoresizingMask"/>
                                                 <subviews>
                                                     <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" rowSizeStyle="automatic" headerView="IY4-fN-Oye" viewBased="YES" id="iok-I5-E0Y">
-                                                        <rect key="frame" x="0.0" y="0.0" width="535" height="253"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="555" height="253"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <size key="intercellSpacing" width="17" height="0.0"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -4445,7 +4833,7 @@ TXT (Descriptive text)</string>
                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                 <prototypeCellViews>
                                                                     <tableCellView id="cl5-dk-OJy">
-                                                                        <rect key="frame" x="8" y="0.0" width="114" height="24"/>
+                                                                        <rect key="frame" x="18" y="0.0" width="114" height="24"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <subviews>
                                                                             <textField identifier="Name" horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vG5-iM-2oY">
@@ -4477,7 +4865,7 @@ TXT (Descriptive text)</string>
                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                 <prototypeCellViews>
                                                                     <tableCellView id="mu7-nd-EJx">
-                                                                        <rect key="frame" x="139" y="0.0" width="387" height="24"/>
+                                                                        <rect key="frame" x="149" y="0.0" width="387" height="24"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <subviews>
                                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LpB-WA-mmb">
@@ -4500,7 +4888,7 @@ TXT (Descriptive text)</string>
                                                     </tableView>
                                                 </subviews>
                                             </clipView>
-                                            <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="zVQ-m1-ceB">
+                                            <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="zVQ-m1-ceB">
                                                 <rect key="frame" x="1" y="266" width="535" height="16"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
@@ -4509,7 +4897,7 @@ TXT (Descriptive text)</string>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
                                             <tableHeaderView key="headerView" wantsLayer="YES" id="IY4-fN-Oye">
-                                                <rect key="frame" x="0.0" y="0.0" width="535" height="28"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="555" height="28"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </tableHeaderView>
                                         </scrollView>
@@ -4666,10 +5054,10 @@ Gw
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <clipView key="contentView" id="vTN-w5-7eq">
                                                         <rect key="frame" x="1" y="1" width="805" height="269"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
                                                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" autosaveColumns="NO" rowHeight="24" rowSizeStyle="automatic" headerView="wSL-Vk-BEd" viewBased="YES" id="JJB-wd-Taz">
-                                                                <rect key="frame" x="0.0" y="0.0" width="845" height="241"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="865" height="241"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <size key="intercellSpacing" width="17" height="0.0"/>
                                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -4688,7 +5076,7 @@ Gw
                                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                         <prototypeCellViews>
                                                                             <tableCellView id="QUr-u6-q2b">
-                                                                                <rect key="frame" x="8" y="0.0" width="114" height="24"/>
+                                                                                <rect key="frame" x="18" y="0.0" width="114" height="24"/>
                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                 <subviews>
                                                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fEw-xk-JeT">
@@ -4720,7 +5108,7 @@ Gw
                                                                         <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                         <prototypeCellViews>
                                                                             <tableCellView id="435-c1-2v5">
-                                                                                <rect key="frame" x="139" y="0.0" width="697" height="24"/>
+                                                                                <rect key="frame" x="149" y="0.0" width="697" height="24"/>
                                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                                 <subviews>
                                                                                     <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QMK-c7-akC">
@@ -4752,7 +5140,7 @@ Gw
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                     <tableHeaderView key="headerView" wantsLayer="YES" id="wSL-Vk-BEd">
-                                                        <rect key="frame" x="0.0" y="0.0" width="845" height="28"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="865" height="28"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </tableHeaderView>
                                                 </scrollView>
@@ -4862,7 +5250,7 @@ Gw
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                     <clipView key="contentView" drawsBackground="NO" id="MyX-wA-Qy0">
                                                         <rect key="frame" x="0.0" y="0.0" width="679" height="117"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
                                                             <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="nhU-5r-3am">
                                                                 <rect key="frame" x="0.0" y="0.0" width="679" height="117"/>
@@ -5822,7 +6210,7 @@ Gw
                                                         <autoresizingMask key="autoresizingMask"/>
                                                         <subviews>
                                                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" columnSelection="YES" columnResizing="NO" multipleSelection="NO" autosaveColumns="NO" rowHeight="52" rowSizeStyle="automatic" headerView="ptE-CE-Z01" viewBased="YES" id="DhF-Q0-C5i">
-                                                                <rect key="frame" x="0.0" y="0.0" width="698" height="87"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="718" height="87"/>
                                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                 <size key="intercellSpacing" width="17" height="0.0"/>
                                                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -5920,7 +6308,7 @@ Gw
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </scroller>
                                                     <tableHeaderView key="headerView" wantsLayer="YES" id="ptE-CE-Z01">
-                                                        <rect key="frame" x="0.0" y="0.0" width="698" height="28"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="718" height="28"/>
                                                         <autoresizingMask key="autoresizingMask"/>
                                                     </tableHeaderView>
                                                 </scrollView>
@@ -6216,10 +6604,10 @@ Gw
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <clipView key="contentView" id="aQJ-lV-B3H">
                                                 <rect key="frame" x="1" y="1" width="359" height="432"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <autoresizingMask key="autoresizingMask"/>
                                                 <subviews>
                                                     <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="24" rowSizeStyle="automatic" headerView="SbM-1h-umU" viewBased="YES" id="ghZ-R5-L2K">
-                                                        <rect key="frame" x="0.0" y="0.0" width="359" height="404"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="379" height="404"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <size key="intercellSpacing" width="17" height="0.0"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -6234,7 +6622,7 @@ Gw
                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                 <prototypeCellViews>
                                                                     <tableCellView id="DfS-9x-peA">
-                                                                        <rect key="frame" x="8" y="0.0" width="38" height="17"/>
+                                                                        <rect key="frame" x="18" y="0.0" width="38" height="17"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <subviews>
                                                                             <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Qi-0l-jnP">
@@ -6259,7 +6647,7 @@ Gw
                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                 <prototypeCellViews>
                                                                     <tableCellView id="9ph-vn-FRN">
-                                                                        <rect key="frame" x="63" y="0.0" width="287" height="24"/>
+                                                                        <rect key="frame" x="73" y="0.0" width="287" height="24"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <subviews>
                                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cEZ-Km-iXj">
@@ -6282,7 +6670,7 @@ Gw
                                                     </tableView>
                                                 </subviews>
                                             </clipView>
-                                            <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="VzW-Be-Ej9">
+                                            <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="VzW-Be-Ej9">
                                                 <rect key="frame" x="1" y="417" width="359" height="16"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
@@ -6291,7 +6679,7 @@ Gw
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
                                             <tableHeaderView key="headerView" wantsLayer="YES" id="SbM-1h-umU">
-                                                <rect key="frame" x="0.0" y="0.0" width="359" height="28"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="379" height="28"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </tableHeaderView>
                                         </scrollView>
@@ -6346,10 +6734,10 @@ Gw
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                                             <clipView key="contentView" id="TvT-Vt-Icc">
                                                 <rect key="frame" x="1" y="1" width="359" height="432"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <autoresizingMask key="autoresizingMask"/>
                                                 <subviews>
                                                     <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="52" rowSizeStyle="automatic" headerView="kfc-fl-QZS" viewBased="YES" id="TuG-pU-y97">
-                                                        <rect key="frame" x="0.0" y="0.0" width="359" height="404"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="379" height="404"/>
                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                         <size key="intercellSpacing" width="17" height="0.0"/>
                                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -6368,7 +6756,7 @@ Gw
                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                 <prototypeCellViews>
                                                                     <tableCellView id="8J1-M8-ek1">
-                                                                        <rect key="frame" x="8" y="0.0" width="38" height="52"/>
+                                                                        <rect key="frame" x="18" y="0.0" width="38" height="52"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <subviews>
                                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="O6E-VB-wcz">
@@ -6400,7 +6788,7 @@ Gw
                                                                 <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                                 <prototypeCellViews>
                                                                     <tableCellView id="PL8-Pj-50D">
-                                                                        <rect key="frame" x="63" y="0.0" width="287" height="52"/>
+                                                                        <rect key="frame" x="73" y="0.0" width="287" height="52"/>
                                                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                                         <subviews>
                                                                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wJe-oV-CEW">
@@ -6423,7 +6811,7 @@ Gw
                                                     </tableView>
                                                 </subviews>
                                             </clipView>
-                                            <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="TOh-wj-QgC">
+                                            <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="TOh-wj-QgC">
                                                 <rect key="frame" x="1" y="417" width="359" height="16"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
@@ -6432,7 +6820,7 @@ Gw
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </scroller>
                                             <tableHeaderView key="headerView" wantsLayer="YES" id="kfc-fl-QZS">
-                                                <rect key="frame" x="0.0" y="0.0" width="359" height="28"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="379" height="28"/>
                                                 <autoresizingMask key="autoresizingMask"/>
                                             </tableHeaderView>
                                         </scrollView>
@@ -6587,18 +6975,18 @@ Gw
         <image name="NSStatusNone" width="16" height="16"/>
         <image name="NSStatusPartiallyAvailable" width="16" height="16"/>
         <image name="NSStatusUnavailable" width="16" height="16"/>
-        <image name="arrow.branch" catalog="system" width="15" height="14"/>
-        <image name="arrow.up" catalog="system" width="13" height="14"/>
-        <image name="arrowshape.turn.up.backward.fill" catalog="system" width="17" height="14"/>
-        <image name="arrowshape.turn.up.forward.fill" catalog="system" width="17" height="14"/>
-        <image name="doc.fill" catalog="system" width="14" height="16"/>
-        <image name="eye.fill" catalog="system" width="21" height="13"/>
-        <image name="folder.fill" catalog="system" width="18" height="14"/>
-        <image name="gear" catalog="system" width="17" height="17"/>
-        <image name="globe" catalog="system" width="15" height="15"/>
-        <image name="laptopcomputer" catalog="system" width="22" height="13"/>
-        <image name="person.fill" catalog="system" width="14" height="14"/>
-        <image name="plus.rectangle.fill" catalog="system" width="18" height="14"/>
-        <image name="xmark.rectangle.fill" catalog="system" width="18" height="14"/>
+        <image name="arrow.branch" catalog="system" width="32" height="32"/>
+        <image name="arrow.up" catalog="system" width="32" height="32"/>
+        <image name="arrowshape.turn.up.backward.fill" catalog="system" width="32" height="32"/>
+        <image name="arrowshape.turn.up.forward.fill" catalog="system" width="32" height="32"/>
+        <image name="doc.fill" catalog="system" width="32" height="32"/>
+        <image name="eye.fill" catalog="system" width="32" height="32"/>
+        <image name="folder.fill" catalog="system" width="32" height="32"/>
+        <image name="gear" catalog="system" width="32" height="32"/>
+        <image name="globe" catalog="system" width="32" height="32"/>
+        <image name="laptopcomputer" catalog="system" width="32" height="32"/>
+        <image name="person.fill" catalog="system" width="32" height="32"/>
+        <image name="plus.rectangle.fill" catalog="system" width="32" height="32"/>
+        <image name="xmark.rectangle.fill" catalog="system" width="32" height="32"/>
     </resources>
 </document>

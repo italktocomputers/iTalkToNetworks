@@ -71,19 +71,18 @@
 		875F4FB822E1C4720089C1CA /* DefaultSettings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DefaultSettings.plist; sourceTree = "<group>"; };
 		8777AF89257C5DF60008F4FD /* HttpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpViewController.swift; sourceTree = "<group>"; };
 		8785F6B32319C8FD0056BFC6 /* TraceRouteSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceRouteSettingsViewController.swift; sourceTree = "<group>"; };
-		87BA48E122A5E9B200E8DDB9 /* DomainMaster.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DomainMaster.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		87BA48E122A5E9B200E8DDB9 /* iTalkToNetworks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTalkToNetworks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87BA48E422A5E9B200E8DDB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87BA48E622A5E9B200E8DDB9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		87BA48E822A5E9B300E8DDB9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		87BA48EB22A5E9B300E8DDB9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		87BA48ED22A5E9B300E8DDB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		87BA48EE22A5E9B300E8DDB9 /* DomainMaster.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DomainMaster.entitlements; sourceTree = "<group>"; };
+		87BA48EE22A5E9B300E8DDB9 /* iTalkToNetworks.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iTalkToNetworks.entitlements; sourceTree = "<group>"; };
 		87CACEC922EE121A006C1C34 /* PingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingViewController.swift; sourceTree = "<group>"; };
 		87CACECB22EF906F006C1C34 /* PingSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingSettingsViewController.swift; sourceTree = "<group>"; };
 		87CACECD22EFD83D006C1C34 /* TraceRouteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceRouteViewController.swift; sourceTree = "<group>"; };
 		87CACED022F07BA5006C1C34 /* TraceRouteHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceRouteHelper.swift; sourceTree = "<group>"; };
 		87CACED222F07BEC006C1C34 /* TraceRouteRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceRouteRow.swift; sourceTree = "<group>"; };
-		87CACEDA22F1091A006C1C34 /* DomainMaster-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DomainMaster-Bridging-Header.h"; sourceTree = "<group>"; };
 		87D188E927A7592B00C5088E /* PingStatistics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PingStatistics.swift; sourceTree = "<group>"; };
 		A5F198C823079A1F006E1272 /* ErrorBoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorBoxViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,7 +134,7 @@
 		87BA48D822A5E9B200E8DDB9 = {
 			isa = PBXGroup;
 			children = (
-				87BA48E322A5E9B200E8DDB9 /* DomainMaster */,
+				87BA48E322A5E9B200E8DDB9 /* iTalkToNetworks */,
 				87BA48E222A5E9B200E8DDB9 /* Products */,
 				5356CDF428AF56BF490730D5 /* Frameworks */,
 			);
@@ -144,12 +143,12 @@
 		87BA48E222A5E9B200E8DDB9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				87BA48E122A5E9B200E8DDB9 /* DomainMaster.app */,
+				87BA48E122A5E9B200E8DDB9 /* iTalkToNetworks.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		87BA48E322A5E9B200E8DDB9 /* DomainMaster */ = {
+		87BA48E322A5E9B200E8DDB9 /* iTalkToNetworks */ = {
 			isa = PBXGroup;
 			children = (
 				8729B22925804EE200216315 /* file_explorer */,
@@ -166,11 +165,10 @@
 				A5F198C823079A1F006E1272 /* ErrorBoxViewController.swift */,
 				87BA48E822A5E9B300E8DDB9 /* Assets.xcassets */,
 				87BA48EA22A5E9B300E8DDB9 /* Main.storyboard */,
-				87BA48EE22A5E9B300E8DDB9 /* DomainMaster.entitlements */,
+				87BA48EE22A5E9B300E8DDB9 /* iTalkToNetworks.entitlements */,
 				875CB7EF22A9D74E0059A7D6 /* Helper.swift */,
-				87CACEDA22F1091A006C1C34 /* DomainMaster-Bridging-Header.h */,
 			);
-			path = DomainMaster;
+			path = iTalkToNetworks;
 			sourceTree = "<group>";
 		};
 		A570BFE523037B7F006AA478 /* ping */ = {
@@ -228,9 +226,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		87BA48E022A5E9B200E8DDB9 /* DomainMaster */ = {
+		87BA48E022A5E9B200E8DDB9 /* iTalkToNetworks */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 87BA48F122A5E9B300E8DDB9 /* Build configuration list for PBXNativeTarget "DomainMaster" */;
+			buildConfigurationList = 87BA48F122A5E9B300E8DDB9 /* Build configuration list for PBXNativeTarget "iTalkToNetworks" */;
 			buildPhases = (
 				87BA48DD22A5E9B200E8DDB9 /* Sources */,
 				87BA48DE22A5E9B200E8DDB9 /* Frameworks */,
@@ -240,9 +238,9 @@
 			);
 			dependencies = (
 			);
-			name = DomainMaster;
+			name = iTalkToNetworks;
 			productName = product2;
-			productReference = 87BA48E122A5E9B200E8DDB9 /* DomainMaster.app */;
+			productReference = 87BA48E122A5E9B200E8DDB9 /* iTalkToNetworks.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -266,7 +264,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 87BA48DC22A5E9B200E8DDB9 /* Build configuration list for PBXProject "DomainMaster" */;
+			buildConfigurationList = 87BA48DC22A5E9B200E8DDB9 /* Build configuration list for PBXProject "iTalkToNetworks" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -279,7 +277,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				87BA48E022A5E9B200E8DDB9 /* DomainMaster */,
+				87BA48E022A5E9B200E8DDB9 /* iTalkToNetworks */,
 			);
 		};
 /* End PBXProject section */
@@ -474,15 +472,16 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = "$(SRCROOT)/DomainMaster/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/iTalkToNetworks/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.schools.domainmaster;
+				PRODUCT_BUNDLE_IDENTIFIER = com.schools.italktonetworks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "DomainMaster/DomainMaster-Bridging-Header.h";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -494,14 +493,15 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = "$(SRCROOT)/DomainMaster/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/iTalkToNetworks/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.schools.domainmaster;
+				PRODUCT_BUNDLE_IDENTIFIER = com.schools.italktonetworks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "DomainMaster/DomainMaster-Bridging-Header.h";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
+				SWIFT_PRECOMPILE_BRIDGING_HEADER = NO;
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -509,7 +509,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		87BA48DC22A5E9B200E8DDB9 /* Build configuration list for PBXProject "DomainMaster" */ = {
+		87BA48DC22A5E9B200E8DDB9 /* Build configuration list for PBXProject "iTalkToNetworks" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				87BA48EF22A5E9B300E8DDB9 /* Debug */,
@@ -518,7 +518,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		87BA48F122A5E9B300E8DDB9 /* Build configuration list for PBXNativeTarget "DomainMaster" */ = {
+		87BA48F122A5E9B300E8DDB9 /* Build configuration list for PBXNativeTarget "iTalkToNetworks" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				87BA48F222A5E9B300E8DDB9 /* Debug */,
