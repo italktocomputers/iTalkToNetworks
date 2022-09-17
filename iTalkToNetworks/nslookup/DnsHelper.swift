@@ -71,56 +71,69 @@ class DnsHelper {
             resourceType = "PTR"
         }
         
+        // print("dig -p \(dnsPort!) @\(dnsSource!) +noall +answer \(rLookUp) \(domain) \(resourceType!)")
+        
         return Helper.shell(stdIn: &stdIn, stdOut: &stdOut, stdErr: &stdErr, "dig -p \(dnsPort!) @\(dnsSource!) +noall +answer \(rLookUp) \(domain) \(resourceType!)")
     }
     
-    static func parseResponse(results: String) -> DnsRow {
+    static func parseResponse(results: String) -> [DnsRow] {
         let regex = try? NSRegularExpression(
             pattern: "^([a-zA-Z0-9\\-.]{1,})[\\t\\s]{1,}([0-9]{1,})[\\t\\s]{1,}([a-zA-Z]{1,})[\\t\\s]{1,}([a-zA-Z]{1,})[\\t\\s]{1,}(.+)$",
             options: NSRegularExpression.Options.caseInsensitive
         )
         
-        // Default values
-        var domain = ""
-        var ttl = ""
-        var tclass = ""
-        var type = ""
-        var ip = ""
+        var tblData: [DnsRow] = []
+        let rows = results.split(separator: "\n")
         
-        let matches = regex!.matches(
-            in: results,
-            options: [],
-            range: NSRange(location: 0, length: results.count)
-        )
-        
-        if let match = matches.first {
-            if let domainRange = Range(match.range(at:1), in: String(results)) {
-                domain = String(results[domainRange])
+        for row in rows {
+            let myrow = String(row) // deep copy
+            
+            // Default values
+            var domain = ""
+            var ttl = ""
+            var tclass = ""
+            var type = ""
+            var ip = ""
+            
+            let matches = regex!.matches(
+                in: String(myrow),
+                options: [],
+                range: NSRange(location: 0, length: myrow.count)
+            )
+            
+            if let match = matches.first {
+                if let domainRange = Range(match.range(at:1), in: String(myrow)) {
+                    domain = String(results[domainRange])
+                }
+                
+                if let ttlRange = Range(match.range(at:2), in: String(myrow)) {
+                    ttl = String(results[ttlRange])
+                }
+                
+                if let classRange = Range(match.range(at:3), in: String(myrow)) {
+                    tclass = String(results[classRange])
+                }
+                
+                if let typeRange = Range(match.range(at:4), in: String(myrow)) {
+                    type = String(results[typeRange])
+                }
+                
+                if let ipRange = Range(match.range(at:5), in: String(myrow)) {
+                    ip = String(results[ipRange])
+                }
             }
             
-            if let ttlRange = Range(match.range(at:2), in: String(results)) {
-                ttl = String(results[ttlRange])
-            }
-            
-            if let classRange = Range(match.range(at:3), in: String(results)) {
-                tclass = String(results[classRange])
-            }
-            
-            if let typeRange = Range(match.range(at:4), in: String(results)) {
-                type = String(results[typeRange])
-            }
-            
-            if let ipRange = Range(match.range(at:5), in: String(results)) {
-                ip = String(results[ipRange])
-            }
+            tblData.append(
+                DnsRow(
+                    domain: domain,
+                    ttl: ttl,
+                    type: type,
+                    tclass: tclass,
+                    ip: ip
+                )
+            )
         }
         
-        return DnsRow(
-            domain: domain,
-            ttl: ttl,
-            type: type,
-            tclass: tclass,
-            ip: ip
-        )
+        return tblData
     }
 }

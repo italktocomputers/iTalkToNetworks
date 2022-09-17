@@ -32,6 +32,7 @@
 		875F4FB922E1C4720089C1CA /* DefaultSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 875F4FB822E1C4720089C1CA /* DefaultSettings.plist */; };
 		8777AF8A257C5DF60008F4FD /* HttpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8777AF89257C5DF60008F4FD /* HttpViewController.swift */; };
 		8785F6B42319C8FD0056BFC6 /* TraceRouteSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8785F6B32319C8FD0056BFC6 /* TraceRouteSettingsViewController.swift */; };
+		87B0AB8228D2D80200ECF9E1 /* GlobalSettings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 87B0AB8128D2D80200ECF9E1 /* GlobalSettings.plist */; };
 		87BA48E522A5E9B200E8DDB9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA48E422A5E9B200E8DDB9 /* AppDelegate.swift */; };
 		87BA48E722A5E9B200E8DDB9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87BA48E622A5E9B200E8DDB9 /* ViewController.swift */; };
 		87BA48E922A5E9B300E8DDB9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 87BA48E822A5E9B300E8DDB9 /* Assets.xcassets */; };
@@ -71,6 +72,7 @@
 		875F4FB822E1C4720089C1CA /* DefaultSettings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DefaultSettings.plist; sourceTree = "<group>"; };
 		8777AF89257C5DF60008F4FD /* HttpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpViewController.swift; sourceTree = "<group>"; };
 		8785F6B32319C8FD0056BFC6 /* TraceRouteSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TraceRouteSettingsViewController.swift; sourceTree = "<group>"; };
+		87B0AB8128D2D80200ECF9E1 /* GlobalSettings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = GlobalSettings.plist; sourceTree = "<group>"; };
 		87BA48E122A5E9B200E8DDB9 /* iTalkToNetworks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iTalkToNetworks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		87BA48E422A5E9B200E8DDB9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		87BA48E622A5E9B200E8DDB9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 			isa = PBXGroup;
 			children = (
 				875F4FB822E1C4720089C1CA /* DefaultSettings.plist */,
+				87B0AB8128D2D80200ECF9E1 /* GlobalSettings.plist */,
 			);
 			path = plists;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87B0AB8228D2D80200ECF9E1 /* GlobalSettings.plist in Resources */,
 				87BA48E922A5E9B300E8DDB9 /* Assets.xcassets in Resources */,
 				87BA48EC22A5E9B300E8DDB9 /* Main.storyboard in Resources */,
 				875F4FB922E1C4720089C1CA /* DefaultSettings.plist in Resources */,
@@ -477,6 +481,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.schools.italktonetworks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = NO;
@@ -498,6 +503,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.schools.italktonetworks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_INSTALL_OBJC_HEADER = NO;

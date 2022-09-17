@@ -50,20 +50,37 @@ class DnsViewController : ViewController, NSTableViewDataSource, NSTableViewDele
             self.task = DnsHelper.dnsLookUp(domain: value, stdIn: &self.stdIn, stdOut: &self.stdOut, stdErr: &self.stdErr)
             
             self.stdOut.fileHandleForReading.readabilityHandler = { fileHandle in
-                let buffer = fileHandle.availableData
-                if buffer.count > 0 {
-                    self.data.insert(DnsHelper.parseResponse(results: String(data: buffer, encoding: .utf8)!), at: 0)
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
+                do {
+                    if let buffer = try fileHandle.readToEnd() {
+                        if (buffer.count > 0) {
+                            let data = DnsHelper.parseResponse(results: String(data: buffer, encoding: .utf8)!)
+                            self.data.insert(contentsOf: data, at: 0)
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
+                                self.afterLookup()
+                            }
+                        }
                     }
+                }
+                catch {
+                    Helper.showErrorBox(view: self, msg: "Cannot read stdOut buffer")
                 }
             }
             
             self.stdErr.fileHandleForReading.readabilityHandler = { fileHandle in
-                let buffer = fileHandle.availableData
-                DispatchQueue.main.async {
-                    Helper.showErrorBox(view: self, msg: String(data: buffer, encoding: .utf8)!)
-                    self.afterLookup()
+                do {
+                    if let buffer = try fileHandle.readToEnd() {
+                        print("2 \(buffer)")
+                        if (buffer.count > 0) {
+                            DispatchQueue.main.async {
+                                Helper.showErrorBox(view: self, msg: String(data: buffer, encoding: .utf8)!)
+                                self.afterLookup()
+                            }
+                        }
+                    }
+                }
+                catch {
+                    Helper.showErrorBox(view: self, msg: "Cannot read stdErr buffer")
                 }
             }
         }

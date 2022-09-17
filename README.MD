@@ -1,7 +1,7 @@
-Domain Master
+iTalkToNetworks
 =========================
 
-MasOS application for the developer
+MasOS networking application for the developer (not yet complete)
 
 ![name](preview1.png)
 
