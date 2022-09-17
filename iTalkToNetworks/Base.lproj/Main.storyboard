@@ -4,6 +4,7 @@
         <deployment identifier="macosx"/>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="20037"/>
         <plugIn identifier="com.apple.WebKit2IBPlugin" version="20037"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -517,24 +518,38 @@
         <!--Tab View Controller-->
         <scene sceneID="wTo-HP-hlH">
             <objects>
-                <tabViewController selectedTabViewItemIndex="3" tabStyle="unspecified" id="BCM-Uk-Eyc" sceneMemberID="viewController">
+                <tabViewController selectedTabViewItemIndex="0" tabStyle="toolbar" id="BCM-Uk-Eyc" sceneMemberID="viewController">
                     <tabViewItems>
-                        <tabViewItem identifier="" id="Mul-wl-nUr"/>
-                        <tabViewItem identifier="" id="i1p-Oo-nQT"/>
-                        <tabViewItem id="oAn-hk-p84"/>
-                        <tabViewItem id="P2W-2Y-v9z"/>
-                        <tabViewItem id="1XZ-cb-zNz"/>
-                        <tabViewItem id="VAh-Au-wsP"/>
-                        <tabViewItem id="7DM-tX-9aE"/>
+                        <tabViewItem identifier="" id="Mul-wl-nUr">
+                            <imageReference key="image" image="globe.americas.fill" catalog="system" symbolScale="large"/>
+                        </tabViewItem>
+                        <tabViewItem identifier="" id="i1p-Oo-nQT">
+                            <imageReference key="image" image="magnifyingglass.circle.fill" catalog="system" symbolScale="large"/>
+                        </tabViewItem>
+                        <tabViewItem id="oAn-hk-p84">
+                            <imageReference key="image" image="dot.circle.viewfinder" catalog="system" symbolScale="large"/>
+                        </tabViewItem>
+                        <tabViewItem id="P2W-2Y-v9z">
+                            <imageReference key="image" image="dot.radiowaves.left.and.right" catalog="system" symbolScale="large"/>
+                        </tabViewItem>
+                        <tabViewItem id="1XZ-cb-zNz">
+                            <imageReference key="image" image="powerplug.fill" catalog="system" symbolScale="large"/>
+                        </tabViewItem>
+                        <tabViewItem id="VAh-Au-wsP">
+                            <imageReference key="image" image="doc.richtext.fill" catalog="system" symbolScale="large"/>
+                        </tabViewItem>
+                        <tabViewItem id="7DM-tX-9aE">
+                            <imageReference key="image" image="doc.on.doc.fill" catalog="system" symbolScale="large"/>
+                        </tabViewItem>
                     </tabViewItems>
-                    <tabView key="tabView" id="f7w-w6-88Y">
+                    <tabView key="tabView" allowsTruncatedLabels="NO" type="noTabsLineBorder" initialItem="CQ1-av-NlV" id="f7w-w6-88Y">
                         <rect key="frame" x="-168" y="0.0" width="682" height="230"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <font key="font" size="13" name="Geneva"/>
+                        <font key="font" size="14" name="Geneva"/>
                         <tabViewItems>
                             <tabViewItem label="Item 0" identifier="" id="CQ1-av-NlV">
                                 <view key="view" id="FfA-7e-Im2">
-                                    <rect key="frame" x="10" y="33" width="662" height="184"/>
+                                    <rect key="frame" x="1" y="1" width="680" height="228"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </view>
                             </tabViewItem>
@@ -6981,13 +6996,20 @@ Gw
         <image name="arrowshape.turn.up.backward.fill" catalog="system" width="17" height="14"/>
         <image name="arrowshape.turn.up.forward.fill" catalog="system" width="17" height="14"/>
         <image name="doc.fill" catalog="system" width="14" height="16"/>
+        <image name="doc.on.doc.fill" catalog="system" width="21" height="24"/>
+        <image name="doc.richtext.fill" catalog="system" width="18" height="21"/>
+        <image name="dot.circle.viewfinder" catalog="system" width="20" height="19"/>
+        <image name="dot.radiowaves.left.and.right" catalog="system" width="24" height="18"/>
         <image name="eye.fill" catalog="system" width="21" height="13"/>
         <image name="folder.fill" catalog="system" width="18" height="14"/>
         <image name="gear" catalog="system" width="17" height="17"/>
         <image name="globe" catalog="system" width="15" height="15"/>
+        <image name="globe.americas.fill" catalog="system" width="20" height="20"/>
         <image name="laptopcomputer" catalog="system" width="22" height="13"/>
+        <image name="magnifyingglass.circle.fill" catalog="system" width="20" height="20"/>
         <image name="person.fill" catalog="system" width="14" height="14"/>
         <image name="plus.rectangle.fill" catalog="system" width="18" height="14"/>
+        <image name="powerplug.fill" catalog="system" width="27" height="19"/>
         <image name="xmark.rectangle.fill" catalog="system" width="18" height="14"/>
     </resources>
 </document>
